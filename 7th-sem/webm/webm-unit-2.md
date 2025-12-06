@@ -35,9 +35,9 @@ Information Retrieval Models, Web Search and IR, Text Mining, Latent Semantic In
 
 ### 1.1 What is Information Retrieval?
 
-**Information Retrieval (IR)** is the process of obtaining relevant information from a large collection of documents based on user queries. It deals with representation, storage, organization, and access to information items.
+**Information Retrieval (IR)** is the process of obtaining relevant information from a large collection of documents based on user queries. It deals with the representation, storage, organization, and access to information items in a systematic way.
 
-The goal of IR is to retrieve documents that are **relevant** to the user's information need while filtering out irrelevant ones.
+The goal of IR is to retrieve documents that are **relevant** to the user's information need while filtering out irrelevant ones. Unlike database systems that retrieve exact matches, IR systems work with unstructured or semi-structured data and provide ranked results based on relevance.
 
 **Key Characteristics:**
 - Query-based search (users express needs as queries)
@@ -437,7 +437,8 @@ Rank by: P(q|d) - probability of generating query q from document d
 
 ### 4.1 Definition
 
-**Text Mining** (Text Analytics) is the process of extracting meaningful information and patterns from unstructured text data using NLP, machine learning, and statistical techniques.
+**Text Mining**, also known as Text Analytics, is the process of extracting meaningful information and patterns from unstructured text data using natural language processing (NLP), machine learning, and statistical techniques. 
+It involves transforming unstructured text into structured data that can be analyzed to discover insights, trends, and relationships that would be difficult to identify through manual reading.
 
 ### 4.2 Text Mining vs Data Mining
 
@@ -478,6 +479,8 @@ Text Collection → Preprocessing → Feature Extraction → Analysis → Knowle
 ### 5.1 What is LSI?
 
 **Latent Semantic Indexing (LSI)**, also called **Latent Semantic Analysis (LSA)**, is an IR technique that uses Singular Value Decomposition (SVD) to discover hidden (latent) semantic relationships between terms and documents.
+
+It addresses the fundamental problem of vocabulary mismatch in traditional IR systems by mapping documents and queries into a reduced semantic space where similar concepts are close together, even if they use different words.
 
 ### 5.2 Problems LSI Solves
 
@@ -589,6 +592,8 @@ Query: "automobile"
 ### 6.1 Definition
 
 **Web Spamming** (Spamdexing) is the deliberate manipulation of search engine indexes to achieve higher rankings for web pages that don't deserve them based on actual content or authority.
+
+It involves using deceptive techniques to trick search engines into ranking pages higher than they should be, often for commercial gain or to drive traffic to websites.
 
 ### 6.2 Types of Web Spam
 
@@ -704,7 +709,8 @@ Labeled Training Data → Feature Extraction → Train Classifier → Classify N
 
 ### 8.1 Definition
 
-**Information Extraction (IE)** is automatically extracting structured information from unstructured text.
+**Information Extraction (IE)** is the process of automatically extracting structured information from unstructured or semi-structured text. 
+It involves identifying and extracting specific pieces of information such as names, dates, locations, relationships, and events from natural language text and organizing them into a structured format that can be stored in databases or used for further analysis.
 
 ### 8.2 IE Tasks
 
@@ -730,7 +736,8 @@ Labeled Training Data → Feature Extraction → Train Classifier → Classify N
 
 ### 9.1 Definition
 
-**Web Content Mining** is extracting useful information from the content of web pages including text, images, audio, and video.
+**Web Content Mining** is the process of extracting useful information from the content of web pages, including text, images, audio, and video. 
+It focuses on discovering and extracting knowledge from the actual content displayed on web pages rather than the structure or usage patterns. This includes analyzing textual content, multimedia elements, and structured data embedded within web pages.
 
 ### 9.2 Types of Web Content
 

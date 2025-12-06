@@ -36,19 +36,17 @@ Introduction to Models and Concept of Computational Intelligence, Social Behavio
 
 ### 1.1 What is Computational Intelligence?
 
-**Computational Intelligence (CI)** is a branch of artificial intelligence that focuses on adaptive mechanisms to enable intelligent behavior in complex and changing environments. It uses nature-inspired computational methodologies.
+**Computational Intelligence (CI)** is a branch of artificial intelligence that focuses on adaptive mechanisms to enable intelligent behavior in complex and changing environments. Unlike traditional AI which relies on symbolic reasoning and explicit knowledge representation, CI uses nature-inspired computational methodologies such as neural networks, fuzzy systems, and evolutionary algorithms. These techniques are particularly effective for problems where traditional approaches fail, such as those involving uncertainty, imprecision, and partial truth.
 
 > **"Computational Intelligence is the study of adaptive mechanisms to enable or facilitate intelligent behavior in complex and changing environments."**
 
 ### 1.2 Key Characteristics
 
-| Characteristic | Description |
-|----------------|-------------|
-| **Adaptive** | Learns and adapts from experience |
-| **Nature-Inspired** | Based on biological systems |
-| **Robust** | Handles noise and uncertainty |
-| **Distributed** | No central control |
-| **Self-Organizing** | Emerges from simple rules |
+- **Adaptive**: Learns and adapts from experience.
+- **Nature-Inspired**: Based on biological systems.
+- **Robust**: Handles noise and uncertainty well.
+- **Distributed**: No central control—processing is spread out.
+- **Self-Organizing**: Complex behavior emerges from following simple rules.
 
 ### 1.3 Components of Computational Intelligence
 
@@ -203,7 +201,8 @@ New Generation
 
 ### 2.1 What is Optimization?
 
-**Optimization** is the process of finding the best solution from all feasible solutions. It involves maximizing or minimizing an objective function subject to constraints.
+**Optimization** is the process of finding the best solution from all feasible solutions for a given problem. It involves maximizing or minimizing an objective function while satisfying a set of constraints. In real-world applications, optimization helps in making the most efficient use of available resources, reducing costs, maximizing profits, or improving performance. The goal is to find the optimal values of decision variables that produce the best outcome according to specified criteria.
+
 
 **General Optimization Problem:**
 ```
@@ -721,7 +720,7 @@ Try multiple algorithms and compare
 
 ### 6.1 What is Evolutionary Computation?
 
-**Evolutionary Computation (EC)** is a family of optimization algorithms inspired by biological evolution. It uses mechanisms like selection, recombination, and mutation to evolve solutions.
+**Evolutionary Computation (EC)** is a family of optimization algorithms inspired by the principles of biological evolution. It mimics the process of natural selection where the fittest individuals survive and reproduce, passing their characteristics to the next generation. EC uses mechanisms like selection, recombination (crossover), and mutation to evolve a population of candidate solutions toward better solutions over successive generations. This approach is particularly effective for complex optimization problems where traditional methods fail or are too slow.
 
 > **"Evolutionary Computation mimics the process of natural evolution to solve optimization and search problems."**
 
@@ -743,49 +742,36 @@ Try multiple algorithms and compare
 
 ```
 ┌─────────────────────────────────────────────────┐
-│         EVOLUTIONARY COMPUTATION CYCLE           │
+│         EVOLUTIONARY COMPUTATION CYCLE          │
 └─────────────────────────────────────────────────┘
-                      │
-                      ▼
-            ┌──────────────────┐
+                     │
+            ┌────────▼─────────┐
             │    Initialize    │
             │    Population    │
             └────────┬─────────┘
-                     │
-                     ▼
-            ┌──────────────────┐
+            ┌────────▼─────────┐
             │     Evaluate     │
             │     Fitness      │
             └────────┬─────────┘
-                     │
-                     ▼
-            ┌──────────────────┐
-            │   Termination?   │──Yes──► Best Solution
+            ┌────────▼─────────┐
+            │   Termination?   │── Yes ──► Best Solution
             └────────┬─────────┘
                      │ No
-                     ▼
-            ┌──────────────────┐
+            ┌────────▼─────────┐
             │    Selection     │
             │  (Choose Parents)│
             └────────┬─────────┘
-                     │
-                     ▼
-            ┌──────────────────┐
+            ┌────────▼─────────┐
             │    Crossover     │
             │ (Recombination)  │
             └────────┬─────────┘
-                     │
-                     ▼
-            ┌──────────────────┐
+            ┌────────▼─────────┐
             │     Mutation     │
             │ (Random Changes) │
             └────────┬─────────┘
-                     │
-                     ▼
-            ┌──────────────────┐
+            ┌────────▼─────────┐
             │  New Population  │
             └────────┬─────────┘
-                     │
                      └──────► Back to Evaluate
 ```
 
@@ -952,9 +938,9 @@ x' = x + N(0, σ)  (add Gaussian noise)
 
 ### 7.1 What is Swarm Intelligence?
 
-**Swarm Intelligence (SI)** is the collective behavior of decentralized, self-organized systems. It emerges from simple interactions between agents following simple rules.
+**Swarm Intelligence (SI)** is the collective behavior that emerges from decentralized, self-organized systems composed of multiple agents. It is inspired by the social behavior of insects and animals such as ants, bees, birds, and fish. 
 
-> **"Swarm Intelligence is the collective behavior of decentralized, self-organized systems, natural or artificial."**
+In swarm systems, simple agents following simple rules interact locally with each other and their environment, leading to the emergence of intelligent global behavior without any centralized control. This collective intelligence is often more powerful than the sum of individual capabilities.
 
 ### 7.2 Why Swarm Intelligence?
 
@@ -989,7 +975,7 @@ x' = x + N(0, σ)  (add Gaussian noise)
 
 ### 8.1 Definition
 
-**Collective Intelligence** is the shared intelligence that emerges from collaboration and collective efforts of many individuals.
+**Collective Intelligence** is the shared intelligence that emerges from the collaboration and collective efforts of many individuals working together. Unlike swarm intelligence which typically involves simple agents following basic rules, collective intelligence can involve complex entities (including humans) who contribute their knowledge, skills, and perspectives to achieve goals that would be difficult or impossible for individuals alone. Examples include crowdsourcing platforms like Wikipedia, prediction markets, and collaborative problem-solving communities.
 
 ### 8.2 Collective Intelligence vs Swarm Intelligence
 

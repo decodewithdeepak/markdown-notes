@@ -35,51 +35,43 @@
 > PYQ: Define data mining. (2022-Jul, 3 marks)      
 > PYQ: What is data mining? (2024-May, 15 marks)
 
-#### ✅ What is Data Mining?
+#### What is Data Mining?
 
 **Data Mining** is the process of discovering meaningful patterns, correlations, anomalies, and trends from large datasets using statistical, mathematical, and computational techniques. It is also known as **Knowledge Discovery in Databases (KDD)**.
 
-> **"Data Mining is the extraction of hidden predictive information from large databases."** — Gartner Group
+It involves analyzing data from different perspectives and summarizing it into useful information that can help organizations make better decisions, predict future trends, and gain competitive advantages.
 
-#### ✅ Key Characteristics of Data Mining
 
-| Characteristic | Description |
-|----------------|-------------|
-| **Automatic Discovery** | Finds patterns without explicit programming |
-| **Predictive** | Predicts future trends based on historical data |
-| **Scalable** | Works with large datasets (terabytes/petabytes) |
-| **Actionable** | Produces insights that can be acted upon |
-| **Non-trivial** | Discovers hidden, previously unknown patterns |
+**Key Characteristics:**
+- **Automatic Discovery** - Finds patterns without explicit programming
+- **Predictive** - Predicts future trends based on historical data
+- **Scalable** - Works with large datasets (terabytes/petabytes)
+- **Actionable** - Produces insights that can be acted upon
+- **Non-trivial** - Discovers hidden, previously unknown patterns
 
-#### ✅ Data Mining Process (KDD Process)
+#### Data Mining Process (KDD Process)
 
 ```
 ┌──────────────────────────────────────────┐
 │  KNOWLEDGE DISCOVERY IN DATABASES (KDD)  │
 └──────────────────────────────────────────┘
                   │
-                  ▼
-    ┌─────────────────────────────┐
+    ┌─────────────▼───────────────┐
     │        Data Selection       │
     └─────────────┬───────────────┘
-                  ▼
-    ┌─────────────────────────────┐
+    ┌─────────────▼───────────────┐
     │      Data Preprocessing     │
     └─────────────┬───────────────┘
-                  ▼
-    ┌─────────────────────────────┐
+    ┌─────────────▼───────────────┐
     │     Data Transformation     │
     └─────────────┬───────────────┘
-                  ▼
-    ┌─────────────────────────────┐
+    ┌─────────────▼───────────────┐
     │         Data Mining         │
     └─────────────┬───────────────┘
-                  ▼
-    ┌─────────────────────────────┐
+    ┌─────────────▼───────────────┐
     │     Pattern Evaluation      │
     └─────────────┬───────────────┘
-                  ▼
-          ┌───────────────┐
+          ┌───────▼───────┐
           │   KNOWLEDGE   │
           └───────────────┘
 ```
@@ -94,7 +86,7 @@
 5. **Pattern Evaluation**: Interpreting and validating discovered patterns
 6. **Knowledge Presentation**: Visualizing and presenting results
 
-#### ✅ Data Mining Techniques
+#### Data Mining Techniques
 
 | Technique | Description | Example |
 |-----------|-------------|---------|
@@ -105,7 +97,7 @@
 | **Anomaly Detection** | Identifies unusual patterns | Fraud detection |
 | **Sequential Pattern Mining** | Finds patterns in sequences | Web clickstream analysis |
 
-#### ✅ Applications of Data Mining
+#### Applications of Data Mining
 
 > PYQ: Explain how data mining is used in healthcare analysis. (2022-Jul, 8 marks)      
 > PYQ: Application of data mining in healthcare. (2022-Dec, 8 marks)
@@ -119,7 +111,7 @@
 | **Education** | Student performance prediction | Identifying at-risk students |
 | **Manufacturing** | Quality control, predictive maintenance | Detecting defective products |
 
-#### ✅ Data Mining in Healthcare (Detailed)
+#### Data Mining in Healthcare (Detailed)
 
 > PYQ: Explain how data mining is used in healthcare analysis. (2022-Jul, 8 marks)
 
@@ -171,7 +163,7 @@ Healthcare Data Mining Applications
      └──► Epidemiology
 ```
 
-#### ✅ Social Impacts of Data Mining
+#### Social Impacts of Data Mining
 
 > PYQ: What are the social impacts of data mining? (2022-Jul, 7 marks)
 
@@ -202,7 +194,7 @@ Healthcare Data Mining Applications
 - **Fairness**: Avoiding discriminatory outcomes
 - **Accountability**: Clear responsibility for data misuse
 
-#### ✅ Spatial Data Mining
+#### Spatial Data Mining
 
 > PYQ: Define data mining. Discuss spatial data mining. (2022-Dec, 15 marks)
 
@@ -233,7 +225,7 @@ Healthcare Data Mining Applications
 
 ### **1.2 Basic Concepts in Data Mining**
 
-#### ✅ Types of Data
+#### Types of Data
 
 ```
 Data Types in Data Mining
@@ -260,14 +252,14 @@ Data Types in Data Mining
      └──► Weather data
 ```
 
-#### ✅ Data Mining Tasks
+#### Data Mining Tasks
 
 | Task Type | Description | Algorithms |
 |-----------|-------------|------------|
 | **Predictive** | Predict unknown values | Regression, Classification, Neural Networks |
 | **Descriptive** | Find patterns in data | Clustering, Association Rules, Summarization |
 
-#### ✅ Common Data Mining Algorithms
+#### Common Data Mining Algorithms
 
 1. **Decision Trees** (C4.5, CART, ID3)
    - Tree-like model for classification
@@ -301,7 +293,7 @@ Data Types in Data Mining
 > PYQ: Web mining versus data mining. (2022-Dec, 7 marks; 2023, 7.5 marks)      
 > PYQ: Discuss the differences and similarities between web mining and data mining. Also, list various applications of web mining. (2024-Dec, 8 marks)
 
-#### ✅ Comparison Table
+#### Comparison Table
 
 | Aspect | Data Mining | Web Mining |
 |--------|-------------|------------|
@@ -315,7 +307,7 @@ Data Types in Data Mining
 | **Challenges** | Data quality, scalability | Noise, redundancy, heterogeneity |
 | **Applications** | Business intelligence, healthcare | Search engines, recommendation systems |
 
-#### ✅ Key Differences
+#### Key Differences
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -334,7 +326,7 @@ Data Types in Data Mining
 └─────────────────────────────┴───────────────────────────────────┘
 ```
 
-#### ✅ Similarities
+#### Similarities
 
 1. **Pattern Discovery**: Both aim to find hidden patterns
 2. **Algorithms**: Many algorithms are shared (clustering, classification)
@@ -343,7 +335,7 @@ Data Types in Data Mining
 5. **Iterative Process**: Both follow iterative refinement
 6. **Business Value**: Both provide competitive advantages
 
-#### ✅ Why Web Mining is More Challenging
+#### Why Web Mining is More Challenging
 
 | Challenge | Explanation |
 |-----------|-------------|
@@ -364,7 +356,7 @@ Data Types in Data Mining
 > PYQ: Explain the process to discover knowledge from hypertext data. (2024-May, 15 marks)      
 > PYQ: How is knowledge discovered from hypertext data, and what are the key challenges involved in the process? (2024-Dec, 7 marks)
 
-#### ✅ What is Hypertext Data?
+#### What is Hypertext Data?
 
 > PYQ: Write short notes on Hypertext data. (2023, 2.5 marks; 2024-May, 2.5 marks)
 
@@ -404,7 +396,7 @@ Hypertext Document Structure
      └──► Author
 ```
 
-#### ✅ Knowledge Discovery Process from Hypertext
+#### Knowledge Discovery Process from Hypertext
 
 The process of discovering knowledge from hypertext data involves several steps:
 
@@ -499,7 +491,7 @@ Apply mining techniques to discover:
 - **Taxonomies**: Hierarchical classification
 - **Rules**: If-then patterns
 
-#### ✅ Example: Knowledge Discovery from News Websites
+#### Example: Knowledge Discovery from News Websites
 
 **Scenario**: Discovering trending topics from news websites
 
@@ -529,7 +521,7 @@ Step 5: Generate Knowledge
         └──► Positive sentiment around "sports events"
 ```
 
-#### ✅ Challenges in Knowledge Discovery from Hypertext
+#### Challenges in Knowledge Discovery from Hypertext
 
 > PYQ: What are the key challenges involved in the process? (2024-Dec, 7 marks)
 
@@ -544,7 +536,7 @@ Step 5: Generate Knowledge
 | **Deep Web** | Content behind forms/logins | Specialized crawlers |
 | **Multimedia** | Images, videos, audio | Multimodal analysis |
 
-#### ✅ Algorithms for Hypertext Knowledge Discovery
+#### Algorithms for Hypertext Knowledge Discovery
 
 1. **PageRank**
    - Measures page importance based on links
@@ -572,13 +564,13 @@ Step 5: Generate Knowledge
 > PYQ: Define web mining. Explain its various issues and challenges. (2022-Jul, 15 marks)      
 > PYQ: Write short notes on Web mining. (2022-Dec, 3 marks; 2024-May, 2.5 marks)
 
-#### ✅ Definition of Web Mining
+#### Definition of Web Mining
 
 **Web Mining** is the application of data mining techniques to extract knowledge from web data, including web content, web structure, and web usage data.
 
 > **"Web Mining is the use of data mining techniques to automatically discover and extract information from web documents and services."** — Etzioni (1996)
 
-#### ✅ Why Web Mining?
+#### Why Web Mining?
 
 | Reason | Explanation |
 |--------|-------------|
@@ -589,7 +581,7 @@ Step 5: Generate Knowledge
 | **E-commerce** | Product recommendations, market analysis |
 | **Security** | Detecting web spam, phishing, fraud |
 
-#### ✅ Components of Web Mining
+#### Components of Web Mining
 
 ```
 Web Mining Components
@@ -622,7 +614,7 @@ Web Mining Components
 
 > PYQ: Explain web mining taxonomy, its issues, and challenges. (2024-May, 15 marks)
 
-#### ✅ Classification of Web Mining
+#### Classification of Web Mining
 
 Web Mining is categorized into **three main types** based on the type of data being mined:
 
@@ -648,7 +640,7 @@ Web Mining is categorized into **three main types** based on the type of data be
     └───────────┘       └────────────┘       └───────────┘
 ```
 
-#### ✅ 1. Web Content Mining
+#### 1. Web Content Mining
 
 **Definition**: Mining the content of web pages (text, images, audio, video).
 
@@ -673,7 +665,7 @@ Web Mining is categorized into **three main types** based on the type of data be
 - Document summarization
 - Content categorization
 
-#### ✅ 2. Web Structure Mining
+#### 2. Web Structure Mining
 
 **Definition**: Mining the hyperlink structure of the web to discover useful patterns.
 
@@ -697,7 +689,7 @@ Web Mining is categorized into **three main types** based on the type of data be
 - Finding authoritative sources
 - Detecting web spam
 
-#### ✅ 3. Web Usage Mining
+#### 3. Web Usage Mining
 
 **Definition**: Mining user access patterns from web server logs and user data.
 
@@ -722,7 +714,7 @@ Web Mining is categorized into **three main types** based on the type of data be
 - Website optimization
 - User behavior prediction
 
-#### ✅ Comparison of Web Mining Types
+#### Comparison of Web Mining Types
 
 | Aspect | Content Mining | Structure Mining | Usage Mining |
 |--------|----------------|------------------|--------------|
@@ -739,7 +731,7 @@ Web Mining is categorized into **three main types** based on the type of data be
 > PYQ: What are web mining subtasks? Discuss in detail with a suitable example. (2022-Feb, 7 marks)      
 > PYQ: Explain web mining subtasks, issues, and challenges. (2023, 15 marks)
 
-#### ✅ Overview of Web Mining Subtasks
+#### Overview of Web Mining Subtasks
 
 Web Mining consists of several interconnected subtasks that work together to extract knowledge from web data:
 
@@ -759,7 +751,7 @@ Web Mining Subtasks
      └──► Interpreting results
 ```
 
-#### ✅ Subtask 1: Resource Discovery
+#### Subtask 1: Resource Discovery
 
 **Purpose**: Locating and retrieving relevant web documents and resources.
 
@@ -774,7 +766,7 @@ Web Mining Subtasks
 - Search engine APIs (Google, Bing)
 - Web scraping tools (BeautifulSoup, Selenium)
 
-#### ✅ Subtask 2: Information Selection and Preprocessing
+#### Subtask 2: Information Selection and Preprocessing
 
 **Purpose**: Extracting and cleaning relevant information from collected resources.
 
@@ -814,7 +806,7 @@ Raw HTML Page
 └──────────────────┘
 ```
 
-#### ✅ Subtask 3: Generalization (Pattern Discovery)
+#### Subtask 3: Generalization (Pattern Discovery)
 
 **Purpose**: Applying data mining algorithms to discover patterns and knowledge.
 
@@ -844,7 +836,7 @@ Output: 10 topic clusters
 └── ... and so on
 ```
 
-#### ✅ Subtask 4: Analysis and Validation
+#### Subtask 4: Analysis and Validation
 
 **Purpose**: Interpreting discovered patterns and validating their usefulness.
 
@@ -869,7 +861,7 @@ Output: 10 topic clusters
 > PYQ: What are the key issues in web mining? (2022-Feb, 8 marks)      
 > PYQ: Discuss the key issues and challenges faced in web mining. (2024-Dec, 8 marks)
 
-#### ✅ Major Issues in Web Mining
+#### Major Issues in Web Mining
 
 ```
 Web Mining Issues
@@ -898,7 +890,7 @@ Web Mining Issues
      └──► Data misuse
 ```
 
-#### ✅ Detailed Challenges
+#### Detailed Challenges
 
 | Challenge | Description | Impact | Solution Approach |
 |-----------|-------------|--------|-------------------|
@@ -913,7 +905,7 @@ Web Mining Issues
 | **Deep Web** | Content behind logins/forms | Incomplete coverage | Specialized crawlers, APIs |
 | **Multilingual** | Content in many languages | Complex analysis | Machine translation, multilingual NLP |
 
-#### ✅ Technical Challenges in Detail
+#### Technical Challenges in Detail
 
 ##### 1. **Web Crawling Challenges**
 
@@ -956,7 +948,7 @@ Data Quality Problems
 | **Sarcasm** | "Great service!" (could be negative) |
 | **Implicit meaning** | Understanding unstated information |
 
-#### ✅ Solutions to Web Mining Challenges
+#### Solutions to Web Mining Challenges
 
 | Challenge | Solution |
 |-----------|----------|
@@ -975,7 +967,7 @@ Data Quality Problems
 > PYQ: What are some common applications of web mining? How do they benefit from web mining techniques to improve decision-making processes? (2024-Dec, 7 marks)      
 > PYQ: List various applications of web mining. (2024-Dec, 8 marks)
 
-#### ✅ Major Applications
+#### Major Applications
 
 | Domain | Application | Benefit |
 |--------|-------------|---------|
@@ -988,7 +980,7 @@ Data Quality Problems
 | **Education** | E-learning personalization | Improved outcomes |
 | **News** | Topic tracking, fake news detection | Informed readers |
 
-#### ✅ Application Examples
+#### Application Examples
 
 ##### 1. **Search Engine Optimization (SEO)**
 - Analyzing web structure for ranking

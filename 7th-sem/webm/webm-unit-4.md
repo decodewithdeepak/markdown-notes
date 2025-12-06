@@ -32,7 +32,9 @@ Particle Swarm Optimization, Ant Colony Optimization, Artificial Bees and Firefl
 
 ### 1.1 Introduction to PSO
 
-**Particle Swarm Optimization (PSO)** is a population-based optimization algorithm inspired by the social behavior of bird flocking or fish schooling. Developed by Kennedy and Eberhart in 1995.
+**Particle Swarm Optimization (PSO)** is a population-based optimization algorithm inspired by the social behavior of birds flocking in search of food or fish schooling. Developed by Kennedy and Eberhart in 1995. 
+
+PSO simulates the social behavior of organisms moving in groups to find food or avoid predators. In PSO, each potential solution is represented as a particle that moves through the search space, adjusting its position based on its own experience and the experience of neighboring particles. This collective behavior leads to the discovery of optimal or near-optimal solutions.
 
 > **"PSO is inspired by the social behavior of birds flocking in search of food."**
 
@@ -179,7 +181,9 @@ Continue until convergence...
 
 ### 2.1 Introduction to ACO
 
-**Ant Colony Optimization (ACO)** is inspired by the foraging behavior of ants. Ants find shortest paths between their nest and food sources using pheromone trails. Developed by Marco Dorigo in 1992.
+**Ant Colony Optimization (ACO)** is a metaheuristic optimization algorithm inspired by the foraging behavior of real ants. Developed by Marco Dorigo in 1992.
+
+ACO mimics the way ants find the shortest paths between their nest and food sources using pheromone trails. When ants move, they deposit pheromones on the ground, and other ants tend to follow paths with stronger pheromone concentrations. Over time, shorter paths accumulate more pheromone as ants complete round trips faster, leading the colony to converge on optimal routes. This indirect form of communication, called stigmergy, forms the basis of ACO algorithms.
 
 > **"ACO mimics the way real ants find shortest paths using pheromone communication."**
 
@@ -340,7 +344,7 @@ More ants likely to follow A→B→D→C→A due to higher pheromone
 
 ### 3.1 Introduction
 
-**Artificial Bee Colony (ABC)** algorithm is inspired by the intelligent foraging behavior of honey bee swarms. Proposed by Karaboga in 2005.
+**Artificial Bee Colony (ABC)** algorithm is a swarm intelligence optimization technique inspired by the intelligent foraging behavior of honey bee swarms. Proposed by Karaboga in 2005, ABC mimics how honey bees search for food sources and share information about their quality and location with other bees in the hive. The algorithm divides the bee colony into three groups - employed bees, onlooker bees, and scout bees - each with specific roles in the search process, creating an effective balance between exploration and exploitation.
 
 ### 3.2 Bee Roles
 
@@ -430,7 +434,7 @@ xₖⱼ = Randomly selected neighbor solution
 
 ### 4.1 Introduction
 
-**Firefly Algorithm (FA)** is inspired by the flashing behavior of fireflies. Developed by Xin-She Yang in 2008.
+**Firefly Algorithm (FA)** is a nature-inspired metaheuristic optimization algorithm based on the flashing behavior of fireflies. Developed by Xin-She Yang in 2008, FA mimics how fireflies use bioluminescent flashing patterns to attract mating partners and prey. In the algorithm, the brightness of a firefly represents the quality of its solution, and fireflies are attracted to brighter ones, moving toward better solutions. The light intensity decreases with distance, which helps maintain diversity in the population and enables the algorithm to explore multiple regions of the search space simultaneously.
 
 ### 4.2 Firefly Behavior
 
