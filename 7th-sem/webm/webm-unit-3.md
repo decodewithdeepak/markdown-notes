@@ -168,8 +168,6 @@ New Generation
 
 ### 1.5 Computational Intelligence vs Artificial Intelligence
 
-> PYQ: What is the difference between computational intelligence and artificial intelligence? (2022-Feb, 15 marks)
-
 | Aspect | Artificial Intelligence (AI) | Computational Intelligence (CI) |
 |--------|----------------------------|--------------------------------|
 | **Approach** | Symbolic, logic-based | Sub-symbolic, nature-inspired |
@@ -539,6 +537,8 @@ Optimization Algorithms
 
 ### 5.3 Heuristic Algorithms
 
+> PYQ: Write short notes on Heuristic algorithms. (2022-Jul, 3 marks)
+
 **Definition:** Problem-specific rules that give good (not necessarily optimal) solutions quickly.
 
 **Examples:**
@@ -679,8 +679,6 @@ Pheromone update:
 
 ### 5.6 How to Choose the Right Algorithm?
 
-> PYQ: How to choose the right optimization algorithm? (2022-Feb, 7.5 marks)
-
 **Decision Factors:**
 
 | Factor | Consideration |
@@ -719,8 +717,7 @@ Try multiple algorithms and compare
 ## **6. Evolutionary Computation Theory and Paradigm**
 
 > PYQ: Discuss the principle of evolutionary computation theory. (2022-Feb, 1.875 marks)      
-> PYQ: Explain evolutionary computation theory. (2022-Jul, 15 marks)      
-> PYQ: What is computational intelligence? Explain the evolutionary computation theory and its paradigm. (2023, 15 marks)
+> PYQ: Explain evolutionary computation theory. (2022-Jul, 15 marks)
 
 ### 6.1 What is Evolutionary Computation?
 
@@ -989,9 +986,6 @@ x' = x + N(0, σ)  (add Gaussian noise)
 ---
 
 ## **8. Collective Intelligence**
-
-> PYQ: Write short notes on Collective intelligence. (2022-Dec, 3 marks)      
-> PYQ: Explain swarm intelligence along with collective intelligence. (2024-May, 15 marks)
 
 ### 8.1 Definition
 
