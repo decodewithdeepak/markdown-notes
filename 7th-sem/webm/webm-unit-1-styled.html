@@ -1,0 +1,2348 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>webm-unit-1.md</title>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+	<style>
+		/* ═══════════════════════════════════════════════════════════════════════════
+   🎨 WEB MINING NOTES - CUSTOM THEME by Deepak Modi
+   A Modern, Vibrant Design with Distinct Color Hierarchy
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+		/* CSS Variables for Easy Customization */
+		:root {
+			/* Primary Colors */
+			--color-h1: #1a1a2e;
+			--color-h1-accent: #e94560;
+			--color-h2: #16213e;
+			--color-h2-accent: #0f3460;
+			--color-h3: #533483;
+			--color-h4: #e94560;
+			--color-h5: #0f3460;
+
+			/* Background Colors */
+			--bg-main: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+			--bg-card: #ffffff;
+			--bg-code: #1e1e2e;
+			--bg-blockquote: linear-gradient(90deg, #fff3e6 0%, #ffe8d6 100%);
+			--bg-table-header: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			--bg-table-row-alt: #f8f9ff;
+
+			/* Text Colors */
+			--text-primary: #2d3748;
+			--text-secondary: #4a5568;
+			--text-light: #718096;
+			--text-white: #ffffff;
+
+			/* Accent Colors */
+			--accent-primary: #e94560;
+			--accent-secondary: #667eea;
+			--accent-tertiary: #06d6a0;
+			--accent-warning: #ffd166;
+			--accent-info: #118ab2;
+
+			/* Shadows */
+			--shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08);
+			--shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+			--shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15), 0 5px 10px rgba(0, 0, 0, 0.05);
+			--shadow-glow: 0 0 20px rgba(233, 69, 96, 0.3);
+		}
+
+		/* Base Styles */
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: 'Outfit', 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+			font-size: 16px;
+			padding: 40px 60px;
+			line-height: 1.8;
+			word-wrap: break-word;
+			background: var(--bg-main);
+			color: var(--text-primary);
+			max-width: 1200px;
+			margin: 0 auto;
+			min-height: 100vh;
+		}
+
+		/* ═══════════════════════════════════════════════════════════════════════════
+   HEADINGS - Each Level has Unique Styling
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+		/* H1 - Main Title - Bold & Impactful */
+		h1 {
+			font-family: 'Playfair Display', 'Georgia', serif;
+			font-size: 2.8rem;
+			font-weight: 800;
+			color: var(--color-h1);
+			text-align: center;
+			padding: 30px 40px;
+			margin: 40px 0;
+			background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
+			border-radius: 20px;
+			box-shadow: var(--shadow-lg);
+			position: relative;
+			overflow: hidden;
+			border: none;
+			line-height: 1.3;
+		}
+
+		h1::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 6px;
+			background: linear-gradient(90deg, #e94560, #667eea, #06d6a0, #ffd166);
+			border-radius: 20px 20px 0 0;
+		}
+
+		h1::after {
+			content: '📚';
+			position: absolute;
+			top: 15px;
+			right: 25px;
+			font-size: 2rem;
+			opacity: 0.8;
+		}
+
+		/* H2 - Section Headers - Gradient Left Border */
+		h2 {
+			font-family: 'Montserrat', 'Segoe UI', sans-serif;
+			font-size: 1.9rem;
+			font-weight: 700;
+			color: var(--color-h2);
+			margin: 50px 0 25px 0;
+			padding: 20px 25px;
+			background: linear-gradient(135deg, #ffffff 0%, #eef2ff 100%);
+			border-left: 5px solid;
+			border-image: linear-gradient(180deg, #e94560, #667eea) 1;
+			border-radius: 0 15px 15px 0;
+			box-shadow: var(--shadow-md);
+			position: relative;
+		}
+
+		h2::before {
+			content: '◆';
+			color: var(--accent-primary);
+			margin-right: 12px;
+			font-size: 0.8em;
+		}
+
+		/* H3 - Subsection Headers - Purple Theme */
+		h3 {
+			font-family: 'Nunito', 'Segoe UI', sans-serif;
+			font-size: 1.5rem;
+			font-weight: 700;
+			color: #ffffff;
+			margin: 35px 0 20px 0;
+			padding: 15px 25px;
+			background: linear-gradient(135deg, #533483 0%, #7952b3 100%);
+			border-radius: 12px;
+			box-shadow: var(--shadow-md);
+			display: inline-block;
+			min-width: 50%;
+		}
+
+		h3::before {
+			content: '▸ ';
+			color: #ffd166;
+		}
+
+		/* H4 - Topic Headers - Coral/Pink Accent */
+		h4 {
+			font-family: 'Quicksand', 'Segoe UI', sans-serif;
+			font-size: 1.25rem;
+			font-weight: 700;
+			color: var(--color-h4);
+			margin: 30px 0 15px 0;
+			padding: 12px 20px;
+			background: linear-gradient(90deg, #fff5f5 0%, #ffffff 100%);
+			border-left: 4px solid var(--accent-primary);
+			border-bottom: 2px solid rgba(233, 69, 96, 0.2);
+			border-radius: 0 10px 10px 0;
+			position: relative;
+		}
+
+		h4::before {
+			content: '✅ ';
+		}
+
+		/* H5 - Minor Headers - Blue Theme */
+		h5 {
+			font-family: 'Nunito', sans-serif;
+			font-size: 1.1rem;
+			font-weight: 700;
+			color: var(--color-h5);
+			margin: 25px 0 12px 0;
+			padding: 10px 18px;
+			background: linear-gradient(90deg, #e8f4fd 0%, #ffffff 100%);
+			border-left: 3px solid var(--accent-info);
+			border-radius: 0 8px 8px 0;
+		}
+
+		h5::before {
+			content: '◈ ';
+			color: var(--accent-info);
+		}
+
+		/* H6 - Smallest Headers */
+		h6 {
+			font-size: 1rem;
+			font-weight: 600;
+			color: var(--text-secondary);
+			margin: 20px 0 10px 0;
+			padding: 8px 15px;
+			background: #f7f9fc;
+			border-left: 2px solid var(--accent-tertiary);
+			border-radius: 0 6px 6px 0;
+		}
+
+		/* ═══════════════════════════════════════════════════════════════════════════
+   TABLES - Modern Card Style
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+		table {
+			border-collapse: separate;
+			border-spacing: 0;
+			width: 100%;
+			margin: 25px 0;
+			border-radius: 15px;
+			overflow: hidden;
+			box-shadow: var(--shadow-lg);
+			background: var(--bg-card);
+		}
+
+		table>thead>tr>th {
+			background: var(--bg-table-header);
+			color: var(--text-white);
+			font-weight: 600;
+			text-align: left;
+			padding: 16px 20px;
+			font-size: 0.95rem;
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
+			border: none;
+		}
+
+		table>thead>tr>th:first-child {
+			border-radius: 15px 0 0 0;
+		}
+
+		table>thead>tr>th:last-child {
+			border-radius: 0 15px 0 0;
+		}
+
+		table>tbody>tr>td {
+			padding: 14px 20px;
+			border-bottom: 1px solid #edf2f7;
+			color: var(--text-primary);
+			vertical-align: top;
+		}
+
+		table>tbody>tr:nth-child(even) {
+			background: var(--bg-table-row-alt);
+		}
+
+		table>tbody>tr:hover {
+			background: linear-gradient(90deg, #f0f7ff 0%, #ffffff 100%);
+			transform: scale(1.005);
+			transition: all 0.2s ease;
+		}
+
+		table>tbody>tr:last-child>td:first-child {
+			border-radius: 0 0 0 15px;
+		}
+
+		table>tbody>tr:last-child>td:last-child {
+			border-radius: 0 0 15px 0;
+		}
+
+		table>tbody>tr>td strong {
+			color: var(--accent-primary);
+		}
+
+		/* ═══════════════════════════════════════════════════════════════════════════
+   BLOCKQUOTES - PYQ Styling (Important Questions)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+		blockquote {
+			margin: 20px 0;
+			padding: 18px 25px;
+			background: var(--bg-blockquote);
+			border-left: 5px solid var(--accent-warning);
+			border-radius: 0 12px 12px 0;
+			box-shadow: var(--shadow-sm);
+			font-style: italic;
+			color: #744210;
+			position: relative;
+		}
+
+		blockquote::before {
+			content: '📝 PYQ';
+			position: absolute;
+			top: -12px;
+			left: 15px;
+			background: linear-gradient(135deg, #ffd166 0%, #ffb347 100%);
+			color: #744210;
+			font-size: 0.75rem;
+			font-weight: 700;
+			padding: 4px 12px;
+			border-radius: 20px;
+			font-style: normal;
+			box-shadow: var(--shadow-sm);
+		}
+
+		blockquote p {
+			margin: 0;
+		}
+
+		/* ═══════════════════════════════════════════════════════════════════════════
+   CODE BLOCKS - Dark Theme with Syntax Colors
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+		code {
+			font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+			font-size: 0.9em;
+			line-height: 1.6;
+		}
+
+		pre {
+			background: linear-gradient(135deg, #1e1e2e 0%, #2d2d44 100%);
+			border: none;
+			border-radius: 15px;
+			overflow-x: auto;
+			white-space: pre-wrap;
+			overflow-wrap: break-word;
+			padding: 25px 30px;
+			margin: 25px 0;
+			box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+			position: relative;
+		}
+
+		pre::before {
+			content: '💻 Code';
+			position: absolute;
+			top: 0;
+			right: 20px;
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			color: white;
+			font-size: 0.7rem;
+			font-weight: 600;
+			padding: 5px 15px;
+			border-radius: 0 0 10px 10px;
+			font-family: 'Nunito', sans-serif;
+		}
+
+		pre code {
+			color: #a9b1d6;
+			background: transparent;
+			padding: 0;
+			font-size: 0.85rem;
+		}
+
+		/* Inline Code */
+		:not(pre):not(.hljs)>code {
+			background: linear-gradient(135deg, #fef3f5 0%, #fff0f3 100%);
+			color: #e94560;
+			padding: 3px 8px;
+			border-radius: 6px;
+			font-size: 0.9em;
+			border: 1px solid rgba(233, 69, 96, 0.2);
+		}
+
+		/* ═══════════════════════════════════════════════════════════════════════════
+   LINKS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+		a {
+			color: var(--accent-secondary);
+			text-decoration: none;
+			font-weight: 500;
+			transition: all 0.3s ease;
+			border-bottom: 2px solid transparent;
+		}
+
+		a:hover {
+			color: var(--accent-primary);
+			border-bottom: 2px solid var(--accent-primary);
+			text-decoration: none;
+		}
+
+		/* ═══════════════════════════════════════════════════════════════════════════
+   HORIZONTAL RULES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+		hr {
+			border: none;
+			height: 3px;
+			background: linear-gradient(90deg,
+					transparent 0%,
+					#e94560 20%,
+					#667eea 50%,
+					#06d6a0 80%,
+					transparent 100%);
+			margin: 50px 0;
+			border-radius: 3px;
+		}
+
+		/* ═══════════════════════════════════════════════════════════════════════════
+   LISTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+		ul,
+		ol {
+			padding-left: 25px;
+			margin: 15px 0;
+		}
+
+		li {
+			margin: 10px 0;
+			padding-left: 8px;
+			line-height: 1.7;
+		}
+
+		ul>li::marker {
+			color: var(--accent-primary);
+			font-size: 1.2em;
+		}
+
+		ol>li::marker {
+			color: var(--accent-secondary);
+			font-weight: 700;
+		}
+
+		li strong {
+			color: var(--color-h2);
+		}
+
+		/* ═══════════════════════════════════════════════════════════════════════════
+   PARAGRAPHS & TEXT
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+		p {
+			margin: 15px 0;
+			color: var(--text-primary);
+		}
+
+		strong {
+			color: var(--color-h2);
+			font-weight: 700;
+		}
+
+		em {
+			color: var(--text-secondary);
+			font-style: italic;
+		}
+
+		/* ═══════════════════════════════════════════════════════════════════════════
+   IMAGES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+		img {
+			max-width: 100%;
+			height: auto;
+			border-radius: 12px;
+			box-shadow: var(--shadow-md);
+			margin: 20px 0;
+		}
+
+		/* ═══════════════════════════════════════════════════════════════════════════
+   EMOJI STYLING
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+		.emoji {
+			height: 1.4em;
+			vertical-align: middle;
+		}
+
+		/* ═══════════════════════════════════════════════════════════════════════════
+   SCROLLBAR STYLING
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+		::-webkit-scrollbar {
+			width: 10px;
+			height: 10px;
+		}
+
+		::-webkit-scrollbar-track {
+			background: #f1f1f1;
+			border-radius: 10px;
+		}
+
+		::-webkit-scrollbar-thumb {
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			border-radius: 10px;
+		}
+
+		::-webkit-scrollbar-thumb:hover {
+			background: linear-gradient(135deg, #e94560 0%, #667eea 100%);
+		}
+
+		/* ═══════════════════════════════════════════════════════════════════════════
+   SELECTION STYLING
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+		::selection {
+			background: rgba(233, 69, 96, 0.3);
+			color: var(--color-h1);
+		}
+
+		/* ═══════════════════════════════════════════════════════════════════════════
+   PRINT STYLES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+		@media print {
+			body {
+				background: white;
+				padding: 20px;
+			}
+
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				page-break-after: avoid;
+			}
+
+			table,
+			pre,
+			blockquote {
+				page-break-inside: avoid;
+			}
+		}
+
+		/* ═══════════════════════════════════════════════════════════════════════════
+   RESPONSIVE DESIGN
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+		@media (max-width: 768px) {
+			body {
+				padding: 20px;
+				font-size: 15px;
+			}
+
+			h1 {
+				font-size: 2rem;
+				padding: 20px;
+			}
+
+			h2 {
+				font-size: 1.5rem;
+			}
+
+			h3 {
+				font-size: 1.25rem;
+				display: block;
+				min-width: auto;
+			}
+
+			table {
+				font-size: 0.9rem;
+			}
+
+			pre {
+				padding: 15px;
+			}
+		}
+
+		/* Page Break for PDF */
+		.page {
+			page-break-after: always;
+		}
+	</style>
+
+	<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+
+<body>
+	<script>
+		mermaid.initialize({
+			startOnLoad: true,
+			theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+				? 'dark'
+				: 'default'
+		});
+	</script>
+	<h1 id="unit-1-data-mining-foundations--web-mining-overview">Unit 1: Data Mining Foundations &amp; Web Mining
+		Overview</h1>
+	<p><strong>Course:</strong> PEC-CSE-405G | <strong>Author:</strong> <a href="https://deepakmodi.tech">Deepak
+			Modi</a></p>
+	<p><strong>Syllabus:</strong><br>
+		<strong>Data Mining Foundations:</strong> Basic concepts in Data Mining, Web mining versus Data mining,
+		Discovering knowledge from Hypertext data.<br>
+		<strong>An Overview of Web Mining:</strong> What is Web mining, Web mining taxonomy, Web mining subtasks,
+		issues, challenges.
+	</p>
+	<hr>
+	<h2 id="%F0%9F%8E%AF-pyq-analysis-for-unit-1">🎯 PYQ Analysis for Unit 1</h2>
+	<h3 id="high-priority-topics-%E2%AD%90%E2%AD%90%E2%AD%90">High Priority Topics ⭐⭐⭐</h3>
+	<ol>
+		<li><strong>Web Mining vs Data Mining</strong> (2022-Feb, 2022-Dec, 2023, 2024-May, 2024-Dec)</li>
+		<li><strong>Discovering Knowledge from Hypertext Data</strong> (2022-Feb, 2023, 2024-May, 2024-Dec)</li>
+		<li><strong>Web Mining Issues &amp; Challenges</strong> (2022-Feb, 2022-Jul, 2023, 2024-May, 2024-Dec)</li>
+		<li><strong>Web Mining Subtasks</strong> (2022-Feb, 2023)</li>
+	</ol>
+	<h3 id="medium-priority-topics-%E2%AD%90%E2%AD%90">Medium Priority Topics ⭐⭐</h3>
+	<ol start="5">
+		<li><strong>Web Mining Taxonomy</strong> (2024-May, 2024-Dec)</li>
+		<li><strong>Data Mining Applications</strong> (2022-Jul, 2022-Dec)</li>
+		<li><strong>Social Impacts of Data Mining</strong> (2022-Jul)</li>
+	</ol>
+	<h3 id="short-answer-topics-%E2%AD%90">Short Answer Topics ⭐</h3>
+	<ol start="8">
+		<li><strong>Define Mining</strong> (2022-Feb)</li>
+		<li><strong>Hypertext Data</strong> (2023, 2024-May)</li>
+	</ol>
+	<hr>
+	<h2 id="section-1-data-mining-foundations"><strong>Section 1: Data Mining Foundations</strong></h2>
+	<h3 id="11-introduction-to-data-mining"><strong>1.1 Introduction to Data Mining</strong></h3>
+	<blockquote>
+		<p>PYQ: Define mining. (2022-Feb, 1.875 marks)<br>
+			PYQ: Define data mining. (2022-Jul, 3 marks)<br>
+			PYQ: What is data mining? (2024-May, 15 marks)</p>
+	</blockquote>
+	<h4 id="%E2%9C%85-what-is-data-mining">✅ What is Data Mining?</h4>
+	<p><strong>Data Mining</strong> is the process of discovering meaningful patterns, correlations, anomalies, and
+		trends from large datasets using statistical, mathematical, and computational techniques. It is also known as
+		<strong>Knowledge Discovery in Databases (KDD)</strong>.
+	</p>
+	<blockquote>
+		<p><strong>&quot;Data Mining is the extraction of hidden predictive information from large
+				databases.&quot;</strong> — Gartner Group</p>
+	</blockquote>
+	<h4 id="%E2%9C%85-key-characteristics-of-data-mining">✅ Key Characteristics of Data Mining</h4>
+	<table>
+		<thead>
+			<tr>
+				<th>Characteristic</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><strong>Automatic Discovery</strong></td>
+				<td>Finds patterns without explicit programming</td>
+			</tr>
+			<tr>
+				<td><strong>Predictive</strong></td>
+				<td>Predicts future trends based on historical data</td>
+			</tr>
+			<tr>
+				<td><strong>Scalable</strong></td>
+				<td>Works with large datasets (terabytes/petabytes)</td>
+			</tr>
+			<tr>
+				<td><strong>Actionable</strong></td>
+				<td>Produces insights that can be acted upon</td>
+			</tr>
+			<tr>
+				<td><strong>Non-trivial</strong></td>
+				<td>Discovers hidden, previously unknown patterns</td>
+			</tr>
+		</tbody>
+	</table>
+	<h4 id="%E2%9C%85-data-mining-process-kdd-process">✅ Data Mining Process (KDD Process)</h4>
+	<pre class="hljs"><code><div>┌───────────────────────────────────────────────────────────────────────┐
+│                KNOWLEDGE DISCOVERY IN DATABASES (KDD)                 │
+└───────────────────────────────────────────────────────────────────────┘
+                                 │
+                                 ▼
+                    ┌─────────────────────────────┐
+                    │        Data Selection       │
+                    └─────────────┬───────────────┘
+                                  │
+                                  ▼
+                    ┌─────────────────────────────┐
+                    │      Data Preprocessing     │
+                    └─────────────┬───────────────┘
+                                  │
+                                  ▼
+                    ┌─────────────────────────────┐
+                    │     Data Transformation     │
+                    └─────────────┬───────────────┘
+                                  │
+                                  ▼
+                    ┌─────────────────────────────┐
+                    │         Data Mining         │
+                    └─────────────┬───────────────┘
+                                  │
+                                  ▼
+                    ┌─────────────────────────────┐
+                    │     Pattern Evaluation      │
+                    └─────────────┬───────────────┘
+                                  │
+                                  ▼
+                          ┌───────────────┐
+                          │   KNOWLEDGE   │
+                          └───────────────┘
+</div></code></pre>
+	<p><strong>Steps in KDD Process:</strong></p>
+	<ol>
+		<li><strong>Data Selection</strong>: Identifying relevant data from databases</li>
+		<li><strong>Data Preprocessing</strong>: Cleaning, handling missing values, removing noise</li>
+		<li><strong>Data Transformation</strong>: Converting data into suitable format (normalization, aggregation)</li>
+		<li><strong>Data Mining</strong>: Applying algorithms to extract patterns</li>
+		<li><strong>Pattern Evaluation</strong>: Interpreting and validating discovered patterns</li>
+		<li><strong>Knowledge Presentation</strong>: Visualizing and presenting results</li>
+	</ol>
+	<h4 id="%E2%9C%85-data-mining-techniques">✅ Data Mining Techniques</h4>
+	<table>
+		<thead>
+			<tr>
+				<th>Technique</th>
+				<th>Description</th>
+				<th>Example</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><strong>Classification</strong></td>
+				<td>Assigns items to predefined categories</td>
+				<td>Email spam detection</td>
+			</tr>
+			<tr>
+				<td><strong>Clustering</strong></td>
+				<td>Groups similar items together</td>
+				<td>Customer segmentation</td>
+			</tr>
+			<tr>
+				<td><strong>Association Rules</strong></td>
+				<td>Finds relationships between items</td>
+				<td>Market basket analysis</td>
+			</tr>
+			<tr>
+				<td><strong>Regression</strong></td>
+				<td>Predicts numerical values</td>
+				<td>Stock price prediction</td>
+			</tr>
+			<tr>
+				<td><strong>Anomaly Detection</strong></td>
+				<td>Identifies unusual patterns</td>
+				<td>Fraud detection</td>
+			</tr>
+			<tr>
+				<td><strong>Sequential Pattern Mining</strong></td>
+				<td>Finds patterns in sequences</td>
+				<td>Web clickstream analysis</td>
+			</tr>
+		</tbody>
+	</table>
+	<h4 id="%E2%9C%85-applications-of-data-mining">✅ Applications of Data Mining</h4>
+	<blockquote>
+		<p>PYQ: Explain how data mining is used in healthcare analysis. (2022-Jul, 8 marks)<br>
+			PYQ: Application of data mining in healthcare. (2022-Dec, 8 marks)</p>
+	</blockquote>
+	<table>
+		<thead>
+			<tr>
+				<th>Domain</th>
+				<th>Application</th>
+				<th>Example</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><strong>Healthcare</strong></td>
+				<td>Disease prediction, drug discovery</td>
+				<td>Predicting diabetes risk, identifying drug interactions</td>
+			</tr>
+			<tr>
+				<td><strong>Banking &amp; Finance</strong></td>
+				<td>Fraud detection, credit scoring</td>
+				<td>Credit card fraud detection, loan approval</td>
+			</tr>
+			<tr>
+				<td><strong>Retail</strong></td>
+				<td>Market basket analysis, customer profiling</td>
+				<td>Product recommendations, inventory management</td>
+			</tr>
+			<tr>
+				<td><strong>Telecommunications</strong></td>
+				<td>Churn prediction, network optimization</td>
+				<td>Identifying customers likely to switch providers</td>
+			</tr>
+			<tr>
+				<td><strong>Education</strong></td>
+				<td>Student performance prediction</td>
+				<td>Identifying at-risk students</td>
+			</tr>
+			<tr>
+				<td><strong>Manufacturing</strong></td>
+				<td>Quality control, predictive maintenance</td>
+				<td>Detecting defective products</td>
+			</tr>
+		</tbody>
+	</table>
+	<h4 id="%E2%9C%85-data-mining-in-healthcare-detailed">✅ Data Mining in Healthcare (Detailed)</h4>
+	<blockquote>
+		<p>PYQ: Explain how data mining is used in healthcare analysis. (2022-Jul, 8 marks)</p>
+	</blockquote>
+	<p><strong>Applications:</strong></p>
+	<ol>
+		<li>
+			<p><strong>Disease Diagnosis &amp; Prediction</strong></p>
+			<ul>
+				<li>Using patient symptoms and history to predict diseases</li>
+				<li>Early detection of cancer, diabetes, heart disease</li>
+				<li>Example: Predicting COVID-19 severity based on patient data</li>
+			</ul>
+		</li>
+		<li>
+			<p><strong>Drug Discovery</strong></p>
+			<ul>
+				<li>Identifying potential drug candidates</li>
+				<li>Analyzing drug interactions and side effects</li>
+				<li>Reducing time and cost of clinical trials</li>
+			</ul>
+		</li>
+		<li>
+			<p><strong>Treatment Effectiveness</strong></p>
+			<ul>
+				<li>Analyzing which treatments work best for specific conditions</li>
+				<li>Personalized medicine based on patient genetics</li>
+			</ul>
+		</li>
+		<li>
+			<p><strong>Hospital Resource Management</strong></p>
+			<ul>
+				<li>Predicting patient admission rates</li>
+				<li>Optimizing bed allocation and staff scheduling</li>
+			</ul>
+		</li>
+		<li>
+			<p><strong>Medical Image Analysis</strong></p>
+			<ul>
+				<li>Detecting tumors in X-rays, MRIs, CT scans</li>
+				<li>Using deep learning for image classification</li>
+			</ul>
+		</li>
+	</ol>
+	<pre class="hljs"><code><div>Healthcare Data Mining Applications
+│
+├──► Diagnosis
+│    ├──► Disease prediction
+│    ├──► Risk assessment
+│    └──► Symptom analysis
+│
+├──► Treatment
+│    ├──► Drug effectiveness
+│    ├──► Personalized medicine
+│    └──► Treatment planning
+│
+├──► Operations
+│    ├──► Resource allocation
+│    ├──► Cost reduction
+│    └──► Quality improvement
+│
+└──► Research
+     ├──► Drug discovery
+     ├──► Clinical trials
+     └──► Epidemiology
+</div></code></pre>
+	<h4 id="%E2%9C%85-social-impacts-of-data-mining">✅ Social Impacts of Data Mining</h4>
+	<blockquote>
+		<p>PYQ: What are the social impacts of data mining? (2022-Jul, 7 marks)</p>
+	</blockquote>
+	<p><strong>Positive Impacts:</strong></p>
+	<table>
+		<thead>
+			<tr>
+				<th>Impact</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><strong>Improved Services</strong></td>
+				<td>Better healthcare, personalized education</td>
+			</tr>
+			<tr>
+				<td><strong>Crime Prevention</strong></td>
+				<td>Predictive policing, fraud detection</td>
+			</tr>
+			<tr>
+				<td><strong>Scientific Discovery</strong></td>
+				<td>New drug discoveries, climate analysis</td>
+			</tr>
+			<tr>
+				<td><strong>Economic Growth</strong></td>
+				<td>Business optimization, market insights</td>
+			</tr>
+			<tr>
+				<td><strong>Public Health</strong></td>
+				<td>Disease outbreak prediction, health trends</td>
+			</tr>
+		</tbody>
+	</table>
+	<p><strong>Negative Impacts:</strong></p>
+	<table>
+		<thead>
+			<tr>
+				<th>Impact</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><strong>Privacy Concerns</strong></td>
+				<td>Personal data collection without consent</td>
+			</tr>
+			<tr>
+				<td><strong>Discrimination</strong></td>
+				<td>Biased algorithms affecting certain groups</td>
+			</tr>
+			<tr>
+				<td><strong>Job Displacement</strong></td>
+				<td>Automation replacing human workers</td>
+			</tr>
+			<tr>
+				<td><strong>Surveillance</strong></td>
+				<td>Mass monitoring of citizens</td>
+			</tr>
+			<tr>
+				<td><strong>Data Breaches</strong></td>
+				<td>Sensitive information exposure</td>
+			</tr>
+		</tbody>
+	</table>
+	<p><strong>Ethical Considerations:</strong></p>
+	<ul>
+		<li><strong>Transparency</strong>: Users should know how their data is used</li>
+		<li><strong>Consent</strong>: Explicit permission before data collection</li>
+		<li><strong>Anonymization</strong>: Protecting individual identities</li>
+		<li><strong>Fairness</strong>: Avoiding discriminatory outcomes</li>
+		<li><strong>Accountability</strong>: Clear responsibility for data misuse</li>
+	</ul>
+	<h4 id="%E2%9C%85-spatial-data-mining">✅ Spatial Data Mining</h4>
+	<blockquote>
+		<p>PYQ: Define data mining. Discuss spatial data mining. (2022-Dec, 15 marks)</p>
+	</blockquote>
+	<p><strong>Spatial Data Mining</strong> is the process of discovering interesting and useful patterns from large
+		spatial databases (geographic data).</p>
+	<p><strong>Characteristics of Spatial Data:</strong></p>
+	<ul>
+		<li>Contains location information (coordinates, addresses)</li>
+		<li>Has spatial relationships (distance, adjacency, containment)</li>
+		<li>Often combined with non-spatial attributes</li>
+	</ul>
+	<p><strong>Spatial Data Mining Techniques:</strong></p>
+	<table>
+		<thead>
+			<tr>
+				<th>Technique</th>
+				<th>Description</th>
+				<th>Example</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><strong>Spatial Clustering</strong></td>
+				<td>Grouping nearby objects</td>
+				<td>Identifying crime hotspots</td>
+			</tr>
+			<tr>
+				<td><strong>Spatial Classification</strong></td>
+				<td>Categorizing based on location</td>
+				<td>Land use classification</td>
+			</tr>
+			<tr>
+				<td><strong>Spatial Association</strong></td>
+				<td>Finding co-location patterns</td>
+				<td>Stores often near gas stations</td>
+			</tr>
+			<tr>
+				<td><strong>Spatial Outlier Detection</strong></td>
+				<td>Finding unusual spatial patterns</td>
+				<td>Detecting unusual traffic patterns</td>
+			</tr>
+		</tbody>
+	</table>
+	<p><strong>Applications:</strong></p>
+	<ul>
+		<li><strong>Urban Planning</strong>: Analyzing traffic patterns, zoning decisions</li>
+		<li><strong>Environmental Science</strong>: Climate change analysis, pollution monitoring</li>
+		<li><strong>Epidemiology</strong>: Disease spread analysis, healthcare accessibility</li>
+		<li><strong>Marketing</strong>: Location-based advertising, store placement</li>
+		<li><strong>Agriculture</strong>: Crop yield prediction, soil analysis</li>
+	</ul>
+	<hr>
+	<h3 id="12-basic-concepts-in-data-mining"><strong>1.2 Basic Concepts in Data Mining</strong></h3>
+	<h4 id="%E2%9C%85-types-of-data">✅ Types of Data</h4>
+	<pre class="hljs"><code><div>Data Types in Data Mining
+│
+├──► Structured Data
+│    ├──► Relational databases
+│    ├──► Spreadsheets
+│    └──► CSV files
+│
+├──► Semi-Structured Data
+│    ├──► XML documents
+│    ├──► JSON files
+│    └──► Email
+│
+├──► Unstructured Data
+│    ├──► Text documents
+│    ├──► Images/Videos
+│    ├──► Audio files
+│    └──► Web pages
+│
+└──► Time-Series Data
+     ├──► Stock prices
+     ├──► Sensor data
+     └──► Weather data
+</div></code></pre>
+	<h4 id="%E2%9C%85-data-mining-tasks">✅ Data Mining Tasks</h4>
+	<table>
+		<thead>
+			<tr>
+				<th>Task Type</th>
+				<th>Description</th>
+				<th>Algorithms</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><strong>Predictive</strong></td>
+				<td>Predict unknown values</td>
+				<td>Regression, Classification, Neural Networks</td>
+			</tr>
+			<tr>
+				<td><strong>Descriptive</strong></td>
+				<td>Find patterns in data</td>
+				<td>Clustering, Association Rules, Summarization</td>
+			</tr>
+		</tbody>
+	</table>
+	<h4 id="%E2%9C%85-common-data-mining-algorithms">✅ Common Data Mining Algorithms</h4>
+	<ol>
+		<li>
+			<p><strong>Decision Trees</strong> (C4.5, CART, ID3)</p>
+			<ul>
+				<li>Tree-like model for classification</li>
+				<li>Easy to interpret and visualize</li>
+			</ul>
+		</li>
+		<li>
+			<p><strong>K-Means Clustering</strong></p>
+			<ul>
+				<li>Partitions data into K clusters</li>
+				<li>Based on distance from centroids</li>
+			</ul>
+		</li>
+		<li>
+			<p><strong>Apriori Algorithm</strong></p>
+			<ul>
+				<li>Finds frequent itemsets</li>
+				<li>Used for association rule mining</li>
+			</ul>
+		</li>
+		<li>
+			<p><strong>Naive Bayes</strong></p>
+			<ul>
+				<li>Probabilistic classifier</li>
+				<li>Based on Bayes' theorem</li>
+			</ul>
+		</li>
+		<li>
+			<p><strong>Support Vector Machines (SVM)</strong></p>
+			<ul>
+				<li>Finds optimal hyperplane for classification</li>
+				<li>Effective for high-dimensional data</li>
+			</ul>
+		</li>
+		<li>
+			<p><strong>Neural Networks</strong></p>
+			<ul>
+				<li>Mimics human brain structure</li>
+				<li>Good for complex pattern recognition</li>
+			</ul>
+		</li>
+	</ol>
+	<hr>
+	<h3 id="13-web-mining-vs-data-mining"><strong>1.3 Web Mining vs Data Mining</strong></h3>
+	<blockquote>
+		<p>PYQ: Write down the difference between data mining and web mining. (2022-Feb, 7 marks)<br>
+			PYQ: Web mining versus data mining. (2022-Dec, 7 marks; 2023, 7.5 marks)<br>
+			PYQ: Discuss the differences and similarities between web mining and data mining. Also, list various
+			applications of web mining. (2024-Dec, 8 marks)</p>
+	</blockquote>
+	<h4 id="%E2%9C%85-comparison-table">✅ Comparison Table</h4>
+	<table>
+		<thead>
+			<tr>
+				<th>Aspect</th>
+				<th>Data Mining</th>
+				<th>Web Mining</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><strong>Definition</strong></td>
+				<td>Extracting patterns from structured databases</td>
+				<td>Extracting patterns from web data</td>
+			</tr>
+			<tr>
+				<td><strong>Data Source</strong></td>
+				<td>Databases, data warehouses</td>
+				<td>Web pages, web logs, hyperlinks</td>
+			</tr>
+			<tr>
+				<td><strong>Data Type</strong></td>
+				<td>Mostly structured</td>
+				<td>Structured, semi-structured, unstructured</td>
+			</tr>
+			<tr>
+				<td><strong>Data Volume</strong></td>
+				<td>Large but manageable</td>
+				<td>Extremely large and growing</td>
+			</tr>
+			<tr>
+				<td><strong>Data Nature</strong></td>
+				<td>Static or slowly changing</td>
+				<td>Highly dynamic and volatile</td>
+			</tr>
+			<tr>
+				<td><strong>Complexity</strong></td>
+				<td>Relatively homogeneous</td>
+				<td>Highly heterogeneous</td>
+			</tr>
+			<tr>
+				<td><strong>Techniques</strong></td>
+				<td>Classification, clustering, association</td>
+				<td>Web content, structure, usage mining</td>
+			</tr>
+			<tr>
+				<td><strong>Challenges</strong></td>
+				<td>Data quality, scalability</td>
+				<td>Noise, redundancy, heterogeneity</td>
+			</tr>
+			<tr>
+				<td><strong>Applications</strong></td>
+				<td>Business intelligence, healthcare</td>
+				<td>Search engines, recommendation systems</td>
+			</tr>
+		</tbody>
+	</table>
+	<h4 id="%E2%9C%85-key-differences">✅ Key Differences</h4>
+	<pre class="hljs"><code><div>┌─────────────────────────────────────────────────────────────────┐
+│                    DATA MINING vs WEB MINING                    │
+├─────────────────────────────┬───────────────────────────────────┤
+│         DATA MINING         │           WEB MINING              │
+├─────────────────────────────┼───────────────────────────────────┤
+│ • Structured data           │ • Unstructured/semi-structured    │
+│ • Databases/Warehouses      │ • Web pages/Logs/Links            │
+│ • Controlled environment    │ • Open, distributed environment   │
+│ • Known schema              │ • No fixed schema                 │
+│ • Quality data              │ • Noisy, redundant data           │
+│ • Slower updates            │ • Rapidly changing                │
+│ • Domain-specific           │ • Cross-domain                    │
+│ • SQL-based queries         │ • Crawlers and parsers            │
+└─────────────────────────────┴───────────────────────────────────┘
+</div></code></pre>
+	<h4 id="%E2%9C%85-similarities">✅ Similarities</h4>
+	<ol>
+		<li><strong>Pattern Discovery</strong>: Both aim to find hidden patterns</li>
+		<li><strong>Algorithms</strong>: Many algorithms are shared (clustering, classification)</li>
+		<li><strong>Knowledge Extraction</strong>: Both convert data into actionable knowledge</li>
+		<li><strong>Preprocessing Required</strong>: Both need data cleaning and transformation</li>
+		<li><strong>Iterative Process</strong>: Both follow iterative refinement</li>
+		<li><strong>Business Value</strong>: Both provide competitive advantages</li>
+	</ol>
+	<h4 id="%E2%9C%85-why-web-mining-is-more-challenging">✅ Why Web Mining is More Challenging</h4>
+	<table>
+		<thead>
+			<tr>
+				<th>Challenge</th>
+				<th>Explanation</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><strong>Heterogeneity</strong></td>
+				<td>Web data comes in multiple formats (HTML, XML, JSON, multimedia)</td>
+			</tr>
+			<tr>
+				<td><strong>Scale</strong></td>
+				<td>Billions of web pages, constantly growing</td>
+			</tr>
+			<tr>
+				<td><strong>Dynamism</strong></td>
+				<td>Web content changes frequently</td>
+			</tr>
+			<tr>
+				<td><strong>Noise</strong></td>
+				<td>Advertisements, navigation elements, irrelevant content</td>
+			</tr>
+			<tr>
+				<td><strong>Redundancy</strong></td>
+				<td>Same information appears on multiple pages</td>
+			</tr>
+			<tr>
+				<td><strong>Quality</strong></td>
+				<td>No quality control; anyone can publish</td>
+			</tr>
+			<tr>
+				<td><strong>Privacy</strong></td>
+				<td>User tracking raises ethical concerns</td>
+			</tr>
+		</tbody>
+	</table>
+	<hr>
+	<h3 id="14-discovering-knowledge-from-hypertext-data"><strong>1.4 Discovering Knowledge from Hypertext Data</strong>
+	</h3>
+	<blockquote>
+		<p>PYQ: How to discover knowledge from hypertext data? Discuss in detail with a suitable example. (2022-Feb, 8
+			marks)<br>
+			PYQ: Discovering knowledge from hypertext data. (2023, 7.5 marks)<br>
+			PYQ: Explain the process to discover knowledge from hypertext data. (2024-May, 15 marks)<br>
+			PYQ: How is knowledge discovered from hypertext data, and what are the key challenges involved in the
+			process? (2024-Dec, 7 marks)</p>
+	</blockquote>
+	<h4 id="%E2%9C%85-what-is-hypertext-data">✅ What is Hypertext Data?</h4>
+	<blockquote>
+		<p>PYQ: Write short notes on Hypertext data. (2023, 2.5 marks; 2024-May, 2.5 marks)</p>
+	</blockquote>
+	<p><strong>Hypertext</strong> is text displayed on a computer or electronic device with references (hyperlinks) to
+		other text that the reader can immediately access. Hypertext data includes:</p>
+	<ul>
+		<li><strong>HTML Documents</strong>: Web pages with text, images, and links</li>
+		<li><strong>Hyperlinks</strong>: Connections between documents</li>
+		<li><strong>Anchor Text</strong>: Clickable text in hyperlinks</li>
+		<li><strong>Metadata</strong>: Title, keywords, descriptions</li>
+		<li><strong>Structure</strong>: DOM (Document Object Model) hierarchy</li>
+	</ul>
+	<pre class="hljs"><code><div>Hypertext Document Structure
+│
+├──► Content Elements
+│    ├──► Text content
+│    ├──► Images
+│    ├──► Tables
+│    └──► Forms
+│
+├──► Structural Elements
+│    ├──► Headers (H1-H6)
+│    ├──► Paragraphs
+│    ├──► Lists
+│    └──► Divisions
+│
+├──► Link Elements
+│    ├──► Internal links
+│    ├──► External links
+│    ├──► Anchor text
+│    └──► Navigation menus
+│
+└──► Metadata
+     ├──► Title
+     ├──► Description
+     ├──► Keywords
+     └──► Author
+</div></code></pre>
+	<h4 id="%E2%9C%85-knowledge-discovery-process-from-hypertext">✅ Knowledge Discovery Process from Hypertext</h4>
+	<p>The process of discovering knowledge from hypertext data involves several steps:</p>
+	<pre class="hljs"><code><div>┌─────────────────────────────────────────────────────────────────┐
+│         KNOWLEDGE DISCOVERY FROM HYPERTEXT DATA                  │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+    ┌─────────────────────────┼─────────────────────────┐
+    │                         │                         │
+    ▼                         ▼                         ▼
+┌──────────┐            ┌─────────────┐            ┌───────────┐
+│  Data    │            │   Data      │            │   Data    │
+│Collection│            │Preprocessing│            │ Analysis  │
+│(Crawling)│            │ &amp; Cleaning  │            │ &amp; Mining  │
+└────┬─────┘            └──────┬──────┘            └─────┬─────┘
+     │                        │                        │
+     ▼                        ▼                        ▼
+┌──────────┐             ┌───────────┐            ┌──────────────┐
+│ Feature  │             │  Pattern  │            │ Knowledge    │
+│Extraction│             │ Discovery │            │Representation│
+└──────────┘             └───────────┘            └──────────────┘
+</div></code></pre>
+	<p><strong>Step-by-Step Process:</strong></p>
+	<h5 id="step-1-data-collection-web-crawling"><strong>Step 1: Data Collection (Web Crawling)</strong></h5>
+	<ul>
+		<li>Use web crawlers/spiders to fetch web pages</li>
+		<li>Follow hyperlinks to discover new pages</li>
+		<li>Store HTML content for processing</li>
+	</ul>
+	<pre class="hljs"><code><div>Web Crawler Architecture
+│
+├──► Seed URLs
+│    └──► Initial list of URLs to crawl
+│
+├──► URL Frontier
+│    └──► Queue of URLs to be visited
+│
+├──► Fetcher
+│    └──► Downloads web pages
+│
+├──► Parser
+│    └──► Extracts links and content
+│
+└──► Repository
+     └──► Stores crawled pages
+</div></code></pre>
+	<h5 id="step-2-data-preprocessing"><strong>Step 2: Data Preprocessing</strong></h5>
+	<ul>
+		<li><strong>HTML Parsing</strong>: Extract text from HTML tags</li>
+		<li><strong>Noise Removal</strong>: Remove ads, navigation, boilerplate</li>
+		<li><strong>Tokenization</strong>: Break text into words/tokens</li>
+		<li><strong>Stop Word Removal</strong>: Remove common words (the, is, at)</li>
+		<li><strong>Stemming/Lemmatization</strong>: Reduce words to root form</li>
+	</ul>
+	<h5 id="step-3-feature-extraction"><strong>Step 3: Feature Extraction</strong></h5>
+	<table>
+		<thead>
+			<tr>
+				<th>Feature Type</th>
+				<th>Description</th>
+				<th>Example</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><strong>Content Features</strong></td>
+				<td>Text, keywords, topics</td>
+				<td>TF-IDF scores</td>
+			</tr>
+			<tr>
+				<td><strong>Structural Features</strong></td>
+				<td>HTML tags, headings</td>
+				<td>H1 tags, bold text</td>
+			</tr>
+			<tr>
+				<td><strong>Link Features</strong></td>
+				<td>Inlinks, outlinks, anchor text</td>
+				<td>PageRank score</td>
+			</tr>
+			<tr>
+				<td><strong>Metadata Features</strong></td>
+				<td>Title, description, keywords</td>
+				<td>Meta tags</td>
+			</tr>
+		</tbody>
+	</table>
+	<h5 id="step-4-pattern-discovery"><strong>Step 4: Pattern Discovery</strong></h5>
+	<p>Apply mining techniques to discover:</p>
+	<ol>
+		<li>
+			<p><strong>Content Patterns</strong></p>
+			<ul>
+				<li>Topic extraction</li>
+				<li>Keyword clustering</li>
+				<li>Document classification</li>
+			</ul>
+		</li>
+		<li>
+			<p><strong>Link Patterns</strong></p>
+			<ul>
+				<li>Hub and authority pages</li>
+				<li>Community detection</li>
+				<li>Link prediction</li>
+			</ul>
+		</li>
+		<li>
+			<p><strong>Usage Patterns</strong></p>
+			<ul>
+				<li>Navigation paths</li>
+				<li>User sessions</li>
+				<li>Click patterns</li>
+			</ul>
+		</li>
+	</ol>
+	<h5 id="step-5-knowledge-representation"><strong>Step 5: Knowledge Representation</strong></h5>
+	<ul>
+		<li><strong>Ontologies</strong>: Formal knowledge representation</li>
+		<li><strong>Knowledge Graphs</strong>: Entity-relationship networks</li>
+		<li><strong>Taxonomies</strong>: Hierarchical classification</li>
+		<li><strong>Rules</strong>: If-then patterns</li>
+	</ul>
+	<h4 id="%E2%9C%85-example-knowledge-discovery-from-news-websites">✅ Example: Knowledge Discovery from News Websites
+	</h4>
+	<p><strong>Scenario</strong>: Discovering trending topics from news websites</p>
+	<pre class="hljs"><code><div>Step 1: Crawl News Sites
+        ├──► CNN, BBC, Reuters, etc.
+        └──► Collect articles, headlines, links
+
+Step 2: Preprocess Data
+        ├──► Extract article text
+        ├──► Remove ads and navigation
+        └──► Tokenize and clean text
+
+Step 3: Extract Features
+        ├──► Keywords (TF-IDF)
+        ├──► Named entities (people, places)
+        └──► Categories (politics, sports)
+
+Step 4: Discover Patterns
+        ├──► Topic modeling (LDA)
+        ├──► Trend detection
+        └──► Sentiment analysis
+
+Step 5: Generate Knowledge
+        ├──► &quot;Technology&quot; trending this week
+        ├──► &quot;Climate change&quot; frequently linked to &quot;politics&quot;
+        └──► Positive sentiment around &quot;sports events&quot;
+</div></code></pre>
+	<h4 id="%E2%9C%85-challenges-in-knowledge-discovery-from-hypertext">✅ Challenges in Knowledge Discovery from
+		Hypertext</h4>
+	<blockquote>
+		<p>PYQ: What are the key challenges involved in the process? (2024-Dec, 7 marks)</p>
+	</blockquote>
+	<table>
+		<thead>
+			<tr>
+				<th>Challenge</th>
+				<th>Description</th>
+				<th>Solution</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><strong>Heterogeneity</strong></td>
+				<td>Different formats, languages, structures</td>
+				<td>Use NLP, multilingual processing</td>
+			</tr>
+			<tr>
+				<td><strong>Noise</strong></td>
+				<td>Ads, navigation, irrelevant content</td>
+				<td>Content extraction algorithms</td>
+			</tr>
+			<tr>
+				<td><strong>Scale</strong></td>
+				<td>Billions of pages</td>
+				<td>Distributed computing (MapReduce)</td>
+			</tr>
+			<tr>
+				<td><strong>Dynamism</strong></td>
+				<td>Frequent content changes</td>
+				<td>Incremental crawling</td>
+			</tr>
+			<tr>
+				<td><strong>Ambiguity</strong></td>
+				<td>Same word, different meanings</td>
+				<td>Word sense disambiguation</td>
+			</tr>
+			<tr>
+				<td><strong>Link Spam</strong></td>
+				<td>Fake links to manipulate rankings</td>
+				<td>Spam detection algorithms</td>
+			</tr>
+			<tr>
+				<td><strong>Deep Web</strong></td>
+				<td>Content behind forms/logins</td>
+				<td>Specialized crawlers</td>
+			</tr>
+			<tr>
+				<td><strong>Multimedia</strong></td>
+				<td>Images, videos, audio</td>
+				<td>Multimodal analysis</td>
+			</tr>
+		</tbody>
+	</table>
+	<h4 id="%E2%9C%85-algorithms-for-hypertext-knowledge-discovery">✅ Algorithms for Hypertext Knowledge Discovery</h4>
+	<ol>
+		<li>
+			<p><strong>PageRank</strong></p>
+			<ul>
+				<li>Measures page importance based on links</li>
+				<li>Used by Google for search ranking</li>
+			</ul>
+		</li>
+		<li>
+			<p><strong>HITS (Hyperlink-Induced Topic Search)</strong></p>
+			<ul>
+				<li>Identifies hubs (link to many) and authorities (linked by many)</li>
+				<li>Useful for topic-specific searches</li>
+			</ul>
+		</li>
+		<li>
+			<p><strong>TF-IDF (Term Frequency-Inverse Document Frequency)</strong></p>
+			<ul>
+				<li>Measures word importance in documents</li>
+				<li>Used for keyword extraction</li>
+			</ul>
+		</li>
+		<li>
+			<p><strong>Latent Dirichlet Allocation (LDA)</strong></p>
+			<ul>
+				<li>Topic modeling algorithm</li>
+				<li>Discovers hidden topics in documents</li>
+			</ul>
+		</li>
+	</ol>
+	<hr>
+	<h2 id="section-2-overview-of-web-mining"><strong>Section 2: Overview of Web Mining</strong></h2>
+	<h3 id="21-what-is-web-mining"><strong>2.1 What is Web Mining?</strong></h3>
+	<blockquote>
+		<p>PYQ: What do you mean by web mining? What are its types? (2022-Feb, 8 marks)<br>
+			PYQ: Define web mining. Explain its various issues and challenges. (2022-Jul, 15 marks)<br>
+			PYQ: Write short notes on Web mining. (2022-Dec, 3 marks; 2024-May, 2.5 marks)</p>
+	</blockquote>
+	<h4 id="%E2%9C%85-definition-of-web-mining">✅ Definition of Web Mining</h4>
+	<p><strong>Web Mining</strong> is the application of data mining techniques to extract knowledge from web data,
+		including web content, web structure, and web usage data.</p>
+	<blockquote>
+		<p><strong>&quot;Web Mining is the use of data mining techniques to automatically discover and extract
+				information from web documents and services.&quot;</strong> — Etzioni (1996)</p>
+	</blockquote>
+	<h4 id="%E2%9C%85-why-web-mining">✅ Why Web Mining?</h4>
+	<table>
+		<thead>
+			<tr>
+				<th>Reason</th>
+				<th>Explanation</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><strong>Information Overload</strong></td>
+				<td>Billions of web pages; need automated analysis</td>
+			</tr>
+			<tr>
+				<td><strong>Business Intelligence</strong></td>
+				<td>Understanding customer behavior online</td>
+			</tr>
+			<tr>
+				<td><strong>Personalization</strong></td>
+				<td>Customizing content for users</td>
+			</tr>
+			<tr>
+				<td><strong>Search Improvement</strong></td>
+				<td>Better search engine results</td>
+			</tr>
+			<tr>
+				<td><strong>E-commerce</strong></td>
+				<td>Product recommendations, market analysis</td>
+			</tr>
+			<tr>
+				<td><strong>Security</strong></td>
+				<td>Detecting web spam, phishing, fraud</td>
+			</tr>
+		</tbody>
+	</table>
+	<h4 id="%E2%9C%85-components-of-web-mining">✅ Components of Web Mining</h4>
+	<pre class="hljs"><code><div>Web Mining Components
+│
+├──► Data Sources
+│    ├──► Web pages (HTML, XML)
+│    ├──► Server logs
+│    ├──► User profiles
+│    ├──► Hyperlinks
+│    └──► Metadata
+│
+├──► Techniques
+│    ├──► Information retrieval
+│    ├──► Natural language processing
+│    ├──► Machine learning
+│    ├──► Database querying
+│    └──► Statistical analysis
+│
+└──► Applications
+     ├──► Search engines
+     ├──► Recommendation systems
+     ├──► Personalization
+     ├──► Web analytics
+     └──► Sentiment analysis
+</div></code></pre>
+	<hr>
+	<h3 id="22-web-mining-taxonomy"><strong>2.2 Web Mining Taxonomy</strong></h3>
+	<blockquote>
+		<p>PYQ: Explain web mining taxonomy, its issues, and challenges. (2024-May, 15 marks)</p>
+	</blockquote>
+	<h4 id="%E2%9C%85-classification-of-web-mining">✅ Classification of Web Mining</h4>
+	<p>Web Mining is categorized into <strong>three main types</strong> based on the type of data being mined:</p>
+	<pre class="hljs"><code><div>┌─────────────────────────────────────────────────────────────────┐
+│                      WEB MINING TAXONOMY                         │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+          ┌───────────────────┼───────────────────┐
+          │                   │                   │
+          ▼                   ▼                   ▼
+    ┌───────────┐       ┌───────────┐       ┌───────────┐
+    │   WEB     │       │   WEB     │       │   WEB     │
+    │ CONTENT   │       │ STRUCTURE │       │  USAGE    │
+    │  MINING   │       │  MINING   │       │  MINING   │
+    └─────┬─────┘       └─────┬─────┘       └─────┬─────┘
+          │                   │                   │
+    ┌─────┴─────┐       ┌─────┴──────┐       ┌─────┴─────┐
+    │• Text     │       │• Hyperlinks│       │• Server   │
+    │• Images   │       │• Document  │       │  Logs     │
+    │• Audio    │       │  Structure │       │• Cookies  │
+    │• Video    │       │• Web Graph │       │• Sessions │
+    └───────────┘       └────────────┘       └───────────┘
+</div></code></pre>
+	<h4 id="%E2%9C%85-1-web-content-mining">✅ 1. Web Content Mining</h4>
+	<p><strong>Definition</strong>: Mining the content of web pages (text, images, audio, video).</p>
+	<p><strong>Data Sources:</strong></p>
+	<ul>
+		<li>HTML/XML documents</li>
+		<li>Text content</li>
+		<li>Multimedia (images, videos, audio)</li>
+		<li>Structured data (tables, lists)</li>
+	</ul>
+	<p><strong>Techniques:</strong></p>
+	<table>
+		<thead>
+			<tr>
+				<th>Technique</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><strong>Text Mining</strong></td>
+				<td>Extracting information from text</td>
+			</tr>
+			<tr>
+				<td><strong>NLP</strong></td>
+				<td>Understanding natural language</td>
+			</tr>
+			<tr>
+				<td><strong>Information Extraction</strong></td>
+				<td>Extracting structured data</td>
+			</tr>
+			<tr>
+				<td><strong>Topic Modeling</strong></td>
+				<td>Discovering hidden topics</td>
+			</tr>
+			<tr>
+				<td><strong>Sentiment Analysis</strong></td>
+				<td>Determining opinions/emotions</td>
+			</tr>
+		</tbody>
+	</table>
+	<p><strong>Applications:</strong></p>
+	<ul>
+		<li>Search engines (Google, Bing)</li>
+		<li>Question answering systems</li>
+		<li>Document summarization</li>
+		<li>Content categorization</li>
+	</ul>
+	<h4 id="%E2%9C%85-2-web-structure-mining">✅ 2. Web Structure Mining</h4>
+	<p><strong>Definition</strong>: Mining the hyperlink structure of the web to discover useful patterns.</p>
+	<p><strong>Data Sources:</strong></p>
+	<ul>
+		<li>Hyperlinks (inlinks, outlinks)</li>
+		<li>Anchor text</li>
+		<li>Document structure (DOM)</li>
+		<li>Site structure</li>
+	</ul>
+	<p><strong>Techniques:</strong></p>
+	<table>
+		<thead>
+			<tr>
+				<th>Technique</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><strong>Link Analysis</strong></td>
+				<td>Analyzing hyperlink patterns</td>
+			</tr>
+			<tr>
+				<td><strong>PageRank</strong></td>
+				<td>Measuring page importance</td>
+			</tr>
+			<tr>
+				<td><strong>HITS Algorithm</strong></td>
+				<td>Finding hubs and authorities</td>
+			</tr>
+			<tr>
+				<td><strong>Community Detection</strong></td>
+				<td>Finding related page groups</td>
+			</tr>
+		</tbody>
+	</table>
+	<p><strong>Applications:</strong></p>
+	<ul>
+		<li>Search engine ranking</li>
+		<li>Web page classification</li>
+		<li>Finding authoritative sources</li>
+		<li>Detecting web spam</li>
+	</ul>
+	<h4 id="%E2%9C%85-3-web-usage-mining">✅ 3. Web Usage Mining</h4>
+	<p><strong>Definition</strong>: Mining user access patterns from web server logs and user data.</p>
+	<p><strong>Data Sources:</strong></p>
+	<ul>
+		<li>Web server logs</li>
+		<li>Proxy server logs</li>
+		<li>Browser cookies</li>
+		<li>User profiles</li>
+		<li>Click-through data</li>
+	</ul>
+	<p><strong>Techniques:</strong></p>
+	<table>
+		<thead>
+			<tr>
+				<th>Technique</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><strong>Session Analysis</strong></td>
+				<td>Identifying user sessions</td>
+			</tr>
+			<tr>
+				<td><strong>Path Analysis</strong></td>
+				<td>Finding navigation patterns</td>
+			</tr>
+			<tr>
+				<td><strong>Clickstream Mining</strong></td>
+				<td>Analyzing click sequences</td>
+			</tr>
+			<tr>
+				<td><strong>Collaborative Filtering</strong></td>
+				<td>Finding similar users</td>
+			</tr>
+		</tbody>
+	</table>
+	<p><strong>Applications:</strong></p>
+	<ul>
+		<li>Personalization</li>
+		<li>Recommendation systems</li>
+		<li>Website optimization</li>
+		<li>User behavior prediction</li>
+	</ul>
+	<h4 id="%E2%9C%85-comparison-of-web-mining-types">✅ Comparison of Web Mining Types</h4>
+	<table>
+		<thead>
+			<tr>
+				<th>Aspect</th>
+				<th>Content Mining</th>
+				<th>Structure Mining</th>
+				<th>Usage Mining</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><strong>Data</strong></td>
+				<td>Page content</td>
+				<td>Hyperlinks</td>
+				<td>Server logs</td>
+			</tr>
+			<tr>
+				<td><strong>Focus</strong></td>
+				<td>What is said</td>
+				<td>How pages connect</td>
+				<td>How users behave</td>
+			</tr>
+			<tr>
+				<td><strong>View</strong></td>
+				<td>Intra-page</td>
+				<td>Inter-page</td>
+				<td>User interaction</td>
+			</tr>
+			<tr>
+				<td><strong>Algorithms</strong></td>
+				<td>NLP, ML</td>
+				<td>Graph algorithms</td>
+				<td>Sequential patterns</td>
+			</tr>
+			<tr>
+				<td><strong>Output</strong></td>
+				<td>Topics, entities</td>
+				<td>Rankings, communities</td>
+				<td>Patterns, profiles</td>
+			</tr>
+		</tbody>
+	</table>
+	<hr>
+	<h3 id="23-web-mining-subtasks"><strong>2.3 Web Mining Subtasks</strong></h3>
+	<blockquote>
+		<p>PYQ: What are web mining subtasks? Discuss in detail with a suitable example. (2022-Feb, 7 marks)<br>
+			PYQ: Explain web mining subtasks, issues, and challenges. (2023, 15 marks)</p>
+	</blockquote>
+	<h4 id="%E2%9C%85-overview-of-web-mining-subtasks">✅ Overview of Web Mining Subtasks</h4>
+	<p>Web Mining consists of several interconnected subtasks that work together to extract knowledge from web data:</p>
+	<pre class="hljs"><code><div>Web Mining Subtasks
+│
+├──► Resource Discovery
+│    └──► Finding relevant web resources
+│
+├──► Information Selection &amp; Preprocessing
+│    └──► Selecting and preparing data
+│
+├──► Generalization
+│    └──► Discovering patterns
+│
+└──► Analysis
+     └──► Interpreting results
+</div></code></pre>
+	<h4 id="%E2%9C%85-subtask-1-resource-discovery">✅ Subtask 1: Resource Discovery</h4>
+	<p><strong>Purpose</strong>: Locating and retrieving relevant web documents and resources.</p>
+	<p><strong>Activities:</strong></p>
+	<ul>
+		<li><strong>Web Crawling</strong>: Automated traversal of the web to collect pages</li>
+		<li><strong>Focused Crawling</strong>: Targeting specific topics or domains</li>
+		<li><strong>Deep Web Access</strong>: Retrieving content behind forms and databases</li>
+		<li><strong>API Integration</strong>: Collecting data from web services</li>
+	</ul>
+	<p><strong>Tools:</strong></p>
+	<ul>
+		<li>Web crawlers (Scrapy, Apache Nutch)</li>
+		<li>Search engine APIs (Google, Bing)</li>
+		<li>Web scraping tools (BeautifulSoup, Selenium)</li>
+	</ul>
+	<h4 id="%E2%9C%85-subtask-2-information-selection-and-preprocessing">✅ Subtask 2: Information Selection and
+		Preprocessing</h4>
+	<p><strong>Purpose</strong>: Extracting and cleaning relevant information from collected resources.</p>
+	<p><strong>Activities:</strong></p>
+	<table>
+		<thead>
+			<tr>
+				<th>Activity</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><strong>HTML Parsing</strong></td>
+				<td>Extracting content from HTML tags</td>
+			</tr>
+			<tr>
+				<td><strong>Noise Removal</strong></td>
+				<td>Removing ads, navigation, scripts</td>
+			</tr>
+			<tr>
+				<td><strong>Text Extraction</strong></td>
+				<td>Getting clean text content</td>
+			</tr>
+			<tr>
+				<td><strong>Feature Selection</strong></td>
+				<td>Identifying important attributes</td>
+			</tr>
+			<tr>
+				<td><strong>Data Transformation</strong></td>
+				<td>Converting to suitable format</td>
+			</tr>
+		</tbody>
+	</table>
+	<p><strong>Example Process:</strong></p>
+	<pre class="hljs"><code><div>Raw HTML Page
+    │
+    ▼
+┌──────────────────┐
+│ Remove HTML tags │
+│ Remove scripts   │
+│ Remove CSS       │
+└────────┬─────────┘
+         │
+         ▼
+┌──────────────────┐
+│ Extract text     │
+│ Tokenize         │
+│ Remove stopwords │
+└────────┬─────────┘
+         │
+         ▼
+┌──────────────────┐
+│ Stemming         │
+│ Feature vectors  │
+│ TF-IDF scores    │
+└──────────────────┘
+</div></code></pre>
+	<h4 id="%E2%9C%85-subtask-3-generalization-pattern-discovery">✅ Subtask 3: Generalization (Pattern Discovery)</h4>
+	<p><strong>Purpose</strong>: Applying data mining algorithms to discover patterns and knowledge.</p>
+	<p><strong>Techniques Used:</strong></p>
+	<table>
+		<thead>
+			<tr>
+				<th>Technique</th>
+				<th>Application in Web Mining</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><strong>Clustering</strong></td>
+				<td>Grouping similar web pages</td>
+			</tr>
+			<tr>
+				<td><strong>Classification</strong></td>
+				<td>Categorizing web content</td>
+			</tr>
+			<tr>
+				<td><strong>Association Rules</strong></td>
+				<td>Finding co-occurring elements</td>
+			</tr>
+			<tr>
+				<td><strong>Sequential Patterns</strong></td>
+				<td>Discovering navigation paths</td>
+			</tr>
+			<tr>
+				<td><strong>Link Analysis</strong></td>
+				<td>Finding important pages</td>
+			</tr>
+		</tbody>
+	</table>
+	<p><strong>Example</strong>: Clustering news articles by topic</p>
+	<pre class="hljs"><code><div>Input: 1000 news articles
+    │
+    ▼
+K-Means Clustering (k=10)
+    │
+    ▼
+Output: 10 topic clusters
+├── Cluster 1: Politics (150 articles)
+├── Cluster 2: Sports (200 articles)
+├── Cluster 3: Technology (120 articles)
+├── Cluster 4: Entertainment (180 articles)
+└── ... and so on
+</div></code></pre>
+	<h4 id="%E2%9C%85-subtask-4-analysis-and-validation">✅ Subtask 4: Analysis and Validation</h4>
+	<p><strong>Purpose</strong>: Interpreting discovered patterns and validating their usefulness.</p>
+	<p><strong>Activities:</strong></p>
+	<ul>
+		<li><strong>Pattern Evaluation</strong>: Assessing pattern quality and significance</li>
+		<li><strong>Visualization</strong>: Presenting results graphically</li>
+		<li><strong>Validation</strong>: Verifying patterns against domain knowledge</li>
+		<li><strong>Interpretation</strong>: Understanding what patterns mean</li>
+		<li><strong>Application</strong>: Using knowledge for decision-making</li>
+	</ul>
+	<p><strong>Metrics for Evaluation:</strong></p>
+	<ul>
+		<li><strong>Support</strong>: How frequently a pattern occurs</li>
+		<li><strong>Confidence</strong>: Reliability of the pattern</li>
+		<li><strong>Lift</strong>: Strength of association</li>
+		<li><strong>Precision/Recall</strong>: Accuracy of classification</li>
+	</ul>
+	<hr>
+	<h3 id="24-web-mining-issues-and-challenges"><strong>2.4 Web Mining Issues and Challenges</strong></h3>
+	<blockquote>
+		<p>PYQ: Define web mining. Explain its various issues and challenges. (2022-Jul, 15 marks)<br>
+			PYQ: What are the key issues in web mining? (2022-Feb, 8 marks)<br>
+			PYQ: Discuss the key issues and challenges faced in web mining. (2024-Dec, 8 marks)</p>
+	</blockquote>
+	<h4 id="%E2%9C%85-major-issues-in-web-mining">✅ Major Issues in Web Mining</h4>
+	<pre class="hljs"><code><div>Web Mining Issues
+│
+├──► Data-Related Issues
+│    ├──► Volume (scale)
+│    ├──► Variety (heterogeneity)
+│    ├──► Velocity (dynamism)
+│    └──► Veracity (quality)
+│
+├──► Technical Issues
+│    ├──► Crawling efficiency
+│    ├──► Storage requirements
+│    ├──► Processing complexity
+│    └──► Algorithm scalability
+│
+├──► Semantic Issues
+│    ├──► Ambiguity
+│    ├──► Context understanding
+│    ├──► Multilingual content
+│    └──► Synonymy/Polysemy
+│
+└──► Ethical Issues
+     ├──► Privacy concerns
+     ├──► Copyright violations
+     └──► Data misuse
+</div></code></pre>
+	<h4 id="%E2%9C%85-detailed-challenges">✅ Detailed Challenges</h4>
+	<table>
+		<thead>
+			<tr>
+				<th>Challenge</th>
+				<th>Description</th>
+				<th>Impact</th>
+				<th>Solution Approach</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><strong>Scalability</strong></td>
+				<td>Billions of web pages to process</td>
+				<td>High computational cost</td>
+				<td>Distributed computing, sampling</td>
+			</tr>
+			<tr>
+				<td><strong>Heterogeneity</strong></td>
+				<td>Different formats (HTML, PDF, images)</td>
+				<td>Complex preprocessing</td>
+				<td>Multi-format parsers, NLP</td>
+			</tr>
+			<tr>
+				<td><strong>Dynamism</strong></td>
+				<td>Web content changes frequently</td>
+				<td>Outdated information</td>
+				<td>Incremental crawling, change detection</td>
+			</tr>
+			<tr>
+				<td><strong>Noise</strong></td>
+				<td>Ads, navigation, irrelevant content</td>
+				<td>Poor mining quality</td>
+				<td>Content extraction algorithms</td>
+			</tr>
+			<tr>
+				<td><strong>Redundancy</strong></td>
+				<td>Same information on multiple pages</td>
+				<td>Wasted resources</td>
+				<td>Duplicate detection, deduplication</td>
+			</tr>
+			<tr>
+				<td><strong>Sparsity</strong></td>
+				<td>Useful information is sparse</td>
+				<td>Low signal-to-noise ratio</td>
+				<td>Feature selection, filtering</td>
+			</tr>
+			<tr>
+				<td><strong>Privacy</strong></td>
+				<td>User data collection concerns</td>
+				<td>Legal and ethical issues</td>
+				<td>Anonymization, consent mechanisms</td>
+			</tr>
+			<tr>
+				<td><strong>Spam</strong></td>
+				<td>Fake content to manipulate rankings</td>
+				<td>Misleading results</td>
+				<td>Spam detection algorithms</td>
+			</tr>
+			<tr>
+				<td><strong>Deep Web</strong></td>
+				<td>Content behind logins/forms</td>
+				<td>Incomplete coverage</td>
+				<td>Specialized crawlers, APIs</td>
+			</tr>
+			<tr>
+				<td><strong>Multilingual</strong></td>
+				<td>Content in many languages</td>
+				<td>Complex analysis</td>
+				<td>Machine translation, multilingual NLP</td>
+			</tr>
+		</tbody>
+	</table>
+	<h4 id="%E2%9C%85-technical-challenges-in-detail">✅ Technical Challenges in Detail</h4>
+	<h5 id="1-web-crawling-challenges">1. <strong>Web Crawling Challenges</strong></h5>
+	<table>
+		<thead>
+			<tr>
+				<th>Issue</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><strong>Politeness</strong></td>
+				<td>Respecting robots.txt and server limits</td>
+			</tr>
+			<tr>
+				<td><strong>Freshness</strong></td>
+				<td>Keeping crawled data up-to-date</td>
+			</tr>
+			<tr>
+				<td><strong>Coverage</strong></td>
+				<td>Reaching all relevant pages</td>
+			</tr>
+			<tr>
+				<td><strong>Efficiency</strong></td>
+				<td>Minimizing bandwidth and time</td>
+			</tr>
+			<tr>
+				<td><strong>Traps</strong></td>
+				<td>Avoiding infinite loops (spider traps)</td>
+			</tr>
+		</tbody>
+	</table>
+	<h5 id="2-data-quality-challenges">2. <strong>Data Quality Challenges</strong></h5>
+	<pre class="hljs"><code><div>Data Quality Problems
+│
+├──► Incomplete Data
+│    └──► Missing pages, broken links
+│
+├──► Inconsistent Data
+│    └──► Same entity, different representations
+│
+├──► Inaccurate Data
+│    └──► Outdated, incorrect information
+│
+├──► Noisy Data
+│    └──► Ads, boilerplate, irrelevant content
+│
+└──► Biased Data
+     └──► Over-representation of popular sites
+</div></code></pre>
+	<h5 id="3-semantic-challenges">3. <strong>Semantic Challenges</strong></h5>
+	<table>
+		<thead>
+			<tr>
+				<th>Challenge</th>
+				<th>Example</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><strong>Synonymy</strong></td>
+				<td>&quot;car&quot; = &quot;automobile&quot; = &quot;vehicle&quot;</td>
+			</tr>
+			<tr>
+				<td><strong>Polysemy</strong></td>
+				<td>&quot;bank&quot; = financial institution OR river bank</td>
+			</tr>
+			<tr>
+				<td><strong>Context</strong></td>
+				<td>&quot;Apple&quot; = fruit OR company</td>
+			</tr>
+			<tr>
+				<td><strong>Sarcasm</strong></td>
+				<td>&quot;Great service!&quot; (could be negative)</td>
+			</tr>
+			<tr>
+				<td><strong>Implicit meaning</strong></td>
+				<td>Understanding unstated information</td>
+			</tr>
+		</tbody>
+	</table>
+	<h4 id="%E2%9C%85-solutions-to-web-mining-challenges">✅ Solutions to Web Mining Challenges</h4>
+	<table>
+		<thead>
+			<tr>
+				<th>Challenge</th>
+				<th>Solution</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><strong>Scale</strong></td>
+				<td>MapReduce, Spark, distributed systems</td>
+			</tr>
+			<tr>
+				<td><strong>Heterogeneity</strong></td>
+				<td>Universal parsers, format converters</td>
+			</tr>
+			<tr>
+				<td><strong>Dynamism</strong></td>
+				<td>Change detection, incremental updates</td>
+			</tr>
+			<tr>
+				<td><strong>Noise</strong></td>
+				<td>Machine learning classifiers, DOM analysis</td>
+			</tr>
+			<tr>
+				<td><strong>Privacy</strong></td>
+				<td>Differential privacy, anonymization</td>
+			</tr>
+			<tr>
+				<td><strong>Spam</strong></td>
+				<td>Link analysis, content-based detection</td>
+			</tr>
+			<tr>
+				<td><strong>Multilingual</strong></td>
+				<td>Neural machine translation, multilingual embeddings</td>
+			</tr>
+		</tbody>
+	</table>
+	<hr>
+	<h3 id="25-applications-of-web-mining"><strong>2.5 Applications of Web Mining</strong></h3>
+	<blockquote>
+		<p>PYQ: What are some common applications of web mining? How do they benefit from web mining techniques to
+			improve decision-making processes? (2024-Dec, 7 marks)<br>
+			PYQ: List various applications of web mining. (2024-Dec, 8 marks)</p>
+	</blockquote>
+	<h4 id="%E2%9C%85-major-applications">✅ Major Applications</h4>
+	<table>
+		<thead>
+			<tr>
+				<th>Domain</th>
+				<th>Application</th>
+				<th>Benefit</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><strong>Search Engines</strong></td>
+				<td>Google, Bing, DuckDuckGo</td>
+				<td>Relevant search results</td>
+			</tr>
+			<tr>
+				<td><strong>E-commerce</strong></td>
+				<td>Amazon, Flipkart recommendations</td>
+				<td>Increased sales</td>
+			</tr>
+			<tr>
+				<td><strong>Social Media</strong></td>
+				<td>Trend detection, sentiment analysis</td>
+				<td>User engagement</td>
+			</tr>
+			<tr>
+				<td><strong>Marketing</strong></td>
+				<td>Customer segmentation, targeting</td>
+				<td>Better ROI</td>
+			</tr>
+			<tr>
+				<td><strong>Security</strong></td>
+				<td>Fraud detection, phishing prevention</td>
+				<td>Risk reduction</td>
+			</tr>
+			<tr>
+				<td><strong>Healthcare</strong></td>
+				<td>Medical information retrieval</td>
+				<td>Better patient care</td>
+			</tr>
+			<tr>
+				<td><strong>Education</strong></td>
+				<td>E-learning personalization</td>
+				<td>Improved outcomes</td>
+			</tr>
+			<tr>
+				<td><strong>News</strong></td>
+				<td>Topic tracking, fake news detection</td>
+				<td>Informed readers</td>
+			</tr>
+		</tbody>
+	</table>
+	<h4 id="%E2%9C%85-application-examples">✅ Application Examples</h4>
+	<h5 id="1-search-engine-optimization-seo">1. <strong>Search Engine Optimization (SEO)</strong></h5>
+	<ul>
+		<li>Analyzing web structure for ranking</li>
+		<li>Keyword analysis and optimization</li>
+		<li>Competitor analysis</li>
+	</ul>
+	<h5 id="2-recommendation-systems">2. <strong>Recommendation Systems</strong></h5>
+	<ul>
+		<li>Product recommendations (Amazon)</li>
+		<li>Content recommendations (Netflix, YouTube)</li>
+		<li>Friend suggestions (Facebook, LinkedIn)</li>
+	</ul>
+	<h5 id="3-web-analytics">3. <strong>Web Analytics</strong></h5>
+	<ul>
+		<li>User behavior analysis</li>
+		<li>Conversion optimization</li>
+		<li>A/B testing insights</li>
+	</ul>
+	<h5 id="4-competitive-intelligence">4. <strong>Competitive Intelligence</strong></h5>
+	<ul>
+		<li>Market trend analysis</li>
+		<li>Competitor monitoring</li>
+		<li>Price comparison</li>
+	</ul>
+	<h5 id="5-customer-relationship-management-crm">5. <strong>Customer Relationship Management (CRM)</strong></h5>
+	<ul>
+		<li>Customer profiling</li>
+		<li>Churn prediction</li>
+		<li>Personalized marketing</li>
+	</ul>
+	<hr>
+	<h2 id="summary-table-unit-1-key-concepts"><strong>Summary Table: Unit 1 Key Concepts</strong></h2>
+	<table>
+		<thead>
+			<tr>
+				<th>Topic</th>
+				<th>Key Points</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><strong>Data Mining</strong></td>
+				<td>KDD process, techniques (classification, clustering), applications</td>
+			</tr>
+			<tr>
+				<td><strong>Web Mining vs Data Mining</strong></td>
+				<td>Data source, structure, dynamism, challenges</td>
+			</tr>
+			<tr>
+				<td><strong>Hypertext Knowledge Discovery</strong></td>
+				<td>Crawling, preprocessing, feature extraction, pattern discovery</td>
+			</tr>
+			<tr>
+				<td><strong>Web Mining Taxonomy</strong></td>
+				<td>Content mining, structure mining, usage mining</td>
+			</tr>
+			<tr>
+				<td><strong>Web Mining Subtasks</strong></td>
+				<td>Resource discovery, preprocessing, generalization, analysis</td>
+			</tr>
+			<tr>
+				<td><strong>Issues &amp; Challenges</strong></td>
+				<td>Scale, heterogeneity, dynamism, noise, privacy, spam</td>
+			</tr>
+			<tr>
+				<td><strong>Applications</strong></td>
+				<td>Search engines, e-commerce, social media, security</td>
+			</tr>
+		</tbody>
+	</table>
+	<hr>
+	<h2 id="quick-revision-important-definitions"><strong>Quick Revision: Important Definitions</strong></h2>
+	<table>
+		<thead>
+			<tr>
+				<th>Term</th>
+				<th>Definition</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><strong>Data Mining</strong></td>
+				<td>Extracting patterns from large databases using statistical and ML techniques</td>
+			</tr>
+			<tr>
+				<td><strong>Web Mining</strong></td>
+				<td>Applying data mining to extract knowledge from web data</td>
+			</tr>
+			<tr>
+				<td><strong>Hypertext</strong></td>
+				<td>Text with hyperlinks to other documents</td>
+			</tr>
+			<tr>
+				<td><strong>Web Content Mining</strong></td>
+				<td>Mining the content of web pages</td>
+			</tr>
+			<tr>
+				<td><strong>Web Structure Mining</strong></td>
+				<td>Mining the hyperlink structure of the web</td>
+			</tr>
+			<tr>
+				<td><strong>Web Usage Mining</strong></td>
+				<td>Mining user access patterns from logs</td>
+			</tr>
+			<tr>
+				<td><strong>Knowledge Discovery</strong></td>
+				<td>Process of extracting useful knowledge from data</td>
+			</tr>
+			<tr>
+				<td><strong>Web Crawler</strong></td>
+				<td>Program that automatically traverses the web</td>
+			</tr>
+		</tbody>
+	</table>
+	<hr>
+	<h2 id="expected-questions-for-exam"><strong>Expected Questions for Exam</strong></h2>
+	<h3 id="15-marks-questions">15 Marks Questions</h3>
+	<ol>
+		<li>Web Mining vs Data Mining (with comparison table)</li>
+		<li>Knowledge Discovery from Hypertext Data (with process diagram)</li>
+		<li>Web Mining Taxonomy (all three types in detail)</li>
+		<li>Web Mining Issues and Challenges (comprehensive list)</li>
+	</ol>
+	<h3 id="7-8-marks-questions">7-8 Marks Questions</h3>
+	<ol>
+		<li>Applications of Data Mining in Healthcare</li>
+		<li>Web Mining Subtasks</li>
+		<li>Social Impacts of Data Mining</li>
+		<li>Spatial Data Mining</li>
+	</ol>
+	<h3 id="25-3-marks-questions">2.5-3 Marks Questions</h3>
+	<ol>
+		<li>Define Mining / Data Mining / Web Mining</li>
+		<li>What is Hypertext Data?</li>
+		<li>Types of Web Mining</li>
+		<li>Any two challenges in Web Mining</li>
+	</ol>
+	<hr>
+	<p><em>These notes were compiled by <a href="https://deepakmodi.tech">Deepak Modi</a></em><br>
+		<em>Last updated: December 2025</em>
+	</p>
+
+</body>
+
+</html>
