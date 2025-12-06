@@ -80,8 +80,6 @@ The goal of IR is to retrieve documents that are **relevant** to the user's info
 
 ### 1.3 Components of IR System
 
-> PYQ: Explain the components of information retrieval in detail. (2022-Jul, 15 marks)
-
 #### 1. Document Collection
 - The set of documents to be searched
 - Can include web pages, PDFs, emails, articles
@@ -133,8 +131,6 @@ Term        → Document List (with positions)
 - Provides relevance feedback mechanism
 
 ### 1.4 IR Process Steps
-
-> PYQ: What are the steps of the information retrieval process? (2022-Feb, 8 marks)
 
 1. **Query Formulation**: User enters search query expressing information need
 2. **Query Processing**: Tokenize, remove stop words, stem, expand with synonyms
@@ -495,8 +491,6 @@ Text Collection → Preprocessing → Feature Extraction → Analysis → Knowle
 
 ### 5.3 How LSI Works
 
-> PYQ: How does latent semantic analysis work? (2022-Feb, 15 marks)
-
 #### Step 1: Create Term-Document Matrix
 
 ```
@@ -560,8 +554,6 @@ Query: "automobile"
 ```
 
 ### 5.5 LSI for SEO
-
-> PYQ: How to use LSI keywords to boost SEO? (2022-Feb)
 
 | Strategy | Description |
 |----------|-------------|
