@@ -1,0 +1,3377 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>vue-nuxt-notes.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="vuejs--nuxtjs-master-notes-by-deepak-modi">Vue.js &amp; Nuxt.js Master Notes By Deepak Modi</h1>
+<blockquote>
+<p>Latest Versions: Vue 3.5.24 | Nuxt 4.2.1 (2025) | Recommended: Vue.js &amp; Nuxt Official Docs</p>
+</blockquote>
+<hr>
+<h1 id="part-1-vuejs">Part 1: Vue.js</h1>
+<h2 id="table-of-contents---vuejs">Table of Contents - Vue.js</h2>
+<ol>
+<li>
+<p><a href="#1-introduction-to-vuejs">Introduction to Vue.js</a></p>
+<ul>
+<li><a href="#11-what-is-vuejs">1.1 What is Vue.js?</a></li>
+<li><a href="#12-why-vuejs">1.2 Why Vue.js?</a></li>
+<li><a href="#13-vue-3-new-features">1.3 Vue 3 New Features</a></li>
+<li><a href="#14-vue-vs-react-vs-angular">1.4 Vue vs React vs Angular</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#2-installation-and-setup">Installation and Setup</a></p>
+<ul>
+<li><a href="#21-installation-methods">2.1 Installation Methods</a></li>
+<li><a href="#22-project-structure">2.2 Project Structure</a></li>
+<li><a href="#23-development-tools">2.3 Development Tools</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#3-vue-fundamentals">Vue Fundamentals</a></p>
+<ul>
+<li><a href="#31-template-syntax">3.1 Template Syntax</a></li>
+<li><a href="#32-data-binding">3.2 Data Binding</a></li>
+<li><a href="#33-directives">3.3 Directives</a></li>
+<li><a href="#34-event-handling">3.4 Event Handling</a></li>
+<li><a href="#35-computed-properties">3.5 Computed Properties</a></li>
+<li><a href="#36-watchers">3.6 Watchers</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#4-components">Components</a></p>
+<ul>
+<li><a href="#41-component-basics">4.1 Component Basics</a></li>
+<li><a href="#42-props">4.2 Props</a></li>
+<li><a href="#43-events">4.3 Events</a></li>
+<li><a href="#44-slots">4.4 Slots</a></li>
+<li><a href="#45-component-registration">4.5 Component Registration</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#5-composition-api">Composition API</a></p>
+<ul>
+<li><a href="#51-setup-function">5.1 Setup Function</a></li>
+<li><a href="#52-reactive-state">5.2 Reactive State</a></li>
+<li><a href="#53-computed-and-watch">5.3 Computed and Watch</a></li>
+<li><a href="#54-lifecycle-hooks">5.4 Lifecycle Hooks</a></li>
+<li><a href="#55-composables">5.5 Composables</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#6-vue-router">Vue Router</a></p>
+<ul>
+<li><a href="#61-router-setup">6.1 Router Setup</a></li>
+<li><a href="#62-navigation">6.2 Navigation</a></li>
+<li><a href="#63-dynamic-routes">6.3 Dynamic Routes</a></li>
+<li><a href="#64-route-guards">6.4 Route Guards</a></li>
+<li><a href="#65-nested-routes">6.5 Nested Routes</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#7-state-management-pinia">State Management (Pinia)</a></p>
+<ul>
+<li><a href="#71-pinia-setup">7.1 Pinia Setup</a></li>
+<li><a href="#72-stores">7.2 Stores</a></li>
+<li><a href="#73-state-getters-actions">7.3 State, Getters, Actions</a></li>
+<li><a href="#74-store-composition">7.4 Store Composition</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#8-advanced-features">Advanced Features</a></p>
+<ul>
+<li><a href="#81-teleport">8.1 Teleport</a></li>
+<li><a href="#82-suspense">8.2 Suspense</a></li>
+<li><a href="#83-provideinject">8.3 Provide/Inject</a></li>
+<li><a href="#84-custom-directives">8.4 Custom Directives</a></li>
+<li><a href="#85-plugins">8.5 Plugins</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#9-performance-optimization">Performance Optimization</a></p>
+<ul>
+<li><a href="#91-lazy-loading">9.1 Lazy Loading</a></li>
+<li><a href="#92-keep-alive">9.2 Keep-Alive</a></li>
+<li><a href="#93-virtual-scrolling">9.3 Virtual Scrolling</a></li>
+<li><a href="#94-production-build">9.4 Production Build</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#10-vue-interview-questions">Vue Interview Questions</a></p>
+<ul>
+<li><a href="#101-fundamental-questions">10.1 Fundamental Questions</a></li>
+<li><a href="#102-advanced-questions">10.2 Advanced Questions</a></li>
+<li><a href="#103-practical-questions">10.3 Practical Questions</a></li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="1-introduction-to-vuejs">1. Introduction to Vue.js</h2>
+<h3 id="11-what-is-vuejs">1.1 What is Vue.js?</h3>
+<p>Vue.js is a <strong>progressive JavaScript framework</strong> for building user interfaces. It focuses on the view layer and is designed to be incrementally adoptable.</p>
+<blockquote>
+<p><strong>Key Point:</strong> Vue is progressive - you can use as little or as much as you need. Start with a simple script tag or build a full SPA.</p>
+</blockquote>
+<h4 id="core-features">Core Features</h4>
+<ul>
+<li><strong>Declarative Rendering:</strong> Template-based syntax</li>
+<li><strong>Component System:</strong> Reusable, composable components</li>
+<li><strong>Reactivity System:</strong> Automatic UI updates</li>
+<li><strong>Virtual DOM:</strong> Efficient rendering</li>
+<li><strong>Single File Components:</strong> HTML, CSS, JS in one file</li>
+<li><strong>Composition API:</strong> Better code organization</li>
+</ul>
+<h4 id="real-world-usage">Real-World Usage</h4>
+<p>Companies using Vue.js: Alibaba, Xiaomi, GitLab, Adobe, Nintendo, Grammarly, Laravel</p>
+<h3 id="12-why-vuejs">1.2 Why Vue.js?</h3>
+<h4 id="advantages">Advantages</h4>
+<ol>
+<li><strong>Easy to Learn:</strong> Simple, intuitive API</li>
+<li><strong>Progressive Framework:</strong> Use what you need</li>
+<li><strong>Great Documentation:</strong> Clear, comprehensive docs</li>
+<li><strong>Small Bundle Size:</strong> ~33KB min+gzip</li>
+<li><strong>Fast Performance:</strong> Optimized virtual DOM</li>
+<li><strong>Flexible:</strong> Works with any backend</li>
+<li><strong>Great Tooling:</strong> Vue DevTools, Vite, etc.</li>
+<li><strong>Active Community:</strong> Large ecosystem</li>
+</ol>
+<h4 id="disadvantages">Disadvantages</h4>
+<ol>
+<li><strong>Smaller Ecosystem:</strong> Compared to React</li>
+<li><strong>Language Barrier:</strong> Some resources in Chinese</li>
+<li><strong>Less Corporate Backing:</strong> Compared to React/Angular</li>
+<li><strong>Over-flexibility:</strong> Multiple ways to do things</li>
+</ol>
+<h4 id="when-to-use-vuejs">When to Use Vue.js</h4>
+<ul>
+<li>Building SPAs (Single Page Applications)</li>
+<li>Progressive enhancement of existing apps</li>
+<li>Rapid prototyping</li>
+<li>Small to large scale applications</li>
+<li>Teams wanting gentle learning curve</li>
+</ul>
+<h3 id="13-vue-3-new-features">1.3 Vue 3 New Features</h3>
+<h4 id="major-updates-in-vue-3">Major Updates in Vue 3</h4>
+<p><strong>1. Composition API</strong></p>
+<ul>
+<li>Better code organization</li>
+<li>Improved TypeScript support</li>
+<li>Better logic reuse</li>
+<li>More flexible than Options API</li>
+</ul>
+<p><strong>2. Performance Improvements</strong></p>
+<ul>
+<li>Faster mounting/patching</li>
+<li>Smaller bundle size</li>
+<li>Better memory usage</li>
+<li>Tree-shaking support</li>
+</ul>
+<p><strong>3. Multiple Root Elements (Fragments)</strong></p>
+<ul>
+<li>No need for wrapper divs</li>
+<li>Cleaner templates</li>
+<li>Better component composition</li>
+</ul>
+<p><strong>4. Teleport</strong></p>
+<ul>
+<li>Render content outside component hierarchy</li>
+<li>Great for modals, tooltips</li>
+<li>Better DOM structure control</li>
+</ul>
+<p><strong>5. Suspense</strong></p>
+<ul>
+<li>Handle async components</li>
+<li>Better loading states</li>
+<li>Cleaner async code</li>
+</ul>
+<p><strong>6. Better TypeScript Support</strong></p>
+<ul>
+<li>Full TypeScript rewrite</li>
+<li>Better type inference</li>
+<li>Improved IDE support</li>
+</ul>
+<p><strong>7. Custom Renderer API</strong></p>
+<ul>
+<li>Create custom renderers</li>
+<li>Render to different targets</li>
+<li>More flexibility</li>
+</ul>
+<p><strong>8. Script Setup (Vue 3.2+)</strong></p>
+<ul>
+<li>Less boilerplate</li>
+<li>Better performance</li>
+<li>Cleaner syntax</li>
+</ul>
+<h3 id="14-vue-vs-react-vs-angular">1.4 Vue vs React vs Angular</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Vue.js</th>
+<th>React</th>
+<th>Angular</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Type</td>
+<td>Framework</td>
+<td>Library</td>
+<td>Framework</td>
+</tr>
+<tr>
+<td>Learning Curve</td>
+<td>Easy</td>
+<td>Moderate</td>
+<td>Steep</td>
+</tr>
+<tr>
+<td>Bundle Size</td>
+<td>Small (~33KB)</td>
+<td>Small (~40KB)</td>
+<td>Large (~100KB)</td>
+</tr>
+<tr>
+<td>Performance</td>
+<td>Fast</td>
+<td>Fast</td>
+<td>Fast</td>
+</tr>
+<tr>
+<td>TypeScript</td>
+<td>Optional</td>
+<td>Optional</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>State Management</td>
+<td>Pinia/Vuex</td>
+<td>Redux/Context</td>
+<td>RxJS/NgRx</td>
+</tr>
+<tr>
+<td>Routing</td>
+<td>Vue Router</td>
+<td>React Router</td>
+<td>Built-in</td>
+</tr>
+<tr>
+<td>Template Syntax</td>
+<td>HTML-based</td>
+<td>JSX</td>
+<td>HTML-based</td>
+</tr>
+<tr>
+<td>Two-Way Binding</td>
+<td>Built-in</td>
+<td>Manual</td>
+<td>Built-in</td>
+</tr>
+<tr>
+<td>Mobile</td>
+<td>Ionic/NativeScript</td>
+<td>React Native</td>
+<td>Ionic/NativeScript</td>
+</tr>
+<tr>
+<td>Corporate Backing</td>
+<td>Community</td>
+<td>Meta</td>
+<td>Google</td>
+</tr>
+<tr>
+<td>Flexibility</td>
+<td>High</td>
+<td>Very High</td>
+<td>Moderate</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="2-installation-and-setup">2. Installation and Setup</h2>
+<h3 id="21-installation-methods">2.1 Installation Methods</h3>
+<h4 id="method-1-using-vite-recommended">Method 1: Using Vite (Recommended)</h4>
+<pre class="hljs"><code><div><span class="hljs-comment"># Create new Vue project</span>
+npm create vue@latest
+
+<span class="hljs-comment"># Follow prompts:</span>
+<span class="hljs-comment"># - Project name</span>
+<span class="hljs-comment"># - TypeScript? (Yes/No)</span>
+<span class="hljs-comment"># - JSX? (Yes/No)</span>
+<span class="hljs-comment"># - Vue Router? (Yes/No)</span>
+<span class="hljs-comment"># - Pinia? (Yes/No)</span>
+<span class="hljs-comment"># - Vitest? (Yes/No)</span>
+<span class="hljs-comment"># - ESLint? (Yes/No)</span>
+<span class="hljs-comment"># - Prettier? (Yes/No)</span>
+
+<span class="hljs-built_in">cd</span> project-name
+npm install
+npm run dev
+</div></code></pre>
+<h4 id="method-2-using-cdn-quick-start">Method 2: Using CDN (Quick Start)</h4>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unpkg.com/vue@3/dist/vue.global.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>{{ message }}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+      <span class="hljs-keyword">const</span> { createApp } = Vue;
+
+      createApp({
+        data() {
+          <span class="hljs-keyword">return</span> {
+            message: <span class="hljs-string">"Hello Vue!"</span>,
+          };
+        },
+      }).mount(<span class="hljs-string">"#app"</span>);
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></code></pre>
+<h4 id="method-3-using-vue-cli-legacy">Method 3: Using Vue CLI (Legacy)</h4>
+<pre class="hljs"><code><div>npm install -g @vue/cli
+vue create my-project
+<span class="hljs-built_in">cd</span> my-project
+npm run serve
+</div></code></pre>
+<h3 id="22-project-structure">2.2 Project Structure</h3>
+<pre class="hljs"><code><div>my-vue-app/
+├── public/
+│   └── favicon.ico
+├── src/
+│   ├── assets/          # Static assets
+│   ├── components/      # Vue components
+│   ├── composables/     # Reusable composition functions
+│   ├── router/          # Vue Router config
+│   ├── stores/          # Pinia stores
+│   ├── views/           # Page components
+│   ├── App.vue          # Root component
+│   └── main.js          # Entry point
+├── index.html
+├── package.json
+└── vite.config.js
+</div></code></pre>
+<h3 id="23-development-tools">2.3 Development Tools</h3>
+<h4 id="vue-devtools">Vue DevTools</h4>
+<ul>
+<li>Browser extension for Chrome/Firefox</li>
+<li>Inspect component hierarchy</li>
+<li>Debug Vuex/Pinia stores</li>
+<li>Track events and performance</li>
+<li>Time-travel debugging</li>
+</ul>
+<h4 id="vs-code-extensions">VS Code Extensions</h4>
+<ol>
+<li>
+<p><strong>Volar</strong> (Essential for Vue 3)</p>
+<ul>
+<li>Syntax highlighting</li>
+<li>IntelliSense</li>
+<li>Type checking</li>
+</ul>
+</li>
+<li>
+<p><strong>Vue VSCode Snippets</strong></p>
+<ul>
+<li>Code snippets</li>
+<li>Faster development</li>
+</ul>
+</li>
+<li>
+<p><strong>ESLint</strong></p>
+<ul>
+<li>Code linting</li>
+<li>Style enforcement</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="3-vue-fundamentals">3. Vue Fundamentals</h2>
+<h3 id="31-template-syntax">3.1 Template Syntax</h3>
+<h4 id="text-interpolation">Text Interpolation</h4>
+<pre class="hljs"><code><div>&lt;template&gt;
+  &lt;div&gt;
+    &lt;p&gt;{{ message }}&lt;/p&gt;
+    &lt;p&gt;{{ count + 1 }}&lt;/p&gt;
+    &lt;p&gt;{{ ok ? &quot;YES&quot; : &quot;NO&quot; }}&lt;/p&gt;
+    &lt;p&gt;{{ message.split(&quot;&quot;).reverse().join(&quot;&quot;) }}&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  data() {
+    return {
+      message: &quot;Hello Vue!&quot;,
+      count: 10,
+      ok: true,
+    };
+  },
+};
+&lt;/script&gt;
+</div></code></pre>
+<h4 id="raw-html">Raw HTML</h4>
+<pre class="hljs"><code><div>&lt;template&gt;
+  &lt;div&gt;
+    &lt;p&gt;{{ rawHtml }}&lt;/p&gt;
+    &lt;!-- Renders as text --&gt;
+    &lt;p v-html=&quot;rawHtml&quot;&gt;&lt;/p&gt;
+    &lt;!-- Renders as HTML --&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  data() {
+    return {
+      rawHtml: &quot;&lt;span style='color: red'&gt;Red Text&lt;/span&gt;&quot;,
+    };
+  },
+};
+&lt;/script&gt;
+</div></code></pre>
+<h3 id="32-data-binding">3.2 Data Binding</h3>
+<h4 id="attribute-binding">Attribute Binding</h4>
+<pre class="hljs"><code><div>&lt;template&gt;
+  &lt;div&gt;
+    &lt;!-- Bind attributes --&gt;
+    &lt;img :src=&quot;imageSrc&quot; :alt=&quot;imageAlt&quot; /&gt;
+    &lt;button :disabled=&quot;isDisabled&quot;&gt;Button&lt;/button&gt;
+    &lt;div :class=&quot;className&quot;&gt;Styled div&lt;/div&gt;
+    &lt;div :style=&quot;styleObject&quot;&gt;Inline styles&lt;/div&gt;
+
+    &lt;!-- Shorthand --&gt;
+    &lt;img v-bind:src=&quot;imageSrc&quot; /&gt;
+    &lt;!-- Full syntax --&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  data() {
+    return {
+      imageSrc: &quot;image.jpg&quot;,
+      imageAlt: &quot;Description&quot;,
+      isDisabled: false,
+      className: &quot;active&quot;,
+      styleObject: {
+        color: &quot;red&quot;,
+        fontSize: &quot;14px&quot;,
+      },
+    };
+  },
+};
+&lt;/script&gt;
+</div></code></pre>
+<h4 id="class-binding">Class Binding</h4>
+<pre class="hljs"><code><div>&lt;template&gt;
+  &lt;div&gt;
+    &lt;!-- Object syntax --&gt;
+    &lt;div :class=&quot;{ active: isActive, 'text-danger': hasError }&quot;&gt;Text&lt;/div&gt;
+
+    &lt;!-- Array syntax --&gt;
+    &lt;div :class=&quot;[activeClass, errorClass]&quot;&gt;Text&lt;/div&gt;
+
+    &lt;!-- Mixed --&gt;
+    &lt;div :class=&quot;[{ active: isActive }, errorClass]&quot;&gt;Text&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  data() {
+    return {
+      isActive: true,
+      hasError: false,
+      activeClass: &quot;active&quot;,
+      errorClass: &quot;text-danger&quot;,
+    };
+  },
+};
+&lt;/script&gt;
+</div></code></pre>
+<h4 id="style-binding">Style Binding</h4>
+<pre class="hljs"><code><div>&lt;template&gt;
+  &lt;div&gt;
+    &lt;!-- Object syntax --&gt;
+    &lt;div :style=&quot;{ color: activeColor, fontSize: fontSize + 'px' }&quot;&gt;Text&lt;/div&gt;
+
+    &lt;!-- Array syntax --&gt;
+    &lt;div :style=&quot;[baseStyles, overridingStyles]&quot;&gt;Text&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  data() {
+    return {
+      activeColor: &quot;red&quot;,
+      fontSize: 14,
+      baseStyles: {
+        color: &quot;blue&quot;,
+      },
+      overridingStyles: {
+        fontSize: &quot;16px&quot;,
+      },
+    };
+  },
+};
+&lt;/script&gt;
+</div></code></pre>
+<h3 id="33-directives">3.3 Directives</h3>
+<h4 id="v-if-v-else-if-v-else">v-if, v-else-if, v-else</h4>
+<pre class="hljs"><code><div>&lt;template&gt;
+  &lt;div&gt;
+    &lt;p v-if=&quot;score &gt;= 90&quot;&gt;Grade: A&lt;/p&gt;
+    &lt;p v-else-if=&quot;score &gt;= 80&quot;&gt;Grade: B&lt;/p&gt;
+    &lt;p v-else-if=&quot;score &gt;= 70&quot;&gt;Grade: C&lt;/p&gt;
+    &lt;p v-else&gt;Grade: F&lt;/p&gt;
+
+    &lt;!-- v-show (always rendered, just hidden) --&gt;
+    &lt;p v-show=&quot;isVisible&quot;&gt;This can be toggled&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  data() {
+    return {
+      score: 85,
+      isVisible: true,
+    };
+  },
+};
+&lt;/script&gt;
+</div></code></pre>
+<h4 id="v-for">v-for</h4>
+<pre class="hljs"><code><div>&lt;template&gt;
+  &lt;div&gt;
+    &lt;!-- Array iteration --&gt;
+    &lt;ul&gt;
+      &lt;li v-for=&quot;(item, index) in items&quot; :key=&quot;item.id&quot;&gt;
+        {{ index }}: {{ item.name }}
+      &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;!-- Object iteration --&gt;
+    &lt;ul&gt;
+      &lt;li v-for=&quot;(value, key, index) in user&quot; :key=&quot;key&quot;&gt;
+        {{ index }}. {{ key }}: {{ value }}
+      &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;!-- Range --&gt;
+    &lt;span v-for=&quot;n in 10&quot; :key=&quot;n&quot;&gt;{{ n }} &lt;/span&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  data() {
+    return {
+      items: [
+        { id: 1, name: &quot;Item 1&quot; },
+        { id: 2, name: &quot;Item 2&quot; },
+      ],
+      user: {
+        name: &quot;John&quot;,
+        age: 30,
+        city: &quot;New York&quot;,
+      },
+    };
+  },
+};
+&lt;/script&gt;
+</div></code></pre>
+<h4 id="v-model-two-way-binding">v-model (Two-Way Binding)</h4>
+<pre class="hljs"><code><div>&lt;template&gt;
+  &lt;div&gt;
+    &lt;!-- Text input --&gt;
+    &lt;input v-model=&quot;message&quot; placeholder=&quot;Enter text&quot; /&gt;
+    &lt;p&gt;Message: {{ message }}&lt;/p&gt;
+
+    &lt;!-- Checkbox --&gt;
+    &lt;input type=&quot;checkbox&quot; v-model=&quot;checked&quot; /&gt;
+    &lt;p&gt;Checked: {{ checked }}&lt;/p&gt;
+
+    &lt;!-- Radio --&gt;
+    &lt;input type=&quot;radio&quot; value=&quot;One&quot; v-model=&quot;picked&quot; /&gt;
+    &lt;input type=&quot;radio&quot; value=&quot;Two&quot; v-model=&quot;picked&quot; /&gt;
+    &lt;p&gt;Picked: {{ picked }}&lt;/p&gt;
+
+    &lt;!-- Select --&gt;
+    &lt;select v-model=&quot;selected&quot;&gt;
+      &lt;option disabled value=&quot;&quot;&gt;Please select&lt;/option&gt;
+      &lt;option&gt;A&lt;/option&gt;
+      &lt;option&gt;B&lt;/option&gt;
+      &lt;option&gt;C&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;p&gt;Selected: {{ selected }}&lt;/p&gt;
+
+    &lt;!-- Modifiers --&gt;
+    &lt;input v-model.lazy=&quot;msg&quot; /&gt;
+    &lt;!-- Update on change, not input --&gt;
+    &lt;input v-model.number=&quot;age&quot; type=&quot;number&quot; /&gt;
+    &lt;!-- Auto type conversion --&gt;
+    &lt;input v-model.trim=&quot;text&quot; /&gt;
+    &lt;!-- Trim whitespace --&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  data() {
+    return {
+      message: &quot;&quot;,
+      checked: false,
+      picked: &quot;&quot;,
+      selected: &quot;&quot;,
+      msg: &quot;&quot;,
+      age: 0,
+      text: &quot;&quot;,
+    };
+  },
+};
+&lt;/script&gt;
+</div></code></pre>
+<h3 id="34-event-handling">3.4 Event Handling</h3>
+<pre class="hljs"><code><div>&lt;template&gt;
+  &lt;div&gt;
+    &lt;!-- Basic event --&gt;
+    &lt;button @click=&quot;count++&quot;&gt;Count: {{ count }}&lt;/button&gt;
+
+    &lt;!-- Method handler --&gt;
+    &lt;button @click=&quot;greet&quot;&gt;Greet&lt;/button&gt;
+
+    &lt;!-- Inline handler with argument --&gt;
+    &lt;button @click=&quot;say('hello')&quot;&gt;Say Hello&lt;/button&gt;
+
+    &lt;!-- Event object --&gt;
+    &lt;button @click=&quot;handleClick&quot;&gt;Click Me&lt;/button&gt;
+
+    &lt;!-- Event modifiers --&gt;
+    &lt;form @submit.prevent=&quot;onSubmit&quot;&gt;
+      &lt;button type=&quot;submit&quot;&gt;Submit&lt;/button&gt;
+    &lt;/form&gt;
+
+    &lt;a @click.stop=&quot;doThis&quot;&gt;Stop Propagation&lt;/a&gt;
+    &lt;div @click.self=&quot;doThat&quot;&gt;Only self&lt;/div&gt;
+    &lt;button @click.once=&quot;doOnce&quot;&gt;Click once&lt;/button&gt;
+
+    &lt;!-- Key modifiers --&gt;
+    &lt;input @keyup.enter=&quot;submit&quot; /&gt;
+    &lt;input @keyup.esc=&quot;cancel&quot; /&gt;
+    &lt;input @keyup.ctrl.enter=&quot;send&quot; /&gt;
+
+    &lt;!-- Mouse modifiers --&gt;
+    &lt;button @click.left=&quot;leftClick&quot;&gt;Left Click&lt;/button&gt;
+    &lt;button @click.right=&quot;rightClick&quot;&gt;Right Click&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  data() {
+    return {
+      count: 0,
+    };
+  },
+  methods: {
+    greet() {
+      alert(&quot;Hello!&quot;);
+    },
+    say(message) {
+      alert(message);
+    },
+    handleClick(event) {
+      console.log(event.target);
+    },
+    onSubmit() {
+      console.log(&quot;Form submitted&quot;);
+    },
+    doThis() {},
+    doThat() {},
+    doOnce() {},
+    submit() {},
+    cancel() {},
+    send() {},
+    leftClick() {},
+    rightClick() {},
+  },
+};
+&lt;/script&gt;
+</div></code></pre>
+<h3 id="35-computed-properties">3.5 Computed Properties</h3>
+<pre class="hljs"><code><div>&lt;template&gt;
+  &lt;div&gt;
+    &lt;p&gt;Original: {{ message }}&lt;/p&gt;
+    &lt;p&gt;Reversed: {{ reversedMessage }}&lt;/p&gt;
+    &lt;p&gt;Full Name: {{ fullName }}&lt;/p&gt;
+
+    &lt;!-- Computed vs Method --&gt;
+    &lt;p&gt;{{ computedValue }}&lt;/p&gt;
+    &lt;!-- Cached --&gt;
+    &lt;p&gt;{{ methodValue() }}&lt;/p&gt;
+    &lt;!-- Not cached --&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  data() {
+    return {
+      message: &quot;Hello&quot;,
+      firstName: &quot;John&quot;,
+      lastName: &quot;Doe&quot;,
+    };
+  },
+  computed: {
+    // Getter only
+    reversedMessage() {
+      return this.message.split(&quot;&quot;).reverse().join(&quot;&quot;);
+    },
+
+    // Getter and Setter
+    fullName: {
+      get() {
+        return `${this.firstName} ${this.lastName}`;
+      },
+      set(value) {
+        const names = value.split(&quot; &quot;);
+        this.firstName = names[0];
+        this.lastName = names[names.length - 1];
+      },
+    },
+
+    computedValue() {
+      return Date.now(); // Cached until dependencies change
+    },
+  },
+  methods: {
+    methodValue() {
+      return Date.now(); // Called every time
+    },
+  },
+};
+&lt;/script&gt;
+</div></code></pre>
+<h3 id="36-watchers">3.6 Watchers</h3>
+<pre class="hljs"><code><div>&lt;template&gt;
+  &lt;div&gt;
+    &lt;input v-model=&quot;question&quot; placeholder=&quot;Ask a yes/no question&quot; /&gt;
+    &lt;p&gt;{{ answer }}&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  data() {
+    return {
+      question: &quot;&quot;,
+      answer: &quot;Questions usually contain a question mark. ;-)&quot;,
+      user: {
+        name: &quot;John&quot;,
+        age: 30,
+      },
+    };
+  },
+  watch: {
+    // Simple watcher
+    question(newValue, oldValue) {
+      if (newValue.includes(&quot;?&quot;)) {
+        this.getAnswer();
+      }
+    },
+
+    // Deep watcher for objects
+    user: {
+      handler(newValue, oldValue) {
+        console.log(&quot;User changed:&quot;, newValue);
+      },
+      deep: true,
+      immediate: true, // Run immediately on component creation
+    },
+
+    // Watch specific nested property
+    &quot;user.name&quot;(newValue) {
+      console.log(&quot;Name changed:&quot;, newValue);
+    },
+  },
+  methods: {
+    async getAnswer() {
+      this.answer = &quot;Thinking...&quot;;
+      // Simulate API call
+      setTimeout(() =&gt; {
+        this.answer = Math.random() &gt; 0.5 ? &quot;Yes&quot; : &quot;No&quot;;
+      }, 1000);
+    },
+  },
+};
+&lt;/script&gt;
+</div></code></pre>
+<hr>
+<h2 id="4-components">4. Components</h2>
+<h3 id="41-component-basics">4.1 Component Basics</h3>
+<h4 id="single-file-component-sfc">Single File Component (SFC)</h4>
+<pre class="hljs"><code><div>&lt;!-- MyComponent.vue --&gt;
+&lt;template&gt;
+  &lt;div class=&quot;component&quot;&gt;
+    &lt;h2&gt;{{ title }}&lt;/h2&gt;
+    &lt;p&gt;{{ description }}&lt;/p&gt;
+    &lt;button @click=&quot;handleClick&quot;&gt;Click Me&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  name: &quot;MyComponent&quot;,
+  data() {
+    return {
+      title: &quot;Component Title&quot;,
+      description: &quot;Component description&quot;,
+    };
+  },
+  methods: {
+    handleClick() {
+      console.log(&quot;Button clicked&quot;);
+    },
+  },
+};
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+.component {
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+&lt;/style&gt;
+</div></code></pre>
+<h4 id="using-components">Using Components</h4>
+<pre class="hljs"><code><div>&lt;template&gt;
+  &lt;div&gt;
+    &lt;MyComponent /&gt;
+    &lt;MyComponent /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import MyComponent from &quot;./components/MyComponent.vue&quot;;
+
+export default {
+  components: {
+    MyComponent,
+  },
+};
+&lt;/script&gt;
+</div></code></pre>
+<h3 id="42-props">4.2 Props</h3>
+<pre class="hljs"><code><div>&lt;!-- ChildComponent.vue --&gt;
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;h3&gt;{{ title }}&lt;/h3&gt;
+    &lt;p&gt;{{ description }}&lt;/p&gt;
+    &lt;p&gt;Count: {{ count }}&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  name: &quot;ChildComponent&quot;,
+  props: {
+    // Simple type check
+    title: String,
+
+    // Multiple types
+    description: [String, Number],
+
+    // Required prop
+    count: {
+      type: Number,
+      required: true,
+    },
+
+    // With default value
+    status: {
+      type: String,
+      default: &quot;active&quot;,
+    },
+
+    // Object with default
+    user: {
+      type: Object,
+      default: () =&gt; ({ name: &quot;Guest&quot; }),
+    },
+
+    // Custom validator
+    age: {
+      type: Number,
+      validator: (value) =&gt; value &gt;= 0 &amp;&amp; value &lt;= 150,
+    },
+  },
+};
+&lt;/script&gt;
+</div></code></pre>
+<pre class="hljs"><code><div>&lt;!-- ParentComponent.vue --&gt;
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;ChildComponent
+      title=&quot;Hello&quot;
+      description=&quot;Description&quot;
+      :count=&quot;10&quot;
+      status=&quot;active&quot;
+      :user=&quot;userData&quot;
+      :age=&quot;25&quot;
+    /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import ChildComponent from &quot;./ChildComponent.vue&quot;;
+
+export default {
+  components: { ChildComponent },
+  data() {
+    return {
+      userData: { name: &quot;John&quot; },
+    };
+  },
+};
+&lt;/script&gt;
+</div></code></pre>
+<h3 id="43-events">4.3 Events</h3>
+<pre class="hljs"><code><div>&lt;!-- ChildComponent.vue --&gt;
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;button @click=&quot;handleClick&quot;&gt;Click Me&lt;/button&gt;
+    &lt;input @input=&quot;handleInput&quot; /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  name: &quot;ChildComponent&quot;,
+  emits: [&quot;custom-event&quot;, &quot;update-value&quot;],
+  methods: {
+    handleClick() {
+      // Emit event without data
+      this.$emit(&quot;custom-event&quot;);
+    },
+    handleInput(event) {
+      // Emit event with data
+      this.$emit(&quot;update-value&quot;, event.target.value);
+    },
+  },
+};
+&lt;/script&gt;
+</div></code></pre>
+<pre class="hljs"><code><div>&lt;!-- ParentComponent.vue --&gt;
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;ChildComponent
+      @custom-event=&quot;onCustomEvent&quot;
+      @update-value=&quot;onUpdateValue&quot;
+    /&gt;
+    &lt;p&gt;Value: {{ value }}&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import ChildComponent from &quot;./ChildComponent.vue&quot;;
+
+export default {
+  components: { ChildComponent },
+  data() {
+    return {
+      value: &quot;&quot;,
+    };
+  },
+  methods: {
+    onCustomEvent() {
+      console.log(&quot;Custom event received&quot;);
+    },
+    onUpdateValue(newValue) {
+      this.value = newValue;
+    },
+  },
+};
+&lt;/script&gt;
+</div></code></pre>
+<h3 id="44-slots">4.4 Slots</h3>
+<h4 id="default-slot">Default Slot</h4>
+<pre class="hljs"><code><div>&lt;!-- CardComponent.vue --&gt;
+&lt;template&gt;
+  &lt;div class=&quot;card&quot;&gt;
+    &lt;slot&gt;Default content if no slot provided&lt;/slot&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</div></code></pre>
+<pre class="hljs"><code><div>&lt;!-- Usage --&gt;
+&lt;template&gt;
+  &lt;CardComponent&gt;
+    &lt;h2&gt;Card Title&lt;/h2&gt;
+    &lt;p&gt;Card content&lt;/p&gt;
+  &lt;/CardComponent&gt;
+&lt;/template&gt;
+</div></code></pre>
+<h4 id="named-slots">Named Slots</h4>
+<pre class="hljs"><code><div>&lt;!-- LayoutComponent.vue --&gt;
+&lt;template&gt;
+  &lt;div class=&quot;layout&quot;&gt;
+    &lt;header&gt;
+      &lt;slot name=&quot;header&quot;&gt;Default Header&lt;/slot&gt;
+    &lt;/header&gt;
+    &lt;main&gt;
+      &lt;slot&gt;Default Content&lt;/slot&gt;
+    &lt;/main&gt;
+    &lt;footer&gt;
+      &lt;slot name=&quot;footer&quot;&gt;Default Footer&lt;/slot&gt;
+    &lt;/footer&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</div></code></pre>
+<pre class="hljs"><code><div>&lt;!-- Usage --&gt;
+&lt;template&gt;
+  &lt;LayoutComponent&gt;
+    &lt;template #header&gt;
+      &lt;h1&gt;Page Title&lt;/h1&gt;
+    &lt;/template&gt;
+
+    &lt;p&gt;Main content&lt;/p&gt;
+
+    &lt;template #footer&gt;
+      &lt;p&gt;Footer content&lt;/p&gt;
+    &lt;/template&gt;
+  &lt;/LayoutComponent&gt;
+&lt;/template&gt;
+</div></code></pre>
+<h4 id="scoped-slots">Scoped Slots</h4>
+<pre class="hljs"><code><div>&lt;!-- ListComponent.vue --&gt;
+&lt;template&gt;
+  &lt;ul&gt;
+    &lt;li v-for=&quot;item in items&quot; :key=&quot;item.id&quot;&gt;
+      &lt;slot :item=&quot;item&quot; :index=&quot;item.id&quot;&gt;{{ item.name }}&lt;/slot&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  props: {
+    items: Array,
+  },
+};
+&lt;/script&gt;
+</div></code></pre>
+<pre class="hljs"><code><div>&lt;!-- Usage --&gt;
+&lt;template&gt;
+  &lt;ListComponent :items=&quot;users&quot;&gt;
+    &lt;template #default=&quot;{ item, index }&quot;&gt;
+      &lt;span&gt;{{ index }}: {{ item.name }} ({{ item.age }})&lt;/span&gt;
+    &lt;/template&gt;
+  &lt;/ListComponent&gt;
+&lt;/template&gt;
+</div></code></pre>
+<h3 id="45-component-registration">4.5 Component Registration</h3>
+<h4 id="global-registration">Global Registration</h4>
+<pre class="hljs"><code><div><span class="hljs-comment">// main.js</span>
+<span class="hljs-keyword">import</span> { createApp } <span class="hljs-keyword">from</span> <span class="hljs-string">"vue"</span>;
+<span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">"./App.vue"</span>;
+<span class="hljs-keyword">import</span> MyComponent <span class="hljs-keyword">from</span> <span class="hljs-string">"./components/MyComponent.vue"</span>;
+
+<span class="hljs-keyword">const</span> app = createApp(App);
+app.component(<span class="hljs-string">"MyComponent"</span>, MyComponent);
+app.mount(<span class="hljs-string">"#app"</span>);
+</div></code></pre>
+<h4 id="local-registration">Local Registration</h4>
+<pre class="hljs"><code><div>&lt;script&gt;
+import MyComponent from &quot;./components/MyComponent.vue&quot;;
+
+export default {
+  components: {
+    MyComponent,
+  },
+};
+&lt;/script&gt;
+</div></code></pre>
+<hr>
+<h2 id="5-composition-api">5. Composition API</h2>
+<h3 id="51-setup-function">5.1 Setup Function</h3>
+<pre class="hljs"><code><div>&lt;template&gt;
+  &lt;div&gt;
+    &lt;p&gt;Count: {{ count }}&lt;/p&gt;
+    &lt;button @click=&quot;increment&quot;&gt;Increment&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import { ref } from &quot;vue&quot;;
+
+export default {
+  setup() {
+    // Reactive state
+    const count = ref(0);
+
+    // Methods
+    function increment() {
+      count.value++;
+    }
+
+    // Expose to template
+    return {
+      count,
+      increment,
+    };
+  },
+};
+&lt;/script&gt;
+</div></code></pre>
+<h4 id="script-setup-recommended">Script Setup (Recommended)</h4>
+<pre class="hljs"><code><div>&lt;template&gt;
+  &lt;div&gt;
+    &lt;p&gt;Count: {{ count }}&lt;/p&gt;
+    &lt;button @click=&quot;increment&quot;&gt;Increment&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+import { ref } from &quot;vue&quot;;
+
+// Everything is automatically exposed to template
+const count = ref(0);
+
+function increment() {
+  count.value++;
+}
+&lt;/script&gt;
+</div></code></pre>
+<h3 id="52-reactive-state">5.2 Reactive State</h3>
+<pre class="hljs"><code><div>&lt;script setup&gt;
+import { ref, reactive, computed, readonly } from &quot;vue&quot;;
+
+// ref - for primitives
+const count = ref(0);
+const message = ref(&quot;Hello&quot;);
+
+// Access/modify with .value
+count.value++;
+
+// reactive - for objects
+const state = reactive({
+  name: &quot;John&quot;,
+  age: 30,
+  hobbies: [&quot;reading&quot;, &quot;coding&quot;],
+});
+
+// Access directly (no .value)
+state.name = &quot;Jane&quot;;
+
+// readonly - prevent modifications
+const readonlyState = readonly(state);
+
+// toRef - create ref from reactive property
+import { toRef } from &quot;vue&quot;;
+const nameRef = toRef(state, &quot;name&quot;);
+
+// toRefs - convert all properties to refs
+import { toRefs } from &quot;vue&quot;;
+const { name, age } = toRefs(state);
+&lt;/script&gt;
+</div></code></pre>
+<h3 id="53-computed-and-watch">5.3 Computed and Watch</h3>
+<pre class="hljs"><code><div>&lt;script setup&gt;
+import { ref, computed, watch, watchEffect } from &quot;vue&quot;;
+
+const count = ref(0);
+const multiplier = ref(2);
+
+// Computed
+const doubled = computed(() =&gt; count.value * multiplier.value);
+
+// Computed with getter and setter
+const fullName = computed({
+  get: () =&gt; `${firstName.value} ${lastName.value}`,
+  set: (value) =&gt; {
+    [firstName.value, lastName.value] = value.split(&quot; &quot;);
+  },
+});
+
+// Watch single source
+watch(count, (newValue, oldValue) =&gt; {
+  console.log(`Count changed from ${oldValue} to ${newValue}`);
+});
+
+// Watch multiple sources
+watch([count, multiplier], ([newCount, newMultiplier]) =&gt; {
+  console.log(`Count: ${newCount}, Multiplier: ${newMultiplier}`);
+});
+
+// Watch with options
+watch(
+  count,
+  (newValue) =&gt; {
+    console.log(newValue);
+  },
+  {
+    immediate: true, // Run immediately
+    deep: true, // Deep watch for objects
+  }
+);
+
+// watchEffect - automatically tracks dependencies
+watchEffect(() =&gt; {
+  console.log(`Count is ${count.value}`);
+  // Automatically re-runs when count changes
+});
+&lt;/script&gt;
+</div></code></pre>
+<h3 id="54-lifecycle-hooks">5.4 Lifecycle Hooks</h3>
+<pre class="hljs"><code><div>&lt;script setup&gt;
+import {
+  onBeforeMount,
+  onMounted,
+  onBeforeUpdate,
+  onUpdated,
+  onBeforeUnmount,
+  onUnmounted,
+  onErrorCaptured,
+  onActivated,
+  onDeactivated,
+} from &quot;vue&quot;;
+
+// Before component is mounted
+onBeforeMount(() =&gt; {
+  console.log(&quot;Before mount&quot;);
+});
+
+// After component is mounted
+onMounted(() =&gt; {
+  console.log(&quot;Mounted&quot;);
+  // DOM is available here
+});
+
+// Before component updates
+onBeforeUpdate(() =&gt; {
+  console.log(&quot;Before update&quot;);
+});
+
+// After component updates
+onUpdated(() =&gt; {
+  console.log(&quot;Updated&quot;);
+});
+
+// Before component is unmounted
+onBeforeUnmount(() =&gt; {
+  console.log(&quot;Before unmount&quot;);
+  // Cleanup here
+});
+
+// After component is unmounted
+onUnmounted(() =&gt; {
+  console.log(&quot;Unmounted&quot;);
+});
+
+// Error handling
+onErrorCaptured((err, instance, info) =&gt; {
+  console.error(&quot;Error captured:&quot;, err);
+  return false; // Prevent propagation
+});
+
+// Keep-alive hooks
+onActivated(() =&gt; {
+  console.log(&quot;Component activated&quot;);
+});
+
+onDeactivated(() =&gt; {
+  console.log(&quot;Component deactivated&quot;);
+});
+&lt;/script&gt;
+</div></code></pre>
+<h3 id="55-composables">5.5 Composables</h3>
+<p>Composables are reusable composition functions.</p>
+<pre class="hljs"><code><div><span class="hljs-comment">// composables/useCounter.js</span>
+<span class="hljs-keyword">import</span> { ref, computed } <span class="hljs-keyword">from</span> <span class="hljs-string">"vue"</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">useCounter</span>(<span class="hljs-params">initialValue = <span class="hljs-number">0</span></span>) </span>{
+  <span class="hljs-keyword">const</span> count = ref(initialValue);
+
+  <span class="hljs-keyword">const</span> doubled = computed(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> count.value * <span class="hljs-number">2</span>);
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">increment</span>(<span class="hljs-params"></span>) </span>{
+    count.value++;
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">decrement</span>(<span class="hljs-params"></span>) </span>{
+    count.value--;
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reset</span>(<span class="hljs-params"></span>) </span>{
+    count.value = initialValue;
+  }
+
+  <span class="hljs-keyword">return</span> {
+    count,
+    doubled,
+    increment,
+    decrement,
+    reset,
+  };
+}
+</div></code></pre>
+<pre class="hljs"><code><div>&lt;!-- Usage in component --&gt;
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;p&gt;Count: {{ count }}&lt;/p&gt;
+    &lt;p&gt;Doubled: {{ doubled }}&lt;/p&gt;
+    &lt;button @click=&quot;increment&quot;&gt;+&lt;/button&gt;
+    &lt;button @click=&quot;decrement&quot;&gt;-&lt;/button&gt;
+    &lt;button @click=&quot;reset&quot;&gt;Reset&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+import { useCounter } from &quot;@/composables/useCounter&quot;;
+
+const { count, doubled, increment, decrement, reset } = useCounter(10);
+&lt;/script&gt;
+</div></code></pre>
+<h4 id="common-composables">Common Composables</h4>
+<pre class="hljs"><code><div><span class="hljs-comment">// composables/useFetch.js</span>
+<span class="hljs-keyword">import</span> { ref } <span class="hljs-keyword">from</span> <span class="hljs-string">"vue"</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">useFetch</span>(<span class="hljs-params">url</span>) </span>{
+  <span class="hljs-keyword">const</span> data = ref(<span class="hljs-literal">null</span>);
+  <span class="hljs-keyword">const</span> error = ref(<span class="hljs-literal">null</span>);
+  <span class="hljs-keyword">const</span> loading = ref(<span class="hljs-literal">false</span>);
+
+  <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fetchData</span>(<span class="hljs-params"></span>) </span>{
+    loading.value = <span class="hljs-literal">true</span>;
+    <span class="hljs-keyword">try</span> {
+      <span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> fetch(url);
+      data.value = <span class="hljs-keyword">await</span> response.json();
+    } <span class="hljs-keyword">catch</span> (err) {
+      error.value = err;
+    } <span class="hljs-keyword">finally</span> {
+      loading.value = <span class="hljs-literal">false</span>;
+    }
+  }
+
+  <span class="hljs-keyword">return</span> { data, error, loading, fetchData };
+}
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// composables/useLocalStorage.js</span>
+<span class="hljs-keyword">import</span> { ref, watch } <span class="hljs-keyword">from</span> <span class="hljs-string">"vue"</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">useLocalStorage</span>(<span class="hljs-params">key, defaultValue</span>) </span>{
+  <span class="hljs-keyword">const</span> storedValue = localStorage.getItem(key);
+  <span class="hljs-keyword">const</span> value = ref(storedValue ? <span class="hljs-built_in">JSON</span>.parse(storedValue) : defaultValue);
+
+  watch(
+    value,
+    (newValue) =&gt; {
+      localStorage.setItem(key, <span class="hljs-built_in">JSON</span>.stringify(newValue));
+    },
+    { <span class="hljs-attr">deep</span>: <span class="hljs-literal">true</span> }
+  );
+
+  <span class="hljs-keyword">return</span> value;
+}
+</div></code></pre>
+<hr>
+<h2 id="6-vue-router">6. Vue Router</h2>
+<h3 id="61-router-setup">6.1 Router Setup</h3>
+<pre class="hljs"><code><div>npm install vue-router@4
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// router/index.js</span>
+<span class="hljs-keyword">import</span> { createRouter, createWebHistory } <span class="hljs-keyword">from</span> <span class="hljs-string">"vue-router"</span>;
+<span class="hljs-keyword">import</span> Home <span class="hljs-keyword">from</span> <span class="hljs-string">"@/views/Home.vue"</span>;
+<span class="hljs-keyword">import</span> About <span class="hljs-keyword">from</span> <span class="hljs-string">"@/views/About.vue"</span>;
+
+<span class="hljs-keyword">const</span> routes = [
+  {
+    <span class="hljs-attr">path</span>: <span class="hljs-string">"/"</span>,
+    <span class="hljs-attr">name</span>: <span class="hljs-string">"Home"</span>,
+    <span class="hljs-attr">component</span>: Home,
+  },
+  {
+    <span class="hljs-attr">path</span>: <span class="hljs-string">"/about"</span>,
+    <span class="hljs-attr">name</span>: <span class="hljs-string">"About"</span>,
+    <span class="hljs-attr">component</span>: About,
+  },
+  {
+    <span class="hljs-attr">path</span>: <span class="hljs-string">"/user/:id"</span>,
+    <span class="hljs-attr">name</span>: <span class="hljs-string">"User"</span>,
+    <span class="hljs-attr">component</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">import</span>(<span class="hljs-string">"@/views/User.vue"</span>), <span class="hljs-comment">// Lazy loading</span>
+    <span class="hljs-attr">props</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// Pass route params as props</span>
+  },
+];
+
+<span class="hljs-keyword">const</span> router = createRouter({
+  <span class="hljs-attr">history</span>: createWebHistory(),
+  routes,
+});
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> router;
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// main.js</span>
+<span class="hljs-keyword">import</span> { createApp } <span class="hljs-keyword">from</span> <span class="hljs-string">"vue"</span>;
+<span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">"./App.vue"</span>;
+<span class="hljs-keyword">import</span> router <span class="hljs-keyword">from</span> <span class="hljs-string">"./router"</span>;
+
+createApp(App).use(router).mount(<span class="hljs-string">"#app"</span>);
+</div></code></pre>
+<pre class="hljs"><code><div>&lt;!-- App.vue --&gt;
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;nav&gt;
+      &lt;router-link to=&quot;/&quot;&gt;Home&lt;/router-link&gt;
+      &lt;router-link to=&quot;/about&quot;&gt;About&lt;/router-link&gt;
+    &lt;/nav&gt;
+    &lt;router-view /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</div></code></pre>
+<h3 id="62-navigation">6.2 Navigation</h3>
+<pre class="hljs"><code><div>&lt;script setup&gt;
+import { useRouter, useRoute } from &quot;vue-router&quot;;
+
+const router = useRouter();
+const route = useRoute();
+
+// Programmatic navigation
+function goToAbout() {
+  router.push(&quot;/about&quot;);
+}
+
+function goToUser() {
+  router.push({ name: &quot;User&quot;, params: { id: 123 } });
+}
+
+function goBack() {
+  router.go(-1);
+}
+
+function replace() {
+  router.replace(&quot;/about&quot;); // No history entry
+}
+
+// Access current route
+console.log(route.path); // Current path
+console.log(route.params); // Route parameters
+console.log(route.query); // Query parameters
+&lt;/script&gt;
+</div></code></pre>
+<h3 id="63-dynamic-routes">6.3 Dynamic Routes</h3>
+<pre class="hljs"><code><div><span class="hljs-comment">// router/index.js</span>
+<span class="hljs-keyword">const</span> routes = [
+  {
+    <span class="hljs-attr">path</span>: <span class="hljs-string">"/user/:id"</span>,
+    <span class="hljs-attr">component</span>: User,
+  },
+  {
+    <span class="hljs-attr">path</span>: <span class="hljs-string">"/post/:id(\\d+)"</span>, <span class="hljs-comment">// Regex: only numbers</span>
+    <span class="hljs-attr">component</span>: Post,
+  },
+  {
+    <span class="hljs-attr">path</span>: <span class="hljs-string">"/files/:path(.*)"</span>, <span class="hljs-comment">// Catch-all</span>
+    <span class="hljs-attr">component</span>: Files,
+  },
+];
+</div></code></pre>
+<pre class="hljs"><code><div>&lt;!-- User.vue --&gt;
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;h1&gt;User {{ $route.params.id }}&lt;/h1&gt;
+    &lt;!-- or --&gt;
+    &lt;h1&gt;User {{ id }}&lt;/h1&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+import { useRoute } from &quot;vue-router&quot;;
+
+const route = useRoute();
+const id = route.params.id;
+
+// Or with props
+defineProps({
+  id: String,
+});
+&lt;/script&gt;
+</div></code></pre>
+<h3 id="64-route-guards">6.4 Route Guards</h3>
+<pre class="hljs"><code><div><span class="hljs-comment">// router/index.js</span>
+<span class="hljs-keyword">const</span> router = createRouter({
+  <span class="hljs-comment">// ...</span>
+});
+
+<span class="hljs-comment">// Global before guard</span>
+router.beforeEach(<span class="hljs-function">(<span class="hljs-params">to, <span class="hljs-keyword">from</span>, next</span>) =&gt;</span> {
+  <span class="hljs-keyword">const</span> isAuthenticated = checkAuth();
+
+  <span class="hljs-keyword">if</span> (to.meta.requiresAuth &amp;&amp; !isAuthenticated) {
+    next(<span class="hljs-string">"/login"</span>);
+  } <span class="hljs-keyword">else</span> {
+    next();
+  }
+});
+
+<span class="hljs-comment">// Global after hook</span>
+router.afterEach(<span class="hljs-function">(<span class="hljs-params">to, <span class="hljs-keyword">from</span></span>) =&gt;</span> {
+  <span class="hljs-built_in">document</span>.title = to.meta.title || <span class="hljs-string">"My App"</span>;
+});
+
+<span class="hljs-comment">// Per-route guard</span>
+<span class="hljs-keyword">const</span> routes = [
+  {
+    <span class="hljs-attr">path</span>: <span class="hljs-string">"/admin"</span>,
+    <span class="hljs-attr">component</span>: Admin,
+    <span class="hljs-attr">beforeEnter</span>: <span class="hljs-function">(<span class="hljs-params">to, <span class="hljs-keyword">from</span>, next</span>) =&gt;</span> {
+      <span class="hljs-keyword">if</span> (checkAdminAuth()) {
+        next();
+      } <span class="hljs-keyword">else</span> {
+        next(<span class="hljs-string">"/"</span>);
+      }
+    },
+  },
+];
+</div></code></pre>
+<pre class="hljs"><code><div>&lt;!-- Component guard --&gt;
+&lt;script setup&gt;
+import { onBeforeRouteLeave, onBeforeRouteUpdate } from &quot;vue-router&quot;;
+
+// Before leaving this route
+onBeforeRouteLeave((to, from) =&gt; {
+  const answer = window.confirm(&quot;Do you really want to leave?&quot;);
+  if (!answer) return false;
+});
+
+// When route changes but component is reused
+onBeforeRouteUpdate((to, from) =&gt; {
+  // Fetch new data
+});
+&lt;/script&gt;
+</div></code></pre>
+<h3 id="65-nested-routes">6.5 Nested Routes</h3>
+<pre class="hljs"><code><div><span class="hljs-comment">// router/index.js</span>
+<span class="hljs-keyword">const</span> routes = [
+  {
+    <span class="hljs-attr">path</span>: <span class="hljs-string">"/user/:id"</span>,
+    <span class="hljs-attr">component</span>: User,
+    <span class="hljs-attr">children</span>: [
+      {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">""</span>, <span class="hljs-comment">// Default child route</span>
+        <span class="hljs-attr">component</span>: UserHome,
+      },
+      {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">"profile"</span>,
+        <span class="hljs-attr">component</span>: UserProfile,
+      },
+      {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">"posts"</span>,
+        <span class="hljs-attr">component</span>: UserPosts,
+      },
+    ],
+  },
+];
+</div></code></pre>
+<pre class="hljs"><code><div>&lt;!-- User.vue --&gt;
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;h1&gt;User {{ $route.params.id }}&lt;/h1&gt;
+    &lt;nav&gt;
+      &lt;router-link :to=&quot;`/user/${$route.params.id}`&quot;&gt;Home&lt;/router-link&gt;
+      &lt;router-link :to=&quot;`/user/${$route.params.id}/profile`&quot;
+        &gt;Profile&lt;/router-link
+      &gt;
+      &lt;router-link :to=&quot;`/user/${$route.params.id}/posts`&quot;&gt;Posts&lt;/router-link&gt;
+    &lt;/nav&gt;
+    &lt;router-view /&gt;
+    &lt;!-- Nested routes render here --&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</div></code></pre>
+<hr>
+<h2 id="7-state-management-pinia">7. State Management (Pinia)</h2>
+<h3 id="71-pinia-setup">7.1 Pinia Setup</h3>
+<pre class="hljs"><code><div>npm install pinia
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// main.js</span>
+<span class="hljs-keyword">import</span> { createApp } <span class="hljs-keyword">from</span> <span class="hljs-string">"vue"</span>;
+<span class="hljs-keyword">import</span> { createPinia } <span class="hljs-keyword">from</span> <span class="hljs-string">"pinia"</span>;
+<span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">"./App.vue"</span>;
+
+<span class="hljs-keyword">const</span> pinia = createPinia();
+<span class="hljs-keyword">const</span> app = createApp(App);
+
+app.use(pinia);
+app.mount(<span class="hljs-string">"#app"</span>);
+</div></code></pre>
+<h3 id="72-stores">7.2 Stores</h3>
+<pre class="hljs"><code><div><span class="hljs-comment">// stores/counter.js</span>
+<span class="hljs-keyword">import</span> { defineStore } <span class="hljs-keyword">from</span> <span class="hljs-string">"pinia"</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> useCounterStore = defineStore(<span class="hljs-string">"counter"</span>, {
+  <span class="hljs-comment">// State</span>
+  <span class="hljs-attr">state</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> ({
+    <span class="hljs-attr">count</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-attr">name</span>: <span class="hljs-string">"Counter"</span>,
+  }),
+
+  <span class="hljs-comment">// Getters (like computed)</span>
+  <span class="hljs-attr">getters</span>: {
+    <span class="hljs-attr">doubleCount</span>: <span class="hljs-function">(<span class="hljs-params">state</span>) =&gt;</span> state.count * <span class="hljs-number">2</span>,
+    doubleCountPlusOne() {
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.doubleCount + <span class="hljs-number">1</span>;
+    },
+  },
+
+  <span class="hljs-comment">// Actions (like methods)</span>
+  <span class="hljs-attr">actions</span>: {
+    increment() {
+      <span class="hljs-keyword">this</span>.count++;
+    },
+    decrement() {
+      <span class="hljs-keyword">this</span>.count--;
+    },
+    <span class="hljs-keyword">async</span> fetchCount() {
+      <span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> fetch(<span class="hljs-string">"/api/count"</span>);
+      <span class="hljs-keyword">this</span>.count = <span class="hljs-keyword">await</span> response.json();
+    },
+  },
+});
+</div></code></pre>
+<h4 id="setup-stores-composition-api-style">Setup Stores (Composition API Style)</h4>
+<pre class="hljs"><code><div><span class="hljs-comment">// stores/counter.js</span>
+<span class="hljs-keyword">import</span> { defineStore } <span class="hljs-keyword">from</span> <span class="hljs-string">"pinia"</span>;
+<span class="hljs-keyword">import</span> { ref, computed } <span class="hljs-keyword">from</span> <span class="hljs-string">"vue"</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> useCounterStore = defineStore(<span class="hljs-string">"counter"</span>, () =&gt; {
+  <span class="hljs-comment">// State</span>
+  <span class="hljs-keyword">const</span> count = ref(<span class="hljs-number">0</span>);
+  <span class="hljs-keyword">const</span> name = ref(<span class="hljs-string">"Counter"</span>);
+
+  <span class="hljs-comment">// Getters</span>
+  <span class="hljs-keyword">const</span> doubleCount = computed(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> count.value * <span class="hljs-number">2</span>);
+
+  <span class="hljs-comment">// Actions</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">increment</span>(<span class="hljs-params"></span>) </span>{
+    count.value++;
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">decrement</span>(<span class="hljs-params"></span>) </span>{
+    count.value--;
+  }
+
+  <span class="hljs-keyword">return</span> {
+    count,
+    name,
+    doubleCount,
+    increment,
+    decrement,
+  };
+});
+</div></code></pre>
+<h3 id="73-state-getters-actions">7.3 State, Getters, Actions</h3>
+<pre class="hljs"><code><div>&lt;template&gt;
+  &lt;div&gt;
+    &lt;p&gt;Count: {{ counter.count }}&lt;/p&gt;
+    &lt;p&gt;Double: {{ counter.doubleCount }}&lt;/p&gt;
+    &lt;button @click=&quot;counter.increment()&quot;&gt;+&lt;/button&gt;
+    &lt;button @click=&quot;counter.decrement()&quot;&gt;-&lt;/button&gt;
+
+    &lt;!-- Destructure with storeToRefs --&gt;
+    &lt;p&gt;Count: {{ count }}&lt;/p&gt;
+    &lt;p&gt;Double: {{ doubleCount }}&lt;/p&gt;
+    &lt;button @click=&quot;increment&quot;&gt;+&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+import { useCounterStore } from &quot;@/stores/counter&quot;;
+import { storeToRefs } from &quot;pinia&quot;;
+
+// Use store
+const counter = useCounterStore();
+
+// Destructure (loses reactivity without storeToRefs)
+const { count, doubleCount } = storeToRefs(counter);
+const { increment, decrement } = counter;
+
+// Direct state mutation
+counter.count++;
+
+// Patch multiple changes
+counter.$patch({
+  count: counter.count + 1,
+  name: &quot;New Name&quot;,
+});
+
+// Replace entire state
+counter.$state = { count: 0, name: &quot;Reset&quot; };
+
+// Reset to initial state
+counter.$reset();
+&lt;/script&gt;
+</div></code></pre>
+<h3 id="74-store-composition">7.4 Store Composition</h3>
+<pre class="hljs"><code><div><span class="hljs-comment">// stores/user.js</span>
+<span class="hljs-keyword">import</span> { defineStore } <span class="hljs-keyword">from</span> <span class="hljs-string">"pinia"</span>;
+<span class="hljs-keyword">import</span> { useCartStore } <span class="hljs-keyword">from</span> <span class="hljs-string">"./cart"</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> useUserStore = defineStore(<span class="hljs-string">"user"</span>, {
+  <span class="hljs-attr">state</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> ({
+    <span class="hljs-attr">name</span>: <span class="hljs-string">"John"</span>,
+    <span class="hljs-attr">email</span>: <span class="hljs-string">"john@example.com"</span>,
+  }),
+
+  <span class="hljs-attr">actions</span>: {
+    <span class="hljs-keyword">async</span> checkout() {
+      <span class="hljs-comment">// Use another store</span>
+      <span class="hljs-keyword">const</span> cart = useCartStore();
+      <span class="hljs-keyword">await</span> cart.purchase();
+    },
+  },
+});
+</div></code></pre>
+<hr>
+<h2 id="8-advanced-features">8. Advanced Features</h2>
+<h3 id="81-teleport">8.1 Teleport</h3>
+<p>Render content in a different part of the DOM.</p>
+<pre class="hljs"><code><div>&lt;template&gt;
+  &lt;div&gt;
+    &lt;button @click=&quot;showModal = true&quot;&gt;Open Modal&lt;/button&gt;
+
+    &lt;Teleport to=&quot;body&quot;&gt;
+      &lt;div v-if=&quot;showModal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+          &lt;h2&gt;Modal Title&lt;/h2&gt;
+          &lt;p&gt;Modal content&lt;/p&gt;
+          &lt;button @click=&quot;showModal = false&quot;&gt;Close&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/Teleport&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+import { ref } from &quot;vue&quot;;
+
+const showModal = ref(false);
+&lt;/script&gt;
+
+&lt;style&gt;
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+&lt;/style&gt;
+</div></code></pre>
+<h3 id="82-suspense">8.2 Suspense</h3>
+<p>Handle async components with loading states.</p>
+<pre class="hljs"><code><div>&lt;template&gt;
+  &lt;Suspense&gt;
+    &lt;!-- Async component --&gt;
+    &lt;template #default&gt;
+      &lt;AsyncComponent /&gt;
+    &lt;/template&gt;
+
+    &lt;!-- Loading state --&gt;
+    &lt;template #fallback&gt;
+      &lt;div&gt;Loading...&lt;/div&gt;
+    &lt;/template&gt;
+  &lt;/Suspense&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+import { defineAsyncComponent } from &quot;vue&quot;;
+
+const AsyncComponent = defineAsyncComponent(() =&gt;
+  import(&quot;./AsyncComponent.vue&quot;)
+);
+&lt;/script&gt;
+</div></code></pre>
+<pre class="hljs"><code><div>&lt;!-- AsyncComponent.vue --&gt;
+&lt;script setup&gt;
+// Top-level await in setup
+const data = await fetch(&quot;/api/data&quot;).then((r) =&gt; r.json());
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;{{ data }}&lt;/div&gt;
+&lt;/template&gt;
+</div></code></pre>
+<h3 id="83-provideinject">8.3 Provide/Inject</h3>
+<p>Share data across component tree without props.</p>
+<pre class="hljs"><code><div>&lt;!-- Parent.vue --&gt;
+&lt;script setup&gt;
+import { provide, ref } from &quot;vue&quot;;
+
+const theme = ref(&quot;dark&quot;);
+const updateTheme = (newTheme) =&gt; {
+  theme.value = newTheme;
+};
+
+provide(&quot;theme&quot;, theme);
+provide(&quot;updateTheme&quot;, updateTheme);
+&lt;/script&gt;
+</div></code></pre>
+<pre class="hljs"><code><div>&lt;!-- Child.vue (any level deep) --&gt;
+&lt;script setup&gt;
+import { inject } from &quot;vue&quot;;
+
+const theme = inject(&quot;theme&quot;);
+const updateTheme = inject(&quot;updateTheme&quot;);
+
+// With default value
+const user = inject(&quot;user&quot;, { name: &quot;Guest&quot; });
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div :class=&quot;theme&quot;&gt;
+    &lt;button @click=&quot;updateTheme('light')&quot;&gt;Light&lt;/button&gt;
+    &lt;button @click=&quot;updateTheme('dark')&quot;&gt;Dark&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</div></code></pre>
+<h3 id="84-custom-directives">8.4 Custom Directives</h3>
+<pre class="hljs"><code><div><span class="hljs-comment">// directives/focus.js</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> vFocus = {
+  <span class="hljs-attr">mounted</span>: <span class="hljs-function">(<span class="hljs-params">el</span>) =&gt;</span> el.focus(),
+};
+</div></code></pre>
+<pre class="hljs"><code><div>&lt;script setup&gt;
+import { vFocus } from &quot;@/directives/focus&quot;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;input v-focus /&gt;
+&lt;/template&gt;
+</div></code></pre>
+<h4 id="advanced-directive">Advanced Directive</h4>
+<pre class="hljs"><code><div><span class="hljs-comment">// directives/clickOutside.js</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> vClickOutside = {
+  mounted(el, binding) {
+    el.clickOutsideEvent = <span class="hljs-function">(<span class="hljs-params">event</span>) =&gt;</span> {
+      <span class="hljs-keyword">if</span> (!(el === event.target || el.contains(event.target))) {
+        binding.value(event);
+      }
+    };
+    <span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">"click"</span>, el.clickOutsideEvent);
+  },
+  unmounted(el) {
+    <span class="hljs-built_in">document</span>.removeEventListener(<span class="hljs-string">"click"</span>, el.clickOutsideEvent);
+  },
+};
+</div></code></pre>
+<pre class="hljs"><code><div>&lt;template&gt;
+  &lt;div v-click-outside=&quot;closeDropdown&quot; class=&quot;dropdown&quot;&gt;
+    &lt;!-- Dropdown content --&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+import { vClickOutside } from &quot;@/directives/clickOutside&quot;;
+
+function closeDropdown() {
+  console.log(&quot;Clicked outside&quot;);
+}
+&lt;/script&gt;
+</div></code></pre>
+<h3 id="85-plugins">8.5 Plugins</h3>
+<pre class="hljs"><code><div><span class="hljs-comment">// plugins/myPlugin.js</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  install(app, options) {
+    <span class="hljs-comment">// Global property</span>
+    app.config.globalProperties.$myMethod = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"My method"</span>);
+    };
+
+    <span class="hljs-comment">// Global component</span>
+    app.component(<span class="hljs-string">"MyComponent"</span>, MyComponent);
+
+    <span class="hljs-comment">// Directive</span>
+    app.directive(<span class="hljs-string">"my-directive"</span>, {
+      <span class="hljs-comment">/* ... */</span>
+    });
+
+    <span class="hljs-comment">// Provide</span>
+    app.provide(<span class="hljs-string">"myKey"</span>, <span class="hljs-string">"myValue"</span>);
+  },
+};
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// main.js</span>
+<span class="hljs-keyword">import</span> myPlugin <span class="hljs-keyword">from</span> <span class="hljs-string">"./plugins/myPlugin"</span>;
+
+app.use(myPlugin, {
+  <span class="hljs-comment">/* options */</span>
+});
+</div></code></pre>
+<hr>
+<h2 id="9-performance-optimization">9. Performance Optimization</h2>
+<h3 id="91-lazy-loading">9.1 Lazy Loading</h3>
+<pre class="hljs"><code><div><span class="hljs-comment">// router/index.js</span>
+<span class="hljs-keyword">const</span> routes = [
+  {
+    <span class="hljs-attr">path</span>: <span class="hljs-string">"/about"</span>,
+    <span class="hljs-attr">component</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">import</span>(<span class="hljs-string">"@/views/About.vue"</span>), <span class="hljs-comment">// Lazy loaded</span>
+  },
+];
+</div></code></pre>
+<pre class="hljs"><code><div>&lt;script setup&gt;
+import { defineAsyncComponent } from &quot;vue&quot;;
+
+// Lazy load component
+const HeavyComponent = defineAsyncComponent(() =&gt;
+  import(&quot;./HeavyComponent.vue&quot;)
+);
+&lt;/script&gt;
+</div></code></pre>
+<h3 id="92-keep-alive">9.2 Keep-Alive</h3>
+<p>Cache component instances to avoid re-rendering.</p>
+<pre class="hljs"><code><div>&lt;template&gt;
+  &lt;keep-alive&gt;
+    &lt;component :is=&quot;currentComponent&quot; /&gt;
+  &lt;/keep-alive&gt;
+
+  &lt;!-- With include/exclude --&gt;
+  &lt;keep-alive :include=&quot;['ComponentA', 'ComponentB']&quot;&gt;
+    &lt;router-view /&gt;
+  &lt;/keep-alive&gt;
+
+  &lt;!-- With max instances --&gt;
+  &lt;keep-alive :max=&quot;10&quot;&gt;
+    &lt;router-view /&gt;
+  &lt;/keep-alive&gt;
+&lt;/template&gt;
+</div></code></pre>
+<h3 id="93-virtual-scrolling">9.3 Virtual Scrolling</h3>
+<p>For large lists, render only visible items.</p>
+<pre class="hljs"><code><div>npm install vue-virtual-scroller
+</div></code></pre>
+<pre class="hljs"><code><div>&lt;template&gt;
+  &lt;RecycleScroller
+    :items=&quot;items&quot;
+    :item-size=&quot;50&quot;
+    key-field=&quot;id&quot;
+    v-slot=&quot;{ item }&quot;
+  &gt;
+    &lt;div class=&quot;item&quot;&gt;{{ item.name }}&lt;/div&gt;
+  &lt;/RecycleScroller&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+import { RecycleScroller } from &quot;vue-virtual-scroller&quot;;
+import &quot;vue-virtual-scroller/dist/vue-virtual-scroller.css&quot;;
+
+const items = ref(
+  Array.from({ length: 10000 }, (_, i) =&gt; ({ id: i, name: `Item ${i}` }))
+);
+&lt;/script&gt;
+</div></code></pre>
+<h3 id="94-production-build">9.4 Production Build</h3>
+<pre class="hljs"><code><div><span class="hljs-comment"># Build for production</span>
+npm run build
+
+<span class="hljs-comment"># Preview production build</span>
+npm run preview
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// vite.config.js</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  <span class="hljs-attr">build</span>: {
+    <span class="hljs-comment">// Minify</span>
+    <span class="hljs-attr">minify</span>: <span class="hljs-string">"terser"</span>,
+    <span class="hljs-attr">terserOptions</span>: {
+      <span class="hljs-attr">compress</span>: {
+        <span class="hljs-attr">drop_console</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// Remove console.log</span>
+      },
+    },
+    <span class="hljs-comment">// Code splitting</span>
+    <span class="hljs-attr">rollupOptions</span>: {
+      <span class="hljs-attr">output</span>: {
+        <span class="hljs-attr">manualChunks</span>: {
+          <span class="hljs-attr">vendor</span>: [<span class="hljs-string">"vue"</span>, <span class="hljs-string">"vue-router"</span>, <span class="hljs-string">"pinia"</span>],
+        },
+      },
+    },
+  },
+};
+</div></code></pre>
+<hr>
+<h2 id="10-vue-interview-questions">10. Vue Interview Questions</h2>
+<h3 id="101-fundamental-questions">10.1 Fundamental Questions</h3>
+<p><strong>Q: What is Vue.js?</strong>
+A: Vue.js is a progressive JavaScript framework for building user interfaces. It focuses on the view layer and can be easily integrated into projects.</p>
+<p><strong>Q: What are the key features of Vue.js?</strong>
+A: Reactive data binding, component-based architecture, virtual DOM, directives, computed properties, watchers, and easy integration.</p>
+<p><strong>Q: What is the difference between v-if and v-show?</strong>
+A: <code>v-if</code> conditionally renders elements (adds/removes from DOM), while <code>v-show</code> toggles CSS display property. <code>v-if</code> has higher toggle cost, <code>v-show</code> has higher initial render cost.</p>
+<p><strong>Q: What is the Virtual DOM?</strong>
+A: A lightweight JavaScript representation of the actual DOM. Vue uses it to efficiently update the real DOM by comparing changes and only updating what's necessary.</p>
+<p><strong>Q: What are Vue directives?</strong>
+A: Special attributes with the <code>v-</code> prefix that apply reactive behavior to the DOM. Examples: <code>v-if</code>, <code>v-for</code>, <code>v-bind</code>, <code>v-on</code>, <code>v-model</code>.</p>
+<p><strong>Q: What is v-model?</strong>
+A: A directive that creates two-way data binding on form inputs. It's syntactic sugar for <code>:value</code> and <code>@input</code>.</p>
+<p><strong>Q: What are props?</strong>
+A: Props are custom attributes for passing data from parent to child components. They are read-only in the child component.</p>
+<p><strong>Q: What is the difference between computed and methods?</strong>
+A: Computed properties are cached based on dependencies and only re-evaluate when dependencies change. Methods run every time they're called.</p>
+<p><strong>Q: What are watchers?</strong>
+A: Watchers observe reactive data and perform actions when data changes. Useful for async operations or expensive operations in response to data changes.</p>
+<p><strong>Q: What is the difference between Options API and Composition API?</strong>
+A: Options API organizes code by options (data, methods, computed), while Composition API organizes by logical concerns using composition functions. Composition API offers better TypeScript support and code reuse.</p>
+<h3 id="102-advanced-questions">10.2 Advanced Questions</h3>
+<p><strong>Q: Explain Vue's reactivity system.</strong>
+A: Vue 3 uses Proxy-based reactivity. When you create reactive data, Vue wraps it in a Proxy that intercepts property access and modifications, tracking dependencies and triggering updates when data changes.</p>
+<p><strong>Q: What is the difference between ref and reactive?</strong>
+A: <code>ref</code> is for primitive values and requires <code>.value</code> to access/modify. <code>reactive</code> is for objects and doesn't need <code>.value</code>. <code>ref</code> can hold any value type, <code>reactive</code> only works with objects.</p>
+<p><strong>Q: What are lifecycle hooks?</strong>
+A: Functions called at specific stages of a component's lifecycle: <code>onBeforeMount</code>, <code>onMounted</code>, <code>onBeforeUpdate</code>, <code>onUpdated</code>, <code>onBeforeUnmount</code>, <code>onUnmounted</code>.</p>
+<p><strong>Q: What is Teleport?</strong>
+A: A built-in component that renders its content in a different part of the DOM tree, useful for modals, tooltips, and notifications.</p>
+<p><strong>Q: What is Suspense?</strong>
+A: A component for handling async dependencies, showing fallback content while waiting for async components to load.</p>
+<p><strong>Q: What are composables?</strong>
+A: Reusable composition functions that encapsulate stateful logic. They follow the <code>use*</code> naming convention and return reactive state and functions.</p>
+<p><strong>Q: How does Vue Router work?</strong>
+A: Vue Router maps URLs to components, enabling SPA navigation. It uses HTML5 History API or hash mode for routing without page reloads.</p>
+<p><strong>Q: What are route guards?</strong>
+A: Functions that control navigation: <code>beforeEach</code>, <code>beforeEnter</code>, <code>beforeRouteEnter</code>, <code>beforeRouteUpdate</code>, <code>beforeRouteLeave</code>. Used for authentication, authorization, and data fetching.</p>
+<p><strong>Q: What is Pinia?</strong>
+A: The official state management library for Vue 3. It's simpler than Vuex, with better TypeScript support and no mutations (only actions).</p>
+<p><strong>Q: How do you optimize Vue app performance?</strong>
+A: Lazy loading, code splitting, keep-alive, virtual scrolling, computed properties, production builds, avoiding unnecessary re-renders, using v-once for static content.</p>
+<h3 id="103-practical-questions">10.3 Practical Questions</h3>
+<p><strong>Q: How do you pass data from child to parent?</strong>
+A: Using custom events with <code>$emit</code> in the child and <code>@event-name</code> in the parent.</p>
+<p><strong>Q: How do you share data between sibling components?</strong>
+A: Using a parent component as intermediary, provide/inject, or state management (Pinia).</p>
+<p><strong>Q: How do you handle forms in Vue?</strong>
+A: Using <code>v-model</code> for two-way binding, handling submit events with <code>@submit.prevent</code>, validating data, and managing form state.</p>
+<p><strong>Q: How do you make API calls in Vue?</strong>
+A: Using <code>fetch</code> or <code>axios</code> in lifecycle hooks (onMounted) or composables. Handle loading states, errors, and update reactive data.</p>
+<p><strong>Q: How do you implement authentication?</strong>
+A: Store auth token in localStorage/cookies, use route guards to protect routes, create auth store with Pinia, implement login/logout actions.</p>
+<p><strong>Q: How do you handle errors in Vue?</strong>
+A: Using try-catch blocks, error boundaries with <code>onErrorCaptured</code>, global error handler <code>app.config.errorHandler</code>.</p>
+<p><strong>Q: How do you test Vue components?</strong>
+A: Using Vitest or Jest with Vue Test Utils. Test component rendering, user interactions, props, events, and computed properties.</p>
+<p><strong>Q: How do you implement lazy loading?</strong>
+A: Using dynamic imports with <code>defineAsyncComponent</code> or in router with <code>() =&gt; import('./Component.vue')</code>.</p>
+<p><strong>Q: How do you create a custom directive?</strong>
+A: Define an object with lifecycle hooks (mounted, updated, unmounted) and register it globally or locally.</p>
+<p><strong>Q: How do you optimize large lists?</strong>
+A: Use virtual scrolling libraries like <code>vue-virtual-scroller</code>, implement pagination, or use <code>v-show</code> instead of <code>v-if</code> when appropriate.</p>
+<hr>
+<h1 id="part-2-nuxtjs">Part 2: Nuxt.js</h1>
+<h2 id="table-of-contents---nuxtjs">Table of Contents - Nuxt.js</h2>
+<ol>
+<li>
+<p><a href="#1-introduction-to-nuxtjs">Introduction to Nuxt.js</a></p>
+<ul>
+<li><a href="#11-what-is-nuxtjs">1.1 What is Nuxt.js?</a></li>
+<li><a href="#12-why-nuxtjs">1.2 Why Nuxt.js?</a></li>
+<li><a href="#13-nuxt-4-new-features">1.3 Nuxt 4 New Features</a></li>
+<li><a href="#14-nuxt-vs-nextjs">1.4 Nuxt vs Next.js</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#2-installation-and-setup-nuxt">Installation and Setup</a></p>
+<ul>
+<li><a href="#21-installation-nuxt">2.1 Installation</a></li>
+<li><a href="#22-project-structure-nuxt">2.2 Project Structure</a></li>
+<li><a href="#23-configuration-nuxt">2.3 Configuration</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#3-routing">Routing</a></p>
+<ul>
+<li><a href="#31-file-based-routing">3.1 File-Based Routing</a></li>
+<li><a href="#32-dynamic-routes">3.2 Dynamic Routes</a></li>
+<li><a href="#33-nested-routes">3.3 Nested Routes</a></li>
+<li><a href="#34-navigation">3.4 Navigation</a></li>
+<li><a href="#35-middleware">3.5 Middleware</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#4-data-fetching">Data Fetching</a></p>
+<ul>
+<li><a href="#41-usefetch">4.1 useFetch</a></li>
+<li><a href="#42-useasyncdata">4.2 useAsyncData</a></li>
+<li><a href="#43-uselazyfetch">4.3 useLazyFetch</a></li>
+<li><a href="#44-fetch">4.4 $fetch</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#5-rendering-modes">Rendering Modes</a></p>
+<ul>
+<li><a href="#51-universal-rendering-ssr">5.1 Universal Rendering (SSR)</a></li>
+<li><a href="#52-client-side-rendering">5.2 Client-Side Rendering</a></li>
+<li><a href="#53-static-site-generation">5.3 Static Site Generation</a></li>
+<li><a href="#54-hybrid-rendering">5.4 Hybrid Rendering</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#6-state-management-nuxt">State Management</a></p>
+<ul>
+<li><a href="#61-usestate">6.1 useState</a></li>
+<li><a href="#62-pinia-integration">6.2 Pinia Integration</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#7-server-routes">Server Routes</a></p>
+<ul>
+<li><a href="#71-api-routes">7.1 API Routes</a></li>
+<li><a href="#72-server-middleware">7.2 Server Middleware</a></li>
+<li><a href="#73-server-utils">7.3 Server Utils</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#8-modules-and-plugins">Modules and Plugins</a></p>
+<ul>
+<li><a href="#81-nuxt-modules">8.1 Nuxt Modules</a></li>
+<li><a href="#82-plugins">8.2 Plugins</a></li>
+<li><a href="#83-auto-imports">8.3 Auto Imports</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#9-seo-and-meta">SEO and Meta</a></p>
+<ul>
+<li><a href="#91-usehead">9.1 useHead</a></li>
+<li><a href="#92-useseometa">9.2 useSeoMeta</a></li>
+<li><a href="#93-dynamic-meta-tags">9.3 Dynamic Meta Tags</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#10-deployment">Deployment</a></p>
+<ul>
+<li><a href="#101-build-for-production">10.1 Build for Production</a></li>
+<li><a href="#102-deployment-platforms">10.2 Deployment Platforms</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#11-nuxt-interview-questions">Nuxt Interview Questions</a></p>
+<ul>
+<li><a href="#111-fundamental-questions">11.1 Fundamental Questions</a></li>
+<li><a href="#112-advanced-questions">11.2 Advanced Questions</a></li>
+<li><a href="#113-practical-questions">11.3 Practical Questions</a></li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="1-introduction-to-nuxtjs">1. Introduction to Nuxt.js</h2>
+<h3 id="11-what-is-nuxtjs">1.1 What is Nuxt.js?</h3>
+<p>Nuxt.js is a <strong>meta-framework built on top of Vue.js</strong> that provides a higher-level structure for building production-ready applications with features like SSR, SSG, file-based routing, and more.</p>
+<blockquote>
+<p><strong>Key Point:</strong> Nuxt is to Vue what Next.js is to React - a framework that adds structure, conventions, and powerful features.</p>
+</blockquote>
+<h4 id="core-features">Core Features</h4>
+<ul>
+<li><strong>Server-Side Rendering (SSR):</strong> Better SEO and performance</li>
+<li><strong>Static Site Generation (SSG):</strong> Pre-render pages at build time</li>
+<li><strong>File-Based Routing:</strong> Automatic route generation</li>
+<li><strong>Auto Imports:</strong> Components, composables auto-imported</li>
+<li><strong>API Routes:</strong> Built-in server routes</li>
+<li><strong>Module System:</strong> Extend functionality easily</li>
+<li><strong>TypeScript Support:</strong> First-class TypeScript support</li>
+</ul>
+<h3 id="12-why-nuxtjs">1.2 Why Nuxt.js?</h3>
+<h4 id="advantages">Advantages</h4>
+<ol>
+<li><strong>SEO-Friendly:</strong> SSR for better search engine indexing</li>
+<li><strong>Fast Performance:</strong> Optimized builds and code splitting</li>
+<li><strong>Developer Experience:</strong> Auto imports, hot reload, DevTools</li>
+<li><strong>Flexible Rendering:</strong> SSR, SSG, CSR, or hybrid</li>
+<li><strong>Built-in Features:</strong> Routing, state, data fetching</li>
+<li><strong>Large Ecosystem:</strong> Many official and community modules</li>
+<li><strong>Production-Ready:</strong> Optimized for production out of the box</li>
+</ol>
+<h4 id="when-to-use-nuxtjs">When to Use Nuxt.js</h4>
+<ul>
+<li>SEO-critical applications</li>
+<li>E-commerce websites</li>
+<li>Content-heavy sites</li>
+<li>Landing pages</li>
+<li>Documentation sites</li>
+<li>Full-stack applications</li>
+</ul>
+<h3 id="13-nuxt-4-new-features">1.3 Nuxt 4 New Features</h3>
+<h4 id="major-updates-in-nuxt-4-2025">Major Updates in Nuxt 4 (2025)</h4>
+<p><strong>1. Vue 3.5 Integration</strong></p>
+<ul>
+<li>Latest Vue.js features</li>
+<li>Better performance</li>
+<li>Improved TypeScript support</li>
+</ul>
+<p><strong>2. Enhanced Performance</strong></p>
+<ul>
+<li>Faster build times</li>
+<li>Optimized hydration</li>
+<li>Better code splitting</li>
+</ul>
+<p><strong>3. Improved Developer Experience</strong></p>
+<ul>
+<li>Better error messages</li>
+<li>Enhanced DevTools</li>
+<li>Faster HMR (Hot Module Replacement)</li>
+</ul>
+<p><strong>4. New Composables</strong></p>
+<ul>
+<li>More utility composables</li>
+<li>Better data fetching</li>
+<li>Enhanced state management</li>
+</ul>
+<p><strong>5. Better TypeScript Support</strong></p>
+<ul>
+<li>Improved type inference</li>
+<li>Better IDE integration</li>
+<li>Type-safe routing</li>
+</ul>
+<p><strong>6. Module Improvements</strong></p>
+<ul>
+<li>Easier module creation</li>
+<li>Better module compatibility</li>
+<li>Enhanced module ecosystem</li>
+</ul>
+<h3 id="14-nuxt-vs-nextjs">1.4 Nuxt vs Next.js</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Nuxt.js</th>
+<th>Next.js</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Framework</td>
+<td>Vue.js</td>
+<td>React</td>
+</tr>
+<tr>
+<td>Routing</td>
+<td>File-based</td>
+<td>File-based</td>
+</tr>
+<tr>
+<td>SSR</td>
+<td>Built-in</td>
+<td>Built-in</td>
+</tr>
+<tr>
+<td>SSG</td>
+<td>Built-in</td>
+<td>Built-in</td>
+</tr>
+<tr>
+<td>API Routes</td>
+<td>Built-in</td>
+<td>Built-in</td>
+</tr>
+<tr>
+<td>Auto Imports</td>
+<td>Yes</td>
+<td>No (manual)</td>
+</tr>
+<tr>
+<td>State Management</td>
+<td>Built-in</td>
+<td>External</td>
+</tr>
+<tr>
+<td>Learning Curve</td>
+<td>Easy</td>
+<td>Moderate</td>
+</tr>
+<tr>
+<td>TypeScript</td>
+<td>First-class</td>
+<td>First-class</td>
+</tr>
+<tr>
+<td>Module System</td>
+<td>Rich ecosystem</td>
+<td>Plugin-based</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="2-installation-and-setup-nuxt">2. Installation and Setup (Nuxt)</h2>
+<h3 id="21-installation-nuxt">2.1 Installation (Nuxt)</h3>
+<pre class="hljs"><code><div><span class="hljs-comment"># Create new Nuxt project</span>
+npx nuxi@latest init my-nuxt-app
+
+<span class="hljs-built_in">cd</span> my-nuxt-app
+npm install
+npm run dev
+</div></code></pre>
+<h3 id="22-project-structure-nuxt">2.2 Project Structure (Nuxt)</h3>
+<pre class="hljs"><code><div>my-nuxt-app/
+├── .nuxt/              # Build output (auto-generated)
+├── assets/             # Uncompiled assets (CSS, images)
+├── components/         # Vue components (auto-imported)
+├── composables/        # Composables (auto-imported)
+├── layouts/            # App layouts
+├── middleware/         # Route middleware
+├── pages/              # File-based routing
+├── plugins/            # Plugins
+├── public/             # Static files
+├── server/             # Server-side code
+│   ├── api/            # API routes
+│   ├── middleware/     # Server middleware
+│   └── utils/          # Server utilities
+├── utils/              # Utilities (auto-imported)
+├── app.vue             # Main app component
+├── nuxt.config.ts      # Nuxt configuration
+└── package.json
+</div></code></pre>
+<h3 id="23-configuration-nuxt">2.3 Configuration (Nuxt)</h3>
+<pre class="hljs"><code><div><span class="hljs-comment">// nuxt.config.ts</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> defineNuxtConfig({
+  <span class="hljs-comment">// App config</span>
+  app: {
+    head: {
+      title: <span class="hljs-string">"My Nuxt App"</span>,
+      meta: [{ name: <span class="hljs-string">"description"</span>, content: <span class="hljs-string">"My amazing site"</span> }],
+      link: [{ rel: <span class="hljs-string">"icon"</span>, <span class="hljs-keyword">type</span>: <span class="hljs-string">"image/x-icon"</span>, href: <span class="hljs-string">"/favicon.ico"</span> }],
+    },
+  },
+
+  <span class="hljs-comment">// Modules</span>
+  modules: [<span class="hljs-string">"@nuxtjs/tailwindcss"</span>, <span class="hljs-string">"@pinia/nuxt"</span>],
+
+  <span class="hljs-comment">// Runtime config</span>
+  runtimeConfig: {
+    <span class="hljs-comment">// Private keys (server-only)</span>
+    apiSecret: process.env.API_SECRET,
+    <span class="hljs-comment">// Public keys (client + server)</span>
+    <span class="hljs-keyword">public</span>: {
+      apiBase: process.env.API_BASE_URL,
+    },
+  },
+
+  <span class="hljs-comment">// Build config</span>
+  build: {
+    transpile: [],
+  },
+
+  <span class="hljs-comment">// Vite config</span>
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: <span class="hljs-string">'@use "@/assets/styles/variables.scss" as *;'</span>,
+        },
+      },
+    },
+  },
+
+  <span class="hljs-comment">// TypeScript</span>
+  typescript: {
+    strict: <span class="hljs-literal">true</span>,
+    typeCheck: <span class="hljs-literal">true</span>,
+  },
+
+  <span class="hljs-comment">// Dev server</span>
+  devServer: {
+    port: <span class="hljs-number">3000</span>,
+  },
+});
+</div></code></pre>
+<hr>
+<h2 id="3-routing">3. Routing</h2>
+<h3 id="31-file-based-routing">3.1 File-Based Routing</h3>
+<p>Nuxt automatically generates routes based on file structure in <code>pages/</code> directory.</p>
+<pre class="hljs"><code><div>pages/
+├── index.vue           → /
+├── about.vue           → /about
+├── posts/
+│   ├── index.vue       → /posts
+│   └── [id].vue        → /posts/:id
+└── users/
+    └── [id]/
+        ├── index.vue   → /users/:id
+        └── profile.vue → /users/:id/profile
+</div></code></pre>
+<pre class="hljs"><code><div>&lt;!-- pages/index.vue --&gt;
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;h1&gt;Home Page&lt;/h1&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</div></code></pre>
+<h3 id="32-dynamic-routes">3.2 Dynamic Routes</h3>
+<pre class="hljs"><code><div>&lt;!-- pages/posts/[id].vue --&gt;
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;h1&gt;Post {{ id }}&lt;/h1&gt;
+    &lt;p&gt;{{ post.title }}&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+const route = useRoute();
+const id = route.params.id;
+
+const { data: post } = await useFetch(`/api/posts/${id}`);
+&lt;/script&gt;
+</div></code></pre>
+<h4 id="catch-all-routes">Catch-All Routes</h4>
+<pre class="hljs"><code><div>&lt;!-- pages/[...slug].vue --&gt;
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;h1&gt;Path: {{ $route.params.slug }}&lt;/h1&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</div></code></pre>
+<h3 id="33-nested-routes">3.3 Nested Routes</h3>
+<pre class="hljs"><code><div>pages/
+└── parent/
+    ├── index.vue       → /parent
+    ├── child.vue       → /parent/child
+    └── [id].vue        → /parent/:id
+</div></code></pre>
+<pre class="hljs"><code><div>&lt;!-- pages/parent.vue --&gt;
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;h1&gt;Parent Layout&lt;/h1&gt;
+    &lt;NuxtPage /&gt;
+    &lt;!-- Child routes render here --&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</div></code></pre>
+<h3 id="34-navigation">3.4 Navigation</h3>
+<pre class="hljs"><code><div>&lt;template&gt;
+  &lt;div&gt;
+    &lt;!-- NuxtLink component --&gt;
+    &lt;NuxtLink to=&quot;/&quot;&gt;Home&lt;/NuxtLink&gt;
+    &lt;NuxtLink to=&quot;/about&quot;&gt;About&lt;/NuxtLink&gt;
+    &lt;NuxtLink :to=&quot;`/posts/${post.id}`&quot;&gt;Post&lt;/NuxtLink&gt;
+
+    &lt;!-- Programmatic navigation --&gt;
+    &lt;button @click=&quot;goToAbout&quot;&gt;Go to About&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+const router = useRouter();
+
+function goToAbout() {
+  router.push(&quot;/about&quot;);
+}
+
+// Other navigation methods
+router.replace(&quot;/about&quot;); // No history entry
+router.back(); // Go back
+router.forward(); // Go forward
+&lt;/script&gt;
+</div></code></pre>
+<h3 id="35-middleware">3.5 Middleware</h3>
+<h4 id="route-middleware">Route Middleware</h4>
+<pre class="hljs"><code><div><span class="hljs-comment">// middleware/auth.ts</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> defineNuxtRouteMiddleware(<span class="hljs-function">(<span class="hljs-params">to, <span class="hljs-keyword">from</span></span>) =&gt;</span> {
+  <span class="hljs-keyword">const</span> user = useState(<span class="hljs-string">"user"</span>);
+
+  <span class="hljs-keyword">if</span> (!user.value) {
+    <span class="hljs-keyword">return</span> navigateTo(<span class="hljs-string">"/login"</span>);
+  }
+});
+</div></code></pre>
+<pre class="hljs"><code><div>&lt;!-- pages/dashboard.vue --&gt;
+&lt;script setup&gt;
+definePageMeta({
+  middleware: &quot;auth&quot;,
+});
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;h1&gt;Dashboard&lt;/h1&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</div></code></pre>
+<h4 id="global-middleware">Global Middleware</h4>
+<pre class="hljs"><code><div><span class="hljs-comment">// middleware/analytics.global.ts</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> defineNuxtRouteMiddleware(<span class="hljs-function">(<span class="hljs-params">to, <span class="hljs-keyword">from</span></span>) =&gt;</span> {
+  <span class="hljs-comment">// Runs on every route change</span>
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Navigating to:"</span>, to.path);
+});
+</div></code></pre>
+<hr>
+<h2 id="4-data-fetching">4. Data Fetching</h2>
+<h3 id="41-usefetch">4.1 useFetch</h3>
+<p>Wrapper around <code>useAsyncData</code> and <code>$fetch</code>.</p>
+<pre class="hljs"><code><div>&lt;script setup&gt;
+// Basic usage
+const { data, pending, error, refresh } = await useFetch(&quot;/api/posts&quot;);
+
+// With options
+const { data: post } = await useFetch(`/api/posts/${id}`, {
+  method: &quot;GET&quot;,
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+  query: {
+    page: 1,
+    limit: 10,
+  },
+  // Transform response
+  transform: (data) =&gt; data.posts,
+  // Pick specific fields
+  pick: [&quot;id&quot;, &quot;title&quot;],
+});
+
+// Watch reactive dependencies
+const id = ref(1);
+const { data } = await useFetch(`/api/posts/${id}`, {
+  watch: [id], // Refetch when id changes
+});
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;div v-if=&quot;pending&quot;&gt;Loading...&lt;/div&gt;
+    &lt;div v-else-if=&quot;error&quot;&gt;Error: {{ error.message }}&lt;/div&gt;
+    &lt;div v-else&gt;
+      &lt;div v-for=&quot;post in data&quot; :key=&quot;post.id&quot;&gt;{{ post.title }}&lt;/div&gt;
+      &lt;button @click=&quot;refresh&quot;&gt;Refresh&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</div></code></pre>
+<h3 id="42-useasyncdata">4.2 useAsyncData</h3>
+<p>More flexible data fetching with custom fetcher function.</p>
+<pre class="hljs"><code><div>&lt;script setup&gt;
+const { data, pending, error, refresh } = await useAsyncData(&quot;posts&quot;, () =&gt;
+  $fetch(&quot;/api/posts&quot;)
+);
+
+// With dependencies
+const id = ref(1);
+const { data: post } = await useAsyncData(
+  `post-${id.value}`,
+  () =&gt; $fetch(`/api/posts/${id.value}`),
+  {
+    watch: [id],
+  }
+);
+
+// Server-only fetching
+const { data } = await useAsyncData(
+  &quot;server-data&quot;,
+  () =&gt; $fetch(&quot;/api/server-only&quot;),
+  {
+    server: true,
+    lazy: false,
+  }
+);
+&lt;/script&gt;
+</div></code></pre>
+<h3 id="43-uselazyfetch">4.3 useLazyFetch</h3>
+<p>Non-blocking data fetching (doesn't block navigation).</p>
+<pre class="hljs"><code><div>&lt;script setup&gt;
+// Doesn't block navigation
+const { pending, data: posts } = useLazyFetch(&quot;/api/posts&quot;);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;div v-if=&quot;pending&quot;&gt;Loading...&lt;/div&gt;
+    &lt;div v-else&gt;
+      &lt;div v-for=&quot;post in posts&quot; :key=&quot;post.id&quot;&gt;{{ post.title }}&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</div></code></pre>
+<h3 id="44-fetch">4.4 $fetch</h3>
+<p>Direct API calls (not SSR-friendly, use in client-side only).</p>
+<pre class="hljs"><code><div>&lt;script setup&gt;
+async function submitForm() {
+  try {
+    const result = await $fetch(&quot;/api/posts&quot;, {
+      method: &quot;POST&quot;,
+      body: {
+        title: &quot;New Post&quot;,
+        content: &quot;Content&quot;,
+      },
+    });
+    console.log(&quot;Success:&quot;, result);
+  } catch (error) {
+    console.error(&quot;Error:&quot;, error);
+  }
+}
+&lt;/script&gt;
+</div></code></pre>
+<hr>
+<h2 id="5-rendering-modes">5. Rendering Modes</h2>
+<h3 id="51-universal-rendering-ssr">5.1 Universal Rendering (SSR)</h3>
+<p>Default mode. Pages rendered on server, then hydrated on client.</p>
+<pre class="hljs"><code><div><span class="hljs-comment">// nuxt.config.ts</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> defineNuxtConfig({
+  ssr: <span class="hljs-literal">true</span>, <span class="hljs-comment">// Default</span>
+});
+</div></code></pre>
+<h3 id="52-client-side-rendering">5.2 Client-Side Rendering</h3>
+<p>Render everything on client (like traditional SPA).</p>
+<pre class="hljs"><code><div><span class="hljs-comment">// nuxt.config.ts</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> defineNuxtConfig({
+  ssr: <span class="hljs-literal">false</span>,
+});
+</div></code></pre>
+<pre class="hljs"><code><div>&lt;!-- Per-component CSR --&gt;
+&lt;template&gt;
+  &lt;ClientOnly&gt;
+    &lt;div&gt;This only renders on client&lt;/div&gt;
+    &lt;template #fallback&gt;
+      &lt;div&gt;Loading...&lt;/div&gt;
+    &lt;/template&gt;
+  &lt;/ClientOnly&gt;
+&lt;/template&gt;
+</div></code></pre>
+<h3 id="53-static-site-generation">5.3 Static Site Generation</h3>
+<p>Pre-render pages at build time.</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Generate static site</span>
+npm run generate
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// nuxt.config.ts</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> defineNuxtConfig({
+  nitro: {
+    prerender: {
+      routes: [<span class="hljs-string">"/"</span>, <span class="hljs-string">"/about"</span>, <span class="hljs-string">"/posts/1"</span>],
+    },
+  },
+});
+</div></code></pre>
+<h3 id="54-hybrid-rendering">5.4 Hybrid Rendering</h3>
+<p>Mix SSR, SSG, and CSR per route.</p>
+<pre class="hljs"><code><div>&lt;script setup&gt;
+defineRouteRules({
+  // SSR (default)
+  &quot;/&quot;: { ssr: true },
+
+  // SSG
+  &quot;/about&quot;: { prerender: true },
+
+  // CSR
+  &quot;/dashboard&quot;: { ssr: false },
+
+  // ISR (Incremental Static Regeneration)
+  &quot;/blog/**&quot;: { swr: 3600 }, // Revalidate every hour
+});
+&lt;/script&gt;
+</div></code></pre>
+<hr>
+<h2 id="6-state-management-nuxt">6. State Management (Nuxt)</h2>
+<h3 id="61-usestate">6.1 useState</h3>
+<p>Shared state across components (SSR-friendly).</p>
+<pre class="hljs"><code><div><span class="hljs-comment">// composables/useCounter.ts</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> useCounter = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  <span class="hljs-keyword">return</span> useState(<span class="hljs-string">"counter"</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-number">0</span>);
+};
+</div></code></pre>
+<pre class="hljs"><code><div>&lt;script setup&gt;
+const counter = useCounter();
+
+function increment() {
+  counter.value++;
+}
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;p&gt;Count: {{ counter }}&lt;/p&gt;
+    &lt;button @click=&quot;increment&quot;&gt;Increment&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</div></code></pre>
+<h3 id="62-pinia-integration">6.2 Pinia Integration</h3>
+<pre class="hljs"><code><div>npm install @pinia/nuxt
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// nuxt.config.ts</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> defineNuxtConfig({
+  modules: [<span class="hljs-string">"@pinia/nuxt"</span>],
+});
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// stores/counter.ts</span>
+<span class="hljs-keyword">import</span> { defineStore } <span class="hljs-keyword">from</span> <span class="hljs-string">"pinia"</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> useCounterStore = defineStore(<span class="hljs-string">"counter"</span>, {
+  state: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> ({
+    count: <span class="hljs-number">0</span>,
+  }),
+  actions: {
+    increment() {
+      <span class="hljs-keyword">this</span>.count++;
+    },
+  },
+});
+</div></code></pre>
+<pre class="hljs"><code><div>&lt;script setup&gt;
+const counter = useCounterStore();
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;p&gt;Count: {{ counter.count }}&lt;/p&gt;
+    &lt;button @click=&quot;counter.increment&quot;&gt;Increment&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</div></code></pre>
+<hr>
+<h2 id="7-server-routes">7. Server Routes</h2>
+<h3 id="71-api-routes">7.1 API Routes</h3>
+<pre class="hljs"><code><div><span class="hljs-comment">// server/api/posts.get.ts</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> defineEventHandler(<span class="hljs-keyword">async</span> (event) =&gt; {
+  <span class="hljs-keyword">return</span> [
+    { id: <span class="hljs-number">1</span>, title: <span class="hljs-string">"Post 1"</span> },
+    { id: <span class="hljs-number">2</span>, title: <span class="hljs-string">"Post 2"</span> },
+  ];
+});
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// server/api/posts/[id].get.ts</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> defineEventHandler(<span class="hljs-keyword">async</span> (event) =&gt; {
+  <span class="hljs-keyword">const</span> id = getRouterParam(event, <span class="hljs-string">"id"</span>);
+  <span class="hljs-keyword">return</span> { id, title: <span class="hljs-string">`Post <span class="hljs-subst">${id}</span>`</span> };
+});
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// server/api/posts.post.ts</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> defineEventHandler(<span class="hljs-keyword">async</span> (event) =&gt; {
+  <span class="hljs-keyword">const</span> body = <span class="hljs-keyword">await</span> readBody(event);
+  <span class="hljs-comment">// Save to database</span>
+  <span class="hljs-keyword">return</span> { success: <span class="hljs-literal">true</span>, post: body };
+});
+</div></code></pre>
+<h3 id="72-server-middleware">7.2 Server Middleware</h3>
+<pre class="hljs"><code><div><span class="hljs-comment">// server/middleware/auth.ts</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> defineEventHandler(<span class="hljs-function">(<span class="hljs-params">event</span>) =&gt;</span> {
+  <span class="hljs-keyword">const</span> token = getHeader(event, <span class="hljs-string">"authorization"</span>);
+
+  <span class="hljs-keyword">if</span> (!token) {
+    <span class="hljs-keyword">throw</span> createError({
+      statusCode: <span class="hljs-number">401</span>,
+      message: <span class="hljs-string">"Unauthorized"</span>,
+    });
+  }
+});
+</div></code></pre>
+<h3 id="73-server-utils">7.3 Server Utils</h3>
+<pre class="hljs"><code><div><span class="hljs-comment">// server/utils/db.ts</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> getUser = <span class="hljs-keyword">async</span> (id: <span class="hljs-built_in">number</span>) =&gt; {
+  <span class="hljs-comment">// Database query</span>
+  <span class="hljs-keyword">return</span> { id, name: <span class="hljs-string">"John"</span> };
+};
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// server/api/users/[id].get.ts</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> defineEventHandler(<span class="hljs-keyword">async</span> (event) =&gt; {
+  <span class="hljs-keyword">const</span> id = getRouterParam(event, <span class="hljs-string">"id"</span>);
+  <span class="hljs-keyword">const</span> user = <span class="hljs-keyword">await</span> getUser(<span class="hljs-built_in">Number</span>(id));
+  <span class="hljs-keyword">return</span> user;
+});
+</div></code></pre>
+<hr>
+<h2 id="8-modules-and-plugins">8. Modules and Plugins</h2>
+<h3 id="81-nuxt-modules">8.1 Nuxt Modules</h3>
+<pre class="hljs"><code><div><span class="hljs-comment"># Popular modules</span>
+npm install @nuxtjs/tailwindcss
+npm install @pinia/nuxt
+npm install @nuxt/image
+npm install @nuxtjs/i18n
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// nuxt.config.ts</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> defineNuxtConfig({
+  modules: [
+    <span class="hljs-string">"@nuxtjs/tailwindcss"</span>,
+    <span class="hljs-string">"@pinia/nuxt"</span>,
+    <span class="hljs-string">"@nuxt/image"</span>,
+    <span class="hljs-string">"@nuxtjs/i18n"</span>,
+  ],
+});
+</div></code></pre>
+<h3 id="82-plugins">8.2 Plugins</h3>
+<pre class="hljs"><code><div><span class="hljs-comment">// plugins/api.ts</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> defineNuxtPlugin(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  <span class="hljs-keyword">const</span> api = $fetch.create({
+    baseURL: <span class="hljs-string">"https://api.example.com"</span>,
+    headers: {
+      Authorization: <span class="hljs-string">`Bearer <span class="hljs-subst">${token}</span>`</span>,
+    },
+  });
+
+  <span class="hljs-keyword">return</span> {
+    provide: {
+      api,
+    },
+  };
+});
+</div></code></pre>
+<pre class="hljs"><code><div>&lt;script setup&gt;
+const { $api } = useNuxtApp();
+
+const data = await $api(&quot;/posts&quot;);
+&lt;/script&gt;
+</div></code></pre>
+<h3 id="83-auto-imports">8.3 Auto Imports</h3>
+<p>Nuxt automatically imports:</p>
+<ul>
+<li>Components from <code>components/</code></li>
+<li>Composables from <code>composables/</code></li>
+<li>Utils from <code>utils/</code></li>
+<li>Vue APIs (ref, computed, etc.)</li>
+<li>Nuxt APIs (useFetch, navigateTo, etc.)</li>
+</ul>
+<pre class="hljs"><code><div>&lt;!-- No imports needed! --&gt;
+&lt;script setup&gt;
+const count = ref(0); // Auto-imported from Vue
+const route = useRoute(); // Auto-imported from Nuxt
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;MyComponent /&gt;
+  &lt;!-- Auto-imported from components/ --&gt;
+&lt;/template&gt;
+</div></code></pre>
+<hr>
+<h2 id="9-seo-and-meta">9. SEO and Meta</h2>
+<h3 id="91-usehead">9.1 useHead</h3>
+<pre class="hljs"><code><div>&lt;script setup&gt;
+useHead({
+  title: &quot;My Page Title&quot;,
+  meta: [
+    { name: &quot;description&quot;, content: &quot;Page description&quot; },
+    { property: &quot;og:title&quot;, content: &quot;My Page Title&quot; },
+    { property: &quot;og:image&quot;, content: &quot;/image.jpg&quot; },
+  ],
+  link: [{ rel: &quot;canonical&quot;, href: &quot;https://example.com/page&quot; }],
+  script: [{ src: &quot;https://example.com/script.js&quot;, async: true }],
+});
+&lt;/script&gt;
+</div></code></pre>
+<h3 id="92-useseometa">9.2 useSeoMeta</h3>
+<pre class="hljs"><code><div>&lt;script setup&gt;
+useSeoMeta({
+  title: &quot;My Page&quot;,
+  description: &quot;Page description&quot;,
+  ogTitle: &quot;My Page&quot;,
+  ogDescription: &quot;Page description&quot;,
+  ogImage: &quot;/image.jpg&quot;,
+  twitterCard: &quot;summary_large_image&quot;,
+});
+&lt;/script&gt;
+</div></code></pre>
+<h3 id="93-dynamic-meta-tags">9.3 Dynamic Meta Tags</h3>
+<pre class="hljs"><code><div>&lt;script setup&gt;
+const { data: post } = await useFetch(`/api/posts/${route.params.id}`);
+
+useHead({
+  title: () =&gt; post.value?.title,
+  meta: [{ name: &quot;description&quot;, content: () =&gt; post.value?.excerpt }],
+});
+&lt;/script&gt;
+</div></code></pre>
+<hr>
+<h2 id="10-deployment">10. Deployment</h2>
+<h3 id="101-build-for-production">10.1 Build for Production</h3>
+<pre class="hljs"><code><div><span class="hljs-comment"># Build for production</span>
+npm run build
+
+<span class="hljs-comment"># Preview production build</span>
+npm run preview
+
+<span class="hljs-comment"># Generate static site</span>
+npm run generate
+</div></code></pre>
+<h3 id="102-deployment-platforms">10.2 Deployment Platforms</h3>
+<h4 id="vercel">Vercel</h4>
+<pre class="hljs"><code><div><span class="hljs-comment"># Install Vercel CLI</span>
+npm i -g vercel
+
+<span class="hljs-comment"># Deploy</span>
+vercel
+</div></code></pre>
+<h4 id="netlify">Netlify</h4>
+<pre class="hljs"><code><div><span class="hljs-comment"># Build command</span>
+npm run generate
+
+<span class="hljs-comment"># Publish directory</span>
+.output/public
+</div></code></pre>
+<h4 id="nodejs-server">Node.js Server</h4>
+<pre class="hljs"><code><div><span class="hljs-comment"># Build</span>
+npm run build
+
+<span class="hljs-comment"># Start production server</span>
+node .output/server/index.mjs
+</div></code></pre>
+<hr>
+<h2 id="11-nuxt-interview-questions">11. Nuxt Interview Questions</h2>
+<h3 id="111-fundamental-questions">11.1 Fundamental Questions</h3>
+<p><strong>Q: What is Nuxt.js?</strong>
+A: Nuxt.js is a meta-framework built on Vue.js that provides SSR, SSG, file-based routing, and other features for building production-ready applications.</p>
+<p><strong>Q: What are the rendering modes in Nuxt?</strong>
+A: Universal (SSR), Client-Side Rendering (CSR), Static Site Generation (SSG), and Hybrid rendering.</p>
+<p><strong>Q: What is the difference between useFetch and useAsyncData?</strong>
+A: <code>useFetch</code> is a wrapper around <code>useAsyncData</code> and <code>$fetch</code> for simpler API calls. <code>useAsyncData</code> is more flexible and allows custom fetcher functions.</p>
+<p><strong>Q: What is file-based routing?</strong>
+A: Automatic route generation based on file structure in the <code>pages/</code> directory. Each file becomes a route.</p>
+<p><strong>Q: What is the purpose of layouts?</strong>
+A: Layouts provide reusable page structures. They wrap page components and can be switched dynamically.</p>
+<p><strong>Q: What are Nuxt modules?</strong>
+A: Reusable extensions that add functionality to Nuxt applications. Examples: Tailwind, Pinia, i18n.</p>
+<p><strong>Q: What is useState in Nuxt?</strong>
+A: A composable for creating SSR-friendly shared state across components.</p>
+<p><strong>Q: What are server routes?</strong>
+A: API endpoints defined in the <code>server/api/</code> directory that run on the server.</p>
+<p><strong>Q: What is the difference between SSR and SSG?</strong>
+A: SSR renders pages on each request, SSG pre-renders pages at build time.</p>
+<p><strong>Q: What is middleware in Nuxt?</strong>
+A: Functions that run before rendering a page or group of pages, used for authentication, authorization, etc.</p>
+<h3 id="112-advanced-questions">11.2 Advanced Questions</h3>
+<p><strong>Q: How does Nuxt handle SEO?</strong>
+A: Through <code>useHead</code>, <code>useSeoMeta</code>, and SSR/SSG rendering modes that provide fully rendered HTML to search engines.</p>
+<p><strong>Q: What is hybrid rendering?</strong>
+A: Mixing different rendering strategies (SSR, SSG, CSR) for different routes in the same application.</p>
+<p><strong>Q: How do you handle authentication in Nuxt?</strong>
+A: Using middleware, composables, and server routes. Store tokens in cookies (httpOnly), protect routes with middleware, and use server-side validation.</p>
+<p><strong>Q: What is the purpose of the server directory?</strong>
+A: Contains server-side code including API routes, middleware, and utilities that run on the server.</p>
+<p><strong>Q: How do you optimize Nuxt performance?</strong>
+A: Lazy loading, code splitting, image optimization, caching, ISR, proper data fetching, and production builds.</p>
+<p><strong>Q: What is the difference between plugins and modules?</strong>
+A: Plugins extend the Vue app instance and run on both client and server. Modules extend Nuxt itself at build time.</p>
+<p><strong>Q: How do you handle environment variables?</strong>
+A: Using <code>runtimeConfig</code> in <code>nuxt.config.ts</code>. Private keys are server-only, public keys are exposed to client.</p>
+<p><strong>Q: What is Nitro?</strong>
+A: Nuxt's server engine that provides API routes, server middleware, and deployment presets for various platforms.</p>
+<p><strong>Q: How do you implement i18n in Nuxt?</strong>
+A: Using <code>@nuxtjs/i18n</code> module for internationalization with automatic route generation and locale switching.</p>
+<p><strong>Q: What are route rules?</strong>
+A: Configuration for individual routes to set rendering mode, caching, redirects, and other behaviors.</p>
+<h3 id="113-practical-questions">11.3 Practical Questions</h3>
+<p><strong>Q: How do you fetch data in Nuxt?</strong>
+A: Using <code>useFetch</code>, <code>useAsyncData</code>, <code>useLazyFetch</code>, or <code>$fetch</code> depending on the use case.</p>
+<p><strong>Q: How do you create dynamic routes?</strong>
+A: Using square brackets in file names: <code>[id].vue</code> for <code>/posts/:id</code>.</p>
+<p><strong>Q: How do you protect routes?</strong>
+A: Using middleware with <code>definePageMeta</code> and checking authentication state.</p>
+<p><strong>Q: How do you handle forms in Nuxt?</strong>
+A: Using <code>v-model</code>, handling submit events, validating data, and sending to API routes.</p>
+<p><strong>Q: How do you implement pagination?</strong>
+A: Using query parameters, watching them with <code>useFetch</code>, and updating the URL with <code>navigateTo</code>.</p>
+<p><strong>Q: How do you handle errors in Nuxt?</strong>
+A: Using error pages (<code>error.vue</code>), <code>createError</code>, and error boundaries.</p>
+<p><strong>Q: How do you add meta tags dynamically?</strong>
+A: Using <code>useHead</code> or <code>useSeoMeta</code> with reactive data from API calls.</p>
+<p><strong>Q: How do you implement caching?</strong>
+A: Using route rules with <code>swr</code> (stale-while-revalidate) or <code>cache</code> options.</p>
+<p><strong>Q: How do you create API routes?</strong>
+A: Creating files in <code>server/api/</code> directory with <code>defineEventHandler</code>.</p>
+<p><strong>Q: How do you deploy a Nuxt app?</strong>
+A: Build with <code>npm run build</code> and deploy to platforms like Vercel, Netlify, or Node.js servers. For static sites, use <code>npm run generate</code>.</p>
+<hr>
+<h2 id="additional-resources">Additional Resources</h2>
+<h3 id="official-documentation">Official Documentation</h3>
+<ul>
+<li><a href="https://vuejs.org">Vue.js Docs</a></li>
+<li><a href="https://nuxt.com">Nuxt.js Docs</a></li>
+<li><a href="https://router.vuejs.org">Vue Router Docs</a></li>
+<li><a href="https://pinia.vuejs.org">Pinia Docs</a></li>
+</ul>
+<h3 id="tools">Tools</h3>
+<ul>
+<li><strong>Volar</strong> - VS Code extension for Vue 3</li>
+<li><strong>Vue DevTools</strong> - Browser extension</li>
+<li><strong>Nuxt DevTools</strong> - Built-in development tools</li>
+</ul>
+<h3 id="learning-resources">Learning Resources</h3>
+<ul>
+<li>Vue Mastery</li>
+<li>Vue School</li>
+<li>Nuxt.com Learn Section</li>
+<li>Official Vue/Nuxt YouTube Channels</li>
+</ul>
+<h3 id="popular-modules">Popular Modules</h3>
+<ul>
+<li><strong>@nuxtjs/tailwindcss</strong> - Tailwind CSS integration</li>
+<li><strong>@nuxt/image</strong> - Image optimization</li>
+<li><strong>@nuxtjs/i18n</strong> - Internationalization</li>
+<li><strong>@vueuse/nuxt</strong> - Collection of Vue composables</li>
+<li><strong>nuxt-icon</strong> - Icon components</li>
+</ul>
+<hr>
+<p><strong>Happy Coding with Vue &amp; Nuxt! 🚀</strong></p>
+<p><em>These notes cover Vue.js 3.5 and Nuxt.js 4.2 concepts, features, and interview questions. Practice building projects to master Vue and Nuxt development.</em></p>
+
+</body>
+</html>
