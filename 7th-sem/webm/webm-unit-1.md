@@ -2,8 +2,8 @@
 
 **Course:** PEC-CSE-405G | **Author:** [Deepak Modi](https://deepakmodi.tech)
 
-**Syllabus:**      
-**Data Mining Foundations:** Basic concepts in Data Mining, Web mining versus Data mining, Discovering knowledge from Hypertext data.      
+**Syllabus:**  
+**Data Mining Foundations:** Basic concepts in Data Mining, Web mining versus Data mining, Discovering knowledge from Hypertext data.  
 **An Overview of Web Mining:** What is Web mining, Web mining taxonomy, Web mining subtasks, issues, challenges.
 
 ---
@@ -11,17 +11,20 @@
 ## 🎯 PYQ Analysis for Unit 1
 
 ### High Priority Topics ⭐⭐⭐
+
 1. **Web Mining vs Data Mining** (2022-Feb, 2022-Dec, 2023, 2024-May, 2024-Dec)
 2. **Discovering Knowledge from Hypertext Data** (2022-Feb, 2023, 2024-May, 2024-Dec)
 3. **Web Mining Issues & Challenges** (2022-Feb, 2022-Jul, 2023, 2024-May, 2024-Dec)
 4. **Web Mining Subtasks** (2022-Feb, 2023)
 
 ### Medium Priority Topics ⭐⭐
+
 5. **Web Mining Taxonomy** (2024-May, 2024-Dec)
 6. **Data Mining Applications** (2022-Jul, 2022-Dec)
 7. **Social Impacts of Data Mining** (2022-Jul)
 
 ### Short Answer Topics ⭐
+
 8. **Define Mining** (2022-Feb)
 9. **Hypertext Data** (2023, 2024-May)
 
@@ -31,8 +34,8 @@
 
 ### **1.1 Introduction to Data Mining**
 
-> PYQ: Define mining. (2022-Feb, 1.875 marks)      
-> PYQ: Define data mining. (2022-Jul, 3 marks)      
+> PYQ: Define mining. (2022-Feb, 1.875 marks)  
+> PYQ: Define data mining. (2022-Jul, 3 marks)  
 > PYQ: What is data mining? (2024-May, 15 marks)
 
 #### What is Data Mining?
@@ -41,8 +44,8 @@
 
 It involves analyzing data from different perspectives and summarizing it into useful information that can help organizations make better decisions, predict future trends, and gain competitive advantages.
 
-
 **Key Characteristics:**
+
 - **Automatic Discovery** - Finds patterns without explicit programming
 - **Predictive** - Predicts future trends based on historical data
 - **Scalable** - Works with large datasets (terabytes/petabytes)
@@ -76,7 +79,6 @@ It involves analyzing data from different perspectives and summarizing it into u
           └───────────────┘
 ```
 
-
 **Steps in KDD Process:**
 
 1. **Data Selection**: Identifying relevant data from databases
@@ -88,28 +90,28 @@ It involves analyzing data from different perspectives and summarizing it into u
 
 #### Data Mining Techniques
 
-| Technique | Description | Example |
-|-----------|-------------|---------|
-| **Classification** | Assigns items to predefined categories | Email spam detection |
-| **Clustering** | Groups similar items together | Customer segmentation |
-| **Association Rules** | Finds relationships between items | Market basket analysis |
-| **Regression** | Predicts numerical values | Stock price prediction |
-| **Anomaly Detection** | Identifies unusual patterns | Fraud detection |
-| **Sequential Pattern Mining** | Finds patterns in sequences | Web clickstream analysis |
+| Technique                     | Description                            | Example                  |
+| ----------------------------- | -------------------------------------- | ------------------------ |
+| **Classification**            | Assigns items to predefined categories | Email spam detection     |
+| **Clustering**                | Groups similar items together          | Customer segmentation    |
+| **Association Rules**         | Finds relationships between items      | Market basket analysis   |
+| **Regression**                | Predicts numerical values              | Stock price prediction   |
+| **Anomaly Detection**         | Identifies unusual patterns            | Fraud detection          |
+| **Sequential Pattern Mining** | Finds patterns in sequences            | Web clickstream analysis |
 
 #### Applications of Data Mining
 
-> PYQ: Explain how data mining is used in healthcare analysis. (2022-Jul, 8 marks)      
+> PYQ: Explain how data mining is used in healthcare analysis. (2022-Jul, 8 marks)  
 > PYQ: Application of data mining in healthcare. (2022-Dec, 8 marks)
 
-| Domain | Application | Example |
-|--------|-------------|---------|
-| **Healthcare** | Disease prediction, drug discovery | Predicting diabetes risk, identifying drug interactions |
-| **Banking & Finance** | Fraud detection, credit scoring | Credit card fraud detection, loan approval |
-| **Retail** | Market basket analysis, customer profiling | Product recommendations, inventory management |
-| **Telecommunications** | Churn prediction, network optimization | Identifying customers likely to switch providers |
-| **Education** | Student performance prediction | Identifying at-risk students |
-| **Manufacturing** | Quality control, predictive maintenance | Detecting defective products |
+| Domain                 | Application                                | Example                                                 |
+| ---------------------- | ------------------------------------------ | ------------------------------------------------------- |
+| **Healthcare**         | Disease prediction, drug discovery         | Predicting diabetes risk, identifying drug interactions |
+| **Banking & Finance**  | Fraud detection, credit scoring            | Credit card fraud detection, loan approval              |
+| **Retail**             | Market basket analysis, customer profiling | Product recommendations, inventory management           |
+| **Telecommunications** | Churn prediction, network optimization     | Identifying customers likely to switch providers        |
+| **Education**          | Student performance prediction             | Identifying at-risk students                            |
+| **Manufacturing**      | Quality control, predictive maintenance    | Detecting defective products                            |
 
 #### Data Mining in Healthcare (Detailed)
 
@@ -118,20 +120,24 @@ It involves analyzing data from different perspectives and summarizing it into u
 **Applications:**
 
 1. **Disease Diagnosis & Prediction**
+
    - Using patient symptoms and history to predict diseases
    - Early detection of cancer, diabetes, heart disease
    - Example: Predicting COVID-19 severity based on patient data
 
 2. **Drug Discovery**
+
    - Identifying potential drug candidates
    - Analyzing drug interactions and side effects
    - Reducing time and cost of clinical trials
 
 3. **Treatment Effectiveness**
+
    - Analyzing which treatments work best for specific conditions
    - Personalized medicine based on patient genetics
 
 4. **Hospital Resource Management**
+
    - Predicting patient admission rates
    - Optimizing bed allocation and staff scheduling
 
@@ -169,25 +175,26 @@ Healthcare Data Mining Applications
 
 **Positive Impacts:**
 
-| Impact | Description |
-|--------|-------------|
-| **Improved Services** | Better healthcare, personalized education |
-| **Crime Prevention** | Predictive policing, fraud detection |
-| **Scientific Discovery** | New drug discoveries, climate analysis |
-| **Economic Growth** | Business optimization, market insights |
-| **Public Health** | Disease outbreak prediction, health trends |
+| Impact                   | Description                                |
+| ------------------------ | ------------------------------------------ |
+| **Improved Services**    | Better healthcare, personalized education  |
+| **Crime Prevention**     | Predictive policing, fraud detection       |
+| **Scientific Discovery** | New drug discoveries, climate analysis     |
+| **Economic Growth**      | Business optimization, market insights     |
+| **Public Health**        | Disease outbreak prediction, health trends |
 
 **Negative Impacts:**
 
-| Impact | Description |
-|--------|-------------|
-| **Privacy Concerns** | Personal data collection without consent |
-| **Discrimination** | Biased algorithms affecting certain groups |
-| **Job Displacement** | Automation replacing human workers |
-| **Surveillance** | Mass monitoring of citizens |
-| **Data Breaches** | Sensitive information exposure |
+| Impact               | Description                                |
+| -------------------- | ------------------------------------------ |
+| **Privacy Concerns** | Personal data collection without consent   |
+| **Discrimination**   | Biased algorithms affecting certain groups |
+| **Job Displacement** | Automation replacing human workers         |
+| **Surveillance**     | Mass monitoring of citizens                |
+| **Data Breaches**    | Sensitive information exposure             |
 
 **Ethical Considerations:**
+
 - **Transparency**: Users should know how their data is used
 - **Consent**: Explicit permission before data collection
 - **Anonymization**: Protecting individual identities
@@ -198,23 +205,25 @@ Healthcare Data Mining Applications
 
 > PYQ: Define data mining. Discuss spatial data mining. (2022-Dec, 15 marks)
 
-**Spatial Data Mining** is the process of discovering interesting and useful patterns from large spatial databases (geographic data).
+**Spatial Data Mining** is the process of discovering interesting and useful patterns from large spatial databases (geographic data). It involves analyzing spatial relationships, distributions, and trends in data that has a geographic or spatial component.
 
 **Characteristics of Spatial Data:**
+
 - Contains location information (coordinates, addresses)
 - Has spatial relationships (distance, adjacency, containment)
 - Often combined with non-spatial attributes
 
 **Spatial Data Mining Techniques:**
 
-| Technique | Description | Example |
-|-----------|-------------|---------|
-| **Spatial Clustering** | Grouping nearby objects | Identifying crime hotspots |
-| **Spatial Classification** | Categorizing based on location | Land use classification |
-| **Spatial Association** | Finding co-location patterns | Stores often near gas stations |
+| Technique                     | Description                      | Example                            |
+| ----------------------------- | -------------------------------- | ---------------------------------- |
+| **Spatial Clustering**        | Grouping nearby objects          | Identifying crime hotspots         |
+| **Spatial Classification**    | Categorizing based on location   | Land use classification            |
+| **Spatial Association**       | Finding co-location patterns     | Stores often near gas stations     |
 | **Spatial Outlier Detection** | Finding unusual spatial patterns | Detecting unusual traffic patterns |
 
 **Applications:**
+
 - **Urban Planning**: Analyzing traffic patterns, zoning decisions
 - **Environmental Science**: Climate change analysis, pollution monitoring
 - **Epidemiology**: Disease spread analysis, healthcare accessibility
@@ -254,10 +263,10 @@ Data Types in Data Mining
 
 #### Data Mining Tasks
 
-| Task Type | Description | Algorithms |
-|-----------|-------------|------------|
-| **Predictive** | Predict unknown values | Regression, Classification, Neural Networks |
-| **Descriptive** | Find patterns in data | Clustering, Association Rules, Summarization |
+| Task Type       | Description            | Algorithms                                   |
+| --------------- | ---------------------- | -------------------------------------------- |
+| **Predictive**  | Predict unknown values | Regression, Classification, Neural Networks  |
+| **Descriptive** | Find patterns in data  | Clustering, Association Rules, Summarization |
 
 #### Common Data Mining Algorithms
 
@@ -289,23 +298,23 @@ Data Types in Data Mining
 
 ### **1.3 Web Mining vs Data Mining**
 
-> PYQ: Write down the difference between data mining and web mining. (2022-Feb, 7 marks)      
-> PYQ: Web mining versus data mining. (2022-Dec, 7 marks; 2023, 7.5 marks)      
+> PYQ: Write down the difference between data mining and web mining. (2022-Feb, 7 marks)  
+> PYQ: Web mining versus data mining. (2022-Dec, 7 marks; 2023, 7.5 marks)  
 > PYQ: Discuss the differences and similarities between web mining and data mining. Also, list various applications of web mining. (2024-Dec, 8 marks)
 
 #### Comparison Table
 
-| Aspect | Data Mining | Web Mining |
-|--------|-------------|------------|
-| **Definition** | Extracting patterns from structured databases | Extracting patterns from web data |
-| **Data Source** | Databases, data warehouses | Web pages, web logs, hyperlinks |
-| **Data Type** | Mostly structured | Structured, semi-structured, unstructured |
-| **Data Volume** | Large but manageable | Extremely large and growing |
-| **Data Nature** | Static or slowly changing | Highly dynamic and volatile |
-| **Complexity** | Relatively homogeneous | Highly heterogeneous |
-| **Techniques** | Classification, clustering, association | Web content, structure, usage mining |
-| **Challenges** | Data quality, scalability | Noise, redundancy, heterogeneity |
-| **Applications** | Business intelligence, healthcare | Search engines, recommendation systems |
+| Aspect           | Data Mining                                   | Web Mining                                |
+| ---------------- | --------------------------------------------- | ----------------------------------------- |
+| **Definition**   | Extracting patterns from structured databases | Extracting patterns from web data         |
+| **Data Source**  | Databases, data warehouses                    | Web pages, web logs, hyperlinks           |
+| **Data Type**    | Mostly structured                             | Structured, semi-structured, unstructured |
+| **Data Volume**  | Large but manageable                          | Extremely large and growing               |
+| **Data Nature**  | Static or slowly changing                     | Highly dynamic and volatile               |
+| **Complexity**   | Relatively homogeneous                        | Highly heterogeneous                      |
+| **Techniques**   | Classification, clustering, association       | Web content, structure, usage mining      |
+| **Challenges**   | Data quality, scalability                     | Noise, redundancy, heterogeneity          |
+| **Applications** | Business intelligence, healthcare             | Search engines, recommendation systems    |
 
 #### Key Differences
 
@@ -337,23 +346,23 @@ Data Types in Data Mining
 
 #### Why Web Mining is More Challenging
 
-| Challenge | Explanation |
-|-----------|-------------|
+| Challenge         | Explanation                                                      |
+| ----------------- | ---------------------------------------------------------------- |
 | **Heterogeneity** | Web data comes in multiple formats (HTML, XML, JSON, multimedia) |
-| **Scale** | Billions of web pages, constantly growing |
-| **Dynamism** | Web content changes frequently |
-| **Noise** | Advertisements, navigation elements, irrelevant content |
-| **Redundancy** | Same information appears on multiple pages |
-| **Quality** | No quality control; anyone can publish |
-| **Privacy** | User tracking raises ethical concerns |
+| **Scale**         | Billions of web pages, constantly growing                        |
+| **Dynamism**      | Web content changes frequently                                   |
+| **Noise**         | Advertisements, navigation elements, irrelevant content          |
+| **Redundancy**    | Same information appears on multiple pages                       |
+| **Quality**       | No quality control; anyone can publish                           |
+| **Privacy**       | User tracking raises ethical concerns                            |
 
 ---
 
 ### **1.4 Discovering Knowledge from Hypertext Data**
 
-> PYQ: How to discover knowledge from hypertext data? Discuss in detail with a suitable example. (2022-Feb, 8 marks)      
-> PYQ: Discovering knowledge from hypertext data. (2023, 7.5 marks)      
-> PYQ: Explain the process to discover knowledge from hypertext data. (2024-May, 15 marks)      
+> PYQ: How to discover knowledge from hypertext data? Discuss in detail with a suitable example. (2022-Feb, 8 marks)  
+> PYQ: Discovering knowledge from hypertext data. (2023, 7.5 marks)  
+> PYQ: Explain the process to discover knowledge from hypertext data. (2024-May, 15 marks)  
 > PYQ: How is knowledge discovered from hypertext data, and what are the key challenges involved in the process? (2024-Dec, 7 marks)
 
 #### What is Hypertext Data?
@@ -401,24 +410,33 @@ Hypertext Document Structure
 The process of discovering knowledge from hypertext data involves several steps:
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│         KNOWLEDGE DISCOVERY FROM HYPERTEXT DATA                  │
-└─────────────────────────────────────────────────────────────────┘
-                              │
-    ┌─────────────────────────┼─────────────────────────┐
-    │                         │                         │
-    ▼                         ▼                         ▼
-┌──────────┐            ┌─────────────┐            ┌───────────┐
-│  Data    │            │   Data      │            │   Data    │
-│Collection│            │Preprocessing│            │ Analysis  │
-│(Crawling)│            │ & Cleaning  │            │ & Mining  │
-└────┬─────┘            └──────┬──────┘            └─────┬─────┘
-     │                        │                        │
-     ▼                        ▼                        ▼
-┌──────────┐             ┌───────────┐            ┌──────────────┐
-│ Feature  │             │  Pattern  │            │ Knowledge    │
-│Extraction│             │ Discovery │            │Representation│
-└──────────┘             └───────────┘            └──────────────┘
+┌────────────────────────────────────────────────────┐
+│       KNOWLEDGE DISCOVERY FROM HYPERTEXT DATA      │
+└────────────────────────────────────────────────────┘
+                         │
+         ┌───────────────▼───────────────┐
+         │  Data Collection (Crawling)   │
+         └───────────────────────────────┘
+                         │
+         ┌───────────────▼───────────────┐
+         │ Data Preprocessing & Cleaning │
+         └───────────────────────────────┘
+                         │
+         ┌───────────────▼───────────────┐
+         │      Feature Extraction       │
+         └───────────────────────────────┘
+                         │
+         ┌───────────────▼───────────────┐
+         │   Data Analysis & Mining      │
+         └───────────────────────────────┘
+                         │
+         ┌───────────────▼───────────────┐
+         │      Pattern Discovery        │
+         └───────────────────────────────┘
+                         │
+         ┌───────────────▼───────────────┐
+         │   Knowledge Representation    │
+         └───────────────────────────────┘
 ```
 
 **Step-by-Step Process:**
@@ -458,23 +476,25 @@ Web Crawler Architecture
 
 ##### **Step 3: Feature Extraction**
 
-| Feature Type | Description | Example |
-|--------------|-------------|---------|
-| **Content Features** | Text, keywords, topics | TF-IDF scores |
-| **Structural Features** | HTML tags, headings | H1 tags, bold text |
-| **Link Features** | Inlinks, outlinks, anchor text | PageRank score |
-| **Metadata Features** | Title, description, keywords | Meta tags |
+| Feature Type            | Description                    | Example            |
+| ----------------------- | ------------------------------ | ------------------ |
+| **Content Features**    | Text, keywords, topics         | TF-IDF scores      |
+| **Structural Features** | HTML tags, headings            | H1 tags, bold text |
+| **Link Features**       | Inlinks, outlinks, anchor text | PageRank score     |
+| **Metadata Features**   | Title, description, keywords   | Meta tags          |
 
 ##### **Step 4: Pattern Discovery**
 
 Apply mining techniques to discover:
 
 1. **Content Patterns**
+
    - Topic extraction
    - Keyword clustering
    - Document classification
 
 2. **Link Patterns**
+
    - Hub and authority pages
    - Community detection
    - Link prediction
@@ -525,28 +545,31 @@ Step 5: Generate Knowledge
 
 > PYQ: What are the key challenges involved in the process? (2024-Dec, 7 marks)
 
-| Challenge | Description | Solution |
-|-----------|-------------|----------|
-| **Heterogeneity** | Different formats, languages, structures | Use NLP, multilingual processing |
-| **Noise** | Ads, navigation, irrelevant content | Content extraction algorithms |
-| **Scale** | Billions of pages | Distributed computing (MapReduce) |
-| **Dynamism** | Frequent content changes | Incremental crawling |
-| **Ambiguity** | Same word, different meanings | Word sense disambiguation |
-| **Link Spam** | Fake links to manipulate rankings | Spam detection algorithms |
-| **Deep Web** | Content behind forms/logins | Specialized crawlers |
-| **Multimedia** | Images, videos, audio | Multimodal analysis |
+| Challenge         | Description                              | Solution                          |
+| ----------------- | ---------------------------------------- | --------------------------------- |
+| **Heterogeneity** | Different formats, languages, structures | Use NLP, multilingual processing  |
+| **Noise**         | Ads, navigation, irrelevant content      | Content extraction algorithms     |
+| **Scale**         | Billions of pages                        | Distributed computing (MapReduce) |
+| **Dynamism**      | Frequent content changes                 | Incremental crawling              |
+| **Ambiguity**     | Same word, different meanings            | Word sense disambiguation         |
+| **Link Spam**     | Fake links to manipulate rankings        | Spam detection algorithms         |
+| **Deep Web**      | Content behind forms/logins              | Specialized crawlers              |
+| **Multimedia**    | Images, videos, audio                    | Multimodal analysis               |
 
 #### Algorithms for Hypertext Knowledge Discovery
 
 1. **PageRank**
+
    - Measures page importance based on links
    - Used by Google for search ranking
 
 2. **HITS (Hyperlink-Induced Topic Search)**
+
    - Identifies hubs (link to many) and authorities (linked by many)
    - Useful for topic-specific searches
 
 3. **TF-IDF (Term Frequency-Inverse Document Frequency)**
+
    - Measures word importance in documents
    - Used for keyword extraction
 
@@ -560,8 +583,8 @@ Step 5: Generate Knowledge
 
 ### **2.1 What is Web Mining?**
 
-> PYQ: What do you mean by web mining? What are its types? (2022-Feb, 8 marks)      
-> PYQ: Define web mining. Explain its various issues and challenges. (2022-Jul, 15 marks)      
+> PYQ: What do you mean by web mining? What are its types? (2022-Feb, 8 marks)  
+> PYQ: Define web mining. Explain its various issues and challenges. (2022-Jul, 15 marks)  
 > PYQ: Write short notes on Web mining. (2022-Dec, 3 marks; 2024-May, 2.5 marks)
 
 #### Definition of Web Mining
@@ -572,14 +595,14 @@ Step 5: Generate Knowledge
 
 #### Why Web Mining?
 
-| Reason | Explanation |
-|--------|-------------|
-| **Information Overload** | Billions of web pages; need automated analysis |
-| **Business Intelligence** | Understanding customer behavior online |
-| **Personalization** | Customizing content for users |
-| **Search Improvement** | Better search engine results |
-| **E-commerce** | Product recommendations, market analysis |
-| **Security** | Detecting web spam, phishing, fraud |
+| Reason                    | Explanation                                    |
+| ------------------------- | ---------------------------------------------- |
+| **Information Overload**  | Billions of web pages; need automated analysis |
+| **Business Intelligence** | Understanding customer behavior online         |
+| **Personalization**       | Customizing content for users                  |
+| **Search Improvement**    | Better search engine results                   |
+| **E-commerce**            | Product recommendations, market analysis       |
+| **Security**              | Detecting web spam, phishing, fraud            |
 
 #### Components of Web Mining
 
@@ -619,32 +642,29 @@ Web Mining Components
 Web Mining is categorized into **three main types** based on the type of data being mined:
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                      WEB MINING TAXONOMY                         │
-└─────────────────────────────────────────────────────────────────┘
-                              │
-          ┌───────────────────┼───────────────────┐
-          │                   │                   │
-          ▼                   ▼                   ▼
-    ┌───────────┐       ┌───────────┐       ┌───────────┐
-    │   WEB     │       │   WEB     │       │   WEB     │
-    │ CONTENT   │       │ STRUCTURE │       │  USAGE    │
-    │  MINING   │       │  MINING   │       │  MINING   │
-    └─────┬─────┘       └─────┬─────┘       └─────┬─────┘
-          │                   │                   │
-    ┌─────┴─────┐       ┌─────┴──────┐       ┌─────┴─────┐
-    │• Text     │       │• Hyperlinks│       │• Server   │
-    │• Images   │       │• Document  │       │  Logs     │
-    │• Audio    │       │  Structure │       │• Cookies  │
-    │• Video    │       │• Web Graph │       │• Sessions │
-    └───────────┘       └────────────┘       └───────────┘
+┌───────────────────────────────────────────────────┐
+│                 WEB MINING TAXONOMY               │
+└─────────────────────────┬─────────────────────────┘
+      ┌───────────────────┼───────────────────┐
+┌─────▼─────┐       ┌─────▼─────┐       ┌─────▼─────┐
+│   WEB     │       │   WEB     │       │   WEB     │
+│ CONTENT   │       │ STRUCTURE │       │  USAGE    │
+│  MINING   │       │  MINING   │       │  MINING   │
+└─────┬─────┘       └─────┬─────┘       └─────┬─────┘
+┌─────┴─────┐       ┌─────┴──────┐      ┌─────┴─────┐
+│• Text     │       │• Hyperlinks│      │• Server   │
+│• Images   │       │• Document  │      │  Logs     │
+│• Audio    │       │  Structure │      │• Cookies  │
+│• Video    │       │• Web Graph │      │• Sessions │
+└───────────┘       └────────────┘      └───────────┘
 ```
 
-#### 1. Web Content Mining
+#### 1. Web Content Mining (WCM)
 
 **Definition**: Mining the content of web pages (text, images, audio, video).
 
 **Data Sources:**
+
 - HTML/XML documents
 - Text content
 - Multimedia (images, videos, audio)
@@ -660,16 +680,18 @@ Web Mining is categorized into **three main types** based on the type of data be
 | **Sentiment Analysis** | Determining opinions/emotions |
 
 **Applications:**
+
 - Search engines (Google, Bing)
 - Question answering systems
 - Document summarization
 - Content categorization
 
-#### 2. Web Structure Mining
+#### 2. Web Structure Mining (WSM)
 
 **Definition**: Mining the hyperlink structure of the web to discover useful patterns.
 
 **Data Sources:**
+
 - Hyperlinks (inlinks, outlinks)
 - Anchor text
 - Document structure (DOM)
@@ -684,16 +706,18 @@ Web Mining is categorized into **three main types** based on the type of data be
 | **Community Detection** | Finding related page groups |
 
 **Applications:**
+
 - Search engine ranking
 - Web page classification
 - Finding authoritative sources
 - Detecting web spam
 
-#### 3. Web Usage Mining
+#### 3. Web Usage Mining (WUM)
 
 **Definition**: Mining user access patterns from web server logs and user data.
 
 **Data Sources:**
+
 - Web server logs
 - Proxy server logs
 - Browser cookies
@@ -709,6 +733,7 @@ Web Mining is categorized into **three main types** based on the type of data be
 | **Collaborative Filtering** | Finding similar users |
 
 **Applications:**
+
 - Personalization
 - Recommendation systems
 - Website optimization
@@ -716,19 +741,19 @@ Web Mining is categorized into **three main types** based on the type of data be
 
 #### Comparison of Web Mining Types
 
-| Aspect | Content Mining | Structure Mining | Usage Mining |
-|--------|----------------|------------------|--------------|
-| **Data** | Page content | Hyperlinks | Server logs |
-| **Focus** | What is said | How pages connect | How users behave |
-| **View** | Intra-page | Inter-page | User interaction |
-| **Algorithms** | NLP, ML | Graph algorithms | Sequential patterns |
-| **Output** | Topics, entities | Rankings, communities | Patterns, profiles |
+| Aspect         | Content Mining   | Structure Mining      | Usage Mining        |
+| -------------- | ---------------- | --------------------- | ------------------- |
+| **Data**       | Page content     | Hyperlinks            | Server logs         |
+| **Focus**      | What is said     | How pages connect     | How users behave    |
+| **View**       | Intra-page       | Inter-page            | User interaction    |
+| **Algorithms** | NLP, ML          | Graph algorithms      | Sequential patterns |
+| **Output**     | Topics, entities | Rankings, communities | Patterns, profiles  |
 
 ---
 
 ### **2.3 Web Mining Subtasks**
 
-> PYQ: What are web mining subtasks? Discuss in detail with a suitable example. (2022-Feb, 7 marks)      
+> PYQ: What are web mining subtasks? Discuss in detail with a suitable example. (2022-Feb, 7 marks)  
 > PYQ: Explain web mining subtasks, issues, and challenges. (2023, 15 marks)
 
 #### Overview of Web Mining Subtasks
@@ -756,12 +781,14 @@ Web Mining Subtasks
 **Purpose**: Locating and retrieving relevant web documents and resources.
 
 **Activities:**
+
 - **Web Crawling**: Automated traversal of the web to collect pages
 - **Focused Crawling**: Targeting specific topics or domains
 - **Deep Web Access**: Retrieving content behind forms and databases
 - **API Integration**: Collecting data from web services
 
 **Tools:**
+
 - Web crawlers (Scrapy, Apache Nutch)
 - Search engine APIs (Google, Bing)
 - Web scraping tools (BeautifulSoup, Selenium)
@@ -772,15 +799,16 @@ Web Mining Subtasks
 
 **Activities:**
 
-| Activity | Description |
-|----------|-------------|
-| **HTML Parsing** | Extracting content from HTML tags |
-| **Noise Removal** | Removing ads, navigation, scripts |
-| **Text Extraction** | Getting clean text content |
-| **Feature Selection** | Identifying important attributes |
-| **Data Transformation** | Converting to suitable format |
+| Activity                | Description                       |
+| ----------------------- | --------------------------------- |
+| **HTML Parsing**        | Extracting content from HTML tags |
+| **Noise Removal**       | Removing ads, navigation, scripts |
+| **Text Extraction**     | Getting clean text content        |
+| **Feature Selection**   | Identifying important attributes  |
+| **Data Transformation** | Converting to suitable format     |
 
 **Example Process:**
+
 ```
 Raw HTML Page
     │
@@ -812,15 +840,16 @@ Raw HTML Page
 
 **Techniques Used:**
 
-| Technique | Application in Web Mining |
-|-----------|---------------------------|
-| **Clustering** | Grouping similar web pages |
-| **Classification** | Categorizing web content |
-| **Association Rules** | Finding co-occurring elements |
-| **Sequential Patterns** | Discovering navigation paths |
-| **Link Analysis** | Finding important pages |
+| Technique               | Application in Web Mining     |
+| ----------------------- | ----------------------------- |
+| **Clustering**          | Grouping similar web pages    |
+| **Classification**      | Categorizing web content      |
+| **Association Rules**   | Finding co-occurring elements |
+| **Sequential Patterns** | Discovering navigation paths  |
+| **Link Analysis**       | Finding important pages       |
 
 **Example**: Clustering news articles by topic
+
 ```
 Input: 1000 news articles
     │
@@ -841,6 +870,7 @@ Output: 10 topic clusters
 **Purpose**: Interpreting discovered patterns and validating their usefulness.
 
 **Activities:**
+
 - **Pattern Evaluation**: Assessing pattern quality and significance
 - **Visualization**: Presenting results graphically
 - **Validation**: Verifying patterns against domain knowledge
@@ -848,6 +878,7 @@ Output: 10 topic clusters
 - **Application**: Using knowledge for decision-making
 
 **Metrics for Evaluation:**
+
 - **Support**: How frequently a pattern occurs
 - **Confidence**: Reliability of the pattern
 - **Lift**: Strength of association
@@ -857,8 +888,8 @@ Output: 10 topic clusters
 
 ### **2.4 Web Mining Issues and Challenges**
 
-> PYQ: Define web mining. Explain its various issues and challenges. (2022-Jul, 15 marks)      
-> PYQ: What are the key issues in web mining? (2022-Feb, 8 marks)      
+> PYQ: Define web mining. Explain its various issues and challenges. (2022-Jul, 15 marks)  
+> PYQ: What are the key issues in web mining? (2022-Feb, 8 marks)  
 > PYQ: Discuss the key issues and challenges faced in web mining. (2024-Dec, 8 marks)
 
 #### Major Issues in Web Mining
@@ -892,30 +923,30 @@ Web Mining Issues
 
 #### Detailed Challenges
 
-| Challenge | Description | Impact | Solution Approach |
-|-----------|-------------|--------|-------------------|
-| **Scalability** | Billions of web pages to process | High computational cost | Distributed computing, sampling |
-| **Heterogeneity** | Different formats (HTML, PDF, images) | Complex preprocessing | Multi-format parsers, NLP |
-| **Dynamism** | Web content changes frequently | Outdated information | Incremental crawling, change detection |
-| **Noise** | Ads, navigation, irrelevant content | Poor mining quality | Content extraction algorithms |
-| **Redundancy** | Same information on multiple pages | Wasted resources | Duplicate detection, deduplication |
-| **Sparsity** | Useful information is sparse | Low signal-to-noise ratio | Feature selection, filtering |
-| **Privacy** | User data collection concerns | Legal and ethical issues | Anonymization, consent mechanisms |
-| **Spam** | Fake content to manipulate rankings | Misleading results | Spam detection algorithms |
-| **Deep Web** | Content behind logins/forms | Incomplete coverage | Specialized crawlers, APIs |
-| **Multilingual** | Content in many languages | Complex analysis | Machine translation, multilingual NLP |
+| Challenge         | Description                           | Impact                    | Solution Approach                      |
+| ----------------- | ------------------------------------- | ------------------------- | -------------------------------------- |
+| **Scalability**   | Billions of web pages to process      | High computational cost   | Distributed computing, sampling        |
+| **Heterogeneity** | Different formats (HTML, PDF, images) | Complex preprocessing     | Multi-format parsers, NLP              |
+| **Dynamism**      | Web content changes frequently        | Outdated information      | Incremental crawling, change detection |
+| **Noise**         | Ads, navigation, irrelevant content   | Poor mining quality       | Content extraction algorithms          |
+| **Redundancy**    | Same information on multiple pages    | Wasted resources          | Duplicate detection, deduplication     |
+| **Sparsity**      | Useful information is sparse          | Low signal-to-noise ratio | Feature selection, filtering           |
+| **Privacy**       | User data collection concerns         | Legal and ethical issues  | Anonymization, consent mechanisms      |
+| **Spam**          | Fake content to manipulate rankings   | Misleading results        | Spam detection algorithms              |
+| **Deep Web**      | Content behind logins/forms           | Incomplete coverage       | Specialized crawlers, APIs             |
+| **Multilingual**  | Content in many languages             | Complex analysis          | Machine translation, multilingual NLP  |
 
 #### Technical Challenges in Detail
 
 ##### 1. **Web Crawling Challenges**
 
-| Issue | Description |
-|-------|-------------|
+| Issue          | Description                             |
+| -------------- | --------------------------------------- |
 | **Politeness** | Respecting robots.txt and server limits |
-| **Freshness** | Keeping crawled data up-to-date |
-| **Coverage** | Reaching all relevant pages |
-| **Efficiency** | Minimizing bandwidth and time |
-| **Traps** | Avoiding infinite loops (spider traps) |
+| **Freshness**  | Keeping crawled data up-to-date         |
+| **Coverage**   | Reaching all relevant pages             |
+| **Efficiency** | Minimizing bandwidth and time           |
+| **Traps**      | Avoiding infinite loops (spider traps)  |
 
 ##### 2. **Data Quality Challenges**
 
@@ -940,69 +971,74 @@ Data Quality Problems
 
 ##### 3. **Semantic Challenges**
 
-| Challenge | Example |
-|-----------|---------|
-| **Synonymy** | "car" = "automobile" = "vehicle" |
-| **Polysemy** | "bank" = financial institution OR river bank |
-| **Context** | "Apple" = fruit OR company |
-| **Sarcasm** | "Great service!" (could be negative) |
-| **Implicit meaning** | Understanding unstated information |
+| Challenge            | Example                                      |
+| -------------------- | -------------------------------------------- |
+| **Synonymy**         | "car" = "automobile" = "vehicle"             |
+| **Polysemy**         | "bank" = financial institution OR river bank |
+| **Context**          | "Apple" = fruit OR company                   |
+| **Sarcasm**          | "Great service!" (could be negative)         |
+| **Implicit meaning** | Understanding unstated information           |
 
 #### Solutions to Web Mining Challenges
 
-| Challenge | Solution |
-|-----------|----------|
-| **Scale** | MapReduce, Spark, distributed systems |
-| **Heterogeneity** | Universal parsers, format converters |
-| **Dynamism** | Change detection, incremental updates |
-| **Noise** | Machine learning classifiers, DOM analysis |
-| **Privacy** | Differential privacy, anonymization |
-| **Spam** | Link analysis, content-based detection |
-| **Multilingual** | Neural machine translation, multilingual embeddings |
+| Challenge         | Solution                                            |
+| ----------------- | --------------------------------------------------- |
+| **Scale**         | MapReduce, Spark, distributed systems               |
+| **Heterogeneity** | Universal parsers, format converters                |
+| **Dynamism**      | Change detection, incremental updates               |
+| **Noise**         | Machine learning classifiers, DOM analysis          |
+| **Privacy**       | Differential privacy, anonymization                 |
+| **Spam**          | Link analysis, content-based detection              |
+| **Multilingual**  | Neural machine translation, multilingual embeddings |
 
 ---
 
 ### **2.5 Applications of Web Mining**
 
-> PYQ: What are some common applications of web mining? How do they benefit from web mining techniques to improve decision-making processes? (2024-Dec, 7 marks)      
+> PYQ: What are some common applications of web mining? How do they benefit from web mining techniques to improve decision-making processes? (2024-Dec, 7 marks)  
 > PYQ: List various applications of web mining. (2024-Dec, 8 marks)
 
 #### Major Applications
 
-| Domain | Application | Benefit |
-|--------|-------------|---------|
-| **Search Engines** | Google, Bing, DuckDuckGo | Relevant search results |
-| **E-commerce** | Amazon, Flipkart recommendations | Increased sales |
-| **Social Media** | Trend detection, sentiment analysis | User engagement |
-| **Marketing** | Customer segmentation, targeting | Better ROI |
-| **Security** | Fraud detection, phishing prevention | Risk reduction |
-| **Healthcare** | Medical information retrieval | Better patient care |
-| **Education** | E-learning personalization | Improved outcomes |
-| **News** | Topic tracking, fake news detection | Informed readers |
+| Domain             | Application                          | Benefit                 |
+| ------------------ | ------------------------------------ | ----------------------- |
+| **Search Engines** | Google, Bing, DuckDuckGo             | Relevant search results |
+| **E-commerce**     | Amazon, Flipkart recommendations     | Increased sales         |
+| **Social Media**   | Trend detection, sentiment analysis  | User engagement         |
+| **Marketing**      | Customer segmentation, targeting     | Better ROI              |
+| **Security**       | Fraud detection, phishing prevention | Risk reduction          |
+| **Healthcare**     | Medical information retrieval        | Better patient care     |
+| **Education**      | E-learning personalization           | Improved outcomes       |
+| **News**           | Topic tracking, fake news detection  | Informed readers        |
 
 #### Application Examples
 
 ##### 1. **Search Engine Optimization (SEO)**
+
 - Analyzing web structure for ranking
 - Keyword analysis and optimization
 - Competitor analysis
 
 ##### 2. **Recommendation Systems**
+
 - Product recommendations (Amazon)
 - Content recommendations (Netflix, YouTube)
 - Friend suggestions (Facebook, LinkedIn)
 
 ##### 3. **Web Analytics**
+
 - User behavior analysis
 - Conversion optimization
 - A/B testing insights
 
 ##### 4. **Competitive Intelligence**
+
 - Market trend analysis
 - Competitor monitoring
 - Price comparison
 
 ##### 5. **Customer Relationship Management (CRM)**
+
 - Customer profiling
 - Churn prediction
 - Personalized marketing
@@ -1011,48 +1047,51 @@ Data Quality Problems
 
 ## **Summary Table: Unit 1 Key Concepts**
 
-| Topic | Key Points |
-|-------|------------|
-| **Data Mining** | KDD process, techniques (classification, clustering), applications |
-| **Web Mining vs Data Mining** | Data source, structure, dynamism, challenges |
-| **Hypertext Knowledge Discovery** | Crawling, preprocessing, feature extraction, pattern discovery |
-| **Web Mining Taxonomy** | Content mining, structure mining, usage mining |
-| **Web Mining Subtasks** | Resource discovery, preprocessing, generalization, analysis |
-| **Issues & Challenges** | Scale, heterogeneity, dynamism, noise, privacy, spam |
-| **Applications** | Search engines, e-commerce, social media, security |
+| Topic                             | Key Points                                                         |
+| --------------------------------- | ------------------------------------------------------------------ |
+| **Data Mining**                   | KDD process, techniques (classification, clustering), applications |
+| **Web Mining vs Data Mining**     | Data source, structure, dynamism, challenges                       |
+| **Hypertext Knowledge Discovery** | Crawling, preprocessing, feature extraction, pattern discovery     |
+| **Web Mining Taxonomy**           | Content mining, structure mining, usage mining                     |
+| **Web Mining Subtasks**           | Resource discovery, preprocessing, generalization, analysis        |
+| **Issues & Challenges**           | Scale, heterogeneity, dynamism, noise, privacy, spam               |
+| **Applications**                  | Search engines, e-commerce, social media, security                 |
 
 ---
 
 ## **Quick Revision: Important Definitions**
 
-| Term | Definition |
-|------|------------|
-| **Data Mining** | Extracting patterns from large databases using statistical and ML techniques |
-| **Web Mining** | Applying data mining to extract knowledge from web data |
-| **Hypertext** | Text with hyperlinks to other documents |
-| **Web Content Mining** | Mining the content of web pages |
-| **Web Structure Mining** | Mining the hyperlink structure of the web |
-| **Web Usage Mining** | Mining user access patterns from logs |
-| **Knowledge Discovery** | Process of extracting useful knowledge from data |
-| **Web Crawler** | Program that automatically traverses the web |
+| Term                     | Definition                                                                   |
+| ------------------------ | ---------------------------------------------------------------------------- |
+| **Data Mining**          | Extracting patterns from large databases using statistical and ML techniques |
+| **Web Mining**           | Applying data mining to extract knowledge from web data                      |
+| **Hypertext**            | Text with hyperlinks to other documents                                      |
+| **Web Content Mining**   | Mining the content of web pages                                              |
+| **Web Structure Mining** | Mining the hyperlink structure of the web                                    |
+| **Web Usage Mining**     | Mining user access patterns from logs                                        |
+| **Knowledge Discovery**  | Process of extracting useful knowledge from data                             |
+| **Web Crawler**          | Program that automatically traverses the web                                 |
 
 ---
 
 ## **Expected Questions for Exam**
 
 ### 15 Marks Questions
+
 1. Web Mining vs Data Mining (with comparison table)
 2. Knowledge Discovery from Hypertext Data (with process diagram)
 3. Web Mining Taxonomy (all three types in detail)
 4. Web Mining Issues and Challenges (comprehensive list)
 
 ### 7-8 Marks Questions
+
 1. Applications of Data Mining in Healthcare
 2. Web Mining Subtasks
 3. Social Impacts of Data Mining
 4. Spatial Data Mining
 
 ### 2.5-3 Marks Questions
+
 1. Define Mining / Data Mining / Web Mining
 2. What is Hypertext Data?
 3. Types of Web Mining
@@ -1060,5 +1099,5 @@ Data Quality Problems
 
 ---
 
-*These notes were compiled by [Deepak Modi](https://deepakmodi.tech)*      
-*Last updated: December 2025*
+_These notes were compiled by [Deepak Modi](https://deepakmodi.tech)_  
+_Last updated: December 2025_
