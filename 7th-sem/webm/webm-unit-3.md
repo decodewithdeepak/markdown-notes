@@ -187,6 +187,8 @@ New Generation
 
 **Concept:** Swarm intelligence means many simple agents (like ants or birds) work together without a leader. Each agent follows simple rules and interacts with others nearby. Their combined actions create smart group behavior that solves problems, even though each agent is not smart on its own.
 
+In this context, a "swarm" means a group of simple agents (like birds, ants, bees, or fish) that work together without a leader.
+
 **Key Features:**
 
 - **Decentralized Control**: No central leader; each agent acts independently.
