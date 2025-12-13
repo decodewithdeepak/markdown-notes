@@ -12,7 +12,7 @@ Information Retrieval Models, Web Search and IR, Text Mining, Latent Semantic In
 ### High Priority Topics ⭐⭐⭐ (15 marks questions)
 
 1. **Information Retrieval Models** (2022-Feb, 2022-Jul, 2022-Dec, 2023, 2024-May, 2024-Dec)
-2. **Latent Semantic Indexing (LSI)** (2022-Feb - 15 marks full question)
+2. **Latent Semantic Indexing (LSI)** (2022-Feb - 15 marks)
 3. **Clustering and Classification of Web Pages** (2022-Feb, 2023, 2024-May)
 
 ### Medium Priority Topics ⭐⭐ (7-8 marks)

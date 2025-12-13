@@ -271,22 +271,27 @@ Data Types in Data Mining
 #### Common Data Mining Algorithms
 
 1. **Decision Trees** (C4.5, CART, ID3)
+
    - Tree-like model for classification
    - Easy to interpret and visualize
 
 2. **K-Means Clustering**
+
    - Partitions data into K clusters
    - Based on distance from centroids
 
 3. **Apriori Algorithm**
+
    - Finds frequent itemsets
    - Used for association rule mining
 
 4. **Naive Bayes**
+
    - Probabilistic classifier
    - Based on Bayes' theorem
 
 5. **Support Vector Machines (SVM)**
+
    - Finds optimal hyperplane for classification
    - Effective for high-dimensional data
 
@@ -301,6 +306,8 @@ Data Types in Data Mining
 > PYQ: Write down the difference between data mining and web mining. (2022-Feb, 7 marks)  
 > PYQ: Web mining versus data mining. (2022-Dec, 7 marks; 2023, 7.5 marks)  
 > PYQ: Discuss the differences and similarities between web mining and data mining. Also, list various applications of web mining. (2024-Dec, 8 marks)
+
+Web Mining and Data Mining are closely related fields, but they focus on different types of data and have distinct challenges.
 
 #### Comparison Table
 
@@ -637,6 +644,10 @@ Web Mining Components
 
 > PYQ: Explain web mining taxonomy, its issues, and challenges. (2024-May, 15 marks)
 
+#### What is Web Mining Taxonomy?
+
+Web Mining Taxonomy classifies web mining into different categories based on the type of data being mined and the techniques used. It helps in understanding the various aspects of web mining and their specific applications.
+
 #### Classification of Web Mining
 
 Web Mining is categorized into **three main types** based on the type of data being mined:
@@ -810,9 +821,9 @@ Web Mining Subtasks
 **Example Process:**
 
 ```
-Raw HTML Page
-    │
-    ▼
+    Raw HTML Page
+         │
+         ▼
 ┌──────────────────┐
 │ Remove HTML tags │
 │ Remove scripts   │
@@ -893,6 +904,8 @@ Output: 10 topic clusters
 > PYQ: Discuss the key issues and challenges faced in web mining. (2024-Dec, 8 marks)
 
 #### Major Issues in Web Mining
+
+While web mining offers significant opportunities, it also presents several challenges:
 
 ```
 Web Mining Issues
