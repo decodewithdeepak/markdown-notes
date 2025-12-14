@@ -112,8 +112,36 @@
 
 ---
 
+## November—2023 Examination
 
-## 2024 Examination
+### Short Answer Questions
+
+1. (i) Cipher Text  
+   (ii) Drawbacks of symmetric cryptography  
+   (iii) E-mail Security  
+   (iv) Single Sign-On approach  
+   (v) CIA triad
+
+### UNIT - I (15 marks)
+2. Explain the basic concepts of encryption and decryption techniques with suitable examples.
+3. Describe substitution ciphers. How is their working different from transposition ciphers?
+
+### UNIT - II (15 marks)
+4. What do you mean by digital signatures? How do they act as a medium of trust between communicating parties?
+5. (a) Differentiate between symmetric and asymmetric encryption approaches.  
+   (b) Explain the RSA algorithm.
+
+### UNIT - III (15 marks)
+6. What is SSL? Detail the events required for a successful SET transaction.
+7. Explain the Secure HTTP (S-HTTP) protocol along with its advantages and disadvantages. Why is Secure HTTP preferred over HTTP? Also discuss the vital features of TSP.
+
+### UNIT - IV (15 marks)
+8. Describe in detail the Kerberos authentication service. Also highlight its chief drawbacks.
+9. (a) Security handshake pitfalls.  
+   (b) Key Distribution Center (KDC).
+
+
+## Dec-2024 Examination
 
 ### Short Answer Questions (8 × 2.5 = 20 marks)
 1. (i) Define plain-text and cipher-text. How are they related in encryption?     
@@ -130,16 +158,12 @@
 3. Discuss the challenges and benefits of asymmetric key cryptography over symmetric key cryptography. Provide real-world examples to illustrate their usage. [15]
 
 ### UNIT - II (15 marks)
-4. (a) Explain the Data Encryption Standard (DES) in detail. How do its block structure and key size affect its security? [7.5]     
-   (b) Describe the Advanced Encryption Standard (AES) and its significance in modern cryptography. Discuss how its modes of operation ensure secure encryption. [7.5]
-5. (a) Explain the RSA Algorithm with an example. [8]     
-   (b) Compare DES, AES, and RSA in terms of structure, key length, and security level. [7]
+4. Explain the Data Encryption Standard (DES) algorithm in detail. [15]
+5. Describe the Advanced Encryption Standard (AES) and its operation along with its structure. [15]
 
 ### UNIT - III (15 marks)
-6. (a) Explain Electronic Transactions and discuss the advantages of digital payment systems. [7.5]     
-   (b) Discuss the concept of Electronic Money. How do security protocols like SSL and SET safeguard digital transactions? [7.5]
-7. (a) What is the Secure Socket Layer (SSL) protocol? Explain its working and importance in online security. [8]     
-   (b) Explain Transport Layer Security (TLS) and how it differs from SSL. [7]
+6. Explain the concept of Secure Electronic Transactions (SET) and compare it with SSL. [15]
+7. Discuss the concept of electronic money. How do security protocols like SSL and SET play a role in safeguarding digital transactions? [15]
 
 ### UNIT - IV (15 marks)
 8. Describe the Single Sign-On (SSO) approach and its advantages in enterprise security. What are some common pitfalls in its implementation? [15]

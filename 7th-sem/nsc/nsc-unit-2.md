@@ -8,21 +8,24 @@
 
 ---
 
-## **PYQ Priority Analysis**
+## **PYQ Analysis**
 
 ### **High Priority Topics** (15 marks questions)
-1. **Blowfish Subkey Generation** - Asked 3 times (Feb-22: 8 marks, Dec-22: 15 marks, May-23: 15 marks)
-2. **DES Algorithm** - Asked 2 times (Dec-22: 7.5 marks, 2024: 7.5 marks)
-3. **AES Algorithm** - Asked 2 times (May-23: 7.5 marks, 2024: 7.5 marks)
-4. **RSA Algorithm** - Asked 3 times (Feb-22: 7 marks, 2024: 8 marks + 7 marks comparison)
-5. **Digital Signature** - Asked 1 time (Feb-22: 7 marks)
+
+1. **Blowfish Subkey Generation** - (Feb-22: 8 marks, Dec-22: 15 marks, May-23: 15 marks)
+2. **DES Algorithm** - (Dec-22: 7.5 marks, 2024: 7.5 marks)
+3. **AES Algorithm** - (May-23: 7.5 marks, 2024: 7.5 marks)
+4. **RSA Algorithm** - (Feb-22: 7 marks, 2024: 8 marks + 7 marks comparison)
+5. **Digital Signature** - (Feb-22: 7 marks)
 
 ### **Medium Priority Topics** (7-8 marks)
+
 1. **DES Strengths and Weaknesses** - Feb-22 (8 marks)
 2. **DES Modes Limitations/Advantages** - Dec-22, May-23 (7.5 marks each)
 3. **DES vs AES vs RSA Comparison** - 2024 (7 marks)
 
 ### **Important Short Topics** (2.5 marks)
+
 1. **DES Design Principles** - Dec-22
 2. **DES Weak Keys** - May-23
 3. **Cipher Block Chaining (CBC)** - Dec-22
@@ -36,7 +39,10 @@
 
 **Symmetric Key Algorithms** are encryption methods where the same secret key is used for both encryption and decryption. These algorithms are designed to be fast and efficient for encrypting large amounts of data. They form the backbone of modern data security, used in applications like file encryption, secure communications, and database protection.
 
+**Analogy:** Think of symmetric key algorithms like a locked box where the same key is used to lock and unlock it. Only those who possess the key can access the contents inside.
+
 **Key Characteristics:**
+
 - Same key for encryption and decryption
 - Fast processing speed
 - Suitable for bulk data encryption
@@ -46,11 +52,13 @@
 ### 1.2 Types of Symmetric Algorithms
 
 **1. Block Ciphers:**
+
 - Process fixed-size blocks of data (64, 128, 256 bits)
 - Examples: DES (64-bit), AES (128-bit), Blowfish (64-bit)
 - Uses modes of operation (ECB, CBC, CFB, OFB, CTR)
 
 **2. Stream Ciphers:**
+
 - Process data bit-by-bit or byte-by-byte
 - Examples: RC4, A5/1, ChaCha20
 - Faster for real-time applications
@@ -76,12 +84,14 @@ Cipher Text:        C₁    C₂    C₃    C₄
 ```
 
 **Advantages:**
+
 - Simple implementation
 - Parallel processing possible
 - No error propagation
 - Random access to blocks
 
 **Disadvantages:**
+
 - Identical blocks produce identical ciphertext (pattern leakage)
 - Not secure for images or structured data
 - Vulnerable to block replay attacks
@@ -104,12 +114,14 @@ P₃ ─────────────────────────
 ```
 
 **Advantages:**
+
 - Identical blocks produce different ciphertext
 - Good diffusion
 - More secure than ECB
 - Industry standard for many applications
 
 **Disadvantages:**
+
 - Sequential processing (no parallelization in encryption)
 - Error propagation (affects next block)
 - Requires IV management
@@ -131,10 +143,10 @@ Uses a counter that increments for each block. Allows parallel processing and ra
 
 ## **2. Data Encryption Standard (DES)**
 
-> PYQ: Overview of DES Encryption Algorithm with diagram. (Dec-22, 7.5 marks)      
-> PYQ: Explain the Data Encryption Standard (DES) in detail. How do its block structure and key size affect its security? (2024, 7.5 marks)      
-> PYQ: Strengths and weaknesses of DES. (Feb-22, 8 marks)      
-> PYQ: DES Design Principles (Dec-22, 2.5 marks)      
+> PYQ: Overview of DES Encryption Algorithm with diagram. (Dec-22, 7.5 marks)  
+> PYQ: Explain the Data Encryption Standard (DES) in detail. How do its block structure and key size affect its security? (2024, 7.5 marks)  
+> PYQ: Strengths and weaknesses of DES. (Feb-22, 8 marks)  
+> PYQ: DES Design Principles (Dec-22, 2.5 marks)  
 > PYQ: DES Weak Keys (May-23, 2.5 marks)
 
 ### 2.1 Introduction to DES
@@ -142,6 +154,7 @@ Uses a counter that increments for each block. Allows parallel processing and ra
 **Data Encryption Standard (DES)** is a symmetric block cipher developed by IBM and adopted as a federal standard in 1977. It encrypts data in 64-bit blocks using a 56-bit key through 16 rounds of processing. Despite being replaced by AES due to its small key size, DES remains important for understanding modern cryptography and is still used in its triple-DES variant.
 
 **Key Specifications:**
+
 - **Block Size**: 64 bits
 - **Key Size**: 56 bits (64 bits with 8 parity bits)
 - **Rounds**: 16
@@ -153,42 +166,36 @@ Uses a counter that increments for each block. Allows parallel processing and ra
 **Overall Structure:**
 
 ```
-┌─────────────────────────────────────────┐
-│      64-bit Plain Text Block            │
-└──────────────┬──────────────────────────┘
-               │
+┌───────────────────────────────────────┐
+│      64-bit Plain Text Block          │
+└──────────────┬────────────────────────┘
         ┌──────▼──────┐
         │   Initial   │
         │ Permutation │
         │    (IP)     │
         └──────┬──────┘
-               │
         ┌──────▼──────┐
         │  Split into │
         │  L₀ and R₀  │
         │  (32+32 bit)│
         └──────┬──────┘
-               │
-        ┌──────▼──────────────┐
-        │   16 Rounds of      │
-        │  Feistel Function   │
-        │   (with subkeys)    │
-        └──────┬──────────────┘
-               │
+        ┌──────▼─────────────┐
+        │   16 Rounds of     │
+        │  Feistel Function  │
+        │   (with subkeys)   │
+        └──────┬─────────────┘
         ┌──────▼──────┐
         │   Swap L₁₆  │
         │   and R₁₆   │
         └──────┬──────┘
-               │
         ┌──────▼──────┐
         │    Final    │
         │ Permutation │
         │   (IP⁻¹)    │
         └──────┬──────┘
-               │
-┌──────────────▼──────────────────────────┐
-│      64-bit Cipher Text Block           │
-└─────────────────────────────────────────┘
+┌──────────────▼────────────────────────┐
+│      64-bit Cipher Text Block         │
+└───────────────────────────────────────┘
 ```
 
 ### 2.3 DES Round Function
@@ -203,31 +210,26 @@ Uses a counter that increments for each block. Allows parallel processing and ra
              │            │  (E-box)  │
              │            │ 32→48 bits│
              │            └─────┬─────┘
-             │                  │
              │            ┌─────▼─────┐
              │            │    XOR    │◄── Kᵢ (48-bit subkey)
              │            └─────┬─────┘
-             │                  │
              │            ┌─────▼─────┐
              │            │  S-boxes  │
              │            │  (8 boxes)│
              │            │ 48→32 bits│
              │            └─────┬─────┘
-             │                  │
              │            ┌─────▼─────┐
              │            │Permutation│
              │            │  (P-box)  │
              │            └─────┬─────┘
-             │                  │
-             └──────⊕───────────┘
-                    │
+             └──────⊕──────────┘
                     │
              ┌──────▼──────┐
-             │             │
-            Lᵢ           Rᵢ
+             Lᵢ           Rᵢ
 ```
 
 **Round Transformation:**
+
 ```
 Lᵢ = Rᵢ₋₁
 Rᵢ = Lᵢ₋₁ ⊕ f(Rᵢ₋₁, Kᵢ)
@@ -238,21 +240,25 @@ Where f is the round function
 ### 2.4 DES Components
 
 **1. Initial Permutation (IP):**
+
 - Rearranges 64 input bits according to fixed table
 - No cryptographic significance (just reordering)
 
 **2. Expansion (E-box):**
+
 - Expands 32-bit right half to 48 bits
 - Some bits duplicated for diffusion
 - Output matches subkey size
 
 **3. S-boxes (Substitution boxes):**
+
 - 8 S-boxes, each takes 6 bits input, produces 4 bits output
 - Provides confusion (non-linear transformation)
 - Core of DES security
 - Each S-box is a 4×16 lookup table
 
 **S-box Operation:**
+
 ```
 Input: 6 bits (b₁ b₂ b₃ b₄ b₅ b₆)
 Row: b₁b₆ (outer bits) → 0-3
@@ -261,11 +267,13 @@ Output: 4 bits from table lookup
 ```
 
 **4. P-box (Permutation):**
+
 - Permutes 32-bit S-box output
 - Provides diffusion
 - Ensures each S-box output affects multiple S-boxes in next round
 
 **5. Final Permutation (IP⁻¹):**
+
 - Inverse of initial permutation
 - Produces final ciphertext
 
@@ -277,19 +285,16 @@ Output: 4 bits from table lookup
 ┌──────────────────────────────┐
 │  64-bit Key (8 parity bits)  │
 └──────────────┬───────────────┘
-               │
         ┌──────▼──────┐
         │   PC-1      │ (Permuted Choice 1)
         │  Drop parity│
         │  64→56 bits │
         └──────┬──────┘
-               │
         ┌──────▼──────┐
         │  Split into │
         │  C₀ and D₀  │
         │ (28+28 bits)│
         └──────┬──────┘
-               │
         ┌──────▼──────────────┐
         │  16 Rounds:         │
         │  Left shift C & D   │
@@ -300,12 +305,14 @@ Output: 4 bits from table lookup
 ```
 
 **Left Shifts per Round:**
+
 ```
 Round:  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16
 Shifts: 1  1  2  2  2  2  2  2  1  2  2  2  2  2  2  1
 ```
 
 **PC-2 (Permuted Choice 2):**
+
 - Selects 48 bits from 56-bit shifted key
 - Different 48 bits for each round
 - Provides key diffusion
@@ -332,19 +339,23 @@ Shifts: 1  1  2  2  2  2  2  2  1  2  2  2  2  2  2  1
 **Types of Weak Keys:**
 
 **1. Weak Keys (4 keys):**
+
 - Produce identical subkeys for all 16 rounds
 - Encryption = Decryption (E(E(P,K),K) = P)
 - Examples: All 0s, All 1s, alternating 0s and 1s
 
 **2. Semi-weak Keys (12 keys):**
+
 - Come in pairs where K₁ encrypts what K₂ decrypts
 - E(P, K₁) = D(P, K₂)
 
 **3. Possibly Weak Keys (48 keys):**
+
 - Produce only 4 distinct subkeys instead of 16
 - Less severe but still undesirable
 
 **Why Weak?**
+
 - Reduced effective key space
 - Predictable encryption patterns
 - Easier cryptanalysis
@@ -355,6 +366,7 @@ Shifts: 1  1  2  2  2  2  2  2  1  2  2  2  2  2  2  1
 > PYQ: Strengths and weaknesses of DES. (Feb-22, 8 marks)
 
 **Security Strengths:**
+
 - Well-studied algorithm (40+ years of analysis)
 - No practical attacks better than brute force (for single DES)
 - Strong S-box design resists differential cryptanalysis
@@ -362,6 +374,7 @@ Shifts: 1  1  2  2  2  2  2  2  1  2  2  2  2  2  2  1
 - Feistel structure is proven secure
 
 **Implementation Strengths:**
+
 - Simple and efficient in hardware
 - Fast encryption/decryption
 - Same algorithm for both operations
@@ -369,6 +382,7 @@ Shifts: 1  1  2  2  2  2  2  2  1  2  2  2  2  2  2  1
 - Widely supported in legacy systems
 
 **Design Strengths:**
+
 - Balanced confusion and diffusion
 - 16 rounds provide sufficient security margin
 - S-boxes carefully designed (though criteria were secret initially)
@@ -377,19 +391,22 @@ Shifts: 1  1  2  2  2  2  2  2  1  2  2  2  2  2  2  1
 ### 2.9 Weaknesses of DES
 
 **Security Weaknesses:**
+
 - **Small Key Size**: 56-bit key vulnerable to brute force (broken in 1998)
-- **Small Block Size**: 64-bit blocks vulnerable to birthday attacks
+- **Small Block Size**: 64-bit blocks vulnerable to birthday attacks (after 2³² blocks)
 - **Weak Keys**: Certain keys should be avoided
 - **Complementation Property**: If C = E(P,K), then C' = E(P',K')
 - **Meet-in-the-Middle Attack**: Double DES not much stronger than single DES
 
 **Practical Weaknesses:**
+
 - Obsolete for modern security requirements
 - Not suitable for high-security applications
 - Replaced by AES in most applications
 - Export restrictions historically limited key size
 
 **Design Weaknesses:**
+
 - S-box design criteria were classified (raised suspicion)
 - Fixed structure (no flexibility in parameters)
 - No protection against side-channel attacks
@@ -397,79 +414,64 @@ Shifts: 1  1  2  2  2  2  2  2  1  2  2  2  2  2  2  1
 
 ### 2.10 DES Modes - Advantages and Disadvantages
 
-> PYQ: Limitations of DES modes. (Dec-22, 7.5 marks)      
+> PYQ: Limitations of DES modes. (Dec-22, 7.5 marks)  
 > PYQ: Advantages and disadvantages of DES modes. (May-23, 7.5 marks)
 
-**ECB Mode:**
+**1. ECB Mode:**
 
-**Advantages:**
-- Simple and straightforward
-- Parallel encryption/decryption
-- Random access to blocks
-- No error propagation
+In _Electronic Codebook (ECB)_ mode, each block is encrypted independently.
 
-**Disadvantages:**
-- Pattern leakage (identical blocks → identical ciphertext)
-- Not secure for structured data
-- Vulnerable to block replay attacks
-- No diffusion between blocks
+| **Advantages (ECB Mode)**      | **Disadvantages (ECB Mode)**                              |
+| ------------------------------ | --------------------------------------------------------- |
+| Simple and straightforward     | Pattern leakage (identical blocks → identical ciphertext) |
+| Parallel encryption/decryption | Not secure for structured data                            |
+| Random access to blocks        | Vulnerable to block replay attacks                        |
+| No error propagation           | No diffusion between blocks                               |
 
-**CBC Mode:**
+**2. CBC Mode:**
 
-**Advantages:**
-- Good security (no pattern leakage)
-- Widely used and trusted
-- Error detection capability
-- Suitable for most applications
+In _Cipher Block Chaining (CBC)_ mode, each plaintext block is XORed with the previous ciphertext block before encryption.
 
-**Disadvantages:**
-- Sequential encryption (no parallelization)
-- Error propagation to next block
-- Requires IV management
-- Padding oracle attacks possible
+| **Advantages (CBC Mode)**          | **Disadvantages (CBC Mode)**               |
+| ---------------------------------- | ------------------------------------------ |
+| Good security (no pattern leakage) | Sequential encryption (no parallelization) |
+| Widely used and trusted            | Error propagation to next block            |
+| Error detection capability         | Requires IV management                     |
+| Suitable for most applications     | Padding oracle attacks possible            |
 
-**CFB Mode:**
+**3. CFB Mode:**
 
-**Advantages:**
-- Converts block cipher to stream cipher
-- No padding required
-- Self-synchronizing
-- Suitable for real-time data
+In _Cipher Feedback (CFB)_ mode, the previous ciphertext block is encrypted and XORed with the plaintext to produce ciphertext.
 
-**Disadvantages:**
-- Sequential processing
-- Error propagation
-- Slower than ECB
-- Bit errors affect multiple blocks
+| **Advantages (CFB Mode)**              | **Disadvantages (CFB Mode)**      |
+| -------------------------------------- | --------------------------------- |
+| Converts block cipher to stream cipher | Sequential processing             |
+| No padding required                    | Error propagation                 |
+| Self-synchronizing                     | Slower than ECB                   |
+| Suitable for real-time data            | Bit errors affect multiple blocks |
 
-**OFB Mode:**
+**4. OFB Mode:**
 
-**Advantages:**
-- No error propagation
-- Pre-computation possible
-- Stream cipher mode
-- Bit errors don't spread
+In _Output Feedback (OFB)_ mode, the output of the encryption function is fed back into itself to produce a keystream, which is then XORed with the plaintext.
 
-**Disadvantages:**
-- Sequential processing
-- IV must never be reused
-- Vulnerable to bit-flipping attacks
-- Not self-synchronizing
+| **Advantages (OFB Mode)** | **Disadvantages (OFB Mode)**       |
+| ------------------------- | ---------------------------------- |
+| No error propagation      | Sequential processing              |
+| Pre-computation possible  | IV must never be reused            |
+| Stream cipher mode        | Vulnerable to bit-flipping attacks |
+| Bit errors don't spread   | Not self-synchronizing             |
 
-**CTR Mode:**
+**5. CTR Mode:**
 
-**Advantages:**
-- Parallel encryption/decryption
-- Random access
-- No padding needed
-- Pre-computation possible
-- No error propagation
+In _Counter (CTR)_ mode, a counter value is encrypted and XORed with the plaintext to produce ciphertext. The counter is incremented for each block.
 
-**Disadvantages:**
-- Counter/nonce must never repeat
-- Not widely supported in legacy systems
-- Requires careful counter management
-- No built-in authentication
+| **Advantages (CTR Mode)**      | **Disadvantages (CTR Mode)**           |
+| ------------------------------ | -------------------------------------- |
+| Parallel encryption/decryption | Counter/nonce must never repeat        |
+| Random access                  | Not widely supported in legacy systems |
+| No padding needed              | Requires careful counter management    |
+| Pre-computation possible       | No built-in authentication             |
+| No error propagation           |                                        |
 
 ### 2.11 Block Structure and Key Size Impact
 
@@ -478,6 +480,7 @@ Shifts: 1  1  2  2  2  2  2  2  1  2  2  2  2  2  2  1
 **Block Size Impact (64 bits):**
 
 **Security Implications:**
+
 - **Birthday Attack**: After 2³² blocks (32 GB), collision probability becomes significant
 - **Pattern Detection**: Smaller blocks easier to analyze
 - **Codebook Size**: 2⁶⁴ possible blocks can be enumerated
@@ -486,18 +489,21 @@ Shifts: 1  1  2  2  2  2  2  2  1  2  2  2  2  2  2  1
 **Key Size Impact (56 bits):**
 
 **Security Implications:**
+
 - **Brute Force**: 2⁵⁶ ≈ 72 quadrillion keys (feasible with modern computing)
 - **DES Cracker**: Built in 1998, broke DES in 56 hours
 - **Distributed Computing**: Can break DES in days
 - **Modern Standards**: Minimum 128-bit keys recommended
 
 **Why DES is Obsolete:**
+
 - Moore's Law: Computing power doubles every 2 years
 - Cloud Computing: Massive parallel processing available
 - GPU/ASIC: Specialized hardware accelerates brute force
 - Quantum Threat: Grover's algorithm would reduce effective key size to 28 bits
 
 **Solutions:**
+
 - **3DES**: Apply DES three times (effective 112-bit key)
 - **AES**: Modern replacement with 128/192/256-bit keys
 - **Larger Blocks**: AES uses 128-bit blocks
@@ -506,7 +512,7 @@ Shifts: 1  1  2  2  2  2  2  2  1  2  2  2  2  2  2  1
 
 ## **3. Advanced Encryption Standard (AES)**
 
-> PYQ: One-time initialization and round steps in AES. (May-23, 7.5 marks)      
+> PYQ: One-time initialization and round steps in AES. (May-23, 7.5 marks)  
 > PYQ: Describe the Advanced Encryption Standard (AES) and its significance in modern cryptography. Discuss how its modes of operation ensure secure encryption. (2024, 7.5 marks)
 
 ### 3.1 Introduction to AES
@@ -514,32 +520,30 @@ Shifts: 1  1  2  2  2  2  2  2  1  2  2  2  2  2  2  1
 **Advanced Encryption Standard (AES)** is a symmetric block cipher adopted as a federal standard in 2001 to replace DES. It was developed by Belgian cryptographers Joan Daemen and Vincent Rijmen and originally called Rijndael. AES is currently the most widely used encryption standard worldwide, securing everything from wireless networks to government communications.
 
 **Key Specifications:**
+
 - **Block Size**: 128 bits (fixed)
 - **Key Sizes**: 128, 192, or 256 bits
 - **Rounds**: 10 (128-bit), 12 (192-bit), 14 (256-bit)
 - **Structure**: Substitution-Permutation Network (not Feistel)
-- **Standardized**: 2001 by NIST
+- **Standardized**: 2001 by NIST (National Institute of Standards and Technology, USA)
 
 ### 3.2 AES Structure
 
 **Overall Process:**
 
 ```
-┌──────────────────────────────────┐
-│   128-bit Plain Text Block       │
-└────────────┬─────────────────────┘
-             │
+┌────────────────────────────────┐
+│   128-bit Plain Text Block     │
+└────────────┬───────────────────┘
       ┌──────▼──────┐
       │   Convert   │
       │   to 4×4    │
       │ State Matrix│
       └──────┬──────┘
-             │
       ┌──────▼──────────┐
       │  Initial Round  │
-      │  AddRoundKey    │
+      │  - AddRoundKey  │
       └──────┬──────────┘
-             │
       ┌──────▼──────────────┐
       │  Main Rounds        │
       │  (9, 11, or 13)     │
@@ -548,7 +552,6 @@ Shifts: 1  1  2  2  2  2  2  2  1  2  2  2  2  2  2  1
       │  - MixColumns       │
       │  - AddRoundKey      │
       └──────┬──────────────┘
-             │
       ┌──────▼──────────────┐
       │  Final Round        │
       │  - SubBytes         │
@@ -556,16 +559,14 @@ Shifts: 1  1  2  2  2  2  2  2  1  2  2  2  2  2  2  1
       │  - AddRoundKey      │
       │  (No MixColumns)    │
       └──────┬──────────────┘
-             │
       ┌──────▼──────┐
       │   Convert   │
       │   Matrix    │
       │  to 128-bit │
       └──────┬──────┘
-             │
-┌────────────▼─────────────────────┐
-│   128-bit Cipher Text Block      │
-└──────────────────────────────────┘
+┌────────────▼───────────────────┐
+│   128-bit Cipher Text Block    │
+└────────────────────────────────┘
 ```
 
 ### 3.3 AES State Matrix
@@ -597,6 +598,7 @@ Note: Filled column-wise
 **Initial Round (Before main rounds):**
 
 **AddRoundKey:**
+
 - XOR the state matrix with the first round key
 - Round key derived from cipher key
 - This is the only operation in initial round
@@ -606,6 +608,7 @@ State Matrix ⊕ Round Key₀ = New State
 ```
 
 **Purpose:**
+
 - Introduces key material immediately
 - Ensures different keys produce different encryptions
 - Simple but effective first layer of security
@@ -630,6 +633,7 @@ Each byte independently substituted
 ```
 
 **Properties:**
+
 - Non-linear transformation (provides confusion)
 - Based on multiplicative inverse in GF(2⁸)
 - Resistant to linear and differential cryptanalysis
@@ -658,6 +662,7 @@ Row 3: Left shift by 3
 ```
 
 **Purpose:**
+
 - Provides diffusion across columns
 - Ensures bytes from different columns mix
 - Simple but effective permutation
@@ -680,6 +685,7 @@ Operations in Galois Field GF(2⁸)
 ```
 
 **Purpose:**
+
 - Provides diffusion within columns
 - Each output byte depends on all 4 input bytes
 - Ensures avalanche effect
@@ -693,13 +699,14 @@ XORs state matrix with round key.
 State ⊕ RoundKeyᵢ = New State
 
 ┌────┬────┐     ┌────┬────┐     ┌────┬────┐
-│ a₀ │ a₁ │  ⊕  │ k₀ │ k₁ │  =  │ c₀ │ c₁ │
+│ a₀ │ a₁ │ ⊕  │ k₀ │ k₁ │  =  │ c₀ │ c₁ │
 ├────┼────┤     ├────┼────┤     ├────┼────┤
 │ a₂ │ a₃ │     │ k₂ │ k₃ │     │ c₂ │ c₃ │
 └────┴────┘     └────┴────┘     └────┴────┘
 ```
 
 **Purpose:**
+
 - Introduces key material
 - Only operation involving the key
 - Provides security through key
@@ -723,6 +730,7 @@ For AES-256:
 ```
 
 **Key Expansion Process:**
+
 1. First round key = cipher key
 2. Each subsequent word derived from previous words
 3. Uses SubBytes, rotation, and round constants
@@ -733,6 +741,7 @@ For AES-256:
 > PYQ: Describe the Advanced Encryption Standard (AES) and its significance in modern cryptography. (2024, 7.5 marks)
 
 **Security Significance:**
+
 - **Unbroken**: No practical attacks better than brute force
 - **Large Key Space**: 2¹²⁸, 2¹⁹², or 2²⁵⁶ keys (astronomically large)
 - **Quantum Resistant**: AES-256 remains secure even against quantum computers
@@ -740,6 +749,7 @@ For AES-256:
 - **Government Approved**: Used for classified information up to TOP SECRET
 
 **Industry Significance:**
+
 - **Universal Standard**: Adopted worldwide by governments and industries
 - **Hardware Support**: Built into modern CPUs (AES-NI instructions)
 - **Fast Performance**: Efficient in both hardware and software
@@ -747,6 +757,7 @@ For AES-256:
 - **Backward Compatible**: Works with existing infrastructure
 
 **Practical Applications:**
+
 - **Wireless Security**: WPA2/WPA3 use AES
 - **VPN**: IPsec and SSL/TLS use AES
 - **File Encryption**: BitLocker, FileVault use AES
@@ -761,23 +772,27 @@ For AES-256:
 **How Modes Ensure Security:**
 
 **1. ECB Mode (Not Recommended):**
+
 - Simple but insecure for most uses
 - Only suitable for random data
 - Never use for structured data
 
 **2. CBC Mode (Widely Used):**
+
 - **Security**: IV randomization prevents pattern detection
 - **Integrity**: Changes propagate, detecting tampering
 - **Use Case**: File encryption, disk encryption
 - **Requirement**: Unique IV for each encryption
 
 **3. CTR Mode (Modern Choice):**
+
 - **Security**: Counter ensures unique input for each block
 - **Performance**: Parallel processing possible
 - **Use Case**: Network encryption, high-speed applications
 - **Requirement**: Never reuse counter with same key
 
 **4. GCM Mode (Authenticated Encryption):**
+
 - **Security**: Combines encryption + authentication
 - **Integrity**: Detects any modification
 - **Performance**: Parallel processing, hardware acceleration
@@ -785,11 +800,13 @@ For AES-256:
 - **Advantage**: Prevents tampering and forgery
 
 **5. CCM Mode (Alternative Authenticated):**
+
 - **Security**: CBC-MAC for authentication
 - **Use Case**: Wireless protocols (WPA2)
 - **Advantage**: Simpler than GCM
 
 **Key Security Principles:**
+
 - **Unique IVs**: Prevent pattern analysis
 - **Authentication**: Detect tampering (GCM, CCM)
 - **Key Management**: Regular key rotation
@@ -800,8 +817,8 @@ For AES-256:
 
 ## **4. Blowfish Algorithm**
 
-> PYQ: Subkey and S-box generation in Blowfish. (Feb-22, 8 marks)      
-> PYQ: Subkey generation in Blowfish. (Dec-22, 15 marks)      
+> PYQ: Subkey and S-box generation in Blowfish. (Feb-22, 8 marks)  
+> PYQ: Subkey generation in Blowfish. (Dec-22, 15 marks)  
 > PYQ: Subkey generation in Blowfish. (May-23, 15 marks)
 
 ### 4.1 Introduction to Blowfish
@@ -809,6 +826,7 @@ For AES-256:
 **Blowfish** is a symmetric block cipher designed by Bruce Schneier in 1993 as a fast, free alternative to existing encryption algorithms. It is a Feistel network with 16 rounds, using large key-dependent S-boxes and a complex key schedule. Blowfish is known for its speed and effectiveness, though it has largely been replaced by its successor, Twofish, and AES.
 
 **Key Specifications:**
+
 - **Block Size**: 64 bits
 - **Key Size**: Variable (32 to 448 bits)
 - **Rounds**: 16
@@ -821,11 +839,13 @@ For AES-256:
 **Components:**
 
 **1. P-array:**
+
 - 18 subkeys: P₁, P₂, ..., P₁₈
 - Each is 32-bit value
 - Used in each round and for pre/post-whitening
 
 **2. S-boxes:**
+
 - Four S-boxes: S₁, S₂, S₃, S₄
 - Each has 256 entries of 32-bit values
 - Total: 4 × 256 × 4 = 4096 bytes
@@ -889,8 +909,8 @@ Operations:
 
 ### 4.4 Subkey Generation in Blowfish
 
-> PYQ: Subkey and S-box generation in Blowfish. (Feb-22, 8 marks)      
-> PYQ: Subkey generation in Blowfish. (Dec-22, 15 marks)      
+> PYQ: Subkey and S-box generation in Blowfish. (Feb-22, 8 marks)  
+> PYQ: Subkey generation in Blowfish. (Dec-22, 15 marks)  
 > PYQ: Subkey generation in Blowfish. (May-23, 15 marks)
 
 **Subkey generation is the most important and complex part of Blowfish. It transforms the user key into 18 P-array subkeys and four S-boxes.**
@@ -1021,6 +1041,7 @@ Each encryption uses 16 rounds of Blowfish.
 ### 4.5 Complete Algorithm Summary
 
 **Initialization Phase:**
+
 ```
 1. Initialize P-array with π digits (18 values)
 2. Initialize 4 S-boxes with π digits (1024 values)
@@ -1031,6 +1052,7 @@ Each encryption uses 16 rounds of Blowfish.
 ```
 
 **Why This is Secure:**
+
 - **Key-Dependent S-boxes**: Each key produces unique S-boxes
 - **Slow Key Setup**: 521 encryptions make brute force expensive
 - **Avalanche Effect**: Small key change completely changes subkeys
@@ -1038,6 +1060,7 @@ Each encryption uses 16 rounds of Blowfish.
 - **Large State**: 4168 bytes of key-dependent data
 
 **Why This is Slow:**
+
 - Key setup requires significant computation
 - Not suitable for applications needing frequent key changes
 - Good for applications with infrequent key changes
@@ -1045,10 +1068,42 @@ Each encryption uses 16 rounds of Blowfish.
 
 ---
 
+## **5. Asymmetric Key Algorithms: Introduction & History**
+
+### 5.1 What are Asymmetric Key Algorithms?
+
+**Asymmetric Key Algorithms** (also called public-key algorithms) use a pair of keys: a public key (shared with everyone) and a private key (kept secret). Data encrypted with one key can only be decrypted with the other. This enables secure communication without sharing secret keys in advance.
+
+**Key Points:**
+
+- Uses two keys: public (for encryption) and private (for decryption)
+- Enables secure key exchange over insecure channels
+- Supports digital signatures for authentication
+- Slower than symmetric algorithms, but solves the key distribution problem
+- Examples: RSA (Rivest-Shamir-Adleman), Diffie-Hellman, ElGamal, ECC (Elliptic Curve Cryptography)
+
+**Analogy:**
+Imagine a mailbox with a slot and a lock. Anyone can drop a letter in (public key), but only the owner with the key can open it (private key).
+
+### 5.2 History of Asymmetric Key Cryptography
+
+- **1976:** Whitfield Diffie and Martin Hellman introduced the concept of public-key cryptography and the first key exchange protocol (Diffie-Hellman Key Exchange).
+- **1977:** RSA algorithm was invented by Ron Rivest, Adi Shamir, and Leonard Adleman, making practical public-key encryption possible.
+- **1985:** Elliptic Curve Cryptography (ECC) was proposed, offering similar security with smaller keys.
+- **Impact:** Asymmetric cryptography revolutionized secure communications, enabling secure email, e-commerce, digital signatures, and the foundation of modern internet security (SSL/TLS, HTTPS).
+
+**Why is it important?**
+
+- Solves the key distribution problem of symmetric cryptography
+- Enables secure communication between parties who have never met
+- Forms the basis for digital signatures, certificates, and secure web protocols
+
+---
+
 ## **5. RSA Algorithm**
 
-> PYQ: RSA encryption/decryption (p = 3, q = 11, e = 7, N = 5). (Feb-22, 7 marks)      
-> PYQ: Explain the RSA Algorithm with an example. (2024, 8 marks)      
+> PYQ: RSA encryption/decryption (p = 3, q = 11, e = 7, N = 5). (Feb-22, 7 marks)  
+> PYQ: Explain the RSA Algorithm with an example. (2024, 8 marks)  
 > PYQ: What is the primary purpose of the RSA algorithm in encryption? (2024, 2.5 marks)
 
 ### 5.1 Introduction to RSA
@@ -1056,6 +1111,7 @@ Each encryption uses 16 rounds of Blowfish.
 **RSA (Rivest-Shamir-Adleman)** is an asymmetric cryptographic algorithm developed in 1977 by Ron Rivest, Adi Shamir, and Leonard Adleman. It uses two different keys - a public key for encryption and a private key for decryption. RSA's security is based on the mathematical difficulty of factoring large prime numbers, making it one of the most widely used public-key cryptosystems.
 
 **Primary Purpose:**
+
 - Secure key exchange over insecure channels
 - Digital signatures for authentication
 - Encrypting small amounts of data (like session keys)
@@ -1090,6 +1146,7 @@ Where: C = Ciphertext, M = Message, e = Public exponent, d = Private exponent, n
 **Given:** p = 3, q = 11, e = 7, Message M = 5
 
 **Solution:**
+
 1. n = 3 × 11 = 33
 2. φ(n) = 2 × 10 = 20
 3. Verify e: gcd(7, 20) = 1 ✓
@@ -1101,19 +1158,23 @@ Where: C = Ciphertext, M = Message, e = Public exponent, d = Private exponent, n
 ### 5.6 RSA Security and Usage
 
 **Security:**
+
 - Based on difficulty of factoring large primes
 - Minimum 2048-bit keys recommended
 - Vulnerable to quantum computing (Shor's algorithm)
 
 **Advantages:**
+
 - Secure key distribution, digital signatures
 - No pre-shared secret needed
 
 **Disadvantages:**
+
 - Slow (100-1000× slower than AES)
 - Not suitable for bulk encryption
 
 **Typical Usage (Hybrid):**
+
 1. Use RSA to exchange AES key
 2. Use AES to encrypt actual data
 3. Use RSA for digital signatures
@@ -1122,14 +1183,15 @@ Where: C = Ciphertext, M = Message, e = Public exponent, d = Private exponent, n
 
 ## **6. Digital Signature**
 
-> PYQ: Digital Signature in detail. (Feb-22, 7 marks)      
+> PYQ: Digital Signature in detail. (Feb-22, 7 marks)  
 > PYQ: How are digital signatures used in cryptographic communication? (2024, 2.5 marks)
 
 ### 6.1 What is a Digital Signature?
 
-**Digital Signature** is a cryptographic technique that provides authentication, integrity, and non-repudiation for digital messages or documents. It is the electronic equivalent of a handwritten signature but provides much stronger security guarantees. A digital signature proves that a message was created by a known sender and has not been altered in transit.
+**Digital Signature** is a cryptographic technique that provides authentication, integrity, and non-repudiation (meaning the sender cannot deny sending the message) for digital messages or documents. It is the electronic equivalent of a handwritten signature but provides much stronger security guarantees. A digital signature proves that a message was created by a known sender and has not been altered in transit.
 
 **Purpose:**
+
 - **Authentication**: Verifies sender's identity
 - **Integrity**: Ensures message hasn't been modified
 - **Non-repudiation**: Sender cannot deny sending the message
@@ -1144,27 +1206,19 @@ Sender Side:
 ┌──────────────┐
 │   Message    │
 └──────┬───────┘
-       │
-       ▼
-┌──────────────┐
+┌──────▼───────┐
 │  Hash        │ (MD5, SHA-256, etc.)
 │  Function    │
 └──────┬───────┘
-       │
-       ▼
-┌──────────────┐
+┌──────▼───────┐
 │  Hash Value  │ (Fixed size: 128, 256 bits)
 │  (Digest)    │
 └──────┬───────┘
-       │
-       ▼
-┌──────────────┐
+┌──────▼───────┐
 │   Encrypt    │◄─── Private Key (Sender)
 │  with RSA    │
 └──────┬───────┘
-       │
-       ▼
-┌──────────────┐
+┌──────▼───────┐
 │   Digital    │
 │  Signature   │
 └──────────────┘
@@ -1180,29 +1234,20 @@ Receiver Side:
 │   Message    │     │   Digital    │
 │  (Received)  │     │  Signature   │
 └──────┬───────┘     └──────┬───────┘
-       │                    │
-       ▼                    ▼
-┌──────────────┐     ┌──────────────┐
+┌──────▼───────┐     ┌──────▼───────┐
 │  Hash        │     │   Decrypt    │◄── Public Key (Sender)
 │  Function    │     │  with RSA    │
 └──────┬───────┘     └──────┬───────┘
-       │                    │
-       ▼                    ▼
-┌──────────────┐     ┌──────────────┐
+┌──────▼───────┐     ┌──────▼───────┐
 │  Hash Value  │     │  Hash Value  │
 │   (New)      │     │  (Original)  │
 └──────┬───────┘     └──────┬───────┘
-       │                    │
        └──────────┬─────────┘
-                  │
-                  ▼
-           ┌──────────────┐
+           ┌──────▼───────┐
            │   Compare    │
            └──────┬───────┘
-                  │
                   ▼
          ┌────────┴────────┐
-         │                 │
     Match = Valid     No Match = Invalid
     (Authentic)       (Tampered/Forged)
 ```
@@ -1259,6 +1304,7 @@ Else: Signature Invalid ✗
 > PYQ: How are digital signatures used in cryptographic communication? (2024, 2.5 marks)
 
 **Common Uses:**
+
 - **Email Security**: S/MIME, PGP for email authentication
 - **Software Distribution**: Code signing for applications
 - **Financial Transactions**: Digital banking, cryptocurrency
@@ -1268,14 +1314,14 @@ Else: Signature Invalid ✗
 
 ### 6.6 Digital Signature vs Handwritten Signature
 
-| Aspect | Handwritten | Digital |
-|--------|-------------|---------|
-| **Verification** | Visual comparison | Mathematical computation |
-| **Forgery** | Can be forged | Computationally infeasible |
-| **Document Binding** | Can be copied | Unique to document |
-| **Alteration Detection** | Difficult | Automatic |
-| **Non-repudiation** | Can be disputed | Cryptographically proven |
-| **Portability** | Physical only | Electronic |
+| Aspect                   | Handwritten       | Digital                    |
+| ------------------------ | ----------------- | -------------------------- |
+| **Verification**         | Visual comparison | Mathematical computation   |
+| **Forgery**              | Can be forged     | Computationally infeasible |
+| **Document Binding**     | Can be copied     | Unique to document         |
+| **Alteration Detection** | Difficult         | Automatic                  |
+| **Non-repudiation**      | Can be disputed   | Cryptographically proven   |
+| **Portability**          | Physical only     | Electronic                 |
 
 ---
 
@@ -1285,22 +1331,23 @@ Else: Signature Invalid ✗
 
 ### 7.1 Detailed Comparison
 
-| Aspect | DES | AES | RSA |
-|--------|-----|-----|-----|
-| **Type** | Symmetric | Symmetric | Asymmetric |
-| **Block Size** | 64 bits | 128 bits | Variable (up to key size) |
-| **Key Length** | 56 bits (64 with parity) | 128, 192, 256 bits | 1024-4096 bits (typically 2048) |
-| **Structure** | Feistel Network | Substitution-Permutation | Mathematical (modular exponentiation) |
-| **Rounds** | 16 | 10, 12, or 14 | Single operation (but complex) |
-| **Speed** | Fast | Very Fast | Slow (100-1000× slower) |
-| **Security Level** | Weak (broken) | Strong | Strong (with large keys) |
-| **Year** | 1977 | 2001 | 1977 |
-| **Key Distribution** | Difficult | Difficult | Easy (public key) |
-| **Use Case** | Legacy systems | Bulk encryption | Key exchange, signatures |
+| Aspect               | DES                      | AES                      | RSA                                   |
+| -------------------- | ------------------------ | ------------------------ | ------------------------------------- |
+| **Type**             | Symmetric                | Symmetric                | Asymmetric                            |
+| **Block Size**       | 64 bits                  | 128 bits                 | Variable (up to key size)             |
+| **Key Length**       | 56 bits (64 with parity) | 128, 192, 256 bits       | 1024-4096 bits (typically 2048)       |
+| **Structure**        | Feistel Network          | Substitution-Permutation | Mathematical (modular exponentiation) |
+| **Rounds**           | 16                       | 10, 12, or 14            | Single operation (but complex)        |
+| **Speed**            | Fast                     | Very Fast                | Slow (100-1000× slower)               |
+| **Security Level**   | Weak (broken)            | Strong                   | Strong (with large keys)              |
+| **Year**             | 1977                     | 2001                     | 1977                                  |
+| **Key Distribution** | Difficult                | Difficult                | Easy (public key)                     |
+| **Use Case**         | Legacy systems           | Bulk encryption          | Key exchange, signatures              |
 
 ### 7.2 Structure Comparison
 
 **DES Structure:**
+
 - Feistel network with 16 rounds
 - Split block into left and right halves
 - Round function uses S-boxes and P-boxes
@@ -1308,6 +1355,7 @@ Else: Signature Invalid ✗
 - Fixed S-boxes (not key-dependent)
 
 **AES Structure:**
+
 - Substitution-Permutation Network
 - Operates on 4×4 byte matrix (state)
 - Four operations: SubBytes, ShiftRows, MixColumns, AddRoundKey
@@ -1315,6 +1363,7 @@ Else: Signature Invalid ✗
 - No Feistel structure
 
 **RSA Structure:**
+
 - Mathematical algorithm (not block cipher)
 - Based on modular exponentiation
 - Uses prime factorization hardness
@@ -1324,18 +1373,21 @@ Else: Signature Invalid ✗
 ### 7.3 Key Length Comparison
 
 **DES (56 bits):**
+
 - 2⁵⁶ ≈ 72 quadrillion keys
 - Broken by brute force in 1998
 - Insufficient for modern security
 - 3DES uses 168 bits (112-bit effective security)
 
 **AES (128/192/256 bits):**
+
 - AES-128: 2¹²⁸ ≈ 3.4 × 10³⁸ keys
 - AES-256: 2²⁵⁶ ≈ 1.1 × 10⁷⁷ keys
 - Secure against brute force
 - AES-256 quantum-resistant
 
 **RSA (2048+ bits):**
+
 - Not directly comparable (asymmetric)
 - 2048-bit RSA ≈ 112-bit symmetric security
 - 3072-bit RSA ≈ 128-bit symmetric security
@@ -1345,6 +1397,7 @@ Else: Signature Invalid ✗
 ### 7.4 Security Level Comparison
 
 **DES:**
+
 - ❌ Broken (brute force feasible)
 - ❌ Small key size
 - ❌ Small block size (birthday attack)
@@ -1352,6 +1405,7 @@ Else: Signature Invalid ✗
 - **Status**: Obsolete, use 3DES or AES
 
 **AES:**
+
 - ✓ Unbroken (no practical attacks)
 - ✓ Large key space
 - ✓ Large block size
@@ -1359,6 +1413,7 @@ Else: Signature Invalid ✗
 - **Status**: Current standard, widely trusted
 
 **RSA:**
+
 - ✓ Secure with large keys (2048+ bits)
 - ⚠️ Vulnerable to quantum computers (Shor's algorithm)
 - ⚠️ Requires proper padding (OAEP)
@@ -1368,11 +1423,13 @@ Else: Signature Invalid ✗
 ### 7.5 When to Use Each
 
 **Use DES/3DES:**
+
 - Legacy system compatibility only
 - Not recommended for new systems
 - 3DES acceptable for short-term use
 
 **Use AES:**
+
 - Bulk data encryption
 - File/disk encryption
 - Network traffic encryption
@@ -1381,6 +1438,7 @@ Else: Signature Invalid ✗
 - Any high-speed encryption need
 
 **Use RSA:**
+
 - Key exchange (hybrid encryption)
 - Digital signatures
 - Certificate-based authentication
@@ -1388,6 +1446,7 @@ Else: Signature Invalid ✗
 - When public key distribution needed
 
 **Best Practice (Hybrid):**
+
 ```
 1. Use RSA to exchange AES key
 2. Use AES to encrypt actual data
@@ -1404,24 +1463,28 @@ Example: HTTPS (TLS)
 ## **Quick Revision Points**
 
 ### **DES:**
+
 - Block: 64 bits, Key: 56 bits, Rounds: 16
 - Feistel structure, S-boxes provide confusion
 - Weak: Small key (brute force), small block
 - Modes: ECB (insecure), CBC (standard), CTR (parallel)
 
 ### **AES:**
+
 - Block: 128 bits, Keys: 128/192/256 bits
 - SPN structure, operates on 4×4 state matrix
 - Operations: SubBytes, ShiftRows, MixColumns, AddRoundKey
 - Current standard, hardware accelerated (AES-NI)
 
 ### **Blowfish:**
+
 - Block: 64 bits, Key: 32-448 bits variable
 - 16 rounds, Feistel structure
 - Key setup: 521 encryptions (slow but secure)
 - P-array (18 subkeys) + 4 S-boxes (1024 entries)
 
 ### **RSA:**
+
 - Asymmetric: Public (e,n), Private (d,n)
 - Key gen: n=p×q, φ(n)=(p-1)(q-1), e×d≡1 (mod φ(n))
 - Encrypt: C = Mᵉ mod n
@@ -1429,11 +1492,13 @@ Example: HTTPS (TLS)
 - Slow but enables key exchange
 
 ### **Digital Signature:**
+
 - Sign: S = Hash(M)ᵈ mod n (private key)
 - Verify: Hash(M) = Sᵉ mod n (public key)
 - Provides: Authentication, Integrity, Non-repudiation
 
 ### **Comparison:**
+
 - DES: Fast, weak, obsolete
 - AES: Fast, strong, current standard
 - RSA: Slow, strong, key exchange only
@@ -1441,6 +1506,5 @@ Example: HTTPS (TLS)
 
 ---
 
-*These notes were compiled by [Deepak Modi](https://deepakmodi.tech)*  
-*Last updated: December 2024*
-
+_These notes were compiled by [Deepak Modi](https://deepakmodi.tech)_  
+_Last updated: December 2024_
