@@ -79,7 +79,7 @@ Authentication is based on three factors:
 - **Certificate-based**: Digital certificates and PKI
 - **Biometric**: Fingerprint, face, iris
 - **Multi-factor**: Combination of methods
-- **Single Sign-On**: One login for multiple services
+- **Single Sign-On (SSO)**: One login for multiple services
 
 ---
 
@@ -671,7 +671,25 @@ User → Biometric Sensor → Feature Extraction → Matching → Decision
 - Trusted by all parties
 - Stores secret keys
 
-### 7.3 How Kerberos Works
+### 7.3 Kerberos Tickets
+
+**Ticket Granting Ticket (TGT):**
+
+- Issued by Authentication Server (AS)
+- Used to request service tickets
+- Valid for session duration (typically 8-10 hours)
+- Encrypted with TGS secret key
+- Contains: Client ID, TGS ID, timestamp, lifetime, session key
+
+**Service Ticket:**
+
+- Issued by Ticket Granting Server (TGS)
+- Used to access specific service
+- Valid for shorter period (typically 5 minutes)
+- Encrypted with service's secret key
+- Contains: Client ID, Server ID, timestamp, lifetime, session key
+
+### 7.4 How Kerberos Works
 
 **Kerberos Authentication Process:**
 
@@ -698,7 +716,7 @@ Client                  KDC (AS)              KDC (TGS)            Server
   │                        │                      │ Service Ticket    │
   │                        │                      │                   │
   │  8. Service Ticket     │                      │                   │
-  │<────────────────────────┼─────────────────────┤                   │
+  │<───────────────────────┼──────────────────────┤                   │
   │                        │                      │                   │
   │  9. Service Ticket +   │                      │                   │
   │  Authenticator         │                      │                   │
@@ -708,10 +726,10 @@ Client                  KDC (AS)              KDC (TGS)            Server
   │                        │                      │                   │ Ticket
   │                        │                      │                   │
   │  11. Access Granted    │                      │                   │
-  │<────────────────────────┼──────────────────────┼───────────────────┤
+  │<───────────────────────┼──────────────────────┼───────────────────┤
   │                        │                      │                   │
   │  12. Secure Communication                     │                   │
-  │<──────────────────────────────────────────────────────────────────>│
+  │<─────────────────────────────────────────────────────────────────>│
 ```
 
 **Detailed Steps:**
@@ -726,7 +744,9 @@ Client                  KDC (AS)              KDC (TGS)            Server
    - TGT encrypted with TGS secret key
    - Session key encrypted with user's password hash
 
-**Phase 2: Ticket Granting (TGS Exchange)** 5. **Client → TGS**: Request service ticket
+**Phase 2: Ticket Granting (TGS Exchange)**
+
+5. **Client → TGS**: Request service ticket
 
 - Sends TGT (encrypted)
 - Sends authenticator (timestamp encrypted with session key)
@@ -738,7 +758,9 @@ Client                  KDC (AS)              KDC (TGS)            Server
    - Service ticket encrypted with server's secret key
    - Service session key encrypted with client-TGS session key
 
-**Phase 3: Service Request (Client-Server Exchange)** 9. **Client → Server**: Request service
+**Phase 3: Service Request (Client-Server Exchange)**
+
+9. **Client → Server**: Request service
 
 - Sends service ticket
 - Sends new authenticator
@@ -746,24 +768,6 @@ Client                  KDC (AS)              KDC (TGS)            Server
 10. **Server**: Decrypts ticket, verifies authenticator
 11. **Server → Client**: Optionally sends confirmation
 12. **Secure Communication**: Client and server use session key
-
-### 7.4 Kerberos Tickets
-
-**Ticket Granting Ticket (TGT):**
-
-- Issued by Authentication Server
-- Used to request service tickets
-- Valid for session duration (typically 8-10 hours)
-- Encrypted with TGS secret key
-- Contains: Client ID, TGS ID, timestamp, lifetime, session key
-
-**Service Ticket:**
-
-- Issued by Ticket Granting Server
-- Used to access specific service
-- Valid for shorter period (typically 5 minutes)
-- Encrypted with service's secret key
-- Contains: Client ID, Server ID, timestamp, lifetime, session key
 
 ### 7.5 Kerberos Security Features
 
@@ -856,24 +860,24 @@ Client                  KDC (AS)              KDC (TGS)            Server
 ┌─────────────────────────────────────┐
 │  Key Distribution Center (KDC)      │
 │                                     │
-│  ┌───────────────────────────────┐ │
-│  │  Authentication Server (AS)   │ │
-│  │  - User authentication        │ │
-│  │  - Issue TGT                  │ │
-│  └───────────────────────────────┘ │
+│  ┌───────────────────────────────┐  │
+│  │  Authentication Server (AS)   │  │
+│  │  - User authentication        │  │
+│  │  - Issue TGT                  │  │
+│  └───────────────────────────────┘  │
 │                                     │
-│  ┌───────────────────────────────┐ │
-│  │  Ticket Granting Server (TGS) │ │
-│  │  - Validate TGT               │ │
-│  │  - Issue service tickets      │ │
-│  └───────────────────────────────┘ │
+│  ┌───────────────────────────────┐  │
+│  │  Ticket Granting Server (TGS) │  │
+│  │  - Validate TGT               │  │
+│  │  - Issue service tickets      │  │
+│  └───────────────────────────────┘  │
 │                                     │
-│  ┌───────────────────────────────┐ │
-│  │  Database                     │ │
-│  │  - User credentials           │ │
-│  │  - Service keys               │ │
-│  │  - Security policies          │ │
-│  └───────────────────────────────┘ │
+│  ┌───────────────────────────────┐  │
+│  │  Database                     │  │
+│  │  - User credentials           │  │
+│  │  - Service keys               │  │
+│  │  - Security policies          │  │
+│  └───────────────────────────────┘  │
 └─────────────────────────────────────┘
 ```
 
@@ -905,6 +909,20 @@ Client                  KDC (AS)              KDC (TGS)            Server
 - **Denial of Service**: Overload KDC with requests
 - **Time Synchronization**: Clock skew causes failures
 
+
+### 8.5 What is a Honeypot?
+
+**Honeypots** are security systems designed to attract and detect cyber attackers. They look like real computers, servers, or networks, but are actually decoys set up to lure attackers away from valuable systems. When attackers interact with a honeypot, their actions are monitored and recorded, helping security teams study attack methods and improve defenses.
+
+**Key Points:**
+
+- Act as traps for hackers and malware
+- Do not contain real data or services
+- Help detect, analyze, and learn about threats
+- Can alert administrators to attacks early
+
+**Example:** A fake login page or server that looks real but is only there to catch attackers trying to break in.
+
 ---
 
 ## **9. Security Handshake Pitfalls**
@@ -914,7 +932,7 @@ Client                  KDC (AS)              KDC (TGS)            Server
 
 ### 9.1 Common Handshake Vulnerabilities
 
-**Security handshakes** establish secure communication channels, but they can have vulnerabilities if not properly implemented.
+**Security handshakes** pitfalls are common mistakes or vulnerabilities that can occur during the process of establishing a secure connection (handshake) between two parties. If not handled properly, attackers can exploit these weaknesses
 
 **Major Pitfalls:**
 
@@ -1080,10 +1098,10 @@ Client ←→ Attacker ←→ Server
 User                Identity Provider (IdP)         Service Provider (SP)
  │                           │                              │
  │  1. Access Service        │                              │
- ├──────────────────────────────────────────────────────────>│
+ ├─────────────────────────────────────────────────────────>│
  │                           │                              │
  │                           │  2. Redirect to IdP          │
- │<──────────────────────────────────────────────────────────┤
+ │<─────────────────────────────────────────────────────────┤
  │                           │                              │
  │  3. Login credentials     │                              │
  ├──────────────────────────>│                              │
@@ -1095,7 +1113,7 @@ User                Identity Provider (IdP)         Service Provider (SP)
  │<──────────────────────────┤                              │
  │                           │                              │
  │  7. Present token         │                              │
- ├──────────────────────────────────────────────────────────>│
+ ├─────────────────────────────────────────────────────────>│
  │                           │                              │
  │                           │                              │ 8. Verify token
  │                           │  9. Request validation       │ with IdP
@@ -1105,14 +1123,14 @@ User                Identity Provider (IdP)         Service Provider (SP)
  │                           ├─────────────────────────────>│
  │                           │                              │
  │  11. Access granted       │                              │
- │<──────────────────────────────────────────────────────────┤
+ │<─────────────────────────────────────────────────────────┤
  │                           │                              │
  │  12. Access another service (no re-login needed)         │
- ├──────────────────────────────────────────────────────────>│
+ ├─────────────────────────────────────────────────────────>│
  │                           │                              │
  │  13. Verify existing token│                              │
  │  14. Access granted       │                              │
- │<──────────────────────────────────────────────────────────┤
+ │<─────────────────────────────────────────────────────────┤
 ```
 
 **Components:**
@@ -1323,9 +1341,9 @@ User                Identity Provider (IdP)         Service Provider (SP)
 
 **Types:**
 
-- **Contact Smart Cards**: Require physical contact with reader
-- **Contactless Smart Cards**: Use RFID (e.g., access cards)
-- **Hybrid Cards**: Support both contact and contactless
+- **Contact Smart Cards**: Require physical contact with reader (e.g., chip-and-PIN cards)
+- **Contactless Smart Cards**: Use RFID and NFC (e.g., access control cards)
+- **Hybrid Cards**: Support both contact and contactless (e.g., some payment cards)
 
 ### 11.2 Smart Card Components
 
