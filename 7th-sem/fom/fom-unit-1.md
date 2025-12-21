@@ -915,14 +915,15 @@ Different types of tests to assess candidates:
 
 ### 12.3 Recruitment vs Selection
 
-| Aspect | Recruitment | Selection |
-|--------|-------------|-----------|
-| **Meaning** | Attracting candidates | Choosing best |
-| **Nature** | Positive (encouraging) | Negative (rejecting) |
-| **Sequence** | First step | Follows recruitment |
-| **Time** | Less | More |
-| **Cost** | Less expensive | More expensive |
-| **Outcome** | Many applicants | Few selected |
+| **Aspect**     | **Recruitment**                      | **Selection**                |
+|----------------|--------------------------------------|------------------------------|
+| **Meaning**    | Attracting suitable candidates to apply | Choosing the most suitable candidate(s) |
+| **Purpose**    | Generate a large pool of applicants  | Shortlist and pick the best-fit candidate(s) |
+| **Approach**   | Positive (encourages applications)   | Negative (filters out unsuitable candidates) |
+| **Order**      | Comes first                          | Follows recruitment          |
+| **Time Taken** | Relatively quick                     | More time-consuming          |
+| **Cost**       | Usually low                          | Usually high                 |
+| **Result**     | Many candidates are available        | Only a few are finally selected |
 
 **Simple:** Recruitment = Inviting people to apply, Selection = Picking the best
 
@@ -956,7 +957,7 @@ Different types of tests to assess candidates:
 
 ### 14.1 Meaning and Objectives
 
-**Training** is increasing knowledge and skills for performing specific jobs.
+**Training** means systematically improving an employee's knowledge and skills so they can perform their job more effectively and efficiently.
 
 **Objectives:**
 - Improve performance and productivity
@@ -1116,4 +1117,4 @@ Manpower Planning → Recruitment (attract) → Selection (choose) → Training 
 ---
 
 *These notes were compiled by [Deepak Modi](https://deepakmodi.tech)*  
-*Last updated: December 2024*
+*Last updated: December 2025*
