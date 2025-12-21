@@ -865,5 +865,5 @@ Reorder Level = Maximum Consumption × Maximum Lead Time
 ---
 
 *These notes were compiled by [Deepak Modi](https://deepakmodi.tech)*  
-*Last updated: December 2024*
+*Last updated: December 2025*
 
