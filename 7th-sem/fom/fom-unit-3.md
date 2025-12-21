@@ -43,6 +43,12 @@ Marketing Management - Definition of marketing, marketing concept, objectives & 
 
 **Note:** Marketing ≠ Advertising. Advertising is just ONE tool in marketing. Marketing includes research, product design, pricing, distribution, promotion (which includes advertising), and customer service.
 
+**4Ps of Marketing (Marketing Mix):**
+1. Product - What to sell
+2. Price - At what price to sell
+3. Place - Where to sell
+4. Promotion - How to sell
+
 ### 1.2 Marketing vs Selling
 
 > PYQ: What is the difference between Marketing and Selling? Explain all concepts of marketing. (Jul-21, 15 marks)
@@ -611,4 +617,4 @@ Accuracy, Timeliness, Relevance, Completeness, Simplicity, Flexibility, Cost-Eff
 ---
 
 *These notes were compiled by [Deepak Modi](https://deepakmodi.tech)*  
-*Last updated: December 2024*
+*Last updated: December 2025*
