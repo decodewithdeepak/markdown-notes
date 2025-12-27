@@ -1194,4 +1194,4 @@ _DMARC is an email authentication protocol that builds on SPF and DKIM, allowing
 ---
 
 _These notes were compiled by [Deepak Modi](https://deepakmodi.tech)_  
-_Last updated: December 2024_
+_Last updated: December 2025_

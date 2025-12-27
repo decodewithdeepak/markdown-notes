@@ -1511,5 +1511,5 @@ w = w - α × δ × a
 ---
 
 _These notes were compiled by [Deepak Modi](https://deepakmodi.tech)_  
-_Last updated: December 2024_
+_Last updated: December 2025_
 

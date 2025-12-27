@@ -762,4 +762,4 @@ Swarm techniques like PSO, ACO, ABC, and FA are used in engineering, telecom, tr
 ---
 
 _These notes were compiled by [Deepak Modi](https://deepakmodi.tech)_  
-_Last updated: December 2024_
+_Last updated: December 2025_

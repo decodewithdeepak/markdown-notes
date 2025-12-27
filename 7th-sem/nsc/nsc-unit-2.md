@@ -1507,4 +1507,4 @@ Example: HTTPS (TLS)
 ---
 
 _These notes were compiled by [Deepak Modi](https://deepakmodi.tech)_  
-_Last updated: December 2024_
+_Last updated: December 2025_

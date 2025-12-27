@@ -1130,4 +1130,4 @@ In swarm intelligence, each agent follows easy rules and interacts with others n
 ---
 
 _These notes were compiled by [Deepak Modi](https://deepakmodi.tech)_  
-_Last updated: December 2024_
+_Last updated: December 2025_
