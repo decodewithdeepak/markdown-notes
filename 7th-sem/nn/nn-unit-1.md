@@ -30,7 +30,7 @@
 
 ---
 
-## **Section 1: Biological Neurons**
+## **Section 1: Overview of Biological Neurons**
 
 ### **1.1 Introduction to Neural Networks**
 
@@ -1260,12 +1260,12 @@ A **Fully Recurrent Network** is a network where every neuron is connected to ev
 
 ---
 
-## **Section 4: Applications of Neural Networks**
+### **3.8 Applications of Neural Networks**
 
 > PYQ: Applications of Neural Network (2024, 2.5 marks)  
 > PYQ: Application of Artificial Neural Network (2023, 15 marks)
 
-### **4.1 Major Application Areas**
+Neural networks have revolutionized many fields with their ability to learn complex patterns from data. Here are the major application areas:
 
 **1. Computer Vision:**
 - Image classification (identifying objects in images)
@@ -1388,5 +1388,5 @@ f'(x) = 1 - f(x)²
 ---
 
 _These notes were compiled by [Deepak Modi](https://deepakmodi.tech)_  
-_Last updated: December 2024_
+_Last updated: December 2025_
 
