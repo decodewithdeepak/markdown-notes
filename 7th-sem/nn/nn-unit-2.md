@@ -82,7 +82,7 @@ Threshold (θ)
 Output (y)
 ```
 
-**Detailed Diagram:**
+**ASCII Diagram:**
 
 ```
         x₁ ────→ [w₁=1]
@@ -94,6 +94,12 @@ Output (y)
 If Σ(xᵢ × wᵢ) ≥ θ → Output = 1
 If Σ(xᵢ × wᵢ) < θ → Output = 0
 ```
+
+**Visual Diagram:**
+
+![McCulloch-Pitts Neuron](https://www.researchgate.net/profile/Stelios-Bekiros/publication/321259051/figure/fig1/AS:614291369693184@1523468021615/The-McCulloch-Pitts-artificial-neuron-model.png)
+
+*Figure 2.1: McCulloch-Pitts Neuron Model - Shows inputs (x₁, x₂, ..., xₙ), weights (w₁, w₂, ..., wₙ), summation function (Σ), and threshold activation.*
 
 **Components:**
 
@@ -707,7 +713,7 @@ The **Perceptron** (1958) was invented by Frank Rosenblatt. It's an improved ver
 
 ### **3.2 Architecture of Perceptron**
 
-**Structure:**
+**ASCII Structure:**
 
 ```
 Input Layer        Perceptron        Output
@@ -722,6 +728,12 @@ Input Layer        Perceptron        Output
                 ↑
               [bias]
 ```
+
+**Visual Diagram:**
+
+![Perceptron Model](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Perceptron_example.svg/1200px-Perceptron_example.svg.png)
+
+*Figure 2.2: Perceptron Architecture - Shows input layer with weighted connections, summation unit, activation function, and output.*
 
 **Components:**
 
@@ -1119,6 +1131,12 @@ Plot:
 Cannot draw a single line to separate! ✗
 This is why single-layer perceptron fails on XOR!
 ```
+
+**Visual Diagram:**
+
+![Linear Separability](https://miro.medium.com/v2/resize:fit:1400/1*Tc8UgR_fjI_h0p3y4H9MwA.png)
+
+*Figure 2.3: Linear Separability - AND and OR functions are linearly separable (can be separated by a line), but XOR is not (requires a curved boundary or multiple layers).*
 
 ---
 

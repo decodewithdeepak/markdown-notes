@@ -1094,7 +1094,7 @@ Uses chain rule of calculus to compute gradients for hidden layers, enabling tra
 
 ### **3.2 Architecture of Backpropagation Network**
 
-**Structure:**
+**ASCII Structure:**
 
 ```
 Input Layer    Hidden Layer(s)    Output Layer
@@ -1110,6 +1110,12 @@ Input Layer    Hidden Layer(s)    Output Layer
     Feedforward: →→→
     Backpropagation: ←←←
 ```
+
+**Visual Diagram:**
+
+![Backpropagation Network](https://miro.medium.com/v2/resize:fit:1400/1*7zxb2lfWWKaVxnmq2o69Mw.png)
+
+*Figure 3.1: Backpropagation Network Architecture - Shows 3-layer network with Input Layer, Hidden Layer(s), and Output Layer. Forward pass computes outputs (→), backward pass propagates errors (←) to update weights.*
 
 **Components:**
 

@@ -67,6 +67,8 @@ A biological neuron is a specialized cell in the nervous system that processes a
 
 **Main Components of a Biological Neuron:**
 
+**ASCII Diagram:**
+
 ```
         Dendrites (Input)
             ↓ ↓ ↓
@@ -88,6 +90,10 @@ A biological neuron is a specialized cell in the nervous system that processes a
               ↓
         Next Neuron
 ```
+
+**Visual Diagram:**
+
+![Biological Neuron Structure](https://www.researchgate.net/profile/Claudia-Neves-8/publication/320384373/figure/fig2/AS:682337809469452@1539693419868/The-biological-neuron.png)
 
 **Detailed Components:**
 
@@ -219,6 +225,8 @@ Else:
 
 > PYQ: How biological neural is different from the artificial neural networks? (2023, 15 marks)  
 > PYQ: Biological neuron equivalencies to artificial neuron model. (2022, 15 marks)
+
+The artificial neuron model is a simplified model of the biological neuron. It is a mathematical model that is used to simulate the behavior of the biological neuron.
 
 **Artificial Neuron Model:**
 
@@ -452,13 +460,93 @@ Step 2: Apply Activation Function
 y = f(z)
 
 Where f is the activation function
+      (b) bias is the negative of the threshold value
 ```
+
+![ANN](https://miro.medium.com/v2/resize:fit:1100/format:webp/1*YQHD47q_To9yy1PTihh4bA.jpeg)
 
 ---
 
 ### **2.2 Types of Activation Functions**
 
-#### **1. Threshold Function (Step Function)**
+Activation functions are the functions that are used to activate the neuron. They are used to determine the output of the neuron.
+
+**Activation functions are fundamentally classified into two categories:**
+
+#### **A. Linear Activation Functions**
+- Output is directly proportional to input
+- Cannot learn complex patterns
+- Network collapses to single layer (no matter how many layers)
+- **Types:**
+  1. Linear Function (Identity Function)
+
+#### **B. Non-Linear Activation Functions**
+- Introduce non-linearity to enable complex learning
+- Essential for deep learning
+- Allow networks to approximate any function
+- **Types:**
+  1. Binary Step or Threshold Function
+  2. Signum Function
+  3. Sigmoid Function
+  4. Tanh Function
+  5. ReLU Function
+  6. Ramp Function
+  7. Stochastic Function
+
+**Note:** Non-linear activation functions are essential for hidden layers. Linear functions are only used in output layers for regression problems.
+
+---
+
+#### **1. Linear Function (Identity Function)**
+
+**Definition:**
+
+The **Linear Function** (Identity Function) outputs the input as-is, without any transformation.
+
+**Mathematical Formula:**
+
+```
+f(x) = x
+
+Or with slope:
+f(x) = a×x  (where a is a constant)
+```
+
+**Graph:**
+
+![Linear Function](https://miro.medium.com/v2/resize:fit:640/format:webp/1*F4TwFmu9eFORguCyliwlAA.png)
+
+**Example:**
+
+```
+f(5) = 5
+f(-3) = -3
+f(0) = 0
+f(100) = 100
+```
+
+**Characteristics:**
+
+| Feature | Description |
+|---------|-------------|
+| **Output Range** | (-∞, +∞) |
+| **Continuity** | Continuous |
+| **Differentiability** | Differentiable everywhere |
+| **Derivative** | Constant (usually 1) |
+| **Linearity** | Linear |
+
+**When to Use:**
+- Output layer for regression problems
+- When predicting continuous values
+- When you don't need non-linearity
+
+**Limitation:**
+- If used in hidden layers, the entire network becomes just a linear model
+- No matter how many layers, it's equivalent to a single layer
+
+---
+
+#### **2. Threshold Function (Binary Step Function)**
 
 > PYQ: Explain threshold function with example (2024, 15 marks)  
 > PYQ: Obtain the output of neuron Y having three inputs x₁=1, x₂=2, x₃=3 and weights w₁=1, w₂=2, w₃=3 by using Threshold activation function. (2022, short answer)
@@ -473,22 +561,12 @@ The **Threshold Function** (also called Step Function or Heaviside Function) pro
 f(x) = 1,  if x ≥ θ (threshold)
 f(x) = 0,  if x < θ
 
-Or with threshold at 0:
-f(x) = 1,  if x ≥ 0
-f(x) = 0,  if x < 0
+Note: θ (threshold) is commonly set to 0 when using bias term
 ```
 
 **Graph:**
 
-```
-Output
-  1 |        ┌─────────
-    |        │
-    |        │
-  0 |────────┘
-    └────────┴─────────> Input
-             0
-```
+![Threshold Function](https://miro.medium.com/v2/resize:fit:638/format:webp/1*I9zg3o7qS9JQR81z5nPySw.png)
 
 **Example Calculation:**
 
@@ -539,11 +617,11 @@ Like a light switch - either ON (1) or OFF (0), nothing in between.
 
 ---
 
-#### **2. Signum Function (Sign Function)**
+#### **3. Signum Function (Sign Function)**
 
 **Definition:**
 
-The **Signum Function** is similar to the threshold function but outputs -1 or +1 instead of 0 or 1. It's used in bipolar neural networks.
+The **Signum Function** is similar to the threshold function but outputs -1 or +1 instead of 0 or 1. It's used in bipolar neural networks where outputs need to be bipolar. The function returns +1 if the input is greater than or equal to zero, and -1 if the input is negative.
 
 **Mathematical Formula:**
 
@@ -556,14 +634,14 @@ f(x) = -1,  if x < 0
 
 ```
 Output
- +1 |        ┌─────────
-    |        │
-    |        │
-  0 |────────┤
-    |        │
- -1 |        └─────────
-    └────────┴─────────> Input
-             0
+ +1 |           ┌──────────
+    |           |
+    |           |
+    |-----------|
+    |           |
+ -1 |           └──────────
+    └───────────┴──────────> Input
+                0
 ```
 
 **Example:**
@@ -598,7 +676,7 @@ Output: f(0) = +1
 
 ---
 
-#### **3. Sigmoid Function (Logistic Function)**
+#### **4. Sigmoid Function (Logistic Function)**
 
 > PYQ: Explain sigmoid function with example (2024, 15 marks)  
 > PYQ: Obtain the output using Sigmoidal activation function (2022, short answer)
@@ -608,6 +686,8 @@ Output: f(0) = +1
 The **Sigmoid Function** (also called Logistic Function) produces a smooth S-shaped curve with output values between 0 and 1. It's one of the most popular activation functions in neural networks.
 
 **Mathematical Formula:**
+
+![Sigmoid Formula](https://miro.medium.com/v2/resize:fit:1100/format:webp/1*xo-NP-AmhOePTcXa8unauQ.png)
 
 ```
 f(x) = 1 / (1 + e^(-x))
@@ -619,18 +699,7 @@ x = input value
 
 **Graph:**
 
-```
-Output
-  1 |           ┌────────
-    |         ╱
-    |       ╱
-0.5 |     ╱
-    |   ╱
-    | ╱
-  0 |────────┘
-    └────────┴─────────> Input
-         -∞  0  +∞
-```
+![Sigmoid Function](https://miro.medium.com/v2/resize:fit:640/format:webp/1*y3IzzA3BfUKWOrwCUr-A1A.png)
 
 **Example Calculation:**
 
@@ -700,7 +769,7 @@ Like a dimmer switch - gradually increases brightness from 0% to 100%, not just 
 
 ---
 
-#### **4. Hyperbolic Tangent (tanh) Function**
+#### **5. Hyperbolic Tangent (tanh) Function**
 
 > PYQ: Explain tanh function with example (2024, 15 marks)
 
@@ -709,6 +778,8 @@ Like a dimmer switch - gradually increases brightness from 0% to 100%, not just 
 The **tanh Function** (hyperbolic tangent) is similar to sigmoid but outputs values between -1 and +1. It's zero-centered, making it better than sigmoid in many cases.
 
 **Mathematical Formula:**
+
+![Tanh Formaula](https://miro.medium.com/v2/resize:fit:1100/format:webp/1*xo-NP-AmhOePTcXa8unauQ.png)
 
 ```
 f(x) = tanh(x) = (e^x - e^(-x)) / (e^x + e^(-x))
@@ -722,18 +793,7 @@ f(x) = 2×sigmoid(2x) - 1
 
 **Graph:**
 
-```
-Output
- +1 |           ┌────────
-    |         ╱
-    |       ╱
-  0 |     ╱
-    |   ╱
-    | ╱
- -1 |────────┘
-    └────────┴─────────> Input
-         -∞  0  +∞
-```
+![Tanh Function](https://miro.medium.com/v2/resize:fit:638/format:webp/1*sxehrBZhhzsoQtQm8GrJcA.png)
 
 **Example Calculation:**
 
@@ -803,7 +863,7 @@ tanh(-∞) → -1
 
 ---
 
-#### **5. ReLU (Rectified Linear Unit)**
+#### **6. ReLU (Rectified Linear Unit)**
 
 **Definition:**
 
@@ -821,16 +881,7 @@ f(x) = 0,  if x ≤ 0
 
 **Graph:**
 
-```
-Output
-    |        ╱
-    |      ╱
-    |    ╱
-    |  ╱
-  0 |╱─────────────> Input
-    └────────┴─────
-         0
-```
+![ReLU Function](https://miro.medium.com/v2/resize:fit:640/format:webp/1*jqp-lFGFeaOtUh3ZWiA0Kg.png)
 
 **Example:**
 
@@ -871,65 +922,6 @@ f(-10) = 0
 - Convolutional Neural Networks (CNNs)
 - Default choice for most problems
 - When training speed is important
-
----
-
-#### **6. Linear Function (Identity Function)**
-
-**Definition:**
-
-The **Linear Function** (Identity Function) outputs the input as-is, without any transformation.
-
-**Mathematical Formula:**
-
-```
-f(x) = x
-
-Or with slope:
-f(x) = a×x  (where a is a constant)
-```
-
-**Graph:**
-
-```
-Output
-    |      ╱
-    |    ╱
-    |  ╱
-  0 |╱
-    ╱
-  ╱ |
-    └────────> Input
-         0
-```
-
-**Example:**
-
-```
-f(5) = 5
-f(-3) = -3
-f(0) = 0
-f(100) = 100
-```
-
-**Characteristics:**
-
-| Feature | Description |
-|---------|-------------|
-| **Output Range** | (-∞, +∞) |
-| **Continuity** | Continuous |
-| **Differentiability** | Differentiable everywhere |
-| **Derivative** | Constant (usually 1) |
-| **Linearity** | Linear |
-
-**When to Use:**
-- Output layer for regression problems
-- When predicting continuous values
-- When you don't need non-linearity
-
-**Limitation:**
-- If used in hidden layers, the entire network becomes just a linear model
-- No matter how many layers, it's equivalent to a single layer
 
 ---
 
