@@ -509,7 +509,7 @@ The **Linear Function** (Identity Function) outputs the input as-is, without any
 f(x) = x
 
 Or with slope:
-f(x) = a×x  (where a is a constant)
+f(x) = a·x  (where a is a constant)
 ```
 
 **Graph:**
@@ -687,7 +687,7 @@ The **Sigmoid Function** (also called Logistic Function) produces a smooth S-sha
 
 **Mathematical Formula:**
 
-![Sigmoid Formula](https://miro.medium.com/v2/resize:fit:1100/format:webp/1*xo-NP-AmhOePTcXa8unauQ.png)
+![Sigmoid Formula](https://miro.medium.com/v2/resize:fit:1100/format:webp/1*mXRhMCjgo5ao7WZsVz0KsA.png)
 
 ```
 f(x) = 1 / (1 + e^(-x))
@@ -698,6 +698,12 @@ x = input value
 ```
 
 **Graph:**
+
+```
+At x = -∞, f(x) → 0,
+At x = 0, f(x) = 0.5,
+At x = ∞, f(x) → 1
+```
 
 ![Sigmoid Function](https://miro.medium.com/v2/resize:fit:640/format:webp/1*y3IzzA3BfUKWOrwCUr-A1A.png)
 
@@ -1001,12 +1007,12 @@ For input x:
 
 | Function | Range | Continuous | Differentiable | Main Use | Advantage | Disadvantage |
 |----------|-------|------------|----------------|----------|-----------|--------------|
+| **Linear** | (-∞,∞) | Yes | Yes | Regression output | Simple | No non-linearity |
 | **Threshold** | {0,1} | No | No | Binary classification | Simple | No gradient |
 | **Signum** | {-1,+1} | No | No | Bipolar classification | Simple | No gradient |
 | **Sigmoid** | (0,1) | Yes | Yes | Output layer (binary) | Smooth, probability | Vanishing gradient |
 | **Tanh** | (-1,1) | Yes | Yes | Hidden layers | Zero-centered | Vanishing gradient |
 | **ReLU** | [0,∞) | Yes | Almost | Hidden layers (default) | Fast, no vanishing | Dying ReLU |
-| **Linear** | (-∞,∞) | Yes | Yes | Regression output | Simple | No non-linearity |
 | **Ramp** | [0,1] | Yes | Almost | Special cases | Bounded | Limited use |
 | **Stochastic** | {0,1} | No | No | Probabilistic models | Randomness | Complex |
 
@@ -1018,7 +1024,25 @@ For input x:
 
 > PYQ: Differentiate between Feedforward and Feedback Networks (2023, 2.5 marks)
 
-Neural networks can be organized in different ways based on how neurons are connected and how information flows through the network.
+Neural networks can be organized in different ways based on how neurons are connected and how information flows through the network. ANN Architecture defines how neurons are organized and connected in a neural network for information processing.
+
+![ANN Architecture](https://ik.imagekit.io/upgrad1/abroad-images/imageCompo/images/ChatGPT_Image_Nov_20_2025_03_47_56_PMTT18DE.png)
+
+**Classification of ANN Architectures:**
+
+**A. Based on Information Flow:**
+- **Feedforward Network** - Information flows in one direction only (input → output)
+- **Feedback/Recurrent Network** - Information can flow in cycles/loops (has memory)
+
+**B. Based on Number of Layers:**
+- **Single Layer Network** - Only input and output layers (no hidden layer)
+- **Multilayer Network** - Has one or more hidden layers between input and output
+
+**C. Based on Connection Pattern:**
+- **Fully Connected Network** - Each neuron in one layer is connected to all neurons in the next layer
+- **Fully Recurrent Network** - Every neuron is connected to every other neuron including itself, forming loops within the same layer.
+
+Let's understand each type in detail:
 
 ---
 
@@ -1035,10 +1059,12 @@ Input Layer    Hidden Layer    Output Layer
     
     x₁ ────────→ h₁ ────────→ y₁
     x₂ ────────→ h₂ ────────→ y₂
-    x₃ ────────→ h₃ ────────→
+    x₃ ────────→ h₃ ────────→ y₃
     
     Direction: →→→ (One way only)
 ```
+
+![Feedforward Network](https://iq.opengenus.org/content/images/2019/01/feed_forward_neural_network.png)
 
 **Characteristics:**
 
@@ -1090,14 +1116,19 @@ A **Feedback Network** (also called Recurrent Network) has connections that form
 ```
 Input Layer    Hidden Layer    Output Layer
     
-    x₁ ────────→ h₁ ←──┐
-    x₂ ────────→ h₂ ←──┤ (Feedback)
-    x₃ ────────→ h₃ ←──┘
-                 ↓
-                y₁
+    x₁ ────────→ h₁ ────────→ y₁
+                 ↑ ↓           │
+    x₂ ────────→ h₂ ────────→ y₂
+                 ↑ ↓           │
+    x₃ ────────→ h₃ ────────→ y₃
+                 ↑             │
+                 └─────────────┘
+                   (Feedback Loop)
     
-    Direction: →→→ and ←←← (Both ways)
+    Direction: →→→ (Forward) and ←←← (Backward)
 ```
+
+![Feedback Network](https://tse4.mm.bing.net/th/id/OIP.sONeX98mYoIr_yVYcrIzFgHaE7)
 
 **Characteristics:**
 
@@ -1173,9 +1204,13 @@ A **Multilayer Network** has one or more hidden layers between input and output 
 ```
 Input    Hidden 1    Hidden 2    Output
 
-  x₁ ───→ h₁₁ ───→ h₂₁ ───→ y₁
-  x₂ ───→ h₁₂ ───→ h₂₂ ───→ y₂
-  x₃ ───→ h₁₃ ───→ h₂₃ ───→ y₃
+       ┌──→ h₁₁ ──┬──→ h₂₁ ──┬──→ y₁
+       │     ↓    │     ↓    │
+  x₁ ──┼──→ h₁₂ ──┼──→ h₂₂ ──┼──→ y₂
+  x₂ ──┤     ↓    │     ↓    │
+  x₃ ──┘──→ h₁₃ ──┴──→ h₂₃ ──┴──→ y₃
+
+(Each neuron connects to ALL neurons in next layer)
 ```
 
 **Characteristics:**
@@ -1214,13 +1249,17 @@ A **Fully Recurrent Network** is a network where every neuron is connected to ev
 **Structure:**
 
 ```
-    ┌──→ n₁ ←──┐
-    │    ↕     │
-    ↕    ↕     ↕
-    │    ↕     │
-    └──→ n₂ ←──┘
+       ┌─────────┐
+       │   ↓     │
+    ┌──→   n₁ ←──┼──┐
+    │  │   ↕     │  │
+    │  │   ↓     ↓  │
+    │  └─→ n₂ ←──┘  │
+    │      ↕        │
+    │      ↓        │
+    └────→ n₃ ←─────┘
     
-    (All neurons connected to all)
+    (Every neuron connects to every other neuron including itself)
 ```
 
 **Characteristics:**
