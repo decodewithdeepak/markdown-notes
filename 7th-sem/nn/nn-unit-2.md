@@ -97,7 +97,7 @@ If Σ(xᵢ × wᵢ) < θ → Output = 0
 
 **Visual Diagram:**
 
-![McCulloch-Pitts Neuron](https://www.researchgate.net/profile/Stelios-Bekiros/publication/321259051/figure/fig1/AS:614291369693184@1523468021615/The-McCulloch-Pitts-artificial-neuron-model.png)
+![McCulloch-Pitts Neuron]()
 
 *Figure 2.1: McCulloch-Pitts Neuron Model - Shows inputs (x₁, x₂, ..., xₙ), weights (w₁, w₂, ..., wₙ), summation function (Σ), and threshold activation.*
 
@@ -113,7 +113,7 @@ If Σ(xᵢ × wᵢ) < θ → Output = 0
 - **Inhibitory weights:** -1 (prevent firing)
 - Fixed (not learned)
 
-**3. Summation Function:**
+**3. Summation Function (Σ):**
 - Adds up all weighted inputs
 - Formula: Σ = (x₁×w₁) + (x₂×w₂) + ... + (xₙ×wₙ)
 
@@ -164,6 +164,8 @@ y = step(Σ(xᵢ × wᵢ) - θ)
 ### **1.4 MCP Model for AND Function**
 
 > PYQ: Solution of AND function using MCP model (2024, 15 marks)
+
+AND function can be implemented using MCP model by setting the weights to 1 and the threshold to 2.
 
 **AND Function Truth Table:**
 
@@ -236,6 +238,8 @@ Since 2 ≥ 2 → y = 1 ✓
 
 > PYQ: Solution of OR function using MCP model (2024, 15 marks)
 
+OR function can be implemented using MCP model by setting the weights to 1 and the threshold to 1.
+
 **OR Function Truth Table:**
 
 | x₁ | x₂ | y (x₁ OR x₂) |
@@ -305,6 +309,8 @@ Since 2 ≥ 1 → y = 1 ✓
 
 ### **1.6 MCP Model for NOT Function**
 
+NOT function can be implemented using MCP model by setting the weight to -1 and the threshold to 0.
+
 **NOT Function Truth Table:**
 
 | x | y (NOT x) |
@@ -337,6 +343,13 @@ Since 0 ≥ 0 → y = 1 ✓
 Σ = 1×(-1) = -1
 Since -1 < 0 → y = 0 ✓
 ```
+
+**Complete Solution Table:**
+
+| x | w×x | Σ | θ | y |
+|---|-----|---|---|---|
+| 0 |  0  | 0 | 0 | 1 |
+| 1 | -1  |-1 | 0 | 0 |
 
 ---
 
@@ -482,14 +495,18 @@ Step 1: For new input pattern x:
     Calculate: y_in = Σ(xᵢ × wᵢ) + b
 
 Step 2: Apply activation function:
-    If y_in > 0: y = 1
-    If y_in ≤ 0: y = -1  (for bipolar)
+    If y_in ≥ 0: y = +1
+    If y_in < 0: y = -1  (for bipolar)
     
     Or:
     If y_in ≥ 0: y = 1
     If y_in < 0: y = 0   (for binary)
 
 Step 3: Output y
+
+Where:
+- y_in = input to activation function
+- y = output of activation function
 ```
 
 ---
@@ -713,25 +730,23 @@ The **Perceptron** (1958) was invented by Frank Rosenblatt. It's an improved ver
 
 ### **3.2 Architecture of Perceptron**
 
-**ASCII Structure:**
+**Structure:**
 
 ```
 Input Layer        Perceptron        Output
     
     x₁ ──[w₁]──┐
-                │
+               │
     x₂ ──[w₂]──┤
-                ├──→ Σ ──→ f(.) ──→ y
-    x₃ ──[w₃]──┤
-                │
-    xₙ ──[wₙ]──┘
-                ↑
-              [bias]
+               ├──→ Σ ──→ f(.) ──→ y
+    x₃ ──[w₃]──┤    ↑
+               │  [bias]
+    xₙ ──[wₙ]───┘            
 ```
 
 **Visual Diagram:**
 
-![Perceptron Model](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Perceptron_example.svg/1200px-Perceptron_example.svg.png)
+![Perceptron Model](https://sebastianraschka.com/images/blog/2015/singlelayer_neural_networks_files/perceptron_schematic.png)
 
 *Figure 2.2: Perceptron Architecture - Shows input layer with weighted connections, summation unit, activation function, and output.*
 
@@ -784,7 +799,7 @@ Step 2: For each training pattern (x, t):
 
 Step 3: Repeat Step 2 until:
     - All patterns classified correctly, OR
-    - Maximum epochs reached
+    - Maximum epochs (dataset passes) reached
 
 Step 4: Return learned weights
 ```
@@ -1004,7 +1019,9 @@ If the training data is linearly separable, the perceptron learning algorithm wi
 
 **Simple Explanation:**
 
-Imagine you have red dots and blue dots on a paper. If you can draw a straight line that puts all red dots on one side and all blue dots on the other side, then the data is linearly separable.
+Imagine you have red dots and green dots on a paper. If you can draw a straight line that puts all red dots on one side and all green dots on the other side, then the data is linearly separable. Otherwise, it is non-linearly separable.
+
+![Linear Separability](https://tse2.mm.bing.net/th/id/OIP.TU1l7Tg22S6JTkcj6_Mc2AHaC4)
 
 **Mathematical Definition:**
 
@@ -1013,12 +1030,14 @@ A dataset is linearly separable if there exists a hyperplane:
 w₁x₁ + w₂x₂ + ... + wₙxₙ + b = 0
 ```
 such that:
-- For class 1: w₁x₁ + w₂x₂ + ... + wₙxₙ + b > 0
-- For class 2: w₁x₁ + w₂x₂ + ... + wₙxₙ + b < 0
+- For class +1: w₁x₁ + w₂x₂ + ... + wₙxₙ + b > 0
+- For class -1: w₁x₁ + w₂x₂ + ... + wₙxₙ + b < 0
 
 ---
 
 ### **4.2 Geometric Interpretation**
+
+A **decision boundary** separates the two classes. In 2D space, this boundary is a straight line; in 3D, it's a plane; and in higher dimensions, it's called a hyperplane.
 
 **2D Example:**
 
@@ -1046,15 +1065,26 @@ This is a straight line in 2D
 **Classification Rule:**
 
 ```
-If w₁x₁ + w₂x₂ + b > 0 → Class +1
-If w₁x₁ + w₂x₂ + b < 0 → Class -1
+Bipolar Representation:
+If w₁x₁ + w₂x₂ + b > 0 → Class +1 (●)
+If w₁x₁ + w₂x₂ + b < 0 → Class -1 (○)
+
+OR
+
+Binary Representation:
+If w₁x₁ + w₂x₂ + b ≥ 0 → Class 1 (●)
+If w₁x₁ + w₂x₂ + b < 0 → Class 0 (○)
 ```
+
+> **Note:** We will be using bipolar representation (+1, -1) instead of binary (0, 1) because the Perceptron uses the Signum activation function which outputs -1 or +1, and bipolar values provide better mathematical properties for weight updates during learning. However, binary (0, 1) representation can also be used with appropriate activation functions like the threshold function.
 
 ---
 
 ### **4.3 Linear Separability of Logic Functions**
 
 **AND Function (Linearly Separable):**
+
+AND output is +1 when both inputs are +1, otherwise -1.
 
 ```
 Truth Table:
@@ -1082,6 +1112,8 @@ Can separate! ✓
 
 **OR Function (Linearly Separable):**
 
+OR output is +1 when at least one input is +1, otherwise -1.
+
 ```
 Truth Table:
 x₁  x₂  | y
@@ -1107,6 +1139,8 @@ Can separate! ✓
 ```
 
 **XOR Function (NOT Linearly Separable):**
+
+XOR output is +1 when the inputs are different, otherwise -1.
 
 ```
 Truth Table:
@@ -1134,7 +1168,13 @@ This is why single-layer perceptron fails on XOR!
 
 **Visual Diagram:**
 
-![Linear Separability](https://miro.medium.com/v2/resize:fit:1400/1*Tc8UgR_fjI_h0p3y4H9MwA.png)
+> This is for binary (0, 1) representation.
+
+![Binary Linear Separability](https://miro.medium.com/v2/resize:fit:1400/1*Tc8UgR_fjI_h0p3y4H9MwA.png)
+
+> This is for bipolar (-1, +1) representation.
+
+![Bipolar Linear Separability](https://8upload.com/image/53a88b137d816949/Gemini_Generated_Image_gg3sqtgg3sqtgg3s.png)
 
 *Figure 2.3: Linear Separability - AND and OR functions are linearly separable (can be separated by a line), but XOR is not (requires a curved boundary or multiple layers).*
 
@@ -1161,9 +1201,9 @@ Plot:
        |
      0 |
        |
-   -1 | A(●)      C(○)
-       └──────────────→ x₁
-      -1    0    +1
+   -1  | A(●)      C(○)
+       └────────────────→ x₁
+      -1    0     +1
 ```
 
 **Step 2: Find Decision Boundary**
