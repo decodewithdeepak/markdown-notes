@@ -253,6 +253,8 @@ Goal: Find structure, patterns, or groupings in data
 
 > PYQ: What are Separability limitations in unsupervised Learning? (2023, 2.5 marks)
 
+Separation means that the data can be clearly separated into different groups or clusters. But in unsupervised learning, the data is not labeled, so we cannot separate the data into different groups or clusters.
+
 **Limitations:**
 
 1. **No Clear Boundaries:**
@@ -437,6 +439,10 @@ Where:
 **What is Gradient Descent?**
 
 **Gradient Descent** is an optimization algorithm used to minimize the error (loss) function by iteratively adjusting weights in the direction of steepest descent (negative gradient).
+
+**OR**
+
+**Gradient Descent** is an optimization algorithm that reduces the error in a neural network by adjusting weights step-by-step. It finds the direction that decreases error the most and moves the weights in that direction.
 
 **Simple Explanation:**
 
@@ -830,14 +836,15 @@ Like a competition where:
 ```
 Input Layer          Competitive Layer
                      (Output Neurons)
-    x₁ ────────────→ ○ n₁
-                  ╱  ○ n₂
-    x₂ ─────────╱───→○ n₃  ← Winner!
-              ╱      ○ n₄
-    x₃ ─────╱───────→○ n₅
-    
-    All neurons compete
-    Only winner (n₃) updates weights
+    x₁ ───┐
+          ├─────→ ○ n₁
+    x₂ ───┤       ○ n₂
+          ├─────→ ○ n₃  ← Winner! ★
+    x₃ ───┘       ○ n₄
+                  ○ n₅
+                  
+All neurons receive all inputs
+Only winner (n₃) updates weights
 ```
 
 **Components:**
@@ -1097,23 +1104,23 @@ Uses chain rule of calculus to compute gradients for hidden layers, enabling tra
 **ASCII Structure:**
 
 ```
-Input Layer    Hidden Layer(s)    Output Layer
+Input Layer    Hidden Layer    Output Layer
 
-    x₁ ────→ h₁ ────→ y₁
-           ╱  ╲    ╱
-    x₂ ───╱────╲──╱──→ y₂
-         ╱      ╲╱
-    x₃ ─╱───────╱╲────→ y₃
-               ╱  ╲
-              h₂   h₃
-              
+    x₁ ───┐
+          ├──→ h₁ ──┐
+    x₂ ───┤         ├──→ y₁
+          ├──→ h₂ ──┤
+    x₃ ───┤         ├──→ y₂
+          └──→ h₃ ──┘
+    
+    (Fully connected between layers)
     Feedforward: →→→
     Backpropagation: ←←←
 ```
 
 **Visual Diagram:**
 
-![Backpropagation Network](https://miro.medium.com/v2/resize:fit:1400/1*7zxb2lfWWKaVxnmq2o69Mw.png)
+![Backpropagation Network](https://www.guru99.com/images/1/030819_0937_BackPropaga1.png)
 
 *Figure 3.1: Backpropagation Network Architecture - Shows 3-layer network with Input Layer, Hidden Layer(s), and Output Layer. Forward pass computes outputs (→), backward pass propagates errors (←) to update weights.*
 
