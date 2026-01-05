@@ -536,54 +536,6 @@ Development of a comprehensive medical tourism platform connecting international
 - **Google Translate** - Multi-language support
 - **FormSubmit** - Form handling and email notifications
 
-#### 13.2.3 Code Example: Doctor Card Component
-
-```typescript
-interface DoctorCardProps {
-  doctor: Doctor;
-  onAppointmentClick: (doctorId: string) => void;
-}
-
-export const DoctorCard: React.FC<DoctorCardProps> = ({
-  doctor,
-  onAppointmentClick,
-}) => {
-  return (
-    <Card className="hover:shadow-lg transition-shadow duration-300">
-      <CardContent className="p-6">
-        <img
-          src={doctor.image}
-          alt={doctor.name}
-          className="w-full h-48 object-cover rounded-md mb-4"
-        />
-        <h3 className="text-xl font-semibold text-gray-900">{doctor.name}</h3>
-        <p className="text-nile-600 font-medium">{doctor.specialty}</p>
-        <p className="text-gray-600 text-sm">{doctor.designation}</p>
-
-        <div className="flex justify-between mt-4 text-sm">
-          <div>
-            <span className="font-semibold">{doctor.experience}</span>
-            <span className="text-gray-500"> Experience</span>
-          </div>
-          <div>
-            <span className="font-semibold">{doctor.successRate}%</span>
-            <span className="text-gray-500"> Success Rate</span>
-          </div>
-        </div>
-      </CardContent>
-
-      <CardFooter className="p-6 pt-0">
-        <Button
-          onClick={() => onAppointmentClick(doctor.id)}
-          className="w-full bg-nile-600 hover:bg-nile-700"
-        >
-          Book Appointment
-        </Button>
-      </CardFooter>
-    </Card>
-  );
-};
-```
 
 ### 13.3 Project 2: International Patient Services Platform
 
@@ -644,104 +596,18 @@ Development of a multi-tenant platform with subdomain-based routing for multiple
 - Dynamic imports for code splitting
 - Image optimization with Next.js Image component
 
-#### 13.3.4 Code Example: Subdomain Routing Middleware
-
-```typescript
-// middleware.ts
-import { NextRequest, NextResponse } from "next/server";
-
-export function middleware(request: NextRequest) {
-  const hostname = request.headers.get("host") || "";
-  const subdomain = hostname.split(".")[0];
-
-  const hospitals = [
-    "apollohospitals",
-    "fortishealthcare",
-    "artemishospitals",
-    "maxhealthcare",
-    "medanta",
-  ];
-
-  if (hospitals.includes(subdomain)) {
-    const url = request.nextUrl.clone();
-    url.pathname = `/${subdomain}${url.pathname}`;
-    return NextResponse.rewrite(url);
-  }
-
-  if (!["localhost", "international-patient"].includes(subdomain)) {
-    return new NextResponse("Hospital not found", { status: 404 });
-  }
-
-  return NextResponse.next();
-}
-
-export const config = {
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
-};
-```
 
 ### 13.4 Weekly Work Breakdown
 
-#### Week 1-2: Onboarding and Setup
+The internship was structured into 13 weeks covering onboarding, development, testing, and deployment phases. Key phases included:
 
-- Company introduction and team onboarding
-- Development environment setup (VS Code, Node.js, Git)
-- Codebase study and architecture understanding
-- Medical tourism domain research
-- Access setup for tools and platforms
-
-#### Week 3-5: Nile Wellness Homepage and Components
-
-- Homepage hero section development
-- Statistics dashboard implementation
-- FAQ section with accordion functionality
-- Popular doctors carousel
-- Patient testimonials section
-- WhatsApp button integration
-- Responsive design implementation
-
-#### Week 6-7: Doctor Directory and Detail Pages
-
-- Doctor listing page with grid layout
-- Search and filter functionality
-- Doctor profile detail pages
-- Appointment booking forms
-- Form validation and error handling
-- Integration with FormSubmit service
-
-#### Week 8: Hospital Listings and Treatment Pages
-
-- Hospital directory development
-- Hospital detail pages
-- Treatment information pages
-- Cost estimation sections
-- Related doctors and hospitals linking
-
-#### Week 9-10: Multi-tenant Platform Development
-
-- Next.js project setup
-- Middleware development for subdomain routing
-- Hospital-specific layouts
-- Reusable component library
-- Hospital branding customization
-
-#### Week 11: Third-Party Integrations
-
-- OneSignal push notifications setup
-- Google Analytics and Google Ads integration
-- Tawk.to live chat implementation
-- Google Translate widget integration
-- Exit-intent popup development
-
-#### Week 12-13: Testing, Deployment, and Documentation
-
-- Cross-browser testing (Chrome, Firefox, Safari, Edge)
-- Mobile device testing (iOS and Android)
-- Performance optimization
-- Production deployment
-- Domain and SSL configuration
-- Technical documentation
-- Knowledge transfer sessions
+- **Weeks 1-2:** Onboarding and environment setup
+- **Weeks 3-5:** Homepage and core components development
+- **Weeks 6-7:** Doctor directory and detail pages
+- **Week 8:** Hospital listings and treatment pages
+- **Weeks 9-10:** Multi-tenant platform development
+- **Week 11:** Third-party integrations
+- **Weeks 12-13:** Testing, deployment, and documentation
 
 ---
 
@@ -749,225 +615,53 @@ export const config = {
 
 ### 14.1 Frontend Technologies
 
-#### 14.1.1 Core Technologies
-
-**React (18.3.1 / 19.1.0)**
-
-- Component-based architecture
-- React Hooks (useState, useEffect, useContext, useCallback, useMemo)
-- Custom hooks development
-- Context API for state management
-- React Router v6 for client-side routing
-
-**TypeScript (5.x)**
-
-- Static typing and type safety
-- Interface and type definitions
-- Generics and utility types
-- TypeScript with React (Props typing, Event handlers)
-- Type inference and type guards
-
-**Next.js (15.5.3)**
-
-- Server-side rendering (SSR)
-- Static site generation (SSG)
-- App Router architecture
-- Middleware for routing logic
-- Image optimization
-- API routes
-
-#### 14.1.2 Styling and UI
-
-**Tailwind CSS (4.x)**
-
-- Utility-first CSS framework
-- Responsive design utilities
-- Custom color palette
-- Dark mode support
-- Custom component classes
-
-**Radix UI**
-
-- Accessible component primitives
-- Unstyled, customizable components
-- ARIA-compliant by default
-- Keyboard navigation support
-
-**shadcn/ui**
-
-- Pre-built component library
-- Customizable with Tailwind CSS
-- Copy-paste component approach
-- Beautiful default styling
-
-**Lucide React**
-
-- Modern icon library
-- Tree-shakeable icons
-- Consistent design system
-- 1000+ icons available
-
-**Embla Carousel**
-
-- Touch-friendly carousels
-- Performant and lightweight
-- Customizable navigation
-- Auto-play support
+**Core Technologies:**
+- React (18.3.1 / 19.1.0) - Component-based UI development
+- TypeScript (5.x) - Type-safe development
+- Next.js (15.5.3) - Server-side rendering and App Router
+- Tailwind CSS (4.x) - Utility-first styling
+- Radix UI & shadcn/ui - Accessible component libraries
+- Lucide React - Icon library
+- Embla Carousel - Image sliders
 
 ### 14.2 Build Tools and Development Environment
 
-#### 14.2.1 Build Tools
+**Build Tools:**
+- Vite (6.x) - Fast development server with HMR
+- Turbopack - Next-generation bundler for Next.js
 
-**Vite (6.x)**
-
-- Lightning-fast development server
-- Hot Module Replacement (HMR)
-- Optimized production builds
-- Plugin ecosystem
-- Environment variables management
-
-**Turbopack (Next.js)**
-
-- Next-generation bundler
-- Faster than Webpack
-- Incremental compilation
-- Built-in with Next.js 15
-
-#### 14.2.2 Development Tools
-
-**Visual Studio Code**
-
-- Primary code editor
-- Extensions: ESLint, Prettier, Tailwind IntelliSense
-- Integrated terminal
-- Git integration
-
-**Git & GitHub**
-
-- Version control system
-- Collaborative development
-- Pull requests and code reviews
-- Branch management
-- Commit history tracking
-
-**npm (Node Package Manager)**
-
-- Dependency management
-- Script execution
-- Package installation
-- Version management
+**Development Tools:**
+- Visual Studio Code - Primary code editor with extensions
+- Git & GitHub - Version control and collaboration
+- npm - Dependency management
 
 ### 14.3 Third-Party Services and Integrations
 
-#### 14.3.1 Communication Services
+**Communication:**
+- WhatsApp Business API - Direct messaging
+- Tawk.to - Live chat support
 
-**WhatsApp Business API**
+**Analytics:**
+- Google Analytics 4 - User behavior tracking
+- Google Ads - Conversion tracking
 
-- Direct messaging integration
-- Deep linking to WhatsApp
-- Pre-filled messages
-- Business profile integration
-
-**Tawk.to**
-
-- Live chat widget
-- Real-time customer support
-- Hospital-specific chat instances
-- Visitor tracking
-- Chat history
-
-#### 14.3.2 Analytics and Tracking
-
-**Google Analytics 4 (GA4)**
-
-- User behavior tracking
-- Event tracking
-- Conversion tracking
-- Real-time analytics
-- Custom reports
-
-**Google Ads**
-
-- Conversion tracking
-- Campaign performance monitoring
-- ROI measurement
-- Unified tracking ID: AW-17040751778
-
-#### 14.3.3 Notification Services
-
-**OneSignal**
-
-- Web push notifications
-- Service worker implementation
-- User segmentation
-- Notification scheduling
-- Multi-tenant support (hospital-specific app IDs)
-
-#### 14.3.4 Localization
-
-**Google Translate**
-
-- Multi-language support
-- 100+ languages available
-- Widget integration
-- Automatic language detection
-- Hospital brand color customization
-
-#### 14.3.5 Form Handling
-
-**FormSubmit**
-
-- Form submission service
-- Email notifications
-- Spam protection
-- Custom redirect after submission
-- No backend required
+**Other Services:**
+- OneSignal - Web push notifications
+- Google Translate - Multi-language support
+- FormSubmit - Form handling and email notifications
 
 ### 14.4 Development Workflow Tools
 
-**Trello**
-
-- Project management
-- Task tracking
-- Sprint planning
-- Progress monitoring
-
-**Slack**
-
-- Team communication
-- Channel-based messaging
-- File sharing
-- Integration with GitHub
-
-**Zoom**
-
-- Video conferencing
-- Daily stand-ups
-- Code review sessions
-- Client meetings
-
-**Figma**
-
-- UI/UX design reference
-- Component specifications
-- Design system
-- Prototype review
+- Trello - Project management and task tracking
+- Slack - Team communication
+- Zoom - Video conferencing and meetings
+- Figma - UI/UX design reference
 
 ### 14.5 Deployment and Hosting
 
-**Domain Management**
-
-- DNS configuration
-- Subdomain setup
-- SSL certificate management
-- Domain forwarding
-
-**SSL/TLS**
-
-- HTTPS encryption
-- Let's Encrypt certificates
-- Auto-renewal setup
-- Security headers
+- Domain management with DNS configuration
+- SSL/TLS encryption with Let's Encrypt certificates
+- Subdomain setup for multi-tenant architecture
 
 ### 14.6 Technology Stack Summary Table
 
@@ -1069,205 +763,45 @@ export const config = {
 
 ### 15.2 Technical Skills Learned
 
-#### 15.2.1 Frontend Development Skills
+**Frontend Development:**
+- React.js - Component lifecycle, hooks, performance optimization
+- TypeScript - Type-safe development and interface definitions
+- Next.js - Server-side rendering, App Router, middleware
+- Responsive Design - Mobile-first approach with Tailwind CSS
 
-**React.js (Advanced Level)**
-
-- Mastered component lifecycle and hooks
-- Learned custom hooks development
-- Understood React performance optimization
-- Implemented code splitting and lazy loading
-- Learned Context API for state management
-
-**TypeScript**
-
-- Type-safe development practices
-- Interface and type definitions
-- Generic types and utility types
-- TypeScript with React patterns
-- Error handling with types
-
-**Next.js**
-
-- Server-side rendering concepts
-- App Router architecture
-- Middleware development
-- Image optimization techniques
-- Production deployment
-
-**Responsive Design**
-
-- Mobile-first approach
-- Tailwind CSS utilities
-- Flexbox and Grid layouts
-- Media queries
-- Touch-friendly interfaces
-
-#### 15.2.2 Integration Skills
-
-**API Integration**
-
-- RESTful API consumption
-- Third-party service integration
-- Authentication and authorization
-- Error handling and retry logic
-- Rate limiting considerations
-
-**Analytics Implementation**
-
-- Google Analytics 4 setup
-- Event tracking
-- Conversion tracking
-- Custom dimensions and metrics
-- Data analysis basics
-
-**Push Notifications**
-
-- OneSignal implementation
-- Service worker configuration
-- Notification permissions
-- User segmentation
-- Notification scheduling
-
-#### 15.2.3 Development Tools
-
-**Version Control**
-
-- Git branching strategies
-- Pull request workflow
-- Code review process
-- Merge conflict resolution
-- Commit message conventions
-
-**Build Tools**
-
-- Vite configuration
-- Environment variables
-- Production builds
-- Bundle optimization
-- Plugin ecosystem
+**Integration & Tools:**
+- API integration with third-party services
+- Analytics implementation (Google Analytics 4, conversion tracking)
+- Push notifications with OneSignal
+- Version control with Git and GitHub
+- Build tools configuration (Vite, Next.js)
 
 ### 15.3 Soft Skills Developed
 
-#### 15.3.1 Communication Skills
+**Communication:**
+- Client communication for requirement gathering and progress updates
+- Team collaboration through daily stand-ups and code reviews
+- Technical documentation and knowledge sharing
 
-**Client Communication:**
+**Project Management:**
+- Time management and task prioritization
+- Agile methodology (sprint planning, retrospectives)
+- Meeting deadlines and sprint commitments
 
-- Requirement gathering and clarification
-- Progress updates and reporting
-- Presenting technical solutions to non-technical stakeholders
-- Asking the right questions
-- Active listening
-
-**Team Communication:**
-
-- Daily stand-up participation
-- Code review discussions
-- Knowledge sharing sessions
-- Pair programming
-- Collaborative problem-solving
-
-#### 15.3.2 Project Management
-
-**Time Management:**
-
-- Task prioritization
-- Deadline management
-- Estimating development time
-- Balancing multiple tasks
-- Meeting sprint commitments
-
-**Agile Methodology:**
-
-- Sprint planning participation
-- Daily stand-ups
-- Sprint retrospectives
-- Continuous improvement mindset
-- Iterative development
-
-#### 15.3.3 Problem-Solving
-
-**Technical Problem-Solving:**
-
-- Debugging complex issues
-- Root cause analysis
-- Finding optimal solutions
-- Performance troubleshooting
-- Cross-browser compatibility issues
-
-**Systematic Approach:**
-
-- Breaking down complex problems
-- Research and documentation review
-- Testing hypotheses
-- Implementing and validating solutions
-- Learning from mistakes
+**Problem-Solving:**
+- Debugging complex issues and root cause analysis
+- Systematic approach to breaking down problems
+- Cross-browser compatibility troubleshooting
 
 ### 15.4 Challenges Faced and Solutions
 
-#### 15.4.1 Challenge: Large Data Files
+**Large Data Files:** Doctor and hospital data files (89,000+ lines) caused performance issues. Implemented pagination, lazy loading, and proposed database migration.
 
-**Problem:**  
-The doctor and hospital data files were extremely large (89,000+ lines), causing performance issues and slow page loads.
+**Multi-tenant Complexity:** Implementing subdomain-based routing required studying Next.js middleware, creating centralized configuration, and thorough testing.
 
-**Solution:**
+**Cross-browser Compatibility:** Features worked differently across browsers. Resolved through browser-specific debugging, polyfills, and regular testing.
 
-- Identified the bottleneck through performance profiling
-- Proposed pagination implementation
-- Suggested database migration plan
-- Implemented lazy loading for images
-- Documented recommendations for future optimization
-
-**Learning:**  
-Importance of data architecture and performance considerations in application design.
-
-#### 15.4.2 Challenge: Multi-tenant Complexity
-
-**Problem:**  
-Implementing subdomain-based routing for multiple hospitals with different configurations was complex.
-
-**Solution:**
-
-- Studied Next.js middleware documentation
-- Implemented URL rewriting logic
-- Created centralized configuration system
-- Tested thoroughly with local subdomain setup
-- Documented the architecture for team reference
-
-**Learning:**  
-Understanding of middleware, routing patterns, and multi-tenant architecture.
-
-#### 15.4.3 Challenge: Cross-browser Compatibility
-
-**Problem:**  
-Some features worked differently across browsers, especially in Safari and older Edge versions.
-
-**Solution:**
-
-- Used browser developer tools for debugging
-- Researched browser-specific issues
-- Implemented polyfills where needed
-- Used CSS vendor prefixes
-- Tested on multiple browsers regularly
-
-**Learning:**  
-Importance of cross-browser testing and understanding browser differences.
-
-#### 15.4.4 Challenge: Responsive Design
-
-**Problem:**  
-Creating layouts that work seamlessly on all device sizes from mobile to desktop.
-
-**Solution:**
-
-- Adopted mobile-first approach
-- Used Tailwind CSS responsive utilities
-- Tested on multiple device sizes
-- Implemented touch-friendly interactions
-- Created device-specific components where necessary
-
-**Learning:**  
-Mobile-first design principles and responsive design best practices.
+**Responsive Design:** Created seamless layouts across all devices using mobile-first approach and Tailwind CSS utilities.
 
 ### 15.5 Key Achievements
 
@@ -1344,124 +878,31 @@ The experience has significantly enhanced my technical skills, professional capa
 
 ### 16.2 Technical Skills Gained
 
-#### 16.2.1 Frontend Development (Advanced Level)
+**Frontend Development:**
+- React.js - Component architecture, hooks, performance optimization, code splitting
+- TypeScript - Type-safe development, interfaces, generic types
+- Next.js - SSR, App Router, middleware, production deployment
+- Styling - Tailwind CSS, responsive design, custom theming
 
-**React.js:**
+**Development Tools:**
+- Version control with Git (branching, pull requests, code reviews)
+- Build tools (Vite, Next.js configuration, bundle optimization)
+- IDE proficiency (VS Code with ESLint, Prettier, IntelliSense)
 
-- Component-based architecture
-- Hooks (useState, useEffect, useContext, useCallback, useMemo, useRef)
-- Custom hooks development
-- Performance optimization (React.memo, useMemo, useCallback)
-- Code splitting and lazy loading
-- Error boundaries
-- Context API for state management
-
-**TypeScript:**
-
-- Type-safe development
-- Interface and type definitions
-- Generic types and utility types
-- TypeScript with React patterns
-- Type inference and type guards
-- Advanced types (Union, Intersection, Conditional)
-
-**Next.js:**
-
-- Server-side rendering (SSR)
-- Static site generation (SSG)
-- App Router architecture
-- Middleware development
-- Image optimization
-- API routes
-- Production deployment
-
-**Styling:**
-
-- Tailwind CSS utility classes
-- Responsive design patterns
-- CSS-in-JS concepts
-- Component styling with Radix UI
-- Custom theming
-- Dark mode implementation
-
-#### 16.2.2 Development Tools
-
-**Version Control:**
-
-- Git branching strategies (feature branches, main branch)
-- Pull request workflow
-- Code review process
-- Merge conflict resolution
-- Commit message conventions
-- GitHub collaboration
-
-**Build Tools:**
-
-- Vite configuration and optimization
-- Next.js build configuration
-- Environment variables management
-- Production build optimization
-- Bundle analysis
-
-**IDE and Extensions:**
-
-- VS Code proficiency
-- ESLint configuration
-- Prettier code formatting
-- TypeScript IntelliSense
-- Tailwind CSS IntelliSense
-
-#### 16.2.3 Third-Party Integrations
-
-**Successfully Integrated:**
-
-- OneSignal (Push Notifications)
-- Google Analytics 4 (User Tracking)
-- Google Ads (Conversion Tracking)
-- Tawk.to (Live Chat)
-- WhatsApp Business API (Direct Messaging)
-- Google Translate (Multi-language Support)
-- FormSubmit (Form Handling)
-
-**Skills Gained:**
-
-- API integration patterns
-- Authentication and authorization
-- Webhook handling
-- Service worker implementation
-- Analytics event tracking
+**Third-Party Integrations:**
+Successfully integrated OneSignal, Google Analytics 4, Google Ads, Tawk.to, WhatsApp Business API, Google Translate, and FormSubmit.
 
 ### 16.3 Domain Knowledge Gained
 
-#### 16.3.1 Medical Tourism Industry
-
-**Understanding of:**
-
-- Medical tourism ecosystem in India
-- Patient journey from inquiry to treatment
-- Hospital accreditation and quality standards
-- International patient needs and concerns
-- Visa requirements for medical travel
-- Treatment cost structures
-- Post-treatment care and follow-up
-
-**Key Insights:**
-
+**Medical Tourism Industry:**
+- Understanding of patient journey, hospital accreditation, and treatment processes
 - India's position as a leading medical tourism destination
-- Importance of transparency and trust in healthcare
-- Role of technology in simplifying medical tourism
-- Cultural and language considerations for international patients
+- Importance of transparency, trust, and multi-language support
 
-#### 16.3.2 Healthcare Technology
-
-**Learned About:**
-
-- Patient data privacy and security (HIPAA considerations)
-- Healthcare application UX best practices
-- Accessibility requirements for healthcare websites
-- Medical terminology and specialties
-- Hospital operations and workflows
-- Telemedicine and remote consultations
+**Healthcare Technology:**
+- Patient data privacy and security considerations
+- Healthcare application UX best practices and accessibility
+- Medical terminology, hospital operations, and telemedicine
 
 ### 16.4 Professional Skills Gained
 
@@ -1919,434 +1360,18 @@ I am confident that the skills and knowledge gained during this internship will 
 
 ## 18. ANNEXURE / SUPPORTING DOCUMENTS
 
-### Annexure A: Project Screenshots
 
-#### A.1 Nile Wellness Platform Screenshots
-
-**A.1.1 Homepage**
-
-- Hero section with call-to-action buttons
-- Statistics dashboard showing 1000+ doctors and 500+ hospitals
-- Popular doctors carousel
-- Patient testimonials section
-- FAQ accordion
-- Contact forms
-
-**A.1.2 Doctor Directory**
-
-- Grid layout with doctor cards
-- Search and filter interface
-- Specialty filters (Cardiology, Orthopedics, Oncology, etc.)
-- Location filters (Delhi, Mumbai, Bangalore, etc.)
-- Pagination controls
-- Responsive mobile view
-
-**A.1.3 Doctor Detail Page**
-
-- Doctor profile with photo and credentials
-- About section with experience and expertise
-- List of awards and achievements
-- Patient statistics (success rate, patient count)
-- Appointment booking form
-- WhatsApp contact button
-
-**A.1.4 Hospital Listings**
-
-- Hospital cards with accreditation badges
-- Location and facility information
-- Contact details and directions
-- Filter by location and specialty
-- Hospital detail pages
-
-**A.1.5 Treatment Pages**
-
-- Knee Replacement Surgery information
-- Heart Surgery and Cardiac Care details
-- Cancer Treatment options
-- Cost information and packages
-- Related doctors and hospitals
-
-**A.1.6 Mobile Responsive Views**
-
-- Mobile homepage with sticky CTAs
-- Mobile navigation menu (hamburger)
-- Mobile-optimized forms
-- Touch-friendly carousels
-- Mobile doctor cards
-
-#### A.2 International Patient Services Platform Screenshots
-
-**A.2.1 Apollo Hospitals Subdomain**
-
-- Apollo-branded homepage
-- Hospital-specific color scheme
-- Top specialists from Apollo
-- Apollo hospital locations
-- Patient testimonials
-
-**A.2.2 Fortis Healthcare Subdomain**
-
-- Fortis-branded homepage
-- Green color scheme matching Fortis brand
-- Fortis-specific content
-- Hospital network display
-- Exit-intent popup
-
-**A.2.3 Multi-language Support**
-
-- Google Translate widget
-- Language selection dropdown
-- Translated content display
-- RTL language support
-
-**A.2.4 Forms and Interactions**
-
-- Appointment booking form
-- Visa assistance form
-- Contact form
-- Form validation errors
-- Success page after submission
-
-### Annexure B: Code Samples
-
-#### B.1 React Component Examples
-
-**B.1.1 Doctor Card Component**
-
-```typescript
-// components/DoctorCard.tsx
-import React from "react";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-
-interface Doctor {
-  id: string;
-  name: string;
-  specialty: string;
-  designation: string;
-  hospital: string;
-  location: string;
-  experience: string;
-  image: string;
-  patientCount: number;
-  successRate: number;
-}
-
-interface DoctorCardProps {
-  doctor: Doctor;
-  onAppointmentClick: (doctorId: string) => void;
-}
-
-export const DoctorCard: React.FC<DoctorCardProps> = ({
-  doctor,
-  onAppointmentClick,
-}) => {
-  return (
-    <Card className="hover:shadow-lg transition-shadow duration-300">
-      <CardContent className="p-6">
-        <img
-          src={doctor.image}
-          alt={doctor.name}
-          className="w-full h-48 object-cover rounded-md mb-4"
-        />
-        <h3 className="text-xl font-semibold text-gray-900">{doctor.name}</h3>
-        <p className="text-nile-600 font-medium">{doctor.specialty}</p>
-        <p className="text-gray-600 text-sm">{doctor.designation}</p>
-        <p className="text-gray-500 text-sm mt-2">{doctor.hospital}</p>
-        <p className="text-gray-500 text-sm">{doctor.location}</p>
-
-        <div className="flex justify-between mt-4 text-sm">
-          <div>
-            <span className="font-semibold">{doctor.experience}</span>
-            <span className="text-gray-500"> Experience</span>
-          </div>
-          <div>
-            <span className="font-semibold">{doctor.successRate}%</span>
-            <span className="text-gray-500"> Success Rate</span>
-          </div>
-        </div>
-      </CardContent>
-
-      <CardFooter className="p-6 pt-0">
-        <Button
-          onClick={() => onAppointmentClick(doctor.id)}
-          className="w-full bg-nile-600 hover:bg-nile-700"
-        >
-          Book Appointment
-        </Button>
-      </CardFooter>
-    </Card>
-  );
-};
-```
-
-**B.1.2 Appointment Form with Validation**
-
-```typescript
-// components/AppointmentForm.tsx
-import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-
-interface FormData {
-  name: string;
-  email: string;
-  phone: string;
-  country: string;
-  treatment: string;
-  message: string;
-}
-
-export const AppointmentForm: React.FC = () => {
-  const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    phone: "",
-    country: "",
-    treatment: "",
-    message: "",
-  });
-
-  const [errors, setErrors] = useState<Partial<FormData>>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const validateForm = (): boolean => {
-    const newErrors: Partial<FormData> = {};
-
-    if (!formData.name.trim()) {
-      newErrors.name = "Name is required";
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Email is invalid";
-    }
-
-    if (!formData.phone.trim()) {
-      newErrors.phone = "Phone is required";
-    } else if (!/^\+?[\d\s-]{10,}$/.test(formData.phone)) {
-      newErrors.phone = "Phone number is invalid";
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!validateForm()) return;
-
-    setIsSubmitting(true);
-
-    try {
-      const response = await fetch(
-        "https://formsubmit.co/care@nilewellness.com",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        }
-      );
-
-      if (response.ok) {
-        window.location.href = "/form-submitted";
-      }
-    } catch (error) {
-      console.error("Form submission error:", error);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div>
-        <Input
-          type="text"
-          placeholder="Full Name *"
-          value={formData.name}
-          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          className={errors.name ? "border-red-500" : ""}
-        />
-        {errors.name && (
-          <p className="text-red-500 text-sm mt-1">{errors.name}</p>
-        )}
-      </div>
-
-      <div>
-        <Input
-          type="email"
-          placeholder="Email Address *"
-          value={formData.email}
-          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-          className={errors.email ? "border-red-500" : ""}
-        />
-        {errors.email && (
-          <p className="text-red-500 text-sm mt-1">{errors.email}</p>
-        )}
-      </div>
-
-      <div>
-        <Input
-          type="tel"
-          placeholder="Phone Number *"
-          value={formData.phone}
-          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-          className={errors.phone ? "border-red-500" : ""}
-        />
-        {errors.phone && (
-          <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
-        )}
-      </div>
-
-      <Button
-        type="submit"
-        disabled={isSubmitting}
-        className="w-full bg-nile-600 hover:bg-nile-700"
-      >
-        {isSubmitting ? "Submitting..." : "Book Appointment"}
-      </Button>
-    </form>
-  );
-};
-```
-
-#### B.2 Next.js Middleware for Subdomain Routing
-
-```typescript
-// middleware.ts
-import { NextRequest, NextResponse } from "next/server";
-
-export function middleware(request: NextRequest) {
-  const hostname = request.headers.get("host") || "";
-  const subdomain = hostname.split(".")[0];
-
-  const hospitals = [
-    "apollohospitals",
-    "fortishealthcare",
-    "artemishospitals",
-    "maxhealthcare",
-    "medanta",
-  ];
-
-  if (hospitals.includes(subdomain)) {
-    const url = request.nextUrl.clone();
-    url.pathname = `/${subdomain}${url.pathname}`;
-    return NextResponse.rewrite(url);
-  }
-
-  if (!["localhost", "international-patient"].includes(subdomain)) {
-    return new NextResponse("Hospital not found", { status: 404 });
-  }
-
-  return NextResponse.next();
-}
-
-export const config = {
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
-};
-```
-
-#### B.3 Custom Hook Example
-
-```typescript
-// hooks/useMobile.ts
-import { useState, useEffect } from "react";
-
-export function useMobile(breakpoint: number = 768): boolean {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < breakpoint);
-    };
-
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-
-    return () => window.removeEventListener("resize", checkMobile);
-  }, [breakpoint]);
-
-  return isMobile;
-}
-```
 
 ### Annexure C: Technical Documentation
 
-#### C.1 Project Structure
-
-```
-nile-wellness-platform/
-├── src/
-│   ├── components/
-│   │   ├── common/          # Shared components
-│   │   ├── home/            # Homepage sections
-│   │   ├── layout/          # Layout components
-│   │   └── ui/              # UI primitives
-│   ├── pages/               # Page components
-│   ├── data/                # Static data
-│   ├── hooks/               # Custom hooks
-│   ├── lib/                 # Utilities
-│   └── types/               # TypeScript types
-├── public/                  # Static assets
-├── vite.config.ts          # Vite configuration
-├── tailwind.config.ts      # Tailwind configuration
-└── package.json            # Dependencies
-
-international-patients/
-├── app/
-│   ├── apollohospitals/    # Apollo subdomain
-│   ├── fortishealthcare/   # Fortis subdomain
-│   ├── artemishospitals/   # Artemis subdomain
-│   ├── maxhealthcare/      # Max subdomain
-│   └── medanta/            # Medanta subdomain
-├── components/ui/          # Shared UI components
-├── middleware.ts           # Subdomain routing
-├── next.config.ts          # Next.js configuration
-└── package.json            # Dependencies
-```
-
-#### C.2 Environment Variables
-
-```env
-# Firebase Configuration
-VITE_FIREBASE_API_KEY=your_api_key_here
-VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
-VITE_FIREBASE_PROJECT_ID=your_project_id
-VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
-VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
-VITE_FIREBASE_APP_ID=your_app_id
-
-# Analytics
-VITE_GA_TRACKING_ID=G-2EM7PKDET3
-
-# OneSignal (per hospital)
-NEXT_PUBLIC_ONESIGNAL_APP_ID=your_app_id_here
-```
-
-#### C.3 Deployment Configuration
+#### C.1 Deployment Configuration
 
 **Domain Setup:**
-
 - Primary Domain: nilewellness.com
 - Subdomain Pattern: {hospital}.international-patient.com
 - SSL: Let's Encrypt (Auto-renewal)
-- CDN: Cloudflare (Optional)
-
-**Build Commands:**
-
-```bash
-# Nile Wellness Platform
-npm run build
-
-# International Patient Services
-npm run build
-```
 
 **Deployment Steps:**
-
 1. Build production bundle
 2. Configure environment variables
 3. Set up domain and DNS
@@ -2355,131 +1380,7 @@ npm run build
 6. Test all features
 7. Monitor performance
 
-### Annexure D: Internship Work Log
 
-#### Week 1: August 1-7, 2025
-
-- Company introduction and team onboarding
-- Development environment setup
-- Codebase study
-- Medical tourism domain research
-
-#### Week 2: August 8-14, 2025
-
-- Continued codebase exploration
-- First component development (Hero section)
-- Git workflow training
-- Code review participation
-
-#### Week 3: August 15-21, 2025
-
-- Homepage components development
-- Statistics dashboard implementation
-- FAQ section with accordion
-- Responsive design implementation
-
-#### Week 4: August 22-28, 2025
-
-- Popular doctors carousel
-- Patient testimonials section
-- WhatsApp button integration
-- Mobile optimization
-
-#### Week 5: August 29 - September 4, 2025
-
-- Doctor directory development
-- Search and filter functionality
-- Doctor card components
-- Pagination implementation
-
-#### Week 6: September 5-11, 2025
-
-- Doctor detail pages
-- Appointment booking forms
-- Form validation
-- FormSubmit integration
-
-#### Week 7: September 12-18, 2025
-
-- Hospital listings development
-- Treatment information pages
-- Next.js project setup
-- Middleware development
-
-#### Week 8: September 19-25, 2025
-
-- Multi-tenant architecture implementation
-- Hospital-specific layouts
-- Subdomain routing testing
-- Component library creation
-
-#### Week 9: September 26 - October 2, 2025
-
-- OneSignal integration
-- Google Analytics setup
-- Tawk.to live chat implementation
-- Google Translate integration
-
-#### Week 10: October 3-9, 2025
-
-- Exit-intent popup development
-- Visa assistance forms
-- Hospital branding customization
-- Mobile responsiveness
-
-#### Week 11: October 10-16, 2025
-
-- Performance optimization
-- Code splitting implementation
-- Image optimization
-- SEO improvements
-
-#### Week 12: October 17-23, 2025
-
-- Cross-browser testing
-- Mobile device testing
-- Bug fixes
-- Production deployment preparation
-
-#### Week 13: October 24-31, 2025
-
-- Production deployment
-- Domain and SSL configuration
-- Post-deployment testing
-- Documentation and knowledge transfer
-- Internship report preparation
-
-### Annexure E: References
-
-1. **React Documentation** (2025). React - A JavaScript library for building user interfaces. Retrieved from https://react.dev/
-
-2. **TypeScript Documentation** (2025). TypeScript: JavaScript With Syntax For Types. Retrieved from https://www.typescriptlang.org/
-
-3. **Next.js Documentation** (2025). Next.js by Vercel - The React Framework. Retrieved from https://nextjs.org/docs
-
-4. **Tailwind CSS Documentation** (2025). Tailwind CSS - A utility-first CSS framework. Retrieved from https://tailwindcss.com/docs
-
-5. **Radix UI Documentation** (2025). Radix Primitives - Unstyled, accessible components. Retrieved from https://www.radix-ui.com/
-
-6. **Vite Documentation** (2025). Vite - Next Generation Frontend Tooling. Retrieved from https://vitejs.dev/
-
-7. **Firebase Documentation** (2025). Firebase - Google's mobile and web app development platform. Retrieved from https://firebase.google.com/docs
-
-8. **OneSignal Documentation** (2025). OneSignal - Push Notification Service. Retrieved from https://documentation.onesignal.com/
-
-9. **Medical Tourism Association** (2024). Medical Tourism Industry Report 2024. Retrieved from https://www.medicaltourismassociation.com/
-
-10. **India Brand Equity Foundation** (2024). Healthcare Industry in India. Retrieved from https://www.ibef.org/industry/healthcare-india
-
-11. **Web Content Accessibility Guidelines (WCAG)** (2023). W3C Web Accessibility Initiative. Retrieved from https://www.w3.org/WAI/WCAG21/quickref/
-
-12. **Google Analytics Documentation** (2025). Google Analytics 4 Documentation. Retrieved from https://support.google.com/analytics/
-
-13. **MDN Web Docs** (2025). Web technology for developers. Retrieved from https://developer.mozilla.org/
-
-14. **React TypeScript Cheatsheet** (2025). React+TypeScript Cheatsheets. Retrieved from https://react-typescript-cheatsheet.netlify.app/
-
-15. **Nile Wellness Official Website** (2025). Retrieved from https://www.nilewellness.com/
 
 ---
 
